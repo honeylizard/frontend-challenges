@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { createRoot } from "react-dom/client";
-import { Routes, BrowserRouter, Route } from "react-router-dom";
+import { Routes, HashRouter, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 import * as serviceWorker from "./serviceWorker";
@@ -35,7 +35,7 @@ const root = createRoot(container); // createRoot(container!) if you use TypeScr
 root.render(
     <IntlProvider locale={language} messages={messages[language]}>
         <div className="appContainer">
-            <BrowserRouter>
+            <HashRouter basename="/">
                 <Helmet
                     htmlAttributes={{
                         lang: navigator.language,
@@ -51,7 +51,7 @@ root.render(
                         />
                     ))}
                 </Routes>
-            </BrowserRouter>
+            </HashRouter>
         </div>
     </IntlProvider>
 );
