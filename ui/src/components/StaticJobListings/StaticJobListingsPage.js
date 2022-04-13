@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl, FormattedMessage } from "react-intl";
+import { Helmet } from "react-helmet";
 import staticJobListingsStyle from "../../styles/static-job-listings/static-job-listings.module.scss";
 import JobsList from "./JobsList";
 
@@ -14,7 +15,12 @@ const StaticJobListingsPage = ({ intl }) => {
     });
     const codedBy = intl.formatMessage({ id: "footer.codedBy" });
     return (
-        <div className={staticJobListingsStyle.solutionContainer}>
+        <React.Fragment>
+            <Helmet
+                bodyAttributes={{
+                    class: staticJobListingsStyle.solutionContainer,
+                }}
+            />
             <a
                 className="sr-only sr-focusable"
                 href="#content"
@@ -59,7 +65,7 @@ const StaticJobListingsPage = ({ intl }) => {
                     {codedBy}
                 </div>
             </footer>
-        </div>
+        </React.Fragment>
     );
 };
 

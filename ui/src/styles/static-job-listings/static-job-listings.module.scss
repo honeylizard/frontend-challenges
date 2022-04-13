@@ -11,6 +11,10 @@ $challenge-gray: #999;
 $challenge-font: "League Spartan", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 .solutionContainer {
+    background-color: $challenge-bg;
+    color: $black;
+    font-family: $challenge-font;
+
     a {
         color: $black;
 
