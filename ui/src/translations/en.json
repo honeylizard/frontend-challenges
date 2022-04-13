@@ -43,5 +43,7 @@
 	"staticJobListings.jobs.categories.removeTooltip": "Remove \"{name}\" as a filter",
     "staticJobListings.jobs.categories.addTooltip": "Apply \"{name}\" as a filter",
 	"staticJobListings.jobs.filters": "Filters",
-	"staticJobListings.jobs.filters.clear": "Clear"
+	"staticJobListings.jobs.filters.clear": "Clear",
+
+	"countriesApi.subtitle": "REST Countries API with color theme switcher"
 }

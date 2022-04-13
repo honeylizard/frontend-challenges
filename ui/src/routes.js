@@ -1,3 +1,4 @@
+import CountriesListPage from "./components/CountriesList/CountriesListPage";
 import HomePage from "./components/HomePage";
 import NotFoundPage from "./components/NotFoundPage";
 import StaticJobListingsPage from "./components/StaticJobListings/StaticJobListingsPage";
@@ -23,6 +24,13 @@ const routes = [
         authNeeded: false,
         exact: true,
         component: StaticJobListingsPage,
+    },
+    {
+        name: "Countries API Challenge",
+        path: "/frontend-challenges/countries-api",
+        authNeeded: false,
+        exact: true,
+        component: CountriesListPage,
     },
     {
         name: "Not Found",

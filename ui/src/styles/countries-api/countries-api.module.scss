@@ -1,0 +1,79 @@
+@import "../_core";
+
+$challenge-bg-dark: #202c37; // hsl(207, 26%, 17%)
+$challenge-primary-dark: #2b3945; // hsl(209, 23%, 22%)
+$challenge-bg-light: #fafafa; // hsl(0, 0%, 98%)
+$challenge-primary-light: #111517; // hsl(200, 15%, 8%)
+$challenge-secondary-light: #858585; // hsl(0, 0%, 52%)
+
+// https://fonts.google.com/specimen/Nunito+Sans
+$challenge-font: "Nunito Sans", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+.solutionContainer {
+    font-family: $challenge-font;
+
+    .header {
+        padding: 25px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .wrapper {
+        max-width: 1300px;
+    }
+
+    .content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .footer {
+        text-align: center;
+    }
+}
+
+.solutionContainerLight {
+    background-color: $challenge-bg-light;
+    color: $black;
+
+    a {
+        color: $black;
+
+        &:hover, &:focus-visible {
+            color: blue;
+        }
+    }
+
+    .header, .footer {
+        background-color: $white;
+        color: $black;
+    }
+
+    .content {
+        background-color: $challenge-bg-light;
+        color: $black;
+    }
+}
+
+.solutionContainerDark {
+    background-color: $challenge-bg-dark;
+    color: $white;
+
+    a {
+        color: $white;
+
+        &:hover, &:focus-visible {
+            color: yellow;
+        }
+    }
+
+    .header, .footer {
+        background-color: $challenge-primary-dark;
+        color: $white;
+    }
+
+    .content {
+        background-color: $challenge-bg-dark;
+        color: $white;
+    }
+}

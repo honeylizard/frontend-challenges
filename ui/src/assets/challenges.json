@@ -2,5 +2,9 @@
     {
       "title": "Static Job Listings",
       "solution_url": "/frontend-challenges/static-job-listings"
+    },
+    {
+      "title": "REST Countries API with color theme switcher",
+      "solution_url": "/frontend-challenges/countries-api"
     }
 ]
