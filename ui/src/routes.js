@@ -11,8 +11,15 @@ const routes = [
         component: HomePage,
     },
     {
+        name: "Homepage",
+        path: "/frontend-challenges",
+        authNeeded: false,
+        exact: true,
+        component: HomePage,
+    },
+    {
         name: "Static Job Listings Challenge",
-        path: "/static-job-listings",
+        path: "/frontend-challenges/static-job-listings",
         authNeeded: false,
         exact: true,
         component: StaticJobListingsPage,

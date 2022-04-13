@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
@@ -24,12 +25,14 @@ const language = navigator.language.split(/[-_]/)[0]; // language without region
 
 // Adds Validation against axe-core accessibility testing library
 if (process.env.NODE_ENV !== "production") {
-    const axe = require("react-axe");
+    const { default: axe } = require("@axe-core/react");
     axe(React, ReactDOM, 1000);
 }
 
 // App init
-ReactDOM.render(
+const container = document.getElementById("root");
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+root.render(
     <IntlProvider locale={language} messages={messages[language]}>
         <div className="appContainer">
             <BrowserRouter>
@@ -50,8 +53,7 @@ ReactDOM.render(
                 </Routes>
             </BrowserRouter>
         </div>
-    </IntlProvider>,
-    document.getElementById("root")
+    </IntlProvider>
 );
 
 serviceWorker.unregister();

@@ -42,7 +42,10 @@ const JobListItem = ({ intl, data, onCategoryClick, currentFilters }) => {
     return (
         <div className={classes.join(" ")}>
             <div className={jobListItemStyle.listItemCompanyLogo}>
-                <img src={data.logo} alt={data.company} />
+                <img
+                    src={process.env.PUBLIC_URL + data.logo}
+                    alt={data.company}
+                />
             </div>
             <div className={jobListItemStyle.listItemDetailsContainer}>
                 <div className={jobListItemStyle.listItemCompanyDetails}>
