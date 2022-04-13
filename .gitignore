@@ -14,3 +14,5 @@ npm-debug.log*
 
 */database/seeds/data_files/
 **/database/seeds/data_files/
+
+*/build/
