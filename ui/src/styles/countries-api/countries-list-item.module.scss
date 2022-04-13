@@ -1,21 +1,17 @@
 @import "countries-api.module.scss";
 
 .listItemContainer {
-    max-width: 265px;
-    margin: 35px 30px;
-
-    &.listItemContainerDark {
-        background-color: $challenge-primary-dark;
-        box-shadow: rgba(33, 33, 33, 0.2) 0px 8px 24px;
-    }
-
-    &.listItemContainerLight {
-        background-color: $white;
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    }
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     img {
         max-width: 100%;
+    }
+
+    .listItemImage {
+
     }
 
     .listItemContent {

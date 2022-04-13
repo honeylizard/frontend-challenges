@@ -12,6 +12,13 @@ const CountriesList = ({ intl, darkMode }) => {
 
     const loadingLabel = intl.formatMessage({ id: "app.loading" });
 
+    const listItemClasses = [
+        countriesListStyle.listItem,
+        darkMode
+            ? countriesListStyle.listItemDark
+            : countriesListStyle.listItemLight,
+    ].filter(Boolean);
+
     useEffect(() => {
         axiosGet(`https://restcountries.com/v2/all`)
             .then((response) => {
@@ -34,7 +41,10 @@ const CountriesList = ({ intl, darkMode }) => {
         return records && records.length > 0 ? (
             <ul className={countriesListStyle.list}>
                 {records.map((country, index) => (
-                    <li key={`country-${index}`}>
+                    <li
+                        key={`country-${index}`}
+                        className={listItemClasses.join(" ")}
+                    >
                         <CountriesListItem data={country} darkMode={darkMode} />
                     </li>
                 ))}

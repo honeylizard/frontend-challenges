@@ -12,7 +12,9 @@ const CountriesListItem = ({ intl, data, darkMode }) => {
     ].filter(Boolean);
     return (
         <div className={classes.join(" ")}>
-            <img src={data.flag} alt={`Flag of ${data.name}`} />
+            <div className={countriesListItemStyle.listItemImage}>
+                <img src={data.flag} alt={`Flag of ${data.name}`} />
+            </div>
             <div className={countriesListItemStyle.listItemContent}>
                 <h3>{data.name}</h3>
                 <div className={countriesListItemStyle.listItemDetails}>
