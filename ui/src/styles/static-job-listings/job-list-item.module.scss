@@ -1,0 +1,127 @@
+@import "static-job-listings.module.scss";
+
+.listItemContainer {
+    background-color: $white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 30px 40px;
+    margin: 20px 0;
+    border-radius: 5px;
+    font-size: 15px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    &.isFeatured {
+        border-left: 5px solid $challenge-primary;
+    }
+
+    .listItemCompanyLogo {
+        margin-right: 20px;
+        height: 88px;
+        width: 88px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .listItemCompanyDetails {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        color: $challenge-primary;
+        font-weight: bold;
+    }
+
+    .listItemTitle {
+        font-weight: bold;
+        color: $black;
+        font-size: 1.2em;
+
+        &:hover {
+            color: $challenge-primary;
+        }
+    }
+
+    .primaryPill {
+        @include pillRound();
+        background-color: $challenge-primary;
+        color: $white;
+    }
+
+    .secondaryPill {
+        @include pillRound();
+        background-color: $challenge-secondary;
+        color: $white;
+    }
+
+    .listItemPositionDetails {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        color: $challenge-gray;
+
+        > *:not(:last-child)::after {
+            padding-left: 10px;
+            content: "∙";
+        }
+
+        > *:not(:first-child) {
+            padding-left: 10px;
+        }
+    }
+
+    > *:last-child {
+        flex-grow: 1;
+        justify-content: flex-end;
+        text-align: right;
+    }
+
+    .listItemCategories {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        > * {
+            padding-left: 10px;
+        }
+    }
+
+    @media all and (max-width: 1100px) {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 55px;
+
+        .listItemCategories {
+            border-top: 1px solid $challenge-gray;
+            margin-top: 10px;
+            padding-top: 10px;
+            justify-content: flex-start;
+
+            > * {
+                padding: 5px 10px 5px 0;
+
+                button {
+                    margin: 0;
+                }
+            }
+        }
+
+        .listItemCompanyLogo {
+            margin: -55px 0 10px 0;
+            height: 50px;
+            width: 50px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

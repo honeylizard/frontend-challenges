@@ -1,0 +1,68 @@
+@import "static-job-listings.module.scss";
+
+.lightPill {
+    @include pillBox();
+
+    background-color: $challenge-tetitary;
+    color: $challenge-primary;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+
+    &:hover, &:focus-visible {
+        background-color: $challenge-primary;
+        color: $white;
+    }
+
+    &.lightPillSelected {
+        background-color: $challenge-primary;
+        color: $white;
+
+        &:hover, &:focus-visible {
+            background-color: $challenge-tetitary;
+            color: $challenge-primary;
+        }
+    }
+}
+
+.lightPillWithX {
+    @include pillBox();
+
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .pillSuffix {
+        background-color: $challenge-primary;
+        color: $white;
+        padding: 6px 10px;
+        box-sizing: border-box;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-size: 0;
+
+        img {
+            height: 15px;
+            width: 15px;
+        }
+    }
+
+    .pillContent {
+        background-color: $challenge-tetitary;
+        color: $challenge-primary;
+        padding: 5px 10px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    &:hover, &:focus-visible {
+        .pillSuffix {
+            background-color: $challenge-secondary;
+            color: $white;
+        }
+    }
+}

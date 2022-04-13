@@ -1,0 +1,47 @@
+{
+	"meta.title": "Frontend Challenges",
+	"meta.lang": "en-US",
+	"meta.developer": "Developed by Weissbern Workshop",
+
+	"app.home.body": "This site will contain the solutions I have developed for specific challenges listed on FrontendMentor.io. Please see below for details on the challenges and the solutions",
+	"app.home.challenge": "Challenge",
+	"app.home.solution": "Solution",
+	"app.home.solution.link": "Go to Solution",
+
+	"app.404.title": "These are uncharted waters",
+	"app.404.body": "Sorry, this page couldn't be found.",
+	"app.404.nav": "Go back to the ",
+	"app.404.link": "home page",
+
+    "app.loading": "Loading...",
+	"app.skipToContent": "Skip to content",
+
+	"form.optional": "Optional",
+
+	"alert.prefix.success": "Success: ",
+	"alert.prefix.warning": "Warning: ",
+	"alert.prefix.error": "Error: ",
+	"alert.prefix.info": "Information: ",
+
+	"header.appTitle": "Frontend Challenges by FrontendMentor.io",
+	"footer.copyright": "Copyright \u00a9 {year} Weissbern Workshop",
+	"footer.challenge.link": "Challenge by {link}.",
+	"footer.challenge.url": "https://www.frontendmentor.io?ref=challenge",
+	"footer.challenge.name": "Frontend Mentor",
+	"footer.codedBy": "Coded by Lisa Bernhardt.",
+
+	"staticJobListings.subtitle": "Static Job Listings",
+	"staticJobListings.jobs.emptyList": "No jobs are available.",
+	"staticJobListings.jobs.postedAt": "Posted at",
+	"staticJobListings.jobs.company": "Company",
+	"staticJobListings.jobs.contract": "Contract",
+	"staticJobListings.jobs.location": "Location",
+	"staticJobListings.jobs.new": "New!",
+	"staticJobListings.jobs.featured": "Featured",
+	"staticJobListings.jobs.categories": "Categories",
+	"staticJobListings.jobs.categories.emptyList": "No categories available",
+	"staticJobListings.jobs.categories.removeTooltip": "Remove \"{name}\" as a filter",
+    "staticJobListings.jobs.categories.addTooltip": "Apply \"{name}\" as a filter",
+	"staticJobListings.jobs.filters": "Filters",
+	"staticJobListings.jobs.filters.clear": "Clear"
+}

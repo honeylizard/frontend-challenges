@@ -1,0 +1,8 @@
+{
+    "short_name": "Frontend Challenges",
+    "name": "Frontend Challenges by FrontendMentor.io",
+    "start_url": "",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#FFFFFF"
+}

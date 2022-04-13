@@ -1,0 +1,31 @@
+{
+    "env": {
+        "node": true,
+        "browser": true,
+        "es6": true
+    },
+    "plugins": [
+        "react",
+        "react-hooks",
+        "jsx-a11y",
+        "prettier"
+      ],
+    "extends": [
+        "eslint:recommended", 
+        "plugin:react/recommended",
+        "react-app",
+        "plugin:react-hooks/recommended",
+        "plugin:jsx-a11y/recommended",
+        "plugin:prettier/recommended",
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": [
+            "error", {
+                "endOfLine": "auto",
+                "tabWidth": 4,
+                "useTabs": false
+            }
+        ]
+    }
+}

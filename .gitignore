@@ -1,0 +1,16 @@
+*/node_modules/
+**/node_modules/
+
+*/.DS_Store
+**/.DS_Store
+
+npm-debug.log*
+
+*/.env
+**/.env
+
+*/package-lock.json
+**/package-lock.json
+
+*/database/seeds/data_files/
+**/database/seeds/data_files/

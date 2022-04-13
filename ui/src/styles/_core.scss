@@ -1,0 +1,103 @@
+$black: #000000;
+$white: #FFFFFF;
+$bg-color: #000311;
+$text-color: #FDFDFD;
+$primary-font: "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+body {
+	margin: 0;
+	padding: 0;
+
+	font-family: $primary-font;
+    font-size: 1rem;
+    line-height: 1.5;
+	word-break: break-word;
+
+    background-color: $bg-color;
+    color: $text-color;
+}
+
+a {
+    color: $text-color;
+
+    &:hover, &:focus-visible {
+        color: yellow;
+    }
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.content {
+    padding: 20px 40px;
+    background-color: $bg-color;
+    color: $text-color;
+
+    @media all and (max-width: 600px) {
+        padding: 20px 5px;
+    }
+}
+
+@media all and (max-width: 1200px) {
+    .wrapper {
+        width: 90%;
+        max-width: none;
+        margin: 0 5%;
+    }
+}
+
+.sr-only {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+}
+
+.sr-focusable {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+
+    &:focus {
+        box-sizing: border-box;
+        clip: auto !important;
+        clip-path: none;
+        display: block;
+        font-size: 1em;
+        height: auto;
+        left: 5px;
+        line-height: normal;
+        padding: 15px 23px 14px;
+        text-decoration: none;
+        top: 5px;
+        width: auto;
+        z-index: 100000;
+        background-color: $white;
+    }
+}
+
+.tableBordered {
+    border-collapse: collapse;
+
+    th, td {
+        border: 1px solid $white;
+        padding: 10px;
+    }
+}

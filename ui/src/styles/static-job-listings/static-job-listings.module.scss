@@ -1,0 +1,64 @@
+@import "../_core";
+
+$challenge-bg: #F0FAFB;
+$challenge-primary: #5BA6A2;
+$challenge-secondary: #2B3939;
+$challenge-tetitary: #EEF7F6;
+$challenge-gray: #999;
+
+// https://fonts.google.com/specimen/Spartan
+// Alt: https://fonts.google.com/specimen/League+Spartan
+$challenge-font: "League Spartan", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+.solutionContainer {
+    a {
+        color: $black;
+
+        &:hover, &:focus-visible {
+            color: blue;
+        }
+    }
+}
+
+.content {
+    background-color: $challenge-bg;
+    color: $black;
+    font-family: $challenge-font;
+}
+
+.header {
+    height: 156px;
+    background-color: $challenge-primary;
+    background-image: url('/assets/static-job-listings/bg-header-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: cover;
+    color: $white;
+    font-family: $challenge-font;
+}
+
+.footer {
+    text-align: center;
+    background-color: $challenge-bg;
+    color: $black;
+    font-family: $challenge-font;
+    padding: 20px 0;
+}
+
+@mixin pillRound {
+    border-radius: 20px;
+    text-transform: uppercase;
+    padding: 5px 10px 0 10px;
+    margin: 0 5px;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+@mixin pillBox {
+    border-radius: 5px;
+    text-transform: none;
+    padding: 5px 10px 0 10px;
+    margin: 0 5px;
+    font-weight: bold;
+    font-size: 15px;
+}
