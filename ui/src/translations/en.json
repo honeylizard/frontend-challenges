@@ -45,5 +45,13 @@
 	"staticJobListings.jobs.filters": "Filters",
 	"staticJobListings.jobs.filters.clear": "Clear",
 
-	"countriesApi.subtitle": "REST Countries API with color theme switcher"
+	"countriesApi.subtitle": "REST Countries API with color theme switcher",
+	"countriesApi.header.title": "Where in the world?",
+	"countriesApi.mode.light": "Light Mode",
+	"countriesApi.mode.dark": "Dark Mode",
+	"countriesApi.countries.emptyList": "No countries are available.",
+	"countriesApi.countries.capital": "Capital",
+	"countriesApi.countries.region": "Region",
+	"countriesApi.countries.population": "Population",
+	"countriesApi.countries.flagImageAlt": "Flag of {name}"
 }

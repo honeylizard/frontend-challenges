@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { injectIntl, FormattedMessage } from "react-intl";
 import { Helmet } from "react-helmet";
-import countriesApiStyle from "../../styles/countries-api/countries-api.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import CountriesList from "./CountriesList";
+import countriesApiStyle from "../../styles/countries-api/countries-api.module.scss";
 
 const CountriesListPage = ({ intl }) => {
     const [darkMode, setDarkMode] = useState(true);
@@ -16,6 +18,12 @@ const CountriesListPage = ({ intl }) => {
         id: "footer.challenge.name",
     });
     const codedBy = intl.formatMessage({ id: "footer.codedBy" });
+
+    const headerTitle = intl.formatMessage({ id: "countriesApi.header.title" });
+    const darkModeLabal = intl.formatMessage({ id: "countriesApi.mode.dark" });
+    const lightModeLabel = intl.formatMessage({
+        id: "countriesApi.mode.light",
+    });
 
     const bodyClasses = [
         countriesApiStyle.solutionContainer,
@@ -41,10 +49,20 @@ const CountriesListPage = ({ intl }) => {
                 {skipToContentLabel}
             </a>
             <header role="banner" className={countriesApiStyle.header}>
-                <span>Where in the world?</span>
+                <span className={countriesApiStyle.headerTitle}>
+                    {headerTitle}
+                </span>
 
-                <button onClick={handleThemeToggle}>
-                    {darkMode ? "Light Mode" : "Dark Mode"}
+                <button
+                    className={countriesApiStyle.themeModeButton}
+                    onClick={handleThemeToggle}
+                >
+                    <FontAwesomeIcon
+                        icon={darkMode ? faSun : faMoon}
+                        aria-hidden="true"
+                    />
+                    &nbsp;
+                    {darkMode ? lightModeLabel : darkModeLabal}
                 </button>
             </header>
             <div

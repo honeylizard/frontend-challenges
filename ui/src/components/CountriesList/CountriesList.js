@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
-import countriesListStyle from "../../styles/countries-api/countries-list.module.scss";
 import { axiosGet } from "./utils/api-helper";
 import CountriesListItem from "./CountriesListItem";
+import countriesListStyle from "../../styles/countries-api/countries-list.module.scss";
 
 const CountriesList = ({ intl, darkMode }) => {
     const [records, setRecords] = useState([]);
@@ -11,6 +11,9 @@ const CountriesList = ({ intl, darkMode }) => {
     const [loadError, setLoadError] = useState(null);
 
     const loadingLabel = intl.formatMessage({ id: "app.loading" });
+    const emptyListLabel = intl.formatMessage({
+        id: "countriesApi.countries.emptyList",
+    });
 
     const listItemClasses = [
         countriesListStyle.listItem,
@@ -50,7 +53,7 @@ const CountriesList = ({ intl, darkMode }) => {
                 ))}
             </ul>
         ) : (
-            "No records available"
+            emptyListLabel
         );
     };
 

@@ -4,28 +4,47 @@ import { injectIntl } from "react-intl";
 import countriesListItemStyle from "../../styles/countries-api/countries-list-item.module.scss";
 
 const CountriesListItem = ({ intl, data, darkMode }) => {
+    const imageAlt = intl.formatMessage(
+        {
+            id: "countriesApi.countries.flagImageAlt",
+        },
+        {
+            name: data.name,
+        }
+    );
+    const populationLabel = intl.formatMessage({
+        id: "countriesApi.countries.population",
+    });
+    const regionLabel = intl.formatMessage({
+        id: "countriesApi.countries.region",
+    });
+    const capitalLabel = intl.formatMessage({
+        id: "countriesApi.countries.capital",
+    });
+
     const classes = [
         countriesListItemStyle.listItemContainer,
         darkMode
             ? countriesListItemStyle.listItemContainerDark
             : countriesListItemStyle.listItemContainerLight,
     ].filter(Boolean);
+
     return (
         <div className={classes.join(" ")}>
             <div className={countriesListItemStyle.listItemImage}>
-                <img src={data.flag} alt={`Flag of ${data.name}`} />
+                <img src={data.flag} alt={imageAlt} />
             </div>
             <div className={countriesListItemStyle.listItemContent}>
                 <h3>{data.name}</h3>
                 <div className={countriesListItemStyle.listItemDetails}>
                     <div>
-                        <strong>Population</strong>: {data.population}
+                        <strong>{populationLabel}</strong>: {data.population}
                     </div>
                     <div>
-                        <strong>Region</strong>: {data.region}
+                        <strong>{regionLabel}</strong>: {data.region}
                     </div>
                     <div>
-                        <strong>Capital</strong>: {data.capital}
+                        <strong>{capitalLabel}</strong>: {data.capital}
                     </div>
                 </div>
             </div>
