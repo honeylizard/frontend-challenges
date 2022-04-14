@@ -15,6 +15,7 @@ import routes from "./routes.js";
 // Localization
 import { IntlProvider } from "react-intl";
 import messages_en from "./translations/en.json";
+import { GlobalProvider } from "./GlobalStateProvider";
 
 // Localization Init
 const messages = {
@@ -34,25 +35,27 @@ const container = document.getElementById("root");
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
 root.render(
     <IntlProvider locale={language} messages={messages[language]}>
-        <div className="appContainer">
-            <HashRouter basename="/">
-                <Helmet
-                    htmlAttributes={{
-                        lang: navigator.language,
-                    }}
-                />
-                <Routes>
-                    {routes.map((route, key) => (
-                        <Route
-                            key={key}
-                            path={route.path}
-                            exact={route.exact}
-                            element={<route.component />}
-                        />
-                    ))}
-                </Routes>
-            </HashRouter>
-        </div>
+        <GlobalProvider>
+            <div className="appContainer">
+                <HashRouter basename="/">
+                    <Helmet
+                        htmlAttributes={{
+                            lang: navigator.language,
+                        }}
+                    />
+                    <Routes>
+                        {routes.map((route, key) => (
+                            <Route
+                                key={key}
+                                path={route.path}
+                                exact={route.exact}
+                                element={<route.component />}
+                            />
+                        ))}
+                    </Routes>
+                </HashRouter>
+            </div>
+        </GlobalProvider>
     </IntlProvider>
 );
 

@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
+import { GlobalContext } from "../../GlobalStateProvider";
 import { axiosGet } from "./utils/api-helper";
 import CountriesListItem from "./CountriesListItem";
 import countriesListStyle from "../../styles/countries-api/countries-list.module.scss";
 
-const CountriesList = ({ intl, darkMode }) => {
+const CountriesList = ({ intl }) => {
+    const { countriesApi: globalData } = useContext(GlobalContext);
+    const currentTheme = globalData.darkMode;
+
     const [records, setRecords] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
     const [loadError, setLoadError] = useState(null);
@@ -17,7 +21,7 @@ const CountriesList = ({ intl, darkMode }) => {
 
     const listItemClasses = [
         countriesListStyle.listItem,
-        darkMode
+        currentTheme
             ? countriesListStyle.listItemDark
             : countriesListStyle.listItemLight,
     ].filter(Boolean);
@@ -48,7 +52,7 @@ const CountriesList = ({ intl, darkMode }) => {
                         key={`country-${index}`}
                         className={listItemClasses.join(" ")}
                     >
-                        <CountriesListItem data={country} darkMode={darkMode} />
+                        <CountriesListItem data={country} />
                     </li>
                 ))}
             </ul>
@@ -62,7 +66,6 @@ const CountriesList = ({ intl, darkMode }) => {
 
 CountriesList.propTypes = {
     intl: PropTypes.object.isRequired,
-    darkMode: PropTypes.bool,
 };
 
 export default injectIntl(CountriesList);

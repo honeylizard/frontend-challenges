@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
+import { GlobalContext } from "../../GlobalStateProvider";
 import countriesListItemStyle from "../../styles/countries-api/countries-list-item.module.scss";
 
-const CountriesListItem = ({ intl, data, darkMode }) => {
+const CountriesListItem = ({ intl, data }) => {
+    const { countriesApi: globalData } = useContext(GlobalContext);
+    const currentTheme = globalData.darkMode;
+
     const imageAlt = intl.formatMessage(
         {
             id: "countriesApi.countries.flagImageAlt",
@@ -24,7 +28,7 @@ const CountriesListItem = ({ intl, data, darkMode }) => {
 
     const classes = [
         countriesListItemStyle.listItemContainer,
-        darkMode
+        currentTheme
             ? countriesListItemStyle.listItemContainerDark
             : countriesListItemStyle.listItemContainerLight,
     ].filter(Boolean);
@@ -61,7 +65,6 @@ CountriesListItem.propTypes = {
         region: PropTypes.string,
         population: PropTypes.number,
     }).isRequired,
-    darkMode: PropTypes.bool,
 };
 
 export default injectIntl(CountriesListItem);

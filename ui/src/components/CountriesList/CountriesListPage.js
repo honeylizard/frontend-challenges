@@ -1,25 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
-
 import CountriesList from "./CountriesList";
-import countriesApiStyle from "../../styles/countries-api/countries-api.module.scss";
 import Header from "./Header";
 import Footer from "./Footer";
+import countriesApiStyle from "../../styles/countries-api/countries-api.module.scss";
 
 const CountriesListPage = ({ intl }) => {
-    const [darkMode, setDarkMode] = useState(true);
-
     const title = intl.formatMessage({ id: "header.appTitle" });
     const subtitle = intl.formatMessage({ id: "countriesApi.subtitle" });
 
-    const handleThemeToggle = () => {
-        setDarkMode(!darkMode);
-    };
-
     return (
         <React.Fragment>
-            <Header currentTheme={darkMode} changeTheme={handleThemeToggle} />
+            <Header />
             <div
                 id="content"
                 className={[countriesApiStyle.content, "main"].join(" ")}
@@ -29,11 +22,11 @@ const CountriesListPage = ({ intl }) => {
                     <section className={countriesApiStyle.section}>
                         <h1 className="sr-only">{title}</h1>
                         <h2 className="sr-only">{subtitle}</h2>
-                        <CountriesList darkMode={darkMode} />
+                        <CountriesList />
                     </section>
                 </div>
             </div>
-            <Footer currentTheme={darkMode} />
+            <Footer />
         </React.Fragment>
     );
 };

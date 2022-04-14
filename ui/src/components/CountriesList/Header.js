@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { Helmet } from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { GlobalContext } from "../../GlobalStateProvider";
 import countriesApiStyle from "../../styles/countries-api/countries-api.module.scss";
 
-const Header = ({ intl, currentTheme, changeTheme }) => {
+const Header = ({ intl }) => {
+    const { updateCountriesData, countriesApi: globalData } =
+        useContext(GlobalContext);
+    const currentTheme = globalData.darkMode;
+
     const skipToContentLabel = intl.formatMessage({ id: "app.skipToContent" });
 
     const headerTitle = intl.formatMessage({ id: "countriesApi.header.title" });
@@ -21,6 +26,12 @@ const Header = ({ intl, currentTheme, changeTheme }) => {
             ? countriesApiStyle.solutionContainerDark
             : countriesApiStyle.solutionContainerLight,
     ].filter(Boolean);
+
+    const changeTheme = () => {
+        updateCountriesData({
+            darkMode: !currentTheme,
+        });
+    };
 
     return (
         <React.Fragment>
@@ -57,8 +68,6 @@ const Header = ({ intl, currentTheme, changeTheme }) => {
 
 Header.propTypes = {
     intl: PropTypes.object.isRequired,
-    changeTheme: PropTypes.func,
-    currentTheme: PropTypes.bool,
 };
 
 export default injectIntl(Header);
