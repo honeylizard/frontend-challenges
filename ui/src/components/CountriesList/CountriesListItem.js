@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
+import { Link } from "react-router-dom";
 import { GlobalContext } from "../../GlobalStateProvider";
 import countriesListItemStyle from "../../styles/countries-api/countries-list-item.module.scss";
 
@@ -35,23 +36,28 @@ const CountriesListItem = ({ intl, data }) => {
 
     return (
         <div className={classes.join(" ")}>
-            <div className={countriesListItemStyle.listItemImage}>
-                <img src={data.flag} alt={imageAlt} />
-            </div>
-            <div className={countriesListItemStyle.listItemContent}>
-                <h3>{data.name}</h3>
-                <div className={countriesListItemStyle.listItemDetails}>
-                    <div>
-                        <strong>{populationLabel}</strong>: {data.population}
-                    </div>
-                    <div>
-                        <strong>{regionLabel}</strong>: {data.region}
-                    </div>
-                    <div>
-                        <strong>{capitalLabel}</strong>: {data.capital}
+            <Link
+                to={`/frontend-challenges/countries-api/country/${data.alpha3Code}`}
+            >
+                <div className={countriesListItemStyle.listItemImage}>
+                    <img src={data.flag} alt={imageAlt} />
+                </div>
+                <div className={countriesListItemStyle.listItemContent}>
+                    <h3>{data.name}</h3>
+                    <div className={countriesListItemStyle.listItemDetails}>
+                        <div>
+                            <strong>{populationLabel}</strong>:{" "}
+                            {data.population}
+                        </div>
+                        <div>
+                            <strong>{regionLabel}</strong>: {data.region}
+                        </div>
+                        <div>
+                            <strong>{capitalLabel}</strong>: {data.capital}
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Link>
         </div>
     );
 };
@@ -59,6 +65,7 @@ const CountriesListItem = ({ intl, data }) => {
 CountriesListItem.propTypes = {
     intl: PropTypes.object.isRequired,
     data: PropTypes.shape({
+        alpha3Code: PropTypes.string.isRequired,
         name: PropTypes.string,
         flag: PropTypes.string,
         capital: PropTypes.string,

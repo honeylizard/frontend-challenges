@@ -14,7 +14,6 @@ const CountriesList = ({ intl }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [loadError, setLoadError] = useState(null);
 
-    const loadingLabel = intl.formatMessage({ id: "app.loading" });
     const emptyListLabel = intl.formatMessage({
         id: "countriesApi.countries.emptyList",
     });
@@ -38,11 +37,14 @@ const CountriesList = ({ intl }) => {
             });
     }, []);
 
-    const renderLoading = () => (
-        <div className={countriesListStyle.loadingContainer}>
-            {loadError || loadingLabel}
-        </div>
-    );
+    const renderLoading = () => {
+        const loadingLabel = intl.formatMessage({ id: "app.loading" });
+        return (
+            <div className={countriesListStyle.loadingContainer}>
+                {loadError || loadingLabel}
+            </div>
+        );
+    };
 
     const renderList = () => {
         return records && records.length > 0 ? (
