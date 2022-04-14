@@ -9,6 +9,14 @@ const CountriesListItem = ({ intl, data }) => {
     const { countriesApi: globalData } = useContext(GlobalContext);
     const currentTheme = globalData.darkMode;
 
+    const linkTooltip = intl.formatMessage(
+        {
+            id: "countriesApi.countries.linkTooltip",
+        },
+        {
+            name: data.name,
+        }
+    );
     const imageAlt = intl.formatMessage(
         {
             id: "countriesApi.countries.flagImageAlt",
@@ -38,6 +46,7 @@ const CountriesListItem = ({ intl, data }) => {
         <div className={classes.join(" ")}>
             <Link
                 to={`/frontend-challenges/countries-api/country/${data.alpha3Code}`}
+                title={linkTooltip}
             >
                 <div className={countriesListItemStyle.listItemImage}>
                     <img src={data.flag} alt={imageAlt} />

@@ -53,5 +53,6 @@
 	"countriesApi.countries.capital": "Capital",
 	"countriesApi.countries.region": "Region",
 	"countriesApi.countries.population": "Population",
-	"countriesApi.countries.flagImageAlt": "Flag of {name}"
+	"countriesApi.countries.flagImageAlt": "Flag of {name}",
+	"countriesApi.countries.linkTooltip": "See more details on {name}"
 }

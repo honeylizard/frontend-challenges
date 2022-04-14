@@ -4,9 +4,8 @@ import { injectIntl } from "react-intl";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import { axiosGet } from "./utils/api-helper";
-import Header from "./Header";
-import Footer from "./Footer";
 import countryDetailsStyle from "../../styles/countries-api/country-details.module.scss";
+import PageTemplate from "./PageTemplate";
 
 const CountryDetailsPage = ({ intl }) => {
     const params = useParams();
@@ -87,24 +86,12 @@ const CountryDetailsPage = ({ intl }) => {
     };
 
     return (
-        <React.Fragment>
-            <Header />
-            <div
-                id="content"
-                className={[countryDetailsStyle.content, "main"].join(" ")}
-                role="main"
-            >
-                <div className={countryDetailsStyle.wrapper}>
-                    <section className={countryDetailsStyle.section}>
-                        <Link to="/frontend-challenges/countries-api">
-                            Back
-                        </Link>
-                        {isLoaded ? renderDetails(record) : renderLoading()}
-                    </section>
-                </div>
-            </div>
-            <Footer />
-        </React.Fragment>
+        <PageTemplate>
+            <section className={countryDetailsStyle.section}>
+                <Link to="/frontend-challenges/countries-api">Back</Link>
+                {isLoaded ? renderDetails(record) : renderLoading()}
+            </section>
+        </PageTemplate>
     );
 };
 
