@@ -68,6 +68,9 @@ const CountryDetailsPage = ({ intl }) => {
     }, [id, record]);
 
     const renderBackButton = () => {
+        const backLabel = intl.formatMessage({
+            id: "countriesApi.back",
+        });
         const classes = [
             countryDetailsStyle.linkButton,
             currentTheme
@@ -81,7 +84,7 @@ const CountryDetailsPage = ({ intl }) => {
                 className={classes.join(" ")}
             >
                 <FontAwesomeIcon icon={faArrowLeftLong} aria-hidden="true" />
-                &nbsp; Back
+                &nbsp; {backLabel}
             </Link>
         );
     };
@@ -115,7 +118,6 @@ const CountryDetailsPage = ({ intl }) => {
     };
 
     const renderDetails = (data) => {
-        console.log("record", data);
         const imageAlt = intl.formatMessage(
             {
                 id: "countriesApi.countries.flagImageAlt",
@@ -124,6 +126,9 @@ const CountryDetailsPage = ({ intl }) => {
                 name: data.name,
             }
         );
+        const borderCountriesLabel = intl.formatMessage({
+            id: "countriesApi.countries.borderCountries",
+        });
 
         return (
             <div className={countryDetailsStyle.detailContainer}>
@@ -136,7 +141,7 @@ const CountryDetailsPage = ({ intl }) => {
                         <div className={countryDetailsStyle.listColumn}>
                             <CountryDataPoint
                                 value={data.nativeName}
-                                label="Native Name"
+                                labelIntlId="countriesApi.countries.nativeName"
                             />
                             <CountryDataPoint
                                 value={data.population}
@@ -148,7 +153,7 @@ const CountryDetailsPage = ({ intl }) => {
                             />
                             <CountryDataPoint
                                 value={data.subregion}
-                                label="Sub Region"
+                                labelIntlId="countriesApi.countries.subregion"
                             />
                             <CountryDataPoint
                                 value={data.capital}
@@ -160,21 +165,21 @@ const CountryDetailsPage = ({ intl }) => {
                                 value={renderListAsCommaSeperatedText(
                                     data.topLevelDomain
                                 )}
-                                label="Top Level Domain"
+                                labelIntlId="countriesApi.countries.topLevelDomain"
                             />
                             <CountryDataPoint
                                 value={renderListAsCommaSeperatedText(
                                     data.currencies,
                                     "name"
                                 )}
-                                label="Currencies"
+                                labelIntlId="countriesApi.countries.currencies"
                             />
                             <CountryDataPoint
                                 value={renderListAsCommaSeperatedText(
                                     data.languages,
                                     "name"
                                 )}
-                                label="Languages"
+                                labelIntlId="countriesApi.countries.languages"
                             />
                         </div>
                     </div>
@@ -184,7 +189,7 @@ const CountryDetailsPage = ({ intl }) => {
                                 countryDetailsStyle.borderCountriesListContainer
                             }
                         >
-                            <strong>Border Countries</strong>:{" "}
+                            <strong>{borderCountriesLabel}</strong>:{" "}
                             <ul
                                 className={
                                     countryDetailsStyle.borderCountriesList

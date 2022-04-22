@@ -54,5 +54,12 @@
 	"countriesApi.countries.region": "Region",
 	"countriesApi.countries.population": "Population",
 	"countriesApi.countries.flagImageAlt": "Flag of {name}",
-	"countriesApi.countries.linkTooltip": "See more details on {name}"
+	"countriesApi.countries.linkTooltip": "See more details on {name}",
+	"countriesApi.countries.nativeName": "Native Name",
+	"countriesApi.countries.subregion": "Sub Region",
+	"countriesApi.countries.topLevelDomain": "Top Level Domain",
+	"countriesApi.countries.currencies": "Currencies",
+	"countriesApi.countries.languages": "Languages",
+	"countriesApi.countries.borderCountries": "Border Countries",
+	"countriesApi.back": "Back"
 }
