@@ -131,7 +131,7 @@ const CountryDetailsPage = ({ intl }) => {
                     <img src={record.flag} alt={imageAlt} />
                 </div>
                 <div className={countryDetailsStyle.detailContent}>
-                    <h3>{record.name}</h3>
+                    <h1 className={countryDetailsStyle.title}>{record.name}</h1>
                     <div className={countryDetailsStyle.listItemDetails}>
                         <div className={countryDetailsStyle.listColumn}>
                             <CountryDataPoint

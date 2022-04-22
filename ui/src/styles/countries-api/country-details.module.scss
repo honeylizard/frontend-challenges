@@ -7,6 +7,10 @@
         flex-wrap: wrap;
         margin-top: 50px;
 
+        @media all and (max-width: 1200px) {
+            flex-direction: column;
+        }
+
         .detailImage {
             max-width: 560px;
             box-sizing: border-box;
@@ -20,6 +24,8 @@
         .detailContent {
             flex-grow: 1;
             max-width: 50%;
+            box-sizing: border-box;
+            margin-left: 80px;
 
             .listItemDetails {
                 display: flex;
@@ -28,6 +34,20 @@
                 .listColumn {
                     box-sizing: border-box;
                     flex: 1;
+
+                    > * {
+                        margin: 10px auto;
+                    }
+
+                    &:first-of-type {
+                        @media all and (max-width: 1200px) {
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+
+                @media all and (max-width: 1200px) {
+                    flex-direction: column;
                 }
             }
 
@@ -37,6 +57,7 @@
                 flex-direction: row;
                 flex-wrap: wrap;
                 box-sizing: border-box;
+                align-items: center;
 
                 .borderCountriesList {
                     margin: 0;
@@ -45,8 +66,16 @@
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
-                    padding: 5px 20px;
+
+                    @media all and (max-width: 1200px) {
+                        margin-top: 10px;
+                    }
                 }
+            }
+
+            @media all and (max-width: 1300px) {
+                max-width: none;
+                margin-left: 0;
             }
         }
 
@@ -57,11 +86,12 @@
 .linkButton {
     display: inline-block;
     box-sizing: border-box;
-    padding: 10px 20px;
+    padding: 5px 20px;
     margin: 5px;
     text-decoration: none;
     min-width: 100px;
     text-align: center;
+    font-size: 13px;
 
     &.linkButtonDark {
         color: $white;

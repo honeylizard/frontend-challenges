@@ -37,10 +37,6 @@ $challenge-shadow-light-link: 0 0 5px rgba(149, 157, 165, 0.6);
         }
     }
 
-    .wrapper {
-        max-width: 1300px;
-    }
-
     .content {
         padding-left: 0;
         padding-right: 0;
@@ -53,7 +49,7 @@ $challenge-shadow-light-link: 0 0 5px rgba(149, 157, 165, 0.6);
 }
 
 .solutionContainerLight {
-    background-color: $challenge-bg-light;
+    background-color: $white;
     color: $black;
 
     a {
@@ -91,7 +87,7 @@ $challenge-shadow-light-link: 0 0 5px rgba(149, 157, 165, 0.6);
 }
 
 .solutionContainerDark {
-    background-color: $challenge-bg-dark;
+    background-color: $challenge-primary-dark;
     color: $white;
 
     a {
