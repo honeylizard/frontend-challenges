@@ -9,7 +9,9 @@ $challenge-secondary-light: #858585; // hsl(0, 0%, 52%)
 // https://fonts.google.com/specimen/Nunito+Sans
 $challenge-font: "Nunito Sans", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $challenge-shadow-dark: 0px 8px 24px rgba(0,0,0,0.3);
+$challenge-shadow-dark-link: 0 0 5px rgba(0,0,0,0.3);
 $challenge-shadow-light: 0px 8px 24px rgba(149, 157, 165, 0.2);
+$challenge-shadow-light-link: 0 0 5px rgba(149, 157, 165, 0.6);
 
 .solutionContainer {
     font-family: $challenge-font;

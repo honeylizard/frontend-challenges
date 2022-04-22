@@ -1,16 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { axiosGet } from "./utils/api-helper";
+import { renderListAsCommaSeperatedText } from "./utils/common";
+import { GlobalContext } from "../../GlobalStateProvider";
 import countryDetailsStyle from "../../styles/countries-api/country-details.module.scss";
 import PageTemplate from "./PageTemplate";
+import Loading from "./Loading";
+import CountryDataPoint from "./CountryDataPoint";
 
 const CountryDetailsPage = ({ intl }) => {
+    const { countriesApi: globalData } = useContext(GlobalContext);
+    const currentTheme = globalData.darkMode;
+
     const params = useParams();
     const [id, setId] = useState(null);
     const [record, setRecord] = useState(null);
+    const [borderCountries, setBorderCountries] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [loadError, setLoadError] = useState(null);
 
@@ -32,12 +42,75 @@ const CountryDetailsPage = ({ intl }) => {
         }
     }, [id]);
 
-    const renderLoading = () => {
-        const loadingLabel = intl.formatMessage({ id: "app.loading" });
+    useEffect(() => {
+        if (id && record && record.borders && record.borders.length > 0) {
+            const borderCountryCodes = record.borders;
+            axiosGet(
+                `https://restcountries.com/v2/alpha?codes=${borderCountryCodes.join(
+                    ","
+                )}`
+            )
+                .then((response) => {
+                    const names = response.map((country) => {
+                        return {
+                            name: country.name,
+                            code: country.alpha3Code,
+                        };
+                    });
+                    setBorderCountries(names);
+                    setIsLoaded(true);
+                })
+                .catch((error) => {
+                    console.error("error", error);
+                    setLoadError(error.message);
+                });
+        }
+    }, [id, record]);
+
+    const renderBackButton = () => {
+        const classes = [
+            countryDetailsStyle.linkButton,
+            currentTheme
+                ? countryDetailsStyle.linkButtonDark
+                : countryDetailsStyle.linkButtonLight,
+        ].filter(Boolean);
+
         return (
-            <div className={countryDetailsStyle.loadingContainer}>
-                {loadError || loadingLabel}
-            </div>
+            <Link
+                to="/frontend-challenges/countries-api"
+                className={classes.join(" ")}
+            >
+                <FontAwesomeIcon icon={faArrowLeftLong} aria-hidden="true" />
+                &nbsp; Back
+            </Link>
+        );
+    };
+
+    const renderBorderCountry = (data) => {
+        const linkTooltip = intl.formatMessage(
+            {
+                id: "countriesApi.countries.linkTooltip",
+            },
+            {
+                name: data.name,
+            }
+        );
+
+        const classes = [
+            countryDetailsStyle.linkButton,
+            currentTheme
+                ? countryDetailsStyle.linkButtonDark
+                : countryDetailsStyle.linkButtonLight,
+        ].filter(Boolean);
+
+        return (
+            <Link
+                to={`/frontend-challenges/countries-api/country/${data.code}`}
+                title={linkTooltip}
+                className={classes.join(" ")}
+            >
+                {data.name}
+            </Link>
         );
     };
 
@@ -51,15 +124,6 @@ const CountryDetailsPage = ({ intl }) => {
                 name: data.name,
             }
         );
-        const populationLabel = intl.formatMessage({
-            id: "countriesApi.countries.population",
-        });
-        const regionLabel = intl.formatMessage({
-            id: "countriesApi.countries.region",
-        });
-        const capitalLabel = intl.formatMessage({
-            id: "countriesApi.countries.capital",
-        });
 
         return (
             <div className={countryDetailsStyle.detailContainer}>
@@ -69,17 +133,71 @@ const CountryDetailsPage = ({ intl }) => {
                 <div className={countryDetailsStyle.detailContent}>
                     <h3>{record.name}</h3>
                     <div className={countryDetailsStyle.listItemDetails}>
-                        <div>
-                            <strong>{populationLabel}</strong>:{" "}
-                            {record.population}
+                        <div className={countryDetailsStyle.listColumn}>
+                            <CountryDataPoint
+                                value={data.nativeName}
+                                label="Native Name"
+                            />
+                            <CountryDataPoint
+                                value={data.population}
+                                labelIntlId="countriesApi.countries.population"
+                            />
+                            <CountryDataPoint
+                                value={data.region}
+                                labelIntlId="countriesApi.countries.region"
+                            />
+                            <CountryDataPoint
+                                value={data.subregion}
+                                label="Sub Region"
+                            />
+                            <CountryDataPoint
+                                value={data.capital}
+                                labelIntlId="countriesApi.countries.capital"
+                            />
                         </div>
-                        <div>
-                            <strong>{regionLabel}</strong>: {record.region}
-                        </div>
-                        <div>
-                            <strong>{capitalLabel}</strong>: {record.capital}
+                        <div className={countryDetailsStyle.listColumn}>
+                            <CountryDataPoint
+                                value={renderListAsCommaSeperatedText(
+                                    data.topLevelDomain
+                                )}
+                                label="Top Level Domain"
+                            />
+                            <CountryDataPoint
+                                value={renderListAsCommaSeperatedText(
+                                    data.currencies,
+                                    "name"
+                                )}
+                                label="Currencies"
+                            />
+                            <CountryDataPoint
+                                value={renderListAsCommaSeperatedText(
+                                    data.languages,
+                                    "name"
+                                )}
+                                label="Languages"
+                            />
                         </div>
                     </div>
+                    {borderCountries && borderCountries.length > 0 && (
+                        <div
+                            className={
+                                countryDetailsStyle.borderCountriesListContainer
+                            }
+                        >
+                            <strong>Border Countries</strong>:{" "}
+                            <ul
+                                className={
+                                    countryDetailsStyle.borderCountriesList
+                                }
+                            >
+                                {borderCountries.map((country, index) => (
+                                    <li key={`border-country-${index}`}>
+                                        {renderBorderCountry(country)}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
                 </div>
             </div>
         );
@@ -88,8 +206,15 @@ const CountryDetailsPage = ({ intl }) => {
     return (
         <PageTemplate>
             <section className={countryDetailsStyle.section}>
-                <Link to="/frontend-challenges/countries-api">Back</Link>
-                {isLoaded ? renderDetails(record) : renderLoading()}
+                {renderBackButton()}
+                {isLoaded ? (
+                    renderDetails(record)
+                ) : (
+                    <Loading
+                        customMessage={loadError}
+                        customClasses={countryDetailsStyle.loadingContainer}
+                    />
+                )}
             </section>
         </PageTemplate>
     );

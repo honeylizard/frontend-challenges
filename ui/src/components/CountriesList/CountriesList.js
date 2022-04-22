@@ -5,6 +5,7 @@ import { GlobalContext } from "../../GlobalStateProvider";
 import { axiosGet } from "./utils/api-helper";
 import CountriesListItem from "./CountriesListItem";
 import countriesListStyle from "../../styles/countries-api/countries-list.module.scss";
+import Loading from "./Loading";
 
 const CountriesList = ({ intl }) => {
     const { countriesApi: globalData } = useContext(GlobalContext);
@@ -37,15 +38,6 @@ const CountriesList = ({ intl }) => {
             });
     }, []);
 
-    const renderLoading = () => {
-        const loadingLabel = intl.formatMessage({ id: "app.loading" });
-        return (
-            <div className={countriesListStyle.loadingContainer}>
-                {loadError || loadingLabel}
-            </div>
-        );
-    };
-
     const renderList = () => {
         return records && records.length > 0 ? (
             <ul className={countriesListStyle.list}>
@@ -63,7 +55,14 @@ const CountriesList = ({ intl }) => {
         );
     };
 
-    return isLoaded ? renderList() : renderLoading();
+    return isLoaded ? (
+        renderList()
+    ) : (
+        <Loading
+            customMessage={loadError}
+            customClasses={countriesListStyle.loadingContainer}
+        />
+    );
 };
 
 CountriesList.propTypes = {

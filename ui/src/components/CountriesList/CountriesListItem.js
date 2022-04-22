@@ -4,6 +4,7 @@ import { injectIntl } from "react-intl";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../GlobalStateProvider";
 import countriesListItemStyle from "../../styles/countries-api/countries-list-item.module.scss";
+import CountryDataPoint from "./CountryDataPoint";
 
 const CountriesListItem = ({ intl, data }) => {
     const { countriesApi: globalData } = useContext(GlobalContext);
@@ -25,15 +26,6 @@ const CountriesListItem = ({ intl, data }) => {
             name: data.name,
         }
     );
-    const populationLabel = intl.formatMessage({
-        id: "countriesApi.countries.population",
-    });
-    const regionLabel = intl.formatMessage({
-        id: "countriesApi.countries.region",
-    });
-    const capitalLabel = intl.formatMessage({
-        id: "countriesApi.countries.capital",
-    });
 
     const classes = [
         countriesListItemStyle.listItemContainer,
@@ -54,16 +46,18 @@ const CountriesListItem = ({ intl, data }) => {
                 <div className={countriesListItemStyle.listItemContent}>
                     <h3>{data.name}</h3>
                     <div className={countriesListItemStyle.listItemDetails}>
-                        <div>
-                            <strong>{populationLabel}</strong>:{" "}
-                            {data.population}
-                        </div>
-                        <div>
-                            <strong>{regionLabel}</strong>: {data.region}
-                        </div>
-                        <div>
-                            <strong>{capitalLabel}</strong>: {data.capital}
-                        </div>
+                        <CountryDataPoint
+                            value={data.population}
+                            labelIntlId="countriesApi.countries.population"
+                        />
+                        <CountryDataPoint
+                            value={data.region}
+                            labelIntlId="countriesApi.countries.region"
+                        />
+                        <CountryDataPoint
+                            value={data.capital}
+                            labelIntlId="countriesApi.countries.capital"
+                        />
                     </div>
                 </div>
             </Link>

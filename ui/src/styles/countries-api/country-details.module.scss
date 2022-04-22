@@ -1,17 +1,89 @@
 @import "countries-api.module.scss";
 
-.detailContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.section {
+    .detailContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 50px;
 
-    .detailImage {
-        max-width: 50%;
-        box-sizing: border-box;
-        padding-right: 20px;
+        .detailImage {
+            max-width: 560px;
+            box-sizing: border-box;
+            padding-right: 20px;
 
-        img {
-            max-width: 100%;
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .detailContent {
+            flex-grow: 1;
+            max-width: 50%;
+
+            .listItemDetails {
+                display: flex;
+                box-sizing: border-box;
+
+                .listColumn {
+                    box-sizing: border-box;
+                    flex: 1;
+                }
+            }
+
+            .borderCountriesListContainer {
+                margin-top: 40px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+
+                .borderCountriesList {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    padding: 5px 20px;
+                }
+            }
+        }
+
+
+    }
+}
+
+.linkButton {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    min-width: 100px;
+    text-align: center;
+
+    &.linkButtonDark {
+        color: $white;
+        box-shadow: $challenge-shadow-dark-link;
+        background-color: $challenge-primary-dark;
+
+        &:hover,
+        &:focus-visible {
+            color: $white;
+            background-color: $challenge-bg-dark;
+        }
+    }
+
+    &.linkButtonLight {
+        color: $black;
+        box-shadow: $challenge-shadow-light-link;
+        background-color: $white;
+
+        &:hover,
+        &:focus-visible {
+            color: $black;
+            background-color: $challenge-bg-light;
         }
     }
 }
