@@ -28,7 +28,7 @@ const StaticJobListingsPage = ({ intl }) => {
             >
                 {skipToContentLabel}
             </a>
-            <header role="banner" className={staticJobListingsStyle.header} />
+            <header className={staticJobListingsStyle.header} />
             <div
                 id="content"
                 className={[staticJobListingsStyle.content, "main"].join(" ")}
@@ -43,7 +43,6 @@ const StaticJobListingsPage = ({ intl }) => {
                 </div>
             </div>
             <footer
-                role="contentinfo"
                 className={staticJobListingsStyle.footer}
             >
                 <div className="wrapper">
