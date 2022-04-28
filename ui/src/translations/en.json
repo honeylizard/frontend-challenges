@@ -17,6 +17,12 @@
 	"app.skipToContent": "Skip to content",
 
 	"form.optional": "Optional",
+	"form.success.general": "Your form has been submitted!",
+	"form.error.general": "General error occurred. Please review.",
+	"form.alert.prefix.success": "Success",
+	"form.alert.prefix.warning": "Warning",
+	"form.alert.prefix.error": "Error",
+	"form.alert.prefix.info": "Information",
 
 	"alert.prefix.success": "Success: ",
 	"alert.prefix.warning": "Warning: ",
@@ -61,5 +67,12 @@
 	"countriesApi.countries.currencies": "Currencies",
 	"countriesApi.countries.languages": "Languages",
 	"countriesApi.countries.borderCountries": "Border Countries",
-	"countriesApi.back": "Back"
+	"countriesApi.back": "Back",
+	"countriesApi.filter.success": "Your filter criteria has been applied!",
+	"countriesApi.filter.error": "General error occurred during filter criteria submission. Please review.",
+	"countriesApi.filter.name.label": "Search by Name",
+	"countriesApi.filter.name.placeholder": "Search for a country...",
+	"countriesApi.filter.region.label": "Search by Region",
+	"countriesApi.filter.region.all": "All Regions",
+	"countriesApi.filter.submit.label": "Apply Filters"
 }

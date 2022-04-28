@@ -5,6 +5,7 @@ import GlobalStateReducer from "./GlobalStateReducer";
 const initialState = {
     countriesApi: {
         darkMode: false,
+        currentFilters: null,
     },
 };
 

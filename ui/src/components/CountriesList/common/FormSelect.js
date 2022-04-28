@@ -46,12 +46,12 @@ const FormSelect = ({
         );
     };
 
+    const parentLevelClasses = `${formFieldStyles.fieldWrapper} ${
+        errorMessage ? formFieldStyles.invalidField : ""
+    } ${classNames ? classNames : ""}`;
+
     return (
-        <div
-            className={`${formFieldStyles.fieldWrapper} ${
-                errorMessage ? formFieldStyles.invalidField : ""
-            } ${classNames}`}
-        >
+        <div className={parentLevelClasses.trim()}>
             {renderLabel(id, label, required)}
             <div className={formFieldStyles.inputGroup}>
                 <select

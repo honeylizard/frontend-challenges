@@ -1,0 +1,140 @@
+@import "countries-api.module.scss";
+
+.formWrapper {
+    .fieldsWrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width: 900px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .formField {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: auto;
+
+            &.fieldWrapperStretch {
+                flex-grow: 1;
+            }
+
+            @media screen and (max-width: 900px) {
+              width: 100%;
+            }
+
+            select {
+                padding: 15px;
+                width: auto;
+
+                @media screen and (max-width: 900px) {
+                    width: 100%;
+                }
+            }
+
+            input {
+                padding: 15px;
+                width: auto;
+
+                width: 100%;
+                max-width: 500px;
+
+                @media screen and (max-width: 900px) {
+                    width: 100%;
+                    max-width: none;
+                }
+            }
+        }
+
+        .buttonSet {
+            margin-left: 10px;
+
+            .submitButton {
+                padding: 12px;
+            }
+
+            @media screen and (max-width: 900px) {
+                width: 100%;
+                margin: 0;
+                margin-top: 10px;
+
+                .submitButton {
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+
+    &.formWrapperDark {
+        .fieldsWrapper {
+            .formField {
+                select,
+                input {
+                    border-color: transparent;
+                    box-shadow: $challenge-shadow-dark;
+                    background-color: $challenge-primary-dark;
+                    color: $white;
+
+                    &:focus-visible {
+                        box-shadow: 0 0 0 0.15rem $outline-blue;
+                    }
+                }
+
+                input::-webkit-input-placeholder,
+                input::-moz-placeholder,
+                input::-ms-placeholder {
+                    color: $white;
+                }
+
+                input::placeholder {
+                    color: $white;
+                }
+            }
+        }
+
+        .submitButton {
+            background-color: $challenge-primary-dark;
+            color: $white;
+            border: 2px solid $challenge-primary-dark;
+            box-shadow: $challenge-shadow-dark;
+
+            &:focus-visible {
+                box-shadow: 0 0 0 0.15rem $outline-blue;
+            }
+        }
+    }
+
+    &.formWrapperLight {
+        .fieldsWrapper {
+            .formField {
+                select,
+                input {
+                    border-color: transparent;
+                    box-shadow: $challenge-shadow-light;
+                    background-color: $white;
+                    color: $black;
+
+                    &:focus-visible {
+                        box-shadow: 0 0 0 0.15rem $outline-blue;
+                    }
+                }
+            }
+        }
+
+        .submitButton {
+            background-color: $white;
+            color: $black;
+            border: 2px solid $white;
+            box-shadow: $challenge-shadow-light;
+
+            &:focus-visible {
+                box-shadow: 0 0 0 0.15rem $outline-blue;
+            }
+        }
+    }
+}

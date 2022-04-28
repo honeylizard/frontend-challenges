@@ -18,36 +18,10 @@
     box-shadow: 0 0 0 0.15rem $outline-blue;
   }
 
-  &:not([type="checkbox"]):not([type="radio"]):not([type="color"]) {
-    width: 300px;
+  width: 300px;
 
-    @media screen and (max-width: 300px) {
-      width: 100%;
-    }
-  }
-}
-
-@mixin colorInput {
-  -webkit-appearance: none;
-  border: none;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  border-radius: none;
-  cursor: pointer;
-
-  &:focus {
-    border-color: $outline-blue;
-    outline: 0;
-    box-shadow: 0 0 0 0.15rem $outline-blue;
-  }
-
-  &::-webkit-color-swatch-wrapper {
-    padding: 0;
-  }
-
-  &::-webkit-color-swatch {
-    border: none;
+  @media screen and (max-width: 300px) {
+    width: 100%;
   }
 }
 
@@ -61,40 +35,8 @@
   }
 
   input,
-  select,
-  textarea {
+  select {
     @include basicInput();
-  }
-
-  input[type="color"] {
-    @include colorInput();
-  }
-
-  textarea {
-    resize: vertical;
-  }
-
-  .horizontalRow {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-
-
-    width: 300px;
-
-    @media screen and (max-width: 300px) {
-      width: 100%;
-    }
-
-    &.horizontalRowSpaced {
-      justify-content: space-between;
-    }
-
-    output,
-    label {
-      padding-left: 10px;
-      padding-right: 10px;
-    }
   }
 
   &.invalidField {
@@ -103,8 +45,7 @@
     }
 
     input,
-    select,
-    textarea {
+    select {
       border-color: $red;
       color: $red;
     }
@@ -117,6 +58,7 @@
 
   .inputGroup {
     margin: 10px 0;
+    width: 100%;
   }
 
   .fieldHelpText {
