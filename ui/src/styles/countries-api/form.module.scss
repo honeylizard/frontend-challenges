@@ -1,0 +1,131 @@
+@import "countries-api.module.scss";
+
+@mixin basicInput {
+  box-sizing: border-box;
+  display: block;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: $white;
+  background-clip: padding-box;
+  border: 1px solid $grey-01;
+  border-radius: .25rem;
+
+  &:focus-visible {
+    border-color: $outline-blue;
+    outline: 0;
+    box-shadow: 0 0 0 0.15rem $outline-blue;
+  }
+
+  &:not([type="checkbox"]):not([type="radio"]):not([type="color"]) {
+    width: 300px;
+
+    @media screen and (max-width: 300px) {
+      width: 100%;
+    }
+  }
+}
+
+@mixin colorInput {
+  -webkit-appearance: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: none;
+  cursor: pointer;
+
+  &:focus {
+    border-color: $outline-blue;
+    outline: 0;
+    box-shadow: 0 0 0 0.15rem $outline-blue;
+  }
+
+  &::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+
+  &::-webkit-color-swatch {
+    border: none;
+  }
+}
+
+.fieldWrapper {
+  .requiredText {
+    color: $red;
+  }
+
+  label {
+    @include screenReaderOnly();
+  }
+
+  input,
+  select,
+  textarea {
+    @include basicInput();
+  }
+
+  input[type="color"] {
+    @include colorInput();
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  .horizontalRow {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+
+    width: 300px;
+
+    @media screen and (max-width: 300px) {
+      width: 100%;
+    }
+
+    &.horizontalRowSpaced {
+      justify-content: space-between;
+    }
+
+    output,
+    label {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  &.invalidField {
+    label {
+      color: $red;
+    }
+
+    input,
+    select,
+    textarea {
+      border-color: $red;
+      color: $red;
+    }
+
+    .fieldErrorText {
+      font-size: .875em;
+      color: $red;
+    }
+  }
+
+  .inputGroup {
+    margin: 10px 0;
+  }
+
+  .fieldHelpText {
+    font-size: .875em;
+  }
+
+}
+
+.formButtonPrimary,
+.formButtonSecondary {
+  margin-right: 10px;
+}

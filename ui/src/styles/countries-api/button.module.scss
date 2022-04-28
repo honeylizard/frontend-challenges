@@ -1,0 +1,30 @@
+@import "countries-api.module.scss";
+
+@mixin basicButton {
+    display: inline-block;
+    margin: 0;
+    padding: 0.375rem 0.75rem;
+    background-color: $blue;
+    border: 2px outset $blue;
+    text-decoration: none;
+    color: $white;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: .25rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $black;
+        color: $grey-02;
+    }
+
+    &:focus-visible {
+        border-color: $outline-blue;
+        outline: 0;
+        box-shadow: 0 0 0 0.15rem $outline-blue;
+    }
+}
+
+.button {
+    @include basicButton();
+}

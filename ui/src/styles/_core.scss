@@ -1,6 +1,11 @@
 $black: #000000;
 $white: #FFFFFF;
 $bg-color: #000311;
+$blue: #2E5AAC;
+$red: #DA1414;
+$grey-01: #ced4da;
+$grey-02: #eee;
+$outline-blue: #86b7fe;
 $text-color: #FDFDFD;
 $primary-font: "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -50,7 +55,7 @@ a {
     }
 }
 
-.sr-only {
+@mixin screenReaderOnly {
     border: 0;
     clip: rect(0 0 0 0);
     clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
@@ -61,6 +66,10 @@ a {
     position: absolute;
     width: 1px;
     white-space: nowrap;
+}
+
+.sr-only {
+    @include screenReaderOnly();
 }
 
 .sr-focusable {
