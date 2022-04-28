@@ -35,19 +35,6 @@
                     width: 100%;
                 }
             }
-
-            input {
-                padding: 15px;
-                width: auto;
-
-                width: 100%;
-                max-width: 500px;
-
-                @media screen and (max-width: 900px) {
-                    width: 100%;
-                    max-width: none;
-                }
-            }
         }
 
         .buttonSet {
@@ -71,32 +58,6 @@
     }
 
     &.formWrapperDark {
-        .fieldsWrapper {
-            .formField {
-                select,
-                input {
-                    border-color: transparent;
-                    box-shadow: $challenge-shadow-dark;
-                    background-color: $challenge-primary-dark;
-                    color: $white;
-
-                    &:focus-visible {
-                        box-shadow: 0 0 0 0.15rem $outline-blue;
-                    }
-                }
-
-                input::-webkit-input-placeholder,
-                input::-moz-placeholder,
-                input::-ms-placeholder {
-                    color: $white;
-                }
-
-                input::placeholder {
-                    color: $white;
-                }
-            }
-        }
-
         .submitButton {
             background-color: $challenge-primary-dark;
             color: $white;
@@ -110,22 +71,6 @@
     }
 
     &.formWrapperLight {
-        .fieldsWrapper {
-            .formField {
-                select,
-                input {
-                    border-color: transparent;
-                    box-shadow: $challenge-shadow-light;
-                    background-color: $white;
-                    color: $black;
-
-                    &:focus-visible {
-                        box-shadow: 0 0 0 0.15rem $outline-blue;
-                    }
-                }
-            }
-        }
-
         .submitButton {
             background-color: $white;
             color: $black;

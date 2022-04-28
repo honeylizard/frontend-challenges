@@ -132,9 +132,6 @@ const CountriesFilterForm = ({ intl, regionOptions }) => {
                 </div>
 
                 <div className={filterFormFieldStyles.fieldsWrapper}>
-                    {
-                        // TODO: Include a search icon on the input
-                    }
                     <FormInput
                         label={fieldNameLabel}
                         id="country-search-name"

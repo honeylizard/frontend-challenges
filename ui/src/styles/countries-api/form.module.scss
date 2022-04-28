@@ -34,9 +34,31 @@
     @include screenReaderOnly();
   }
 
-  input,
+  .inputWrapper,
   select {
     @include basicInput();
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  .inputWrapper {
+    padding: 15px;
+    width: auto;
+
+    width: 100%;
+    max-width: 500px;
+
+    @media screen and (max-width: 900px) {
+      width: 100%;
+      max-width: none;
+    }
+
+    .prefixIcon + input {
+      margin-left: 10px;
+      width: 100%;
+    }
   }
 
   &.invalidField {
@@ -56,15 +78,87 @@
     }
   }
 
+  &.fieldWrapperLight {
+
+    .inputWrapper,
+    select {
+      border-color: transparent;
+      box-shadow: $challenge-shadow-light;
+      background-color: $white;
+      color: $black;
+
+      &:focus-visible {
+        box-shadow: 0 0 0 0.15rem $outline-blue;
+      }
+    }
+
+    input {
+      color: $black;
+    }
+  }
+
+  &.fieldWrapperDark {
+
+    .inputWrapper,
+    select {
+      border-color: transparent;
+      box-shadow: $challenge-shadow-dark;
+      background-color: $challenge-primary-dark;
+      color: $white;
+
+      &:focus-visible {
+        box-shadow: 0 0 0 0.15rem $outline-blue;
+      }
+    }
+
+    input {
+      color: $white;
+    }
+
+    input::-webkit-input-placeholder,
+    input::-moz-placeholder,
+    input::-ms-placeholder {
+      color: $white;
+    }
+
+    input::placeholder {
+      color: $white;
+    }
+  }
+
   .inputGroup {
     margin: 10px 0;
     width: 100%;
-  }
 
-  .fieldHelpText {
-    font-size: .875em;
-  }
+    .inputWrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
+      &:focus-within {
+        border-color: $outline-blue;
+        outline: 0;
+        box-shadow: 0 0 0 0.15rem $outline-blue;
+      }
+
+      .prefixIcon {
+        display: block;
+      }
+
+      input {
+        border: none;
+        background-color: transparent;
+
+        &:focus {
+          outline: none; // handled in inputwrapper focus-within
+        }
+      }
+    }
+  }
+}
+
+.fieldHelpText {
+  font-size: .875em;
 }
 
 .formButtonPrimary,
