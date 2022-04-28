@@ -1,5 +1,5 @@
-import CountriesListPage from "./components/CountriesList/CountriesListPage";
-import CountryDetailsPage from "./components/CountriesList/CountryDetailsPage";
+import CountriesListPage from "./components/CountriesList/pages/CountriesListPage";
+import CountryDetailsPage from "./components/CountriesList/pages/CountryDetailsPage";
 import HomePage from "./components/HomePage";
 import NotFoundPage from "./components/NotFoundPage";
 import StaticJobListingsPage from "./components/StaticJobListings/StaticJobListingsPage";

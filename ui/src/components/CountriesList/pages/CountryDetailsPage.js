@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
-import { axiosGet } from "./utils/api-helper";
-import { renderListAsCommaSeperatedText } from "./utils/common";
-import { GlobalContext } from "../../GlobalStateProvider";
-import countryDetailsStyle from "../../styles/countries-api/country-details.module.scss";
-import PageTemplate from "./PageTemplate";
-import Loading from "./Loading";
-import CountryDataPoint from "./CountryDataPoint";
+import { axiosGet } from "../utils/api-helper";
+import { renderListAsCommaSeperatedText } from "../utils/common";
+import { GlobalContext } from "../../../GlobalStateProvider";
+import countryDetailsStyle from "../../../styles/countries-api/country-details.module.scss";
+import PageTemplate from "../PageTemplate";
+import Loading from "../common/Loading";
+import CountryDataPoint from "../CountryDataPoint";
 
 const CountryDetailsPage = ({ intl }) => {
     const { countriesApi: globalData } = useContext(GlobalContext);
