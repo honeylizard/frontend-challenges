@@ -67,6 +67,7 @@
 	"countriesApi.countries.currencies": "Currencies",
 	"countriesApi.countries.languages": "Languages",
 	"countriesApi.countries.borderCountries": "Border Countries",
+	"countriesApi.countries.loadingSingle": "Loading Country...",
 	"countriesApi.back": "Back",
 	"countriesApi.filter.success": "Your filter criteria has been applied!",
 	"countriesApi.filter.error": "General error occurred during filter criteria submission. Please review.",

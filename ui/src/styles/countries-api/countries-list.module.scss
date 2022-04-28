@@ -25,6 +25,13 @@
             box-shadow: $challenge-shadow-light;
         }
     }
+
+    .placeholderBox {
+        .placeholderBoxContent {
+            padding: 20px;
+            text-align: center;
+        }
+    }
 }
 
 .listEmpty {
