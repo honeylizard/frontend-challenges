@@ -55,7 +55,7 @@
 	"countriesApi.header.title": "Where in the world?",
 	"countriesApi.mode.light": "Light Mode",
 	"countriesApi.mode.dark": "Dark Mode",
-	"countriesApi.countries.emptyList": "No countries are available.",
+	"countriesApi.countries.emptyList": "No countries are available or your filter criteria has returned no results.",
 	"countriesApi.countries.capital": "Capital",
 	"countriesApi.countries.region": "Region",
 	"countriesApi.countries.population": "Population",

@@ -90,17 +90,17 @@ $challenge-shadow-light-link: 0 0 5px rgba(149, 157, 165, 0.6);
     background-color: $challenge-primary-dark;
     color: $white;
 
-    a {
-        color: $white;
-
-        &:hover, &:focus-visible {
-            color: yellow;
-        }
-    }
-
     .header, .footer {
         background-color: $challenge-primary-dark;
         color: $white;
+
+        a {
+            color: $white;
+
+            &:hover, &:focus-visible {
+                color: yellow;
+            }
+        }
 
         button {
             color: $white;

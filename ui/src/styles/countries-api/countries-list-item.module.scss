@@ -25,6 +25,7 @@
 
     &.listItemContainerDark {
         a {
+            color: $white;
             &:hover, &:focus-visible {
                 color: $white;
             }
@@ -33,6 +34,7 @@
 
     &.listItemContainerLight {
         a {
+            color: $black;
             &:hover, &:focus-visible {
                 color: $black;
             }

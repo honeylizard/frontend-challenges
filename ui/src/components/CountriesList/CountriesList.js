@@ -74,7 +74,9 @@ const CountriesList = ({ intl }) => {
                         ))}
                     </ul>
                 ) : (
-                    emptyListLabel
+                    <div className={countriesListStyle.listEmpty}>
+                        {emptyListLabel}
+                    </div>
                 )}
             </React.Fragment>
         );
