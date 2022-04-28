@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../../GlobalStateProvider";
 import countriesListItemStyle from "../../styles/countries-api/countries-list-item.module.scss";
 import CountryDataPoint from "./CountryDataPoint";
+import LazyImage from "./common/LazyImage";
 
 const CountriesListItem = ({ intl, data }) => {
     const { countriesApi: globalData } = useContext(GlobalContext);
@@ -41,7 +42,14 @@ const CountriesListItem = ({ intl, data }) => {
                 title={linkTooltip}
             >
                 <div className={countriesListItemStyle.listItemImage}>
-                    <img src={data.flag} alt={imageAlt} />
+                    <LazyImage
+                        src={data.flag}
+                        alt={imageAlt}
+                        placeholderImage={
+                            process.env.PUBLIC_URL +
+                            "/assets/flag_placeholder.jpg"
+                        }
+                    />
                 </div>
                 <div className={countriesListItemStyle.listItemContent}>
                     <h3>{data.name}</h3>
