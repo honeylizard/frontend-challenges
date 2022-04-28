@@ -70,7 +70,11 @@ const FormInput = ({
                     required={required}
                     placeholder={placeholder}
                     aria-invalid={errorMessage ? true : false}
-                    aria-describedby={describedByList.join(" ")}
+                    aria-describedby={
+                        describedByList.length > 0
+                            ? describedByList.join(" ")
+                            : null
+                    }
                     {...attrs}
                 />
             </div>
@@ -83,7 +87,11 @@ const FormInput = ({
                     required={required}
                     placeholder={placeholder}
                     aria-invalid={errorMessage ? true : false}
-                    aria-describedby={describedByList.join(" ")}
+                    aria-describedby={
+                        describedByList.length > 0
+                            ? describedByList.join(" ")
+                            : null
+                    }
                     {...attrs}
                 />
             </div>

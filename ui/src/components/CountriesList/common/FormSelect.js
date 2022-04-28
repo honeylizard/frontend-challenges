@@ -73,7 +73,11 @@ const FormSelect = ({
                     required={required}
                     value={selectedOptionValue}
                     aria-invalid={errorMessage ? true : false}
-                    aria-describedby={describedByList.join(" ")}
+                    aria-describedby={
+                        describedByList.length > 0
+                            ? describedByList.join(" ")
+                            : null
+                    }
                     {...attrs}
                 >
                     <option value="" disabled={disablePlaceholder}>
