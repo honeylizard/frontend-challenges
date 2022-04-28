@@ -11,7 +11,7 @@ const Footer = ({ intl }) => {
     const codedBy = intl.formatMessage({ id: "footer.codedBy" });
 
     return (
-        <footer role="contentinfo" className={countriesApiStyle.footer}>
+        <footer className={countriesApiStyle.footer}>
             <div className={countriesApiStyle.wrapper}>
                 <FormattedMessage
                     id="footer.challenge.link"

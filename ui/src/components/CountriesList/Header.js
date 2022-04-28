@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { GlobalContext } from "../../GlobalStateProvider";
 import countriesApiStyle from "../../styles/countries-api/countries-api.module.scss";
+import Button from "./common/Button";
 
 const Header = ({ intl }) => {
     const { updateCountriesData, countriesApi: globalData } =
@@ -45,12 +46,12 @@ const Header = ({ intl }) => {
             >
                 {skipToContentLabel}
             </a>
-            <header role="banner" className={countriesApiStyle.header}>
+            <header className={countriesApiStyle.header}>
                 <span className={countriesApiStyle.headerTitle}>
                     {headerTitle}
                 </span>
 
-                <button
+                <Button
                     className={countriesApiStyle.themeModeButton}
                     onClick={changeTheme}
                 >
@@ -60,7 +61,7 @@ const Header = ({ intl }) => {
                     />
                     &nbsp;
                     {currentTheme ? lightModeLabel : darkModeLabal}
-                </button>
+                </Button>
             </header>
         </React.Fragment>
     );
