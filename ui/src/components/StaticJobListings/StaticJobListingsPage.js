@@ -42,9 +42,7 @@ const StaticJobListingsPage = ({ intl }) => {
                     </section>
                 </div>
             </div>
-            <footer
-                className={staticJobListingsStyle.footer}
-            >
+            <footer className={staticJobListingsStyle.footer}>
                 <div className="wrapper">
                     <FormattedMessage
                         id="footer.challenge.link"
