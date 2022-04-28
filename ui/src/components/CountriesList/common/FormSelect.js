@@ -59,6 +59,11 @@ const FormSelect = ({
         classNames ? classNames : null,
     ].filter(Boolean);
 
+    const describedByList = [
+        errorMessage ? `${id}-error` : null,
+        helpMessage ? `${id}-help` : null,
+    ].filter(Boolean);
+
     return (
         <div className={parentLevelClasses.join(" ")}>
             {renderLabel(id, label, required)}
@@ -68,9 +73,7 @@ const FormSelect = ({
                     required={required}
                     value={selectedOptionValue}
                     aria-invalid={errorMessage ? true : false}
-                    aria-describedby={`${errorMessage ? `${id}-error` : ""} ${
-                        helpMessage ? `${id}-help` : ""
-                    }`}
+                    aria-describedby={describedByList.join(" ")}
                     {...attrs}
                 >
                     <option value="" disabled={disablePlaceholder}>

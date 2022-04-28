@@ -53,6 +53,11 @@ const FormInput = ({
         helpMessage,
         attrs
     ) => {
+        const describedByList = [
+            errorMessage ? `${id}-error` : null,
+            helpMessage ? `${id}-help` : null,
+        ].filter(Boolean);
+
         return type === "search" ? (
             <div className={formFieldStyles.inputWrapper}>
                 <div className={formFieldStyles.prefixIcon}>
@@ -65,9 +70,7 @@ const FormInput = ({
                     required={required}
                     placeholder={placeholder}
                     aria-invalid={errorMessage ? true : false}
-                    aria-describedby={`${errorMessage ? `${id}-error` : ""} ${
-                        helpMessage ? `${id}-help` : ""
-                    }`}
+                    aria-describedby={describedByList.join(" ")}
                     {...attrs}
                 />
             </div>
@@ -80,9 +83,7 @@ const FormInput = ({
                     required={required}
                     placeholder={placeholder}
                     aria-invalid={errorMessage ? true : false}
-                    aria-describedby={`${errorMessage ? `${id}-error` : ""} ${
-                        helpMessage ? `${id}-help` : ""
-                    }`}
+                    aria-describedby={describedByList.join(" ")}
                     {...attrs}
                 />
             </div>
