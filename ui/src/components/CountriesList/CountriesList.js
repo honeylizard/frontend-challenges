@@ -101,8 +101,6 @@ const CountriesList = ({ intl }) => {
         );
     };
 
-    // TODO: lazy load to prevent slow rendering?
-
     return isLoaded ? (
         renderList()
     ) : (

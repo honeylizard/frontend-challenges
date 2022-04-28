@@ -39,3 +39,11 @@ Users should be able to:
 - Toggle the color scheme between light and dark mode *(optional)*
 
 ### Solution Features
+
+- Responsive Design
+- Internationalization Capabilities
+- WCAG 2.0 AA compliance (included a filter submission button as it was not included in design)
+- Sorts the list by country name
+- User can toggle between light and dark mode
+- Basic caching of API calls
+- Due to volume of API results, included lazy loading of images and loading suspense state for each result item in list page
