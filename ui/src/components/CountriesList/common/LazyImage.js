@@ -21,15 +21,9 @@ const LazyImage = ({ placeholderImage, alt = "", ...props }) => {
     }, []);
 
     return inView ? (
-        <img alt={alt} loading="lazy" {...props} />
+        <img alt={alt} {...props} />
     ) : (
-        <img
-            ref={placeholderRef}
-            src={placeholderImage}
-            alt={alt}
-            loading="lazy"
-            {...props}
-        />
+        <img ref={placeholderRef} src={placeholderImage} alt={alt} {...props} />
     );
 };
 
