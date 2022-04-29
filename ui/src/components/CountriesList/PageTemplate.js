@@ -9,13 +9,12 @@ const PageTemplate = ({ intl, children }) => {
     return (
         <React.Fragment>
             <Header />
-            <div
+            <main
                 id="content"
                 className={[pageTemplateStyle.content, "main"].join(" ")}
-                role="main"
             >
                 <div className={pageTemplateStyle.wrapper}>{children}</div>
-            </div>
+            </main>
             <Footer />
         </React.Fragment>
     );
