@@ -6,5 +6,9 @@
     {
       "title": "REST Countries API with color theme switcher",
       "solution_url": "/frontend-challenges/countries-api"
+    },
+    {
+      "title": "Bookmark Manager - Landing Page",
+      "solution_url": "/frontend-challenges/bookmark-landing-page"
     }
 ]

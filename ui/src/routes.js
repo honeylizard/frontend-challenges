@@ -1,3 +1,4 @@
+import BookmarkLandingPage from "./components/BookmarkLandingPage/BookmarkLandingPage";
 import CountriesListPage from "./components/CountriesList/pages/CountriesListPage";
 import CountryDetailsPage from "./components/CountriesList/pages/CountryDetailsPage";
 import HomePage from "./components/HomePage";
@@ -39,6 +40,13 @@ const routes = [
         authNeeded: false,
         exact: true,
         component: CountryDetailsPage,
+    },
+    {
+        name: "Bookmark Manager - Landing Page Challenge",
+        path: "/frontend-challenges/bookmark-landing-page",
+        authNeeded: false,
+        exact: true,
+        component: BookmarkLandingPage,
     },
     {
         name: "Not Found",
