@@ -38,6 +38,10 @@ const Header = ({ intl }) => {
         <React.Fragment>
             <Helmet>
                 <body className={bodyClasses.join(" ")} />
+                <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css2?family=Nunito+Sans"
+                />
             </Helmet>
             <a
                 className="sr-only sr-focusable"

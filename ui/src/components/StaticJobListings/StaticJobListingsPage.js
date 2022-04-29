@@ -16,11 +16,13 @@ const StaticJobListingsPage = ({ intl }) => {
     const codedBy = intl.formatMessage({ id: "footer.codedBy" });
     return (
         <React.Fragment>
-            <Helmet
-                bodyAttributes={{
-                    class: staticJobListingsStyle.solutionContainer,
-                }}
-            />
+            <Helmet>
+                <body className={staticJobListingsStyle.solutionContainer} />
+                <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css2?family=League+Spartan"
+                />
+            </Helmet>
             <a
                 className="sr-only sr-focusable"
                 href="#content"
