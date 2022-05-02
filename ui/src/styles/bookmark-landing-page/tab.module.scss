@@ -1,0 +1,89 @@
+@import "colors.module.scss";
+
+.tabsContainer {
+    .tabsList {
+        display: flex;
+        flex-flow: row wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border: 1px solid $grey-01;
+
+        .tabsListItem {
+            margin: 0;
+            padding: 0;
+
+            &:hover,
+            &:focus-visible,
+            &:focus-within {
+                background-color: $grey-01;
+            }
+
+            &.tabsListItemActive {
+                background-color: $outline-blue;
+
+                &:hover,
+                &:focus-visible,
+                &:focus-within {
+                    background-color: $grey-01;
+                }
+            }
+
+            button {
+                display: block;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                padding: 0.5rem 1em;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    .tabsPanel {
+        border: 1px solid $grey-01;
+        border-top: none;
+        padding: 1.5rem;
+
+        &:focus,
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
+    &.tabsContainerHorizontalLeft {
+        display: flex;
+        flex-flow: row;
+
+        .tabsList {
+            display: flex;
+            flex-flow: column wrap;
+            min-width: 100px;
+        }
+
+        .tabsPanel {
+            border: 1px solid $grey-01;
+            border-left: none;
+        }
+    }
+
+    &.tabsContainerHorizontalRight {
+        display: flex;
+        flex-flow: row;
+        flex-direction: row-reverse;
+
+        .tabsList {
+            display: flex;
+            flex-flow: column wrap;
+            min-width: 100px;
+        }
+
+        .tabsPanel {
+            border: 1px solid $grey-01;
+            border-right: none;
+        }
+    }
+}

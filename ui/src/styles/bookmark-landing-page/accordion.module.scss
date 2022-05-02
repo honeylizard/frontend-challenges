@@ -1,0 +1,21 @@
+@import "colors.module.scss";
+
+.accordionContainer {
+    width: 100%;
+    box-sizing: border-box;
+
+    .accordionTitle {
+        width: 100%;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        border-radius: 0;
+        border: none;
+    }
+
+    .accordionContent {
+        border: none;
+    }
+}

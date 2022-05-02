@@ -1,9 +1,5 @@
 @import "../_core";
-
-$challenge-blue: #5368DF; // hsl(231, 69%, 60%)
-$challenge-blue-dark: #252B46; // hsl(229, 31%, 21%)
-$challenge-orange: #FA5757; // hsl(0, 94%, 66%)
-$challenge-grey: #9194a1; // hsl(229, 8%, 60%)
+@import "colors.module.scss";
 
 // https://fonts.google.com/specimen/Rubix
 $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -39,6 +35,22 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
     .content {
         background-color: $white;
         color: $challenge-blue-dark;
+
+        .row {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .listNoStyle {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
     }
 
     .footerContainer {

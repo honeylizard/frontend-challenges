@@ -1,0 +1,112 @@
+{
+    "overview": {
+        "title": "A Simple Bookmark Manager",
+        "description": "A clean and simple interface to organize your favorites websites. Open a new browser tab and see your sites load instantly. Try it for free.",
+        "callToActions": [
+            {
+                "label": "Get it on Chrome",
+                "url": ""
+            },
+            {
+                "label": "Get it on Firefox",
+                "url": ""
+            }
+        ],
+        "image": "/assets/illustrations/illustration-hero.svg"
+    },
+    "features": {
+        "title": "Features",
+        "description": "Our aim is to make it quick and easy for you to access your favorites websites. Your bookmarks sync between your devices so you can access them on the go.",
+        "details": [
+            {
+                "title": "Bookmark in one click",
+                "description": "Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favorite sites.",
+                "label": "Simple Bookmarking",
+                "link": {
+                    "label": "More Info",
+                    "url": ""
+                },
+                "image": "/assets/illustrations/illustration-features-tab-1.svg"
+            },
+            {
+                "title": "Intelligent search",
+                "description": "Our powerful search feature will help you find saved sites in no time at all. No need to trawl through all of your bookmarks.",
+                "label": "Speedy Searching",
+                "link": {
+                    "label": "More Info",
+                    "url": ""
+                },
+                "image": "/assets/illustrations/illustration-features-tab-2.svg"
+            },
+            {
+                "title": "Share your bookmarks",
+                "description": "Easily share your bookmarks and collections with others. Create a shareable link that you can send at the click of a button.",
+                "label": "Easy Sharing",
+                "link": {
+                    "label": "More Info",
+                    "url": ""
+                },
+                "image": "/assets/illustrations/illustration-features-tab-3.svg"
+            }
+        ]
+    },
+    "download": {
+        "title": "Download the extension",
+        "description": "We've got more browsers in the pipeline. Please do let us know if you've got a favorite you'd like us to prioritize.",
+        "details": [
+            {
+                "title": "Add to Chrome",
+                "description": "Minimum version 62",
+                "link": {
+                    "label": "Add & Install Extension",
+                    "url": ""
+                },
+                "image": "/assets/browser-logos/logo-chrome.svg"
+            },
+            {
+                "title": "Add to Firefox",
+                "description": "Minimum version 55",
+                "link": {
+                    "label": "Add & Install Extension",
+                    "url": ""
+                },
+                "image": "/assets/browser-logos/logo-firefox.svg"
+            },
+            {
+                "title": "Add to Opera",
+                "description": "Minimum version 46",
+                "link": {
+                    "label": "Add & Install Extension",
+                    "url": ""
+                },
+                "image": "/assets/browser-logos/logo-opera.svg"
+            }
+        ]
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "description": "Here are some of our FAQs. If you have any other questions you'd like answered please feel free to email us.",
+        "details": [
+            {
+                "title": "What is Bookmark?",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies est eu urna rutrum, quis facilisis elit volutpat. Fusce fermentum justo a feugiat malesuada. Donec rutrum libero id odio tempus ultricies. Aenean non fringilla justo. Morbi fermentum purus vulputate, viverra sem consequat, consequat leo. Sed luctus commodo turpis in tempus. Maecenas tellus orci, tincidunt non enim vel, mollis cursus arcu."
+            },
+            {
+                "title": "How can I request a new browser?",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies est eu urna rutrum, quis facilisis elit volutpat. Fusce fermentum justo a feugiat malesuada. Donec rutrum libero id odio tempus ultricies. Aenean non fringilla justo. Morbi fermentum purus vulputate, viverra sem consequat, consequat leo. Sed luctus commodo turpis in tempus. Maecenas tellus orci, tincidunt non enim vel, mollis cursus arcu."
+            },
+            {
+                "title": "Is there a mobile app?",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies est eu urna rutrum, quis facilisis elit volutpat. Fusce fermentum justo a feugiat malesuada. Donec rutrum libero id odio tempus ultricies. Aenean non fringilla justo. Morbi fermentum purus vulputate, viverra sem consequat, consequat leo. Sed luctus commodo turpis in tempus. Maecenas tellus orci, tincidunt non enim vel, mollis cursus arcu."
+            },
+            {
+                "title": "What about other Chromium browsers?",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies est eu urna rutrum, quis facilisis elit volutpat. Fusce fermentum justo a feugiat malesuada. Donec rutrum libero id odio tempus ultricies. Aenean non fringilla justo. Morbi fermentum purus vulputate, viverra sem consequat, consequat leo. Sed luctus commodo turpis in tempus. Maecenas tellus orci, tincidunt non enim vel, mollis cursus arcu."
+            }
+        ],
+        "link": {
+            "label": "More Info",
+            "url": ""
+        }
+    }
+}
