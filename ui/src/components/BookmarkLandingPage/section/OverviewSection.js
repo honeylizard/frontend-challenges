@@ -9,10 +9,16 @@ const OverviewSection = ({ data }) => {
     };
 
     return (
-        <section className={[pageStyles.section, pageStyles.row].join(" ")}>
-            <div>
-                <h1>{data.title}</h1>
-                <p>{data.description}</p>
+        <section
+            className={[
+                pageStyles.section,
+                pageStyles.overview,
+                pageStyles.row,
+            ].join(" ")}
+        >
+            <div className={pageStyles.overviewContent}>
+                <h1 className={pageStyles.title}>{data.title}</h1>
+                <p className={pageStyles.description}>{data.description}</p>
                 <ul className={pageStyles.row}>
                     {data.callToActions &&
                         data.callToActions.map((item, index) =>

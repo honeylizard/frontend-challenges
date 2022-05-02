@@ -6,7 +6,14 @@ import arrowDown from "../../../assets/bookmark-landing-page/icon-arrow.svg";
 
 import accordionStyles from "../../../styles/bookmark-landing-page/accordion.module.scss";
 
-const Accordion = ({ id, title, children, ...attrs }) => {
+const Accordion = ({
+    id,
+    title,
+    children,
+    customClasses = [],
+    customTitleClasses = [],
+    ...attrs
+}) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const toggleContent = () => {
@@ -14,10 +21,20 @@ const Accordion = ({ id, title, children, ...attrs }) => {
     };
 
     return (
-        <div id={id} className={accordionStyles.accordionContainer} {...attrs}>
+        <div
+            id={id}
+            className={[
+                accordionStyles.accordionContainer,
+                ...customClasses,
+            ].join(" ")}
+            {...attrs}
+        >
             <Button
                 id={`${id}-title`}
-                customClasses={[accordionStyles.accordionTitle]}
+                customClasses={[
+                    accordionStyles.accordionTitle,
+                    ...customTitleClasses,
+                ]}
                 onClick={toggleContent}
                 aria-controls={`${id}-content`}
             >
@@ -46,6 +63,8 @@ Accordion.propTypes = {
     id: PropTypes.string,
     title: PropTypes.string,
     children: PropTypes.node,
+    customClasses: PropTypes.array,
+    customTitleClasses: PropTypes.array,
 };
 
 export default Accordion;

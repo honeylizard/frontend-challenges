@@ -1,29 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
+import divider from "../../../assets/bookmark-landing-page/bg-dots.svg";
 
 import pageStyles from "../../../styles/bookmark-landing-page/page.module.scss";
 
 const DownloadSection = ({ data }) => {
     const renderItem = (key, title, description, image, label, url) => {
         return (
-            <li key={key}>
-                <img
-                    src={process.env.PUBLIC_URL + image}
-                    alt=""
-                    role="presentation"
-                />
-                <h3>{title}</h3>
-                <p>{description}</p>
-                <div>{label}</div>
+            <li key={key} className={pageStyles.card}>
+                <div className={pageStyles.cardContent}>
+                    <img
+                        src={process.env.PUBLIC_URL + image}
+                        alt=""
+                        role="presentation"
+                    />
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                    <img src={divider} alt="" role="presentation" />
+                    <div>{label}</div>
+                </div>
             </li>
         );
     };
 
     return (
         <section className={pageStyles.section}>
-            <h2>{data.title}</h2>
-            <p>{data.description}</p>
-            <ul className={pageStyles.row}>
+            <h2 className={pageStyles.title}>{data.title}</h2>
+            <p className={pageStyles.description}>{data.description}</p>
+            <ul
+                className={[pageStyles.row, pageStyles.cardOffsetList].join(
+                    " "
+                )}
+            >
                 {data.details &&
                     data.details.map((item, index) =>
                         renderItem(

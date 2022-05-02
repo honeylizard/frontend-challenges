@@ -7,8 +7,12 @@ import pageStyles from "../../../styles/bookmark-landing-page/page.module.scss";
 const FaqSection = ({ data }) => {
     const renderQuestion = (key, title, description) => {
         return (
-            <li key={key}>
-                <Accordion id={key} title={title}>
+            <li key={key} className={pageStyles.faqListItem}>
+                <Accordion
+                    id={key}
+                    title={title}
+                    customTitleClasses={[pageStyles.faqQuestion]}
+                >
                     <p>{description}</p>
                 </Accordion>
             </li>
@@ -17,9 +21,13 @@ const FaqSection = ({ data }) => {
 
     return (
         <section className={pageStyles.section}>
-            <h2>{data.title}</h2>
-            <p>{data.description}</p>
-            <ul className={pageStyles.listNoStyle}>
+            <h2 className={pageStyles.title}>{data.title}</h2>
+            <p className={pageStyles.description}>{data.description}</p>
+            <ul
+                className={[pageStyles.listNoStyle, pageStyles.faqList].join(
+                    " "
+                )}
+            >
                 {data.details &&
                     data.details.map((item, index) =>
                         renderQuestion(
@@ -29,7 +37,7 @@ const FaqSection = ({ data }) => {
                         )
                     )}
             </ul>
-            <div>{data.link.label}</div>
+            <div className={pageStyles.sectionLink}>{data.link.label}</div>
         </section>
     );
 };

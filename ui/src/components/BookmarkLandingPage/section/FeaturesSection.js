@@ -30,8 +30,8 @@ const FeatureSection = ({ data }) => {
 
     return (
         <section className={pageStyles.section}>
-            <h2>{data.title}</h2>
-            <p>{data.description}</p>
+            <h2 className={pageStyles.title}>{data.title}</h2>
+            <p className={pageStyles.description}>{data.description}</p>
             <Tabs id="example-01">
                 {data.details &&
                     data.details.map((tab, index) =>
