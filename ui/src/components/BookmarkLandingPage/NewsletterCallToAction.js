@@ -4,6 +4,8 @@ import { injectIntl, FormattedMessage } from "react-intl";
 import pageStyles from "../../styles/bookmark-landing-page/page.module.scss";
 
 const NewsletterCallToAction = ({ intl }) => {
+    // TODO: setup form submission logic and validation
+    // TODO: style section
     return (
         <section className={pageStyles.callToAction}>
             <div className={pageStyles.wrapper}>

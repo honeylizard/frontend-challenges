@@ -11,6 +11,7 @@ const Header = ({ intl }) => {
 
     const bodyClasses = [pageStyles.solutionContainer].filter(Boolean);
 
+    // TODO: style section
     return (
         <React.Fragment>
             <Helmet>

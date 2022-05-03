@@ -18,12 +18,10 @@ const BookmarkLandingPage = () => {
                 id="content"
                 className={[pageStyles.content, "main"].join(" ")}
             >
-                <div className={pageStyles.wrapper}>
-                    <OverviewSection data={data.overview} />
-                    <FeatureSection data={data.features} />
-                    <DownloadSection data={data.download} />
-                    <FaqSection data={data.faq} />
-                </div>
+                <OverviewSection data={data.overview} />
+                <FeatureSection data={data.features} />
+                <DownloadSection data={data.download} />
+                <FaqSection data={data.faq} />
             </main>
             <Footer />
         </React.Fragment>

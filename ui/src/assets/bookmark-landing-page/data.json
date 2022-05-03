@@ -5,11 +5,12 @@
         "callToActions": [
             {
                 "label": "Get it on Chrome",
-                "url": ""
+                "url": "#"
             },
             {
                 "label": "Get it on Firefox",
-                "url": ""
+                "url": "#",
+                "type": "secondary"
             }
         ],
         "image": "/assets/illustrations/illustration-hero.svg"
@@ -24,7 +25,7 @@
                 "label": "Simple Bookmarking",
                 "link": {
                     "label": "More Info",
-                    "url": ""
+                    "url": "#"
                 },
                 "image": "/assets/illustrations/illustration-features-tab-1.svg"
             },
@@ -34,7 +35,7 @@
                 "label": "Speedy Searching",
                 "link": {
                     "label": "More Info",
-                    "url": ""
+                    "url": "#"
                 },
                 "image": "/assets/illustrations/illustration-features-tab-2.svg"
             },
@@ -44,7 +45,7 @@
                 "label": "Easy Sharing",
                 "link": {
                     "label": "More Info",
-                    "url": ""
+                    "url": "#"
                 },
                 "image": "/assets/illustrations/illustration-features-tab-3.svg"
             }
@@ -59,7 +60,7 @@
                 "description": "Minimum version 62",
                 "link": {
                     "label": "Add & Install Extension",
-                    "url": ""
+                    "url": "#"
                 },
                 "image": "/assets/browser-logos/logo-chrome.svg"
             },
@@ -68,7 +69,7 @@
                 "description": "Minimum version 55",
                 "link": {
                     "label": "Add & Install Extension",
-                    "url": ""
+                    "url": "#"
                 },
                 "image": "/assets/browser-logos/logo-firefox.svg"
             },
@@ -77,7 +78,7 @@
                 "description": "Minimum version 46",
                 "link": {
                     "label": "Add & Install Extension",
-                    "url": ""
+                    "url": "#"
                 },
                 "image": "/assets/browser-logos/logo-opera.svg"
             }
@@ -89,24 +90,24 @@
         "details": [
             {
                 "title": "What is Bookmark?",
-                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies est eu urna rutrum, quis facilisis elit volutpat. Fusce fermentum justo a feugiat malesuada. Donec rutrum libero id odio tempus ultricies. Aenean non fringilla justo. Morbi fermentum purus vulputate, viverra sem consequat, consequat leo. Sed luctus commodo turpis in tempus. Maecenas tellus orci, tincidunt non enim vel, mollis cursus arcu."
+                "description": "  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis."
             },
             {
                 "title": "How can I request a new browser?",
-                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies est eu urna rutrum, quis facilisis elit volutpat. Fusce fermentum justo a feugiat malesuada. Donec rutrum libero id odio tempus ultricies. Aenean non fringilla justo. Morbi fermentum purus vulputate, viverra sem consequat, consequat leo. Sed luctus commodo turpis in tempus. Maecenas tellus orci, tincidunt non enim vel, mollis cursus arcu."
+                "description": "Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies non ligula. Suspendisse imperdiet. Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies non ligula. Suspendisse imperdie tVivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies non ligula. Suspendisse imperdiet."
             },
             {
                 "title": "Is there a mobile app?",
-                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies est eu urna rutrum, quis facilisis elit volutpat. Fusce fermentum justo a feugiat malesuada. Donec rutrum libero id odio tempus ultricies. Aenean non fringilla justo. Morbi fermentum purus vulputate, viverra sem consequat, consequat leo. Sed luctus commodo turpis in tempus. Maecenas tellus orci, tincidunt non enim vel, mollis cursus arcu."
+                "description": " Sed consectetur quam id neque fermentum accumsan. Praesent luctus vestibulum dolor, ut condimentum urna vulputate eget. Cras in ligula quis est pharetra mattis sit amet pharetra purus. Sed sollicitudin ex et ultricies bibendum."
             },
             {
                 "title": "What about other Chromium browsers?",
-                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies est eu urna rutrum, quis facilisis elit volutpat. Fusce fermentum justo a feugiat malesuada. Donec rutrum libero id odio tempus ultricies. Aenean non fringilla justo. Morbi fermentum purus vulputate, viverra sem consequat, consequat leo. Sed luctus commodo turpis in tempus. Maecenas tellus orci, tincidunt non enim vel, mollis cursus arcu."
+                "description": "Integer condimentum ipsum id imperdiet finibus. Vivamus in placerat mi, at euismod dui. Aliquam vitae neque eget nisl gravida pellentesque non ut velit."
             }
         ],
         "link": {
             "label": "More Info",
-            "url": ""
+            "url": "#"
         }
     }
 }

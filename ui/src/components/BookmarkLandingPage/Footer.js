@@ -18,6 +18,7 @@ const Footer = ({ intl }) => {
     });
     const codedBy = intl.formatMessage({ id: "footer.codedBy" });
 
+    // TODO: style section
     return (
         <footer className={pageStyles.footerContainer}>
             <NewsletterCallToAction />
