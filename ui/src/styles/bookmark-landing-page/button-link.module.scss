@@ -4,7 +4,7 @@
     display: inline-block;
     margin: 10px;
     padding: 0.375rem 0.75rem;
-    border: 2px outset transparent;
+    border: 2px solid transparent;
     text-decoration: none;
     font-size: 1rem;
     text-align: center;
@@ -23,21 +23,33 @@
         border-color: $challenge-blue;
 
         &:hover {
-            background-color: $challenge-grey;
+            background-color: transparent;
+            color: $challenge-blue;
+            border-color: $challenge-blue;
+        }
+    }
+
+    &.buttonSecondary {
+        background-color: $challenge-grey-02;
+        color: $black;
+        border-color: $challenge-grey-02;
+
+        &:hover {
+            background-color: transparent;
             color: $black;
             border-color: $challenge-grey;
         }
     }
 
-    &.buttonSecondary {
-        background-color: $challenge-grey;
-        color: $black;
-        border-color: $challenge-grey;
+    &.buttonTertiary {
+        background-color: $challenge-orange;
+        color: $white;
+        border-color: $challenge-orange;
 
         &:hover {
-            background-color: $challenge-blue;
-            color: $white;
-            border-color: $challenge-blue;
+            background-color: transparent;
+            color: $challenge-orange;
+            border-color: $challenge-orange;
         }
     }
 }

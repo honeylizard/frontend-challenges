@@ -1,0 +1,44 @@
+@import "colors.module.scss";
+
+.modalContainer {
+    background-color: $white;
+    padding: 20px;
+
+    .modalHeader {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+    }
+
+    .modalHeaderNoTitle {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-end;
+    }
+
+    .headerCloseButton {
+        background-color: transparent;
+        border-color: transparent;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .modalFooter {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-end;
+
+        button {
+            margin: 0 10px;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.modal {
+    min-width: 250px;
+    max-width: 500px;
+}

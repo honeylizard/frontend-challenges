@@ -7,46 +7,77 @@
         list-style: none;
         margin: 0;
         padding: 0;
-        border: 1px solid $grey-01;
+        justify-content: center;
 
         .tabsListItem {
             margin: 0;
             padding: 0;
-
-            &:hover,
-            &:focus-visible,
-            &:focus-within {
-                background-color: $grey-01;
-            }
-
-            &.tabsListItemActive {
-                background-color: $outline-blue;
-
-                &:hover,
-                &:focus-visible,
-                &:focus-within {
-                    background-color: $grey-01;
-                }
-            }
+            border-bottom: 1px solid $grey-01;
+            box-sizing: border-box;
 
             button {
                 display: block;
                 border: none;
                 background-color: transparent;
                 cursor: pointer;
-                padding: 0.5rem 1em;
+                padding: 0;
+                box-sizing: border-box;
 
                 &:focus {
                     outline: none;
+                }
+
+                .tabButtonContent {
+                    display: block;
+                    padding: 20px 40px;
+                    box-sizing: border-box;
+                    border-bottom: 3px solid transparent;
+                }
+            }
+
+            &:focus-visible,
+            &:focus-within {
+                background-color: $challenge-grey-02;
+            }
+
+            &.tabsListItemActive {
+                &:focus-visible,
+                &:focus-within {
+                    background-color: $challenge-grey-02;
+                }
+
+                .tabButtonContent {
+                    border-color: $challenge-orange;
+                }
+            }
+        }
+
+        @media all and (max-width: 750px) {
+            flex-flow: column wrap;
+            align-items: center;
+
+            .tabsListItem {
+                width: 100%;
+
+                button {
+                    margin: 0 auto;
+
+                    .tabButtonContent {
+                        padding: 20px 0;
+                    }
+                }
+
+                &:first-child {
+                    border-top: 1px solid $grey-01;
                 }
             }
         }
     }
 
     .tabsPanel {
-        border: 1px solid $grey-01;
+        // border: 1px solid $grey-01;
         border-top: none;
-        padding: 1.5rem;
+        padding: 4rem 1.5rem;
 
         &:focus,
         &:focus-visible {

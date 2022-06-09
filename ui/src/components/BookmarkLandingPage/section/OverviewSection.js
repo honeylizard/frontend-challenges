@@ -15,15 +15,8 @@ const OverviewSection = ({ data }) => {
         );
     };
 
-    // TODO: combine the bg image and the illustration or else the alignment is gonna be funky
     return (
-        <section
-            className={[
-                pageStyles.section,
-                pageStyles.sectionBgRight,
-                pageStyles.sectionBgRightOverview,
-            ].join(" ")}
-        >
+        <section className={[pageStyles.section].join(" ")}>
             <div
                 className={[
                     pageStyles.wrapper,
@@ -34,7 +27,11 @@ const OverviewSection = ({ data }) => {
                 <div className={pageStyles.overviewContent}>
                     <h1 className={pageStyles.title}>{data.title}</h1>
                     <p className={pageStyles.description}>{data.description}</p>
-                    <ul className={pageStyles.row}>
+                    <ul
+                        className={[pageStyles.row, pageStyles.buttonRow].join(
+                            " "
+                        )}
+                    >
                         {data.callToActions &&
                             data.callToActions.map((item, index) =>
                                 renderCallToAction(

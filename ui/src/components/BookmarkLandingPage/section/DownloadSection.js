@@ -17,12 +17,9 @@ const DownloadSection = ({ data }) => {
                     />
                     <h3>{title}</h3>
                     <p>{description}</p>
-                    <img
-                        src={divider}
-                        alt=""
-                        role="presentation"
-                        className={pageStyles.cardDivider}
-                    />
+                    <div className={pageStyles.cardDivider} aria-hidden="true">
+                        &nbsp;
+                    </div>
                     <ButtonLink url={url}>{label}</ButtonLink>
                 </div>
             </li>

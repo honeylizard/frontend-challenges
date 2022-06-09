@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { injectIntl, FormattedMessage } from "react-intl";
+import { injectIntl } from "react-intl";
 import pageStyles from "../../styles/bookmark-landing-page/page.module.scss";
 
 const NewsletterCallToAction = ({ intl }) => {

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import Accordion from "../common/Accordion";
 
 import pageStyles from "../../../styles/bookmark-landing-page/page.module.scss";

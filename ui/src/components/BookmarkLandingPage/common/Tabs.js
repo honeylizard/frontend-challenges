@@ -8,7 +8,9 @@ const Tabs = ({ id, children, ...attrs }) => {
     const [activeTabIndex, setActiveTabIndex] = useState(0);
 
     const handleTabChange = (event) => {
-        const newActiveIndex = parseInt(event.target.dataset.index);
+        const newActiveIndex = parseInt(
+            event.target.parentElement.dataset.index
+        );
         setActiveTabIndex(newActiveIndex);
         event.currentTarget.blur();
         tabPanelRef.current.focus();
@@ -24,7 +26,7 @@ const Tabs = ({ id, children, ...attrs }) => {
                 onClick={onClick}
                 data-index={index}
             >
-                {name}
+                <span className={tabStyles.tabButtonContent}>{name}</span>
             </button>
         );
     };

@@ -44,12 +44,9 @@ const FeatureSection = ({ data }) => {
         );
     };
 
-    // TODO: combine the bg image and the illustrations or else the alignment is gonna be funky
     // TODO: style the tab nav and border of tab content
     return (
-        <section
-            className={[pageStyles.section, pageStyles.sectionBgLeft].join(" ")}
-        >
+        <section className={[pageStyles.section].join(" ")}>
             <div className={pageStyles.wrapper}>
                 <h2 className={pageStyles.title}>{data.title}</h2>
                 <p className={pageStyles.description}>{data.description}</p>

@@ -75,5 +75,11 @@
 	"countriesApi.filter.name.placeholder": "Search for a country...",
 	"countriesApi.filter.region.label": "Search by Region",
 	"countriesApi.filter.region.all": "All Regions",
-	"countriesApi.filter.submit.label": "Apply Filters"
+	"countriesApi.filter.submit.label": "Apply Filters",
+
+	"bookmarkLanding.header.logoAlt": "Bookmark Company Logo",
+	"bookmarkLanding.nav.primary": "Primary Navigation",
+	"bookmarkLanding.close": "Close",
+	"bookmarkLanding.cancel": "Cancel",
+	"bookmarkLanding.login": "Login"
 }
