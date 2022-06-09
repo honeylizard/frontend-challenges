@@ -48,6 +48,8 @@ const Footer = ({ intl }) => {
         },
     ];
 
+    // TODO: move navigation data
+
     return (
         <footer className={pageStyles.footerContainer}>
             <NewsletterCallToAction />

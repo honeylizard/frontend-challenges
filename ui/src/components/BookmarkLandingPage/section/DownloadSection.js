@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ButtonLink from "../common/ButtonLink";
-import divider from "../../../assets/bookmark-landing-page/bg-dots.svg";
 
 import pageStyles from "../../../styles/bookmark-landing-page/page.module.scss";
 
