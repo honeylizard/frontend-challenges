@@ -1,6 +1,7 @@
 @import "colors.module.scss";
 
 @mixin basicButton {
+    /*
     display: inline-block;
     margin: 0;
     padding: 0.375rem 0.75rem;
@@ -17,11 +18,57 @@
         background-color: $black;
         color: $grey-02;
     }
+    */
+    display: inline-block;
+    margin: 10px;
+    padding: 0.375rem 0.75rem;
+    border: 2px solid transparent;
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: .25rem;
+    cursor: pointer;
 
     &:focus-visible {
         border-color: $outline-blue;
         outline: 0;
         box-shadow: 0 0 0 0.15rem $outline-blue;
+    }
+
+    &.buttonPrimary {
+        background-color: $challenge-blue;
+        color: $white;
+        border-color: $challenge-blue;
+
+        &:hover {
+            background-color: transparent;
+            color: $challenge-blue;
+            border-color: $challenge-blue;
+        }
+    }
+
+    &.buttonSecondary {
+        background-color: $challenge-grey-02;
+        color: $black;
+        border-color: $challenge-grey-02;
+
+        &:hover {
+            background-color: transparent;
+            color: $black;
+            border-color: $challenge-grey;
+        }
+    }
+
+    &.buttonTertiary {
+        background-color: $challenge-orange;
+        color: $white;
+        border-color: $challenge-orange;
+
+        &:hover {
+            background-color: transparent;
+            color: $challenge-orange;
+            border-color: $challenge-orange;
+        }
     }
 }
 

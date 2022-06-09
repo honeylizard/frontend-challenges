@@ -279,12 +279,87 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
         .callToAction {
             background-color: $challenge-blue;
             color: $white;
-            padding: 20px 0;
+            padding: 80px 0;
+
+            .wrapper {
+                max-width: 450px;
+                text-align: center;
+
+                @media all and (max-width: 1300px) {
+                    margin: 0 auto;
+                }
+            }
 
             .reverseHeaderOrder {
                 display: flex;
                 flex-direction: column-reverse;
                 flex-wrap: wrap;
+            }
+
+            .callToActionTitle {
+                font-size: 30px;
+                margin: 0;
+                padding: 40px 25px 30px 25px;
+            }
+
+            .callToActionSubtitle {
+                text-transform: uppercase;
+                font-size: 14px;
+                letter-spacing: 5px;
+                font-weight: 500;
+                margin: 0;
+                padding: 0;
+            }
+
+            form {
+                input {
+                    font-size: 14px;
+                    padding: 15px 20px;
+                    border-radius: 5px;
+                    min-width: 250px;
+                    box-sizing: border-box;
+                    margin: 10px;
+                    border: none;
+
+                    /* do not group these rules */
+                    &::-webkit-input-placeholder {
+                        color: $challenge-grey-03;
+                    }
+                    &:-moz-placeholder {
+                        color: $challenge-grey-03;
+                        opacity: 1;
+                    }
+                    &::-moz-placeholder {
+                        color: $challenge-grey-03;
+                        opacity: 1;
+                    }
+                    &:-ms-input-placeholder {
+                        color: $challenge-grey-03;
+                    }
+                    &::-ms-input-placeholder {
+                        color: $challenge-grey-03;
+                    }
+                    &::placeholder {
+                        color: $challenge-grey-03;
+                    }
+
+                    @media all and (max-width: 350px) {
+                        min-width: none;
+                        width: 95%;
+                        margin: 10px auto;
+                    }
+                }
+
+                .callToActionSubmit {
+                    padding: 13px 20px;
+                    font-size: 14px;
+                    box-sizing: border-box;
+                    margin: 10px;
+
+                    &:hover {
+                        background-color: $white;
+                    }
+                }
             }
         }
 
