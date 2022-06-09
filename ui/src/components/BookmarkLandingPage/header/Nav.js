@@ -5,10 +5,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import ModalWrapper from "../common/ModalWrapper";
 import HeaderNavList from "./NavList";
+import appLogo from "../../../assets/bookmark-landing-page/logo-bookmark-white.svg";
 
 import pageStyles from "../../../styles/bookmark-landing-page/page.module.scss";
 
 const Nav = ({ intl, navLabel }) => {
+    const headerLogoAlt = intl.formatMessage({
+        id: "bookmarkLanding.header.logoAlt",
+    });
+
     const navItems = [
         {
             label: "Features",
@@ -38,11 +43,21 @@ const Nav = ({ intl, navLabel }) => {
                 }
                 customTriggerButtonClasses={[pageStyles.headerNavMobileButton]}
                 showConfirmButton={false}
+                customContainerClasses={[pageStyles.headerNavModal]}
+                customCloseClasses={[pageStyles.headerNavModalClose]}
+                title={
+                    <img
+                        src={appLogo}
+                        alt={headerLogoAlt}
+                        className={pageStyles.headerNavMobileLogo}
+                    />
+                }
             >
                 <HeaderNavList
                     data={navItems}
                     label={navLabel}
                     listClasses={[pageStyles.headerNavMobile]}
+                    buttonType="mobile"
                 />
             </ModalWrapper>
             <HeaderNavList

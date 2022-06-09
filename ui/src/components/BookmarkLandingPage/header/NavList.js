@@ -6,7 +6,13 @@ import HeaderNavItem from "./NavItem";
 
 import pageStyles from "../../../styles/bookmark-landing-page/page.module.scss";
 
-const NavList = ({ intl, label, listClasses = [], data = [] }) => {
+const NavList = ({
+    intl,
+    label,
+    listClasses = [],
+    data = [],
+    buttonType = "tertiary",
+}) => {
     const loginLabel = intl.formatMessage({
         id: "bookmarkLanding.login",
     });
@@ -24,7 +30,7 @@ const NavList = ({ intl, label, listClasses = [], data = [] }) => {
                         />
                     ))}
                 <li>
-                    <ButtonLink url="#" type="tertiary">
+                    <ButtonLink url="#" type={buttonType}>
                         {loginLabel}
                     </ButtonLink>
                 </li>
@@ -38,6 +44,7 @@ NavList.propTypes = {
     label: PropTypes.string.isRequired,
     listClasses: PropTypes.array,
     data: PropTypes.array,
+    buttonType: PropTypes.string,
 };
 
 export default injectIntl(NavList);

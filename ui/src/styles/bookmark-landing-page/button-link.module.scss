@@ -52,4 +52,22 @@
             border-color: $challenge-orange;
         }
     }
+
+    &.buttonMobile {
+        background-color: transparent;
+        color: $white;
+        border-color: $white;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 20px 0;
+        font-size: 20px;
+        text-transform: uppercase;
+
+        &:hover,
+        &:focus-visible {
+            background-color: transparent;
+            color: $challenge-orange;
+            border-color: $challenge-orange;
+        }
+    }
 }

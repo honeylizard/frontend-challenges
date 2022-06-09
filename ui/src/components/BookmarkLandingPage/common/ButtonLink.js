@@ -15,6 +15,7 @@ const ButtonLink = ({
         type === "primary" ? buttonStyles.buttonPrimary : null,
         type === "secondary" ? buttonStyles.buttonSecondary : null,
         type === "tertiary" ? buttonStyles.buttonTertiary : null,
+        type === "mobile" ? buttonStyles.buttonMobile : null,
         ...customClasses,
     ].filter(Boolean);
 

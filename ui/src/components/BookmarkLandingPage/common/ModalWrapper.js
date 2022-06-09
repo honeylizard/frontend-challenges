@@ -25,6 +25,8 @@ const ModalWrapper = ({
     customTriggerButtonClasses = [],
     triggerIconOnly = false,
     triggerIcon,
+    customContainerClasses = [],
+    customCloseClasses = [],
 }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -62,6 +64,16 @@ const ModalWrapper = ({
         handleModalClose();
     };
 
+    const modalContainerClasses = [
+        modalStyles.modalContainer,
+        ...customContainerClasses,
+    ].filter(Boolean);
+
+    const modalCloseClasses = [
+        modalStyles.headerCloseButton,
+        ...customCloseClasses,
+    ].filter(Boolean);
+
     return (
         <React.Fragment>
             <Button
@@ -81,7 +93,7 @@ const ModalWrapper = ({
                     onExit={handleModalClose}
                     getApplicationNode={getApplicationNode}
                     verticallyCenter={true}
-                    dialogClass={modalStyles.modalContainer}
+                    dialogClass={modalContainerClasses.join(" ")}
                     aria-describedby={`${id}_desc`}
                 >
                     <div className={modalStyles.modal}>
@@ -104,7 +116,7 @@ const ModalWrapper = ({
                                     onClick={handleModalClose}
                                     title={closeLabelDefault}
                                     aria-label={closeLabelDefault}
-                                    className={modalStyles.headerCloseButton}
+                                    className={modalCloseClasses.join(" ")}
                                 >
                                     <FontAwesomeIcon
                                         icon={faXmark}
@@ -161,6 +173,8 @@ ModalWrapper.propTypes = {
     customTriggerButtonClasses: PropTypes.array,
     triggerIconOnly: PropTypes.bool,
     triggerIcon: PropTypes.node,
+    customContainerClasses: PropTypes.array,
+    customCloseClasses: PropTypes.array,
 };
 
 export default injectIntl(ModalWrapper);
