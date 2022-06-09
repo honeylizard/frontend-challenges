@@ -18,8 +18,6 @@ const ButtonLink = ({
         ...customClasses,
     ].filter(Boolean);
 
-    // TODO: finish styling button links
-
     return url ? (
         <Link to={url} className={classes.join(" ")} {...attrs}>
             {children}

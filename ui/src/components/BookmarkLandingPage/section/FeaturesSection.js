@@ -44,7 +44,6 @@ const FeatureSection = ({ data }) => {
         );
     };
 
-    // TODO: style the tab nav and border of tab content
     return (
         <section className={[pageStyles.section].join(" ")}>
             <div className={pageStyles.wrapper}>

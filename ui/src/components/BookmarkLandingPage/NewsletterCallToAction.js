@@ -6,7 +6,7 @@ import Button from "./common/Button";
 
 const NewsletterCallToAction = ({ intl }) => {
     // TODO: setup form submission logic and validation
-    // TODO: style section
+    // TODO: convert to translatable text
     return (
         <section className={pageStyles.callToAction}>
             <div className={pageStyles.wrapper}>

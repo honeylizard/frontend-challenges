@@ -19,6 +19,7 @@ const Footer = ({ intl }) => {
     });
     const codedBy = intl.formatMessage({ id: "footer.codedBy" });
 
+    // TODO: convert to translatable text
     const navItems = [
         {
             label: "Features",
