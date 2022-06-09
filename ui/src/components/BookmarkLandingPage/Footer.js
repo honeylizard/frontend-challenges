@@ -10,6 +10,7 @@ import appLogo from "../../assets/bookmark-landing-page/logo-bookmark-dark-bg.sv
 import NewsletterCallToAction from "./NewsletterCallToAction";
 
 import pageStyles from "../../styles/bookmark-landing-page/page.module.scss";
+import { Link } from "react-router-dom";
 
 const Footer = ({ intl }) => {
     const challengeLinkUrl = intl.formatMessage({ id: "footer.challenge.url" });
@@ -18,13 +19,44 @@ const Footer = ({ intl }) => {
     });
     const codedBy = intl.formatMessage({ id: "footer.codedBy" });
 
-    // TODO: style section
+    const navItems = [
+        {
+            label: "Features",
+            url: "#",
+        },
+        {
+            label: "Pricing",
+            url: "#",
+        },
+        {
+            label: "Contact",
+            url: "#",
+        },
+    ];
+
+    const socialNavItems = [
+        {
+            label: "Facebook",
+            url: "#",
+            icon: faFacebookSquare,
+        },
+        {
+            label: "Twitter",
+            url: "#",
+            icon: faTwitter,
+        },
+    ];
+
     return (
         <footer className={pageStyles.footerContainer}>
             <NewsletterCallToAction />
             <div className={pageStyles.footer}>
                 <div className={pageStyles.wrapper}>
-                    <img src={appLogo} alt="Bookmark Company Logo" />
+                    <img
+                        src={appLogo}
+                        alt="Bookmark Company Logo"
+                        className={pageStyles.footerLogo}
+                    />
                     <nav
                         className={[
                             pageStyles.footerNav,
@@ -33,9 +65,18 @@ const Footer = ({ intl }) => {
                         aria-label="Footer Navigation"
                     >
                         <ul>
-                            <li>Features</li>
-                            <li>Pricing</li>
-                            <li>Contact</li>
+                            {navItems &&
+                                navItems.length > 0 &&
+                                navItems.map((item, index) => (
+                                    <li key={`nav-item-${index}`}>
+                                        <Link
+                                            to={item.url}
+                                            className={pageStyles.basicLink}
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    </li>
+                                ))}
                         </ul>
                     </nav>
                     <nav
@@ -43,20 +84,24 @@ const Footer = ({ intl }) => {
                         aria-label="Social Media Navigation"
                     >
                         <ul>
-                            <li>
-                                Facebook{" "}
-                                <FontAwesomeIcon
-                                    icon={faFacebookSquare}
-                                    aria-hidden="true"
-                                />
-                            </li>
-                            <li>
-                                Twitter{" "}
-                                <FontAwesomeIcon
-                                    icon={faTwitter}
-                                    aria-hidden="true"
-                                />
-                            </li>
+                            {socialNavItems &&
+                                socialNavItems.length > 0 &&
+                                socialNavItems.map((item, index) => (
+                                    <li key={`social-nav-item-${index}`}>
+                                        <Link
+                                            to={item.url}
+                                            className={
+                                                pageStyles.socialMediaLink
+                                            }
+                                            title={item.label}
+                                        >
+                                            <FontAwesomeIcon
+                                                icon={item.icon}
+                                                aria-hidden="true"
+                                            />
+                                        </Link>
+                                    </li>
+                                ))}
                         </ul>
                     </nav>
                 </div>

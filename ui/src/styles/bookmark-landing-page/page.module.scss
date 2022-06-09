@@ -374,6 +374,15 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
                 flex-wrap: wrap;
                 gap: 2rem;
 
+                @media all and (max-width: 750px) {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .footerLogo {
+                    height: 30px;
+                }
+
                 .footerNav {
                     ul {
                         margin: 0;
@@ -387,6 +396,38 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
 
                     &.footerNavStretch {
                         flex-grow: 1;
+
+                        ul {
+                            @media all and (max-width: 450px) {
+                                flex-direction: column;
+                                align-items: center;
+                                gap: 1rem;
+                            }
+                        }
+                    }
+
+                    .basicLink {
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        color: $white;
+                        font-size: 12px;
+                        letter-spacing: 2px;
+
+                        &:hover,
+                        &:focus-visible {
+                            color: $challenge-orange;
+                        }
+                    }
+
+                    .socialMediaLink {
+                        text-decoration: none;
+                        color: $white;
+                        font-size: 25px;
+
+                        &:hover,
+                        &:focus-visible {
+                            color: $challenge-orange;
+                        }
                     }
                 }
             }
