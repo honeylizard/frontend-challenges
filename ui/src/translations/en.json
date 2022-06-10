@@ -90,5 +90,9 @@
 	"bookmarkLanding.cta.subtitle": "35,000+ Already joined",
 	"bookmarkLanding.cta.form.email": "Email",
 	"bookmarkLanding.cta.form.email.placeholder": "Enter your email address",
-	"bookmarkLanding.cta.form.submit": "Contact Us"
+	"bookmarkLanding.cta.form.email.error.required": "Whoops, make sure you enter an email",
+	"bookmarkLanding.cta.form.email.error.invalid": "Whoops, makes sure it's an email",
+	"bookmarkLanding.cta.form.submit": "Contact Us",
+	"bookmarkLanding.cta.form.error": "General error occurred during submission. Please review.",
+	"bookmarkLanding.cta.form.success": "Your submission has been accepted!"
 }

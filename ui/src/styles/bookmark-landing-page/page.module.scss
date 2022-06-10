@@ -388,54 +388,29 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
                 padding: 0;
             }
 
-            form {
-                input {
-                    font-size: 14px;
-                    padding: 15px 20px;
-                    border-radius: 5px;
-                    min-width: 250px;
-                    box-sizing: border-box;
-                    margin: 10px;
-                    border: none;
+            .callToActionRow {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                justify-content: center;
+            }
 
-                    /* do not group these rules */
-                    &::-webkit-input-placeholder {
-                        color: $challenge-grey-03;
-                    }
-                    &:-moz-placeholder {
-                        color: $challenge-grey-03;
-                        opacity: 1;
-                    }
-                    &::-moz-placeholder {
-                        color: $challenge-grey-03;
-                        opacity: 1;
-                    }
-                    &:-ms-input-placeholder {
-                        color: $challenge-grey-03;
-                    }
-                    &::-ms-input-placeholder {
-                        color: $challenge-grey-03;
-                    }
-                    &::placeholder {
-                        color: $challenge-grey-03;
-                    }
+            .callToActionSubmit {
+                display: block;
+                padding: 13px 20px;
+                font-size: 14px;
+                box-sizing: border-box;
+                margin: 10px;
+                line-height: 20px;
 
-                    @media all and (max-width: 350px) {
-                        min-width: none;
-                        width: 95%;
-                        margin: 10px auto;
-                    }
+                &:hover,
+                &:focus-visible {
+                    background-color: $white;
                 }
 
-                .callToActionSubmit {
-                    padding: 13px 20px;
-                    font-size: 14px;
-                    box-sizing: border-box;
-                    margin: 10px;
-
-                    &:hover {
-                        background-color: $white;
-                    }
+                @media all and (max-width: 450px) {
+                    width: 100%;
                 }
             }
         }
