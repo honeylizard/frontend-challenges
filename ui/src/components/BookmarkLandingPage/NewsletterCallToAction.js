@@ -80,7 +80,10 @@ const NewsletterCallToAction = ({ intl }) => {
                 intl.formatMessage({ id: "bookmarkLanding.cta.form.success" })
             );
 
-            // Send the form data to a backend for processing...
+            console.log(
+                "Send the form data to a backend for processing...",
+                formData
+            );
 
             // Clear the form of errors in case anything was left over
             setFormErrors(null);
@@ -103,8 +106,6 @@ const NewsletterCallToAction = ({ intl }) => {
         // Toggle the ability to click on the submit since the current submission is finished
         setProcessingSubmit(false);
     };
-
-    // TODO: add validation icon (red circle with exclamation in it)
 
     return (
         <section className={pageStyles.callToAction}>

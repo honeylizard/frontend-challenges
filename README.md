@@ -66,4 +66,9 @@ Users should be able to:
 
 - Responsive Design
 - Internationalization Capabilities
-- WCAG 2.0 AA compliance (included a filter submission button as it was not included in design)
+- WCAG 2.0 AA compliance (except for color contrasts as the color scheme is a hard requirement)
+
+### Notes
+
+- I did not include the blue shapes behind the illustrations as the mockups do not provide enough information on how it should look at different screen sizes. In cases like this, I would reach out to the UI/graphics team and discuss it's purpose and/or if it needs to be something different.
+- the social media links on the mobile header nav are not at the bottom as there is a limitation with the modal package I am using.
