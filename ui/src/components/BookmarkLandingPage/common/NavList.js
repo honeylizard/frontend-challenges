@@ -34,9 +34,11 @@ const NavList = ({
                         />
                     ))}
                 {includeLoginButton && (
-                    <ButtonLink url="#" type={loginButtonType}>
-                        {loginLabel}
-                    </ButtonLink>
+                    <li>
+                        <ButtonLink url="#" type={loginButtonType}>
+                            {loginLabel}
+                        </ButtonLink>
+                    </li>
                 )}
             </ul>
         </nav>
