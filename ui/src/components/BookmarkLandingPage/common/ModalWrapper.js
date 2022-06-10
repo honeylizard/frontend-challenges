@@ -27,6 +27,7 @@ const ModalWrapper = ({
     triggerIcon,
     customContainerClasses = [],
     customCloseClasses = [],
+    customFooter,
 }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -132,6 +133,7 @@ const ModalWrapper = ({
                             {children}
                         </div>
                         <div className={modalStyles.modalFooter}>
+                            {customFooter ? customFooter : null}
                             {confirmAndCancelSet ? (
                                 <Button
                                     type="button"
@@ -160,7 +162,11 @@ ModalWrapper.propTypes = {
     intl: PropTypes.object.isRequired,
     id: PropTypes.string,
     triggerLabel: PropTypes.string,
-    title: PropTypes.string,
+    title: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node,
+        PropTypes.object,
+    ]),
     showTitle: PropTypes.bool,
     children: PropTypes.node,
     confirmLabel: PropTypes.string,
@@ -175,6 +181,7 @@ ModalWrapper.propTypes = {
     triggerIcon: PropTypes.node,
     customContainerClasses: PropTypes.array,
     customCloseClasses: PropTypes.array,
+    customFooter: PropTypes.node,
 };
 
 export default injectIntl(ModalWrapper);

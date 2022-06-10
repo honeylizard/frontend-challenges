@@ -4,35 +4,47 @@
     background-color: $white;
     padding: 20px;
 
-    .modalHeader {
+    .modal {
         display: flex;
-        flex-flow: row;
+        flex-direction: column;
+        flex-wrap: wrap;
         justify-content: space-between;
-    }
+        flex-grow: 1;
 
-    .modalHeaderNoTitle {
-        display: flex;
-        flex-flow: row;
-        justify-content: flex-end;
-    }
+        .modalHeader {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+        }
 
-    .headerCloseButton {
-        background-color: transparent;
-        border-color: transparent;
-        padding: 5px;
-        cursor: pointer;
-    }
+        .modalHeaderNoTitle {
+            display: flex;
+            flex-flow: row;
+            justify-content: flex-end;
+        }
 
-    .modalFooter {
-        display: flex;
-        flex-flow: row;
-        justify-content: flex-end;
+        .headerCloseButton {
+            background-color: transparent;
+            border-color: transparent;
+            padding: 5px;
+            cursor: pointer;
+        }
 
-        button {
-            margin: 0 10px;
+        .modalContent {
+            flex-grow: 1;
+        }
 
-            &:last-of-type {
-                margin-right: 0;
+        .modalFooter {
+            display: flex;
+            flex-flow: row;
+            justify-content: flex-end;
+
+            button {
+                margin: 0 10px;
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
             }
         }
     }

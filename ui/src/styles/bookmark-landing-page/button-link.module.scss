@@ -10,6 +10,7 @@
     text-align: center;
     border-radius: .25rem;
     cursor: pointer;
+    box-shadow: 0px 10px 14px -5px rgba(166, 166, 166, 0.3);
 
     &:focus-visible {
         border-color: $outline-blue;
@@ -62,6 +63,7 @@
         margin: 20px 0;
         font-size: 20px;
         text-transform: uppercase;
+        box-shadow: none;
 
         &:hover,
         &:focus-visible {

@@ -7,7 +7,7 @@ import appLogo from "../../../assets/bookmark-landing-page/logo-bookmark.svg";
 
 import pageStyles from "../../../styles/bookmark-landing-page/page.module.scss";
 
-const Header = ({ intl }) => {
+const Header = ({ intl, data = {} }) => {
     const skipToContentLabel = intl.formatMessage({ id: "app.skipToContent" });
     const headerLogoAlt = intl.formatMessage({
         id: "bookmarkLanding.header.logoAlt",
@@ -41,7 +41,7 @@ const Header = ({ intl }) => {
                         alt={headerLogoAlt}
                         className={pageStyles.headerLogo}
                     />
-                    <HeaderNav navLabel={primaryNavLabel} />
+                    <HeaderNav navLabel={primaryNavLabel} data={data} />
                 </div>
             </header>
         </React.Fragment>
@@ -50,6 +50,10 @@ const Header = ({ intl }) => {
 
 Header.propTypes = {
     intl: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+        nav: PropTypes.array,
+        socialNav: PropTypes.array,
+    }),
 };
 
 export default injectIntl(Header);

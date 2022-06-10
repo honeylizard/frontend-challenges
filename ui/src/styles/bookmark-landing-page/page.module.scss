@@ -119,6 +119,44 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
             color: $white;
             font-size: 20px;
         }
+
+        .headerNavSocialMobileContainer {
+            width: 100%;
+
+            .headerNavSocialMobile {
+                margin: 50px 0;
+                padding: 0;
+                width: 100%;
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 3rem;
+                justify-content: center;
+
+                .socialMediaLink {
+                    text-decoration: none;
+                    color: $white;
+                    font-size: 25px;
+
+                    &:hover,
+                    &:focus-visible {
+                        color: $challenge-orange;
+                    }
+                }
+            }
+        }
+
+
+        .headerNavMobileContainer {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            flex-grow: 1;
+            margin: 0;
+            padding: 0;
+        }
     }
 
     .content {

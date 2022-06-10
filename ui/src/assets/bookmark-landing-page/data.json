@@ -109,5 +109,31 @@
             "label": "More Info",
             "url": "#"
         }
-    }
+    },
+    "nav": [
+        {
+            "label": "Features",
+            "url": "#"
+        },
+        {
+            "label": "Pricing",
+            "url": "#"
+        },
+        {
+            "label": "Contact",
+            "url": "#"
+        }
+    ],
+    "socialNav": [
+        {
+            "label": "Facebook",
+            "url": "#",
+            "iconType": "facebook"
+        },
+        {
+            "label": "Twitter",
+            "url": "#",
+            "iconType": "twitter"
+        }
+    ]
 }

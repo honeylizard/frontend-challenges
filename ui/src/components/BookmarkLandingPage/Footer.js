@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl, FormattedMessage } from "react-intl";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faFacebookSquare,
     faTwitter,
@@ -10,45 +9,38 @@ import appLogo from "../../assets/bookmark-landing-page/logo-bookmark-dark-bg.sv
 import NewsletterCallToAction from "./NewsletterCallToAction";
 
 import pageStyles from "../../styles/bookmark-landing-page/page.module.scss";
-import { Link } from "react-router-dom";
+import NavList from "./common/NavList";
 
-const Footer = ({ intl }) => {
+const Footer = ({ intl, data = {} }) => {
     const challengeLinkUrl = intl.formatMessage({ id: "footer.challenge.url" });
     const challengeLinkLabel = intl.formatMessage({
         id: "footer.challenge.name",
     });
     const codedBy = intl.formatMessage({ id: "footer.codedBy" });
 
-    // TODO: convert to translatable text
-    const navItems = [
-        {
-            label: "Features",
-            url: "#",
-        },
-        {
-            label: "Pricing",
-            url: "#",
-        },
-        {
-            label: "Contact",
-            url: "#",
-        },
-    ];
+    const footerLogoAlt = intl.formatMessage({
+        id: "bookmarkLanding.header.logoAlt",
+    });
+    const footerNavLabel = intl.formatMessage({
+        id: "bookmarkLanding.nav.footer",
+    });
+    const footerSocialNavLabel = intl.formatMessage({
+        id: "bookmarkLanding.nav.social",
+    });
 
-    const socialNavItems = [
-        {
-            label: "Facebook",
-            url: "#",
-            icon: faFacebookSquare,
-        },
-        {
-            label: "Twitter",
-            url: "#",
-            icon: faTwitter,
-        },
-    ];
+    const navItems = data.nav;
 
-    // TODO: move navigation data
+    const socialNavItems = data.socialNav.map((item) => {
+        return {
+            ...item,
+            icon:
+                item.iconType === "facebook"
+                    ? faFacebookSquare
+                    : item.iconType === "twitter"
+                    ? faTwitter
+                    : null,
+        };
+    });
 
     return (
         <footer className={pageStyles.footerContainer}>
@@ -57,56 +49,27 @@ const Footer = ({ intl }) => {
                 <div className={pageStyles.wrapper}>
                     <img
                         src={appLogo}
-                        alt="Bookmark Company Logo"
+                        alt={footerLogoAlt}
                         className={pageStyles.footerLogo}
                     />
-                    <nav
-                        className={[
+                    <NavList
+                        navClasses={[
                             pageStyles.footerNav,
                             pageStyles.footerNavStretch,
                         ].join(" ")}
-                        aria-label="Footer Navigation"
-                    >
-                        <ul>
-                            {navItems &&
-                                navItems.length > 0 &&
-                                navItems.map((item, index) => (
-                                    <li key={`nav-item-${index}`}>
-                                        <Link
-                                            to={item.url}
-                                            className={pageStyles.basicLink}
-                                        >
-                                            {item.label}
-                                        </Link>
-                                    </li>
-                                ))}
-                        </ul>
-                    </nav>
-                    <nav
-                        className={pageStyles.footerNav}
-                        aria-label="Social Media Navigation"
-                    >
-                        <ul>
-                            {socialNavItems &&
-                                socialNavItems.length > 0 &&
-                                socialNavItems.map((item, index) => (
-                                    <li key={`social-nav-item-${index}`}>
-                                        <Link
-                                            to={item.url}
-                                            className={
-                                                pageStyles.socialMediaLink
-                                            }
-                                            title={item.label}
-                                        >
-                                            <FontAwesomeIcon
-                                                icon={item.icon}
-                                                aria-hidden="true"
-                                            />
-                                        </Link>
-                                    </li>
-                                ))}
-                        </ul>
-                    </nav>
+                        label={footerNavLabel}
+                        data={navItems}
+                        itemKeyPrefix="nav-item-"
+                        itemCustomClasses={pageStyles.basicLink}
+                    />
+                    <NavList
+                        navClasses={pageStyles.footerNav}
+                        label={footerSocialNavLabel}
+                        data={socialNavItems}
+                        itemKeyPrefix="social-nav-item-"
+                        itemCustomClasses={pageStyles.socialMediaLink}
+                        itemIconOnly={true}
+                    />
                 </div>
             </div>
             <div className={pageStyles.copyright}>
@@ -133,6 +96,10 @@ const Footer = ({ intl }) => {
 
 Footer.propTypes = {
     intl: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+        nav: PropTypes.array,
+        socialNav: PropTypes.array,
+    }),
 };
 
 export default injectIntl(Footer);

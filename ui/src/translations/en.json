@@ -79,6 +79,10 @@
 
 	"bookmarkLanding.header.logoAlt": "Bookmark Company Logo",
 	"bookmarkLanding.nav.primary": "Primary Navigation",
+	"bookmarkLanding.nav.footer": "Footer Navigation",
+	"bookmarkLanding.nav.social": "Social Media Navigation",
+	"bookmarkLanding.nav.primary.open": "Open Primary Navigation",
+	"bookmarkLanding.nav.social.header": "Social Media Header Navigation",
 	"bookmarkLanding.close": "Close",
 	"bookmarkLanding.cancel": "Cancel",
 	"bookmarkLanding.login": "Login"
