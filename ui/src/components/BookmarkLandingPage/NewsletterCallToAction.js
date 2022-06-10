@@ -5,34 +5,45 @@ import pageStyles from "../../styles/bookmark-landing-page/page.module.scss";
 import Button from "./common/Button";
 
 const NewsletterCallToAction = ({ intl }) => {
+    const title = intl.formatMessage({ id: "bookmarkLanding.cta.title" });
+    const subtitle = intl.formatMessage({ id: "bookmarkLanding.cta.subtitle" });
+
+    const emailLabel = intl.formatMessage({
+        id: "bookmarkLanding.cta.form.email",
+    });
+    const emailPlaceholder = intl.formatMessage({
+        id: "bookmarkLanding.cta.form.email.placeholder",
+    });
+
+    const submitLabel = intl.formatMessage({
+        id: "bookmarkLanding.cta.form.submit",
+    });
+
     // TODO: setup form submission logic and validation
-    // TODO: convert to translatable text
     return (
         <section className={pageStyles.callToAction}>
             <div className={pageStyles.wrapper}>
                 <div className={pageStyles.reverseHeaderOrder}>
-                    <h2 className={pageStyles.callToActionTitle}>
-                        Stay up-to-date with what we&apos;re doing
-                    </h2>
+                    <h2 className={pageStyles.callToActionTitle}>{title}</h2>
                     <h3 className={pageStyles.callToActionSubtitle}>
-                        35,000+ Already joined
+                        {subtitle}
                     </h3>
                 </div>
                 <form>
                     <label htmlFor="newsletter-email" className="sr-only">
-                        Email
+                        {emailLabel}
                     </label>
                     <input
                         id="newsletter-email"
                         type="email"
-                        placeholder="Enter your email address"
+                        placeholder={emailPlaceholder}
                     />
                     <Button
                         type="submit"
                         rank="tertiary"
                         customClasses={[pageStyles.callToActionSubmit]}
                     >
-                        Contact Us
+                        {submitLabel}
                     </Button>
                 </form>
             </div>

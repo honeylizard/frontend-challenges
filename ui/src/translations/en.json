@@ -85,5 +85,10 @@
 	"bookmarkLanding.nav.social.header": "Social Media Header Navigation",
 	"bookmarkLanding.close": "Close",
 	"bookmarkLanding.cancel": "Cancel",
-	"bookmarkLanding.login": "Login"
+	"bookmarkLanding.login": "Login",
+	"bookmarkLanding.cta.title": "Stay up-to-date with what we're doing",
+	"bookmarkLanding.cta.subtitle": "35,000+ Already joined",
+	"bookmarkLanding.cta.form.email": "Email",
+	"bookmarkLanding.cta.form.email.placeholder": "Enter your email address",
+	"bookmarkLanding.cta.form.submit": "Contact Us"
 }
