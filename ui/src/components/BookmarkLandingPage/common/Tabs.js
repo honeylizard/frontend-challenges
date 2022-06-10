@@ -38,7 +38,7 @@ const Tabs = ({ id, children, ...attrs }) => {
                 aria-labelledby={`${id}-tab-${index}`}
                 role="tabpanel"
                 key={index}
-                aria-hidden={index !== activeIndex}
+                // aria-hidden={index !== activeIndex}
                 hidden={index !== activeIndex}
             >
                 {children}

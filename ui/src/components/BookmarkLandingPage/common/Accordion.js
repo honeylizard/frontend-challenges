@@ -49,7 +49,7 @@ const Accordion = ({
                 id={`${id}-content`}
                 className={accordionStyles.accordionContent}
                 aria-labelledby={`${id}-title`}
-                aria-hidden={!isExpanded}
+                // aria-hidden={!isExpanded}
                 hidden={!isExpanded}
                 aria-expanded={isExpanded}
             >

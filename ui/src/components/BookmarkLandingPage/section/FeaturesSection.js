@@ -49,7 +49,7 @@ const FeatureSection = ({ data }) => {
             <div className={pageStyles.wrapper}>
                 <h2 className={pageStyles.title}>{data.title}</h2>
                 <p className={pageStyles.description}>{data.description}</p>
-                <Tabs id="example-01">
+                <Tabs id="features-tabs">
                     {data.details &&
                         data.details.map((tab, index) =>
                             renderTab(
