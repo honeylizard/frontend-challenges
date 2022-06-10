@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+
 import formFieldStyles from "../../../styles/bookmark-landing-page/form.module.scss";
 
 const FormInput = ({
@@ -69,6 +72,14 @@ const FormInput = ({
                     }
                     {...attrs}
                 />
+                {errorMessage && (
+                    <div className={formFieldStyles.suffixIcon}>
+                        <FontAwesomeIcon
+                            icon={faCircleExclamation}
+                            aria-hidden="true"
+                        />
+                    </div>
+                )}
             </div>
         );
     };
