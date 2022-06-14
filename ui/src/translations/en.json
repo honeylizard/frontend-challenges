@@ -94,5 +94,8 @@
 	"bookmarkLanding.cta.form.email.error.invalid": "Whoops, makes sure it's an email",
 	"bookmarkLanding.cta.form.submit": "Contact Us",
 	"bookmarkLanding.cta.form.error": "General error occurred during submission. Please review.",
-	"bookmarkLanding.cta.form.success": "Your submission has been accepted!"
+	"bookmarkLanding.cta.form.success": "Your submission has been accepted!",
+
+	"calculatorApp.header.title": "calc",
+	"calculatorApp.theme": "Theme"
 }

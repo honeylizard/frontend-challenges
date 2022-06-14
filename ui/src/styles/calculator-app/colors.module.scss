@@ -1,0 +1,88 @@
+@import "../_core";
+
+/*
+$challenge-blue-01: #6cf9f2; // hsl(177, 92%, 70%)
+$challenge-blue-02: #637097; // hsl(225, 21%, 49%)
+$challenge-blue-03: #404e72; // hsl(224, 28%, 35%)
+$challenge-blue-04: #3a4764; // hsl(222, 26%, 31%)
+$challenge-blue-05: #232c43; // hsl(223, 31%, 20%)
+$challenge-blue-06: #182034; // hsl(224, 36%, 15%)
+
+$challenge-red-01: #d03f2f; // hsl(6, 63%, 50%)
+$challenge-red-02: #93261a; // hsl(6, 70%, 34%)
+
+$challenge-purple-01: #bc15f4; // hsl(285, 91%, 52%)
+$challenge-purple-02: #871c9c; // hsl(290, 70%, 36%)
+$challenge-purple-03: #58077d; // hsl(281, 89%, 26%)
+
+$challenge-green: #00e0d1; // hsl(176, 100%, 44%)
+
+$challenge-yellow: #ffe53d; // hsl(52, 100%, 62%)
+
+$challenge-off-white: #eae3dc; // hsl(30, 25%, 89%)
+
+$challenge-brown-01: #d1cccc; // hsl(0, 5%, 81%)
+$challenge-brown-02: #a69d91; // hsl(35, 11%, 61%)
+$challenge-brown-03: #b4a597; // hsl(28, 16%, 65%)
+
+$challenge-grey-02: #ededed; // hsl(0, 0%, 93%)
+$challenge-grey-03: #e5e4e1; // hsl(45, 7%, 89%)
+
+$challenge-color: #444b5a; // hsl(221, 14%, 31%)
+$challenge-color: #35352c; // hsl(60, 10%, 19%)
+$challenge-color: #160628; // hsl(268, 75%, 9%)
+$challenge-color: #1d0934; // hsl(268, 71%, 12%)
+$challenge-color: #341c4f; // hsl(268, 47%, 21%)
+$challenge-color: #1b2428; // hsl(198, 20%, 13%)
+*/
+
+/* ----------------------------------------------------------- */
+
+$challenge-light-bg: #e6e6e6; // hsl(0, 0%, 90%)
+$challenge-light-keypad: #D3CDCD;
+$challenge-light-btn: #E5E4E0;
+$challenge-light-btn-shadow: #A69C90;
+
+$challenge-light-text: #3B3B31;
+$challenge-light-output: #EEEEEE;
+
+$challenge-light-teal-btn: #377f86; // hsl(185, 42%, 37%)
+$challenge-light-teal-btn-shadow: #1b5f65; // hsl(185, 58%, 25%)
+$challenge-light-teal-btn-text: $white;
+
+$challenge-light-orange-btn: #ca5502; // hsl(25, 98%, 40%)
+$challenge-light-orange-btn-shadow: #893901; // hsl(25, 99%, 27%)
+$challenge-light-orange-btn-text: $white;
+
+/* ----------------------------------------------------------- */
+
+$challenge-dark-bg: #3B4664;
+$challenge-dark-keypad: #252D44;
+$challenge-dark-btn: #EAE3DB;
+$challenge-dark-btn-shadow: #B5A49A;
+$challenge-dark-btn-text: $white;
+$challenge-dark-text: #3B4455;
+$challenge-dark-output: #181F32;
+
+$challenge-dark-blue-btn: #64719B;
+$challenge-dark-blue-btn-shadow: #414E71;
+
+$challenge-dark-orange-btn: #F96C5B;
+$challenge-dark-orange-btn-shadow: #96271C;
+
+/* ----------------------------------------------------------- */
+
+$challenge-high-contrast-bg: #17062A;
+$challenge-high-contrast-keypad: #1E0836;
+$challenge-high-contrast-btn: #331B4D;
+$challenge-high-contrast-btn-shadow: #792692;
+$challenge-high-contrast-btn-text: $white;
+$challenge-high-contrast-text: #FFEB57;
+$challenge-high-contrast-output: #1E0836;
+
+$challenge-high-contrast-purple-btn: #550878;
+$challenge-high-contrast-purple-btn-shadow: #BF16F5;
+
+$challenge-high-contrast-green-btn: #00DECF;
+$challenge-high-contrast-green-btn-shadow: #88EBF0;
+$challenge-high-contrast-green-btn-text: #01292B;

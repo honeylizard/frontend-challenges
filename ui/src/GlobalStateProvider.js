@@ -7,6 +7,9 @@ const initialState = {
         darkMode: false,
         currentFilters: null,
     },
+    calculatorApp: {
+        theme: null,
+    },
 };
 
 const GlobalContext = createContext(initialState);
@@ -23,11 +26,20 @@ const GlobalProvider = ({ children }) => {
         });
     }
 
+    function updateCalcData(item) {
+        dispatch({
+            type: "UPDATE_CALCULATOR",
+            payload: item,
+        });
+    }
+
     return (
         <GlobalContext.Provider
             value={{
                 countriesApi: state.countriesApi,
+                calculatorApp: state.calculatorApp,
                 updateCountriesData,
+                updateCalcData,
             }}
         >
             {children}

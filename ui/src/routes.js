@@ -1,4 +1,5 @@
 import BookmarkLandingPage from "./components/BookmarkLandingPage/BookmarkLandingPage";
+import CalculatorApp from "./components/CalculatorApp/CalculatorApp";
 import CountriesListPage from "./components/CountriesList/pages/CountriesListPage";
 import CountryDetailsPage from "./components/CountriesList/pages/CountryDetailsPage";
 import HomePage from "./components/HomePage";
@@ -47,6 +48,13 @@ const routes = [
         authNeeded: false,
         exact: true,
         component: BookmarkLandingPage,
+    },
+    {
+        name: "Calculator app",
+        path: "/frontend-challenges/calculator-app",
+        authNeeded: false,
+        exact: true,
+        component: CalculatorApp,
     },
     {
         name: "Not Found",

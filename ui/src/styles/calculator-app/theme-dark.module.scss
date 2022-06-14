@@ -1,0 +1,30 @@
+.solutionContainerDark  {
+    background-color: $challenge-dark-bg;
+    color: $white;
+
+    .output {
+        background-color: $challenge-dark-output;
+    }
+
+    .keypad {
+        background-color: $challenge-dark-keypad;
+    }
+
+    .button {
+        background-color: $challenge-dark-btn;
+        color: $challenge-dark-text;
+        box-shadow: 0 5px 0px $challenge-dark-btn-shadow;
+    }
+
+    .buttonSecondary {
+        background-color: $challenge-dark-blue-btn;
+        color: $challenge-dark-btn-text;
+        box-shadow: 0 5px 0px $challenge-dark-blue-btn-shadow;
+    }
+
+    .buttonPrimary {
+        background-color: $challenge-dark-orange-btn;
+        color: $challenge-dark-btn-text;
+        box-shadow: 0 5px 0px $challenge-dark-orange-btn-shadow;
+    }
+}

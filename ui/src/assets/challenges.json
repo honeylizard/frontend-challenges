@@ -10,5 +10,9 @@
     {
       "title": "Bookmark Manager - Landing Page",
       "solution_url": "/frontend-challenges/bookmark-landing-page"
+    },
+    {
+      "title": "Calculator app",
+      "solution_url": "/frontend-challenges/calculator-app"
     }
 ]

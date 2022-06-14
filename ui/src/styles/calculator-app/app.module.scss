@@ -1,0 +1,103 @@
+@import "../_core";
+@import "colors.module.scss";
+@import "fonts.module.scss";
+
+.solutionContainer {
+    font-family: $challenge-font;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    .wrapper {
+        margin: 0 auto;
+        max-width: 588px;
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        box-sizing: border-box;
+
+        @media screen and (max-width: 350px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .appTitle {
+            flex-grow: 1;
+            margin: 0;
+            padding: 0;
+            font-size: 32px;
+            font-weight: 700;
+        }
+    }
+
+    .output {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        border-radius: 10px;
+        margin: 40px 0 25px 0;
+        padding: 40px 35px;
+        text-align: right;
+        font-size: 40px;
+        font-weight: 700;
+    }
+
+    .keypad {
+        box-sizing: border-box;
+        width: 100%;
+        border-radius: 10px;
+        padding: 30px;
+
+        .primaryKeypad {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(65px, auto);
+            gap: 24px;
+        }
+
+        .primaryKeypad + .secondaryKeypad {
+            margin-top: 24px;
+        }
+
+        .secondaryKeypad {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: minmax(65px, auto);
+            gap: 24px;
+        }
+    }
+
+    .footer {
+        box-sizing: border-box;
+        text-align: center;
+        padding: 20px;
+    }
+
+    @mixin keypadButton() {
+        border-radius: 10px;
+        font-family: $challenge-font;
+        font-size: 32px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+    }
+
+    .button {
+        @include keypadButton();
+    }
+
+    .buttonPrimary, .buttonSecondary {
+        @include keypadButton();
+        text-transform: uppercase;
+    }
+}
+
+@import "theme-light.module.scss";
+@import "theme-dark.module.scss";
+@import "theme-high-contrast.module.scss";

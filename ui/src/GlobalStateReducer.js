@@ -7,6 +7,13 @@ const GlobalStateReducer = (state, action) => {
                     ...action.payload,
                 },
             };
+        case "UPDATE_CALCULATOR":
+            return {
+                calculatorApp: {
+                    ...state.calculatorApp,
+                    ...action.payload,
+                },
+            };
         default:
             return state;
     }

@@ -1,0 +1,30 @@
+.solutionContainerLight  {
+    background-color: $challenge-light-bg;
+    color: $challenge-light-text;
+
+    .output {
+        background-color: $challenge-light-output;
+    }
+
+    .keypad {
+        background-color: $challenge-light-keypad;
+    }
+
+    .button {
+        background-color: $challenge-light-btn;
+        color: $challenge-light-text;
+        box-shadow: 0 5px 0px $challenge-light-btn-shadow;
+    }
+
+    .buttonSecondary {
+        background-color: $challenge-light-teal-btn;
+        color: $challenge-light-teal-btn-text;
+        box-shadow: 0 5px 0px $challenge-light-teal-btn-shadow;
+    }
+
+    .buttonPrimary {
+        background-color: $challenge-light-orange-btn;
+        color: $challenge-light-orange-btn-text;
+        box-shadow: 0 5px 0px $challenge-light-orange-btn-shadow;
+    }
+}
