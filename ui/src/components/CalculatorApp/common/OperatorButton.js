@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-import appStyles from "../../../styles/calculator-app/app.module.scss";
+import { GlobalContext } from "../../../GlobalStateProvider";
 import {
     OPERATOR_ADD,
     OPERATOR_MINUS,
@@ -9,12 +9,37 @@ import {
     OPERATOR_DIVIDE,
 } from "../utils/common";
 
-const OperatorButton = ({ value = "" }) => {
+import appStyles from "../../../styles/calculator-app/app.module.scss";
+
+const OperatorButton = ({ value = "", ...attr }) => {
+    const { updateCalcData, calculatorApp: globalData } =
+        useContext(GlobalContext);
+
     const [label, setLabel] = useState(null);
     const [title, setTitle] = useState(null);
 
+    const addOperatorToFormula = (operatorValue) => {
+        const oldOutputValue = globalData.output || "";
+        const oldFormulaValue = globalData.formula || "";
+        const newValue = oldFormulaValue + oldOutputValue + operatorValue;
+
+        updateCalcData({
+            output: "", // Clear the current value
+            formula: newValue,
+            error: null,
+        });
+    };
+
     const handleClick = () => {
-        console.log("Operator Button Clicked!", value);
+        if (value === OPERATOR_ADD) {
+            addOperatorToFormula(" + ");
+        } else if (value === OPERATOR_MINUS) {
+            addOperatorToFormula(" - ");
+        } else if (value === OPERATOR_DIVIDE) {
+            addOperatorToFormula(" / ");
+        } else if (value === OPERATOR_MULTIPLY) {
+            addOperatorToFormula(" * ");
+        }
     };
 
     useEffect(() => {
@@ -42,6 +67,7 @@ const OperatorButton = ({ value = "" }) => {
             className={appStyles.button}
             title={title}
             onClick={() => handleClick()}
+            {...attr}
         >
             {label}
         </button>

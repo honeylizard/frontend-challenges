@@ -2,48 +2,19 @@ import React, { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 
 import { GlobalContext } from "../../GlobalStateProvider";
-import ActionButton from "./common/ActionButon";
-import NumberButton from "./common/NumberButton";
-import OperatorButton from "./common/OperatorButton";
-
-import appStyles from "../../styles/calculator-app/app.module.scss";
-
-import {
-    ACTIONS,
-    ACTION_DECIMAL_PERIOD,
-    ACTION_DELETE,
-    addAfter,
-    isNumber,
-    OPERATORS,
-    OPERATOR_ADD,
-    OPERATOR_DIVIDE,
-    OPERATOR_MINUS,
-    OPERATOR_MULTIPLY,
-    THEME_DARK,
-    THEME_HIGH_CONTRAST,
-    THEME_LIGHT,
-} from "./utils/common";
+import { THEME_DARK, THEME_HIGH_CONTRAST, THEME_LIGHT } from "./utils/common";
 import Footer from "./Footer";
 import Header from "./Header";
+import OutputScreen from "./common/OutputScreen";
+import Keypad from "./common/Keypad";
+
+import appStyles from "../../styles/calculator-app/app.module.scss";
 
 const CalculatorApp = () => {
     const { calculatorApp: globalData } = useContext(GlobalContext);
     const currentTheme = globalData.theme;
+
     const [currentThemeClasses, setCurrentThemeClasses] = useState("");
-    const [keypadButtonValues, setKeypadButtonValues] = useState([]);
-
-    useEffect(() => {
-        let buttonValues = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];
-
-        buttonValues = addAfter(buttonValues, 3, ACTION_DELETE);
-        buttonValues = addAfter(buttonValues, 7, OPERATOR_ADD);
-        buttonValues = addAfter(buttonValues, 11, OPERATOR_MINUS);
-        buttonValues = addAfter(buttonValues, 12, ACTION_DECIMAL_PERIOD);
-        buttonValues.push(OPERATOR_DIVIDE);
-        buttonValues.push(OPERATOR_MULTIPLY);
-
-        setKeypadButtonValues(buttonValues);
-    });
 
     useEffect(() => {
         const getThemeContainerClass = (theme) => {
@@ -80,31 +51,8 @@ const CalculatorApp = () => {
             </Helmet>
             <Header />
             <main id="content" className={appStyles.wrapper}>
-                <output className={appStyles.output}>123,456,789</output>
-                <div className={appStyles.keypad}>
-                    <div className={appStyles.primaryKeypad}>
-                        {keypadButtonValues?.length > 0 &&
-                            keypadButtonValues.map((value, index) => {
-                                const itemKey = `keypad-btn-${index}`;
-                                return isNumber(value) ? (
-                                    <NumberButton key={itemKey} value={value} />
-                                ) : OPERATORS.includes(value) ? (
-                                    <OperatorButton
-                                        key={itemKey}
-                                        value={value}
-                                    />
-                                ) : ACTIONS.includes(value) ? (
-                                    <ActionButton key={itemKey} value={value} />
-                                ) : (
-                                    value
-                                );
-                            })}
-                    </div>
-                    <div className={appStyles.secondaryKeypad}>
-                        <ActionButton value="reset" />
-                        <ActionButton value="calculate" />
-                    </div>
-                </div>
+                <OutputScreen />
+                <Keypad />
             </main>
             <Footer />
         </React.Fragment>

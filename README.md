@@ -48,7 +48,7 @@ Users should be able to:
 - Basic caching of API calls
 - Due to volume of API results, included lazy loading of images and loading suspense state for each result item in list page
 
-# Bookmark landing page
+## Bookmark landing page
 
 This is a solution to the [Bookmark landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/bookmark-landing-page-5d0b588a9edda32581d29158).
 
@@ -72,3 +72,20 @@ Users should be able to:
 
 - I did not include the blue shapes behind the illustrations as the mockups do not provide enough information on how it should look at different screen sizes. In cases like this, I would reach out to the UI/graphics team and discuss it's purpose and/or if it needs to be something different.
 - the social media links on the mobile header nav are not at the bottom as there is a limitation with the modal package I am using.
+
+## Calculator App
+
+### The challenge
+
+Your users should be able to:
+
+- See the size of the elements adjust based on their device's screen size
+- Perform mathematical operations like addition, subtraction, multiplication, and division
+- Adjust the color theme based on their preference
+- **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
+
+### Solution Features
+
+- Responsive Design
+- Internationalization Capabilities
+- WCAG 2.0 AA compliance (except for color contrasts as the color scheme is a hard requirement)

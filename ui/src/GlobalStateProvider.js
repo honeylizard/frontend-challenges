@@ -9,6 +9,9 @@ const initialState = {
     },
     calculatorApp: {
         theme: null,
+        output: "",
+        formula: "",
+        error: null,
     },
 };
 
