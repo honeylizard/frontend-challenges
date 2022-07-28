@@ -407,6 +407,7 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
                 &:hover,
                 &:focus-visible {
                     background-color: $white;
+                    color: $challenge-orange;
                 }
 
                 @media all and (max-width: 450px) {
