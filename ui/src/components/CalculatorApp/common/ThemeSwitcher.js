@@ -22,7 +22,7 @@ const ThemeSwitcher = () => {
         updateCalcData({
             theme: initialTheme,
         });
-    }, []);
+    }, [updateCalcData]);
 
     const data = [
         {
