@@ -8,6 +8,7 @@ const GlobalStateReducer = (state, action) => {
                 },
             };
         case "UPDATE_CALCULATOR":
+            localStorage.setItem("calculatorTheme", action.payload.theme);
             return {
                 calculatorApp: {
                     ...state.calculatorApp,

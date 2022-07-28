@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import lodash from "lodash";
 import { GlobalContext } from "../../../GlobalStateProvider";
 import {
@@ -15,6 +15,14 @@ const ThemeSwitcher = () => {
         updateCalcData,
         calculatorApp: { theme: currentTheme },
     } = useContext(GlobalContext);
+
+    useEffect(() => {
+        const storedTheme = localStorage.getItem("calculatorTheme");
+        const initialTheme = storedTheme ? storedTheme : THEME_DARK;
+        updateCalcData({
+            theme: initialTheme,
+        });
+    }, []);
 
     const data = [
         {
@@ -43,8 +51,6 @@ const ThemeSwitcher = () => {
     };
 
     const sortedThemeData = lodash.orderBy(data, ["order"], ["asc"]);
-
-    console.log("currentTheme", currentTheme);
 
     return (
         <div>
