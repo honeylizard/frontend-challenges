@@ -89,3 +89,9 @@ Your users should be able to:
 - Responsive Design
 - Internationalization Capabilities
 - WCAG 2.0 AA compliance (except for color contrasts as the color scheme is a hard requirement)
+- Switch between multiple themes
+- The theme selected is stored locally so refreshing the page will not lose the choice
+
+### Notes
+
+I have added a basic view between the keypad and the output area to show the formula being entered for ease of use. The mockups do not include an area to show this.
