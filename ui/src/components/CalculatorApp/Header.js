@@ -17,8 +17,9 @@ const Header = ({ intl }) => {
     return (
         <header className={[appStyles.wrapper, appStyles.header].join(" ")}>
             <h1 className={appStyles.appTitle}>{appTitleLabel}</h1>
-            <div>
-                {themeLabel} <ThemeSwitcher />
+            <div className={appStyles.themeSwitcherContainer}>
+                <div className={appStyles.themeSwitcherLabel}>{themeLabel}</div>
+                <ThemeSwitcher />
             </div>
         </header>
     );

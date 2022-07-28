@@ -19,7 +19,7 @@
     .header {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: flex-end;
         box-sizing: border-box;
 
         @media screen and (max-width: 350px) {
@@ -33,6 +33,7 @@
             padding: 0;
             font-size: 32px;
             font-weight: 700;
+            line-height: 32px;
         }
     }
 
@@ -139,6 +140,42 @@
         @include keypadButton();
         text-transform: uppercase;
     }
+
+    .themeSwitcherContainer {
+        display: flex;
+        align-items: flex-end;
+
+        @media screen and (max-width: 215px) {
+            display: none;
+        }
+
+        .themeSwitcherLabel {
+            padding-bottom: 5px;
+        }
+
+        .switcherHeader {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+    }
+
+    .threeWayToggle {
+        border-radius: 2rem;
+        padding: 2px 5px;
+        margin: 0 10px;
+
+        button {
+            cursor: pointer;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            margin: 0 0.2rem 0.2rem 0.2rem;
+            border: none;
+            padding: 0;
+        }
+    }
+
 }
 
 @import "theme-light.module.scss";

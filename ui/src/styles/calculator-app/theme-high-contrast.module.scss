@@ -27,4 +27,16 @@
         color: $challenge-high-contrast-green-btn-text;
         box-shadow: 0 5px 0px $challenge-high-contrast-green-btn-shadow;
     }
+
+    .threeWayToggle {
+        background-color: $challenge-high-contrast-keypad;
+
+        button {
+            background-color: $challenge-high-contrast-keypad;
+
+            &.currentTheme {
+                background-color: $challenge-high-contrast-green-btn;
+            }
+        }
+    }
 }

@@ -27,4 +27,16 @@
         color: $challenge-dark-btn-text;
         box-shadow: 0 5px 0px $challenge-dark-orange-btn-shadow;
     }
+
+    .threeWayToggle {
+        background-color: $challenge-dark-keypad;
+
+        button {
+            background-color: $challenge-dark-keypad;
+
+            &.currentTheme {
+                background-color: $challenge-dark-orange-btn;
+            }
+        }
+    }
 }

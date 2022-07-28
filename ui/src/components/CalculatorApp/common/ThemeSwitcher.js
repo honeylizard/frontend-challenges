@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import lodash from "lodash";
 import { GlobalContext } from "../../../GlobalStateProvider";
 import {
     THEMES,
@@ -10,7 +11,28 @@ import {
 import appStyles from "../../../styles/calculator-app/app.module.scss";
 
 const ThemeSwitcher = () => {
-    const { updateCalcData } = useContext(GlobalContext);
+    const {
+        updateCalcData,
+        calculatorApp: { theme: currentTheme },
+    } = useContext(GlobalContext);
+
+    const data = [
+        {
+            order: 1,
+            label: "dark",
+            code: THEME_DARK,
+        },
+        {
+            order: 2,
+            label: "light",
+            code: THEME_LIGHT,
+        },
+        {
+            order: 3,
+            label: "high contrast",
+            code: THEME_HIGH_CONTRAST,
+        },
+    ];
 
     const changeTheme = (newTheme) => {
         if (THEMES.includes(newTheme)) {
@@ -20,14 +42,34 @@ const ThemeSwitcher = () => {
         }
     };
 
+    const sortedThemeData = lodash.orderBy(data, ["order"], ["asc"]);
+
+    console.log("currentTheme", currentTheme);
+
     return (
-        <React.Fragment>
-            <button onClick={() => changeTheme(THEME_LIGHT)}>light</button>
-            <button onClick={() => changeTheme(THEME_DARK)}>dark</button>
-            <button onClick={() => changeTheme(THEME_HIGH_CONTRAST)}>
-                high contrast
-            </button>
-        </React.Fragment>
+        <div>
+            <div className={appStyles.switcherHeader}>
+                {sortedThemeData.map((item, index) => (
+                    <div key={`theme-switch-label-${index}`}>{index + 1}</div>
+                ))}
+            </div>
+            <div className={appStyles.threeWayToggle}>
+                {sortedThemeData.map((item, index) => (
+                    <button
+                        key={`theme-switch-button-${index}`}
+                        className={
+                            currentTheme === item.code ||
+                            (currentTheme === null && item.code === THEME_DARK)
+                                ? appStyles.currentTheme
+                                : null
+                        }
+                        onClick={() => changeTheme(item.code)}
+                    >
+                        <span className="sr-only">{item.label}</span>
+                    </button>
+                ))}
+            </div>
+        </div>
     );
 };
 
