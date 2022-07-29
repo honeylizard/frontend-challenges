@@ -4,7 +4,7 @@ const THEME_HIGH_CONTRAST = "high contrast";
 
 const ACTION_RESET = "reset";
 const ACTION_CALCULATE = "calculate";
-const ACTION_DELETE = "del";
+const ACTION_DELETE = "delete";
 const ACTION_DECIMAL_PERIOD = "period";
 const OPERATOR_ADD = "add";
 const OPERATOR_MINUS = "minus";

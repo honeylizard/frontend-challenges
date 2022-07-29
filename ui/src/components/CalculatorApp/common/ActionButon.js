@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { create as mathEngineGenerator, all } from "mathjs";
+import { injectIntl } from "react-intl";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 import {
@@ -9,16 +10,18 @@ import {
     ACTION_DELETE,
     ACTION_RESET,
 } from "../utils/common";
+import data from "../../../assets/calculator-app/data.json";
 
 import appStyles from "../../../styles/calculator-app/app.module.scss";
 
-const ActionButton = ({ value = "", ...attr }) => {
+const ActionButton = ({ intl, value = "", ...attr }) => {
     const { updateCalcData, calculatorApp: globalData } =
         useContext(GlobalContext);
 
     const [mathEngine, setMathEngine] = useState(null);
     const [label, setLabel] = useState(null);
     const [title, setTitle] = useState(null);
+    const [currentValue, setCurrentValue] = useState(null);
 
     const [buttonClasses, setButtonClasses] = useState(appStyles.button);
 
@@ -32,9 +35,12 @@ const ActionButton = ({ value = "", ...attr }) => {
                     error: null,
                 });
             } else {
-                console.error("error", "You already have a decimal");
+                const errorMessage = intl.formatMessage({
+                    id: "calculatorApp.error.alreadyDecimal",
+                });
+                console.error("error", errorMessage);
                 updateCalcData({
-                    error: "You already have a decimal",
+                    error: errorMessage,
                 });
             }
         } else if (value === ACTION_DELETE) {
@@ -71,34 +77,33 @@ const ActionButton = ({ value = "", ...attr }) => {
     };
 
     useEffect(() => {
-        const labelMap = {
-            [ACTION_DELETE]: "del",
-            [ACTION_DECIMAL_PERIOD]: ".",
-            [ACTION_RESET]: "Reset",
-            [ACTION_CALCULATE]: "=",
-        };
-        setLabel(labelMap[value] || value);
-
-        const titleMap = {
-            [ACTION_DELETE]: "Delete",
-            [ACTION_DECIMAL_PERIOD]: "Period",
-            [ACTION_RESET]: "Reset",
-            [ACTION_CALCULATE]: "Calculate",
-        };
-
-        setTitle(titleMap[value]);
-
-        if ([ACTION_DELETE, ACTION_RESET].includes(value)) {
-            setButtonClasses(appStyles.buttonSecondary);
-        }
-
-        if ([ACTION_CALCULATE].includes(value)) {
-            setButtonClasses(appStyles.buttonPrimary);
-        }
-
         const mathEngineConfig = {};
         setMathEngine(mathEngineGenerator(all, mathEngineConfig));
-    }, [value]);
+    }, []);
+
+    useEffect(() => {
+        if (value !== currentValue) {
+            const labelMap = {};
+            const titleMap = {};
+            data.actions.forEach((item) => {
+                labelMap[item.code] =
+                    item.symbol || intl.formatMessage({ id: item.symbolKey });
+                titleMap[item.code] = intl.formatMessage({ id: item.labelKey });
+            });
+
+            setLabel(labelMap[value] || value);
+            setTitle(titleMap[value]);
+
+            if ([ACTION_DELETE, ACTION_RESET].includes(value)) {
+                setButtonClasses(appStyles.buttonSecondary);
+            }
+
+            if ([ACTION_CALCULATE].includes(value)) {
+                setButtonClasses(appStyles.buttonPrimary);
+            }
+            setCurrentValue(value);
+        }
+    }, [value, intl, currentValue]);
 
     return (
         <button
@@ -113,7 +118,8 @@ const ActionButton = ({ value = "", ...attr }) => {
 };
 
 ActionButton.propTypes = {
+    intl: PropTypes.object.isRequired,
     value: PropTypes.string,
 };
 
-export default ActionButton;
+export default injectIntl(ActionButton);

@@ -1,0 +1,63 @@
+{
+    "themes": [
+        {
+            "order": 1,
+            "labelKey": "calculatorApp.theme.dark",
+            "code": "dark"
+        },
+        {
+            "order": 2,
+            "labelKey": "calculatorApp.theme.light",
+            "code": "light"
+        },
+        {
+            "order": 3,
+            "labelKey": "calculatorApp.theme.highContrast",
+            "code": "high contrast"
+        }
+    ],
+    "operators": [
+        {
+            "code": "add",
+            "symbol": "+",
+            "labelKey": "calculatorApp.operator.add"
+        },
+        {
+            "code": "minus",
+            "symbol": "-",
+            "labelKey": "calculatorApp.operator.minus"
+        },
+        {
+            "code": "divide",
+            "symbol": "/",
+            "labelKey": "calculatorApp.operator.divide"
+        },
+        {
+            "code": "multiply",
+            "symbol": "x",
+            "labelKey": "calculatorApp.operator.multiply"
+        }
+    ],
+    "actions": [
+        {
+            "code": "delete",
+            "symbolKey": "calculatorApp.action.delete.short",
+            "labelKey": "calculatorApp.action.delete"
+        },
+        {
+            "code": "period",
+            "symbol": ".",
+            "labelKey": "calculatorApp.action.period"
+        },
+        {
+            "code": "reset",
+            "symbolKey": "calculatorApp.action.reset",
+            "labelKey": "calculatorApp.action.reset"
+        },
+        {
+            "code": "calculate",
+            "symbol": "=",
+            "labelKey": "calculatorApp.action.calculate"
+        }
+    ]
+}

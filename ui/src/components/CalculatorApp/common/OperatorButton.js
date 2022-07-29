@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { injectIntl } from "react-intl";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 import {
@@ -8,15 +9,17 @@ import {
     OPERATOR_MULTIPLY,
     OPERATOR_DIVIDE,
 } from "../utils/common";
+import data from "../../../assets/calculator-app/data.json";
 
 import appStyles from "../../../styles/calculator-app/app.module.scss";
 
-const OperatorButton = ({ value = "", ...attr }) => {
+const OperatorButton = ({ intl, value = "", ...attr }) => {
     const { updateCalcData, calculatorApp: globalData } =
         useContext(GlobalContext);
 
     const [label, setLabel] = useState(null);
     const [title, setTitle] = useState(null);
+    const [currentValue, setCurrentValue] = useState(null);
 
     const addOperatorToFormula = (operatorValue) => {
         const oldOutputValue = globalData.output || "";
@@ -43,24 +46,19 @@ const OperatorButton = ({ value = "", ...attr }) => {
     };
 
     useEffect(() => {
-        const labelMap = {
-            [OPERATOR_ADD]: "+",
-            [OPERATOR_MINUS]: "-",
-            [OPERATOR_DIVIDE]: "/",
-            [OPERATOR_MULTIPLY]: "x",
-        };
+        if (value !== currentValue) {
+            const labelMap = {};
+            const titleMap = {};
+            data.operators.forEach((item) => {
+                labelMap[item.code] = item.symbol;
+                titleMap[item.code] = intl.formatMessage({ id: item.labelKey });
+            });
 
-        setLabel(labelMap[value] || value);
-
-        const titleMap = {
-            [OPERATOR_ADD]: "Add",
-            [OPERATOR_MINUS]: "Minus",
-            [OPERATOR_DIVIDE]: "Divide",
-            [OPERATOR_MULTIPLY]: "Multiply",
-        };
-
-        setTitle(titleMap[value]);
-    }, [value]);
+            setLabel(labelMap[value] || value);
+            setTitle(titleMap[value]);
+            setCurrentValue(value);
+        }
+    }, [value, intl, currentValue]);
 
     return (
         <button
@@ -75,7 +73,8 @@ const OperatorButton = ({ value = "", ...attr }) => {
 };
 
 OperatorButton.propTypes = {
+    intl: PropTypes.object.isRequired,
     value: PropTypes.string,
 };
 
-export default OperatorButton;
+export default injectIntl(OperatorButton);

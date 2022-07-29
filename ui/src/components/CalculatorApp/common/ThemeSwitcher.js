@@ -1,46 +1,35 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import lodash from "lodash";
+import PropTypes from "prop-types";
+import { injectIntl } from "react-intl";
+
 import { GlobalContext } from "../../../GlobalStateProvider";
-import {
-    THEMES,
-    THEME_DARK,
-    THEME_HIGH_CONTRAST,
-    THEME_LIGHT,
-} from "../utils/common";
+import { THEMES, THEME_DARK } from "../utils/common";
+import data from "../../../assets/calculator-app/data.json";
 
 import appStyles from "../../../styles/calculator-app/app.module.scss";
 
-const ThemeSwitcher = () => {
+const ThemeSwitcher = ({ intl }) => {
+    const defaultTheme = THEME_DARK;
+    const [isInitialized, setIsInitialized] = useState(false);
     const {
         updateCalcData,
         calculatorApp: { theme: currentTheme },
     } = useContext(GlobalContext);
 
     useEffect(() => {
-        const storedTheme = localStorage.getItem("calculatorTheme");
-        const initialTheme = storedTheme ? storedTheme : THEME_DARK;
-        updateCalcData({
-            theme: initialTheme,
-        });
-    }, [updateCalcData]);
-
-    const data = [
-        {
-            order: 1,
-            label: "dark",
-            code: THEME_DARK,
-        },
-        {
-            order: 2,
-            label: "light",
-            code: THEME_LIGHT,
-        },
-        {
-            order: 3,
-            label: "high contrast",
-            code: THEME_HIGH_CONTRAST,
-        },
-    ];
+        if (!isInitialized) {
+            const storedTheme = localStorage.getItem("calculatorTheme");
+            const initialTheme =
+                storedTheme && THEMES.includes(storedTheme)
+                    ? storedTheme
+                    : defaultTheme;
+            setIsInitialized(true);
+            updateCalcData({
+                theme: initialTheme,
+            });
+        }
+    }, [updateCalcData, isInitialized, defaultTheme]);
 
     const changeTheme = (newTheme) => {
         if (THEMES.includes(newTheme)) {
@@ -50,7 +39,7 @@ const ThemeSwitcher = () => {
         }
     };
 
-    const sortedThemeData = lodash.orderBy(data, ["order"], ["asc"]);
+    const sortedThemeData = lodash.orderBy(data.themes, ["order"], ["asc"]);
 
     return (
         <div>
@@ -71,7 +60,9 @@ const ThemeSwitcher = () => {
                         }
                         onClick={() => changeTheme(item.code)}
                     >
-                        <span className="sr-only">{item.label}</span>
+                        <span className="sr-only">
+                            {intl.formatMessage({ id: item.labelKey })}
+                        </span>
                     </button>
                 ))}
             </div>
@@ -79,4 +70,8 @@ const ThemeSwitcher = () => {
     );
 };
 
-export default ThemeSwitcher;
+ThemeSwitcher.propTypes = {
+    intl: PropTypes.object.isRequired,
+};
+
+export default injectIntl(ThemeSwitcher);

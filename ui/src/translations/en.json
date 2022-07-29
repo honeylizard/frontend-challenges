@@ -97,5 +97,18 @@
 	"bookmarkLanding.cta.form.success": "Your submission has been accepted!",
 
 	"calculatorApp.header.title": "calc",
-	"calculatorApp.theme": "Theme"
+	"calculatorApp.theme": "Theme",
+	"calculatorApp.theme.highContrast": "High Contrast",
+	"calculatorApp.theme.dark": "Dark",
+	"calculatorApp.theme.light": "Light",
+	"calculatorApp.operator.add": "Add",
+	"calculatorApp.operator.minus": "Subtract",
+	"calculatorApp.operator.divide": "Divide",
+	"calculatorApp.operator.multiply": "Multiply",
+	"calculatorApp.action.delete": "Delete",
+	"calculatorApp.action.delete.short": "del",
+	"calculatorApp.action.reset": "Reset",
+	"calculatorApp.action.calculate": "Calculate",
+	"calculatorApp.action.period": "Period",
+	"calculatorApp.error.alreadyDecimal": "You already have a decimal"
 }

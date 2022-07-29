@@ -32,7 +32,7 @@ const Keypad = () => {
         buttonValues.push(OPERATOR_MULTIPLY);
 
         setKeypadButtonValues(buttonValues);
-    });
+    }, []);
 
     return (
         <div className={appStyles.keypad}>
