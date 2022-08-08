@@ -1,0 +1,81 @@
+@import "../_core";
+@import "colors.module.scss";
+@import "fonts.module.scss";
+
+html {
+    height: 100%;
+}
+
+.solutionContainer {
+    background-image: url('/assets/ip-address-tracker/pattern-bg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    background-color: $white;
+    color: $black;
+
+    font-family: $challenge-font;
+    font-size: 18px;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+
+        .footer {
+            background-color: $black;
+            color: $white;
+            text-align: center;
+            padding: 10px;
+
+            a {
+                color: $challenge-orange;
+
+                &:focus-visible,
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    .wrapper {
+    }
+
+    .appTitle {
+        color: $white;
+        text-transform: capitalize;
+        text-align: center;
+        font-size: 2em;
+
+        @media all and (max-width: 400px) {
+            font-size: 1.5em;
+        }
+    }
+
+    form {
+        margin: 20px 0 40px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .formSubmit {
+            font-size: 18px;
+            padding: 18px 20px;
+            box-sizing: border-box;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border: none;
+            background-color: $black;
+            color: $white;
+            cursor: pointer;
+            box-shadow: none;
+
+            &:hover {
+                background-color: $challenge-dark-gray;
+            }
+        }
+    }
+
+}

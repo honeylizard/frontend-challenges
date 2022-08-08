@@ -110,5 +110,16 @@
 	"calculatorApp.action.reset": "Reset",
 	"calculatorApp.action.calculate": "Calculate",
 	"calculatorApp.action.period": "Period",
-	"calculatorApp.error.alreadyDecimal": "You already have a decimal"
+	"calculatorApp.error.alreadyDecimal": "You already have a decimal",
+
+	"ipAddressTracker.title": "IP Address Tracker",
+	"ipAddressTracker.submit.label": "Submit",
+	"ipAddressTracker.input.label": "IP Address/Domain",
+	"ipAddressTracker.input.placeholder": "Search for any IP address or domain",
+	"ipAddressTracker.ipAddress.full": "Internet Protocol Address",
+	"ipAddressTracker.ipAddress": "IP Address",
+	"ipAddressTracker.isp.full": "Internet Service Provider",
+	"ipAddressTracker.isp": "ISP",
+	"ipAddressTracker.location": "Location",
+	"ipAddressTracker.timezone": "Timezone"
 }
