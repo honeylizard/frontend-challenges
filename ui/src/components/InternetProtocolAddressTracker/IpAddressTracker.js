@@ -5,9 +5,10 @@ import { injectIntl } from "react-intl";
 
 import IpAddressTrackerForm from "./IpAddressTrackerForm";
 import IpAddressTrackerOutput from "./IpAddressTrackerOutput";
+import LeafletMap from "./LeafletMap";
+import Footer from "./Footer";
 
 import appStyles from "../../styles/ip-address-tracker/app.module.scss";
-import Footer from "./Footer";
 
 const IpAddressTracker = ({ intl }) => {
     const [results, setResults] = useState({});
@@ -26,10 +27,13 @@ const IpAddressTracker = ({ intl }) => {
                 />
             </Helmet>
             <div className={appStyles.container}>
-                <main id="content" className={appStyles.wrapper}>
-                    <h1 className={appStyles.appTitle}>{appTitle}</h1>
-                    <IpAddressTrackerForm setResults={setResults} />
-                    <IpAddressTrackerOutput results={results} />
+                <main id="content">
+                    <div className={appStyles.wrapper}>
+                        <h1 className={appStyles.appTitle}>{appTitle}</h1>
+                        <IpAddressTrackerForm setResults={setResults} />
+                        <IpAddressTrackerOutput results={results} />
+                    </div>
+                    <LeafletMap results={results} />
                 </main>
                 <Footer />
             </div>

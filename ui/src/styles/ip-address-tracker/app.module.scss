@@ -8,8 +8,9 @@ html {
 
 .solutionContainer {
     background-image: url('/assets/ip-address-tracker/pattern-bg.png');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: top center;
 
     background-color: $white;
     color: $black;

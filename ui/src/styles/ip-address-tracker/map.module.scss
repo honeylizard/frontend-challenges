@@ -1,0 +1,9 @@
+
+.mapContainer {
+    display: flex;
+
+    .map {
+        height: 600px;
+        flex-grow: 1;
+    }
+}

@@ -70,12 +70,9 @@ const IpAddressTrackerForm = ({ intl, setResults }) => {
                         country: location.country,
                         timezone: `UTC ${location.timezone}`,
                         provider: isp,
+                        coordinates: [location.lat, location.lng],
                     });
                 }
-                // TODO: remove when finished
-                console.group("API GET");
-                console.log("fetch response", response);
-                console.groupEnd();
 
                 // Clear the form of errors in case anything was left over
                 setFormErrors(null);
