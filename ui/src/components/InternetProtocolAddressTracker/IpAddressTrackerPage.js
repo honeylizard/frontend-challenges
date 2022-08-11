@@ -10,7 +10,7 @@ import Footer from "./Footer";
 
 import appStyles from "../../styles/ip-address-tracker/app.module.scss";
 
-const IpAddressTracker = ({ intl }) => {
+const IpAddressTrackerPage = ({ intl }) => {
     const [results, setResults] = useState({});
 
     const appTitle = intl.formatMessage({
@@ -41,8 +41,8 @@ const IpAddressTracker = ({ intl }) => {
     );
 };
 
-IpAddressTracker.propTypes = {
+IpAddressTrackerPage.propTypes = {
     intl: PropTypes.object.isRequired,
 };
 
-export default injectIntl(IpAddressTracker);
+export default injectIntl(IpAddressTrackerPage);

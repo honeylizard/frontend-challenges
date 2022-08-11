@@ -3,7 +3,7 @@ import CalculatorApp from "./components/CalculatorApp/CalculatorApp";
 import CountriesListPage from "./components/CountriesList/pages/CountriesListPage";
 import CountryDetailsPage from "./components/CountriesList/pages/CountryDetailsPage";
 import HomePage from "./components/HomePage";
-import IpAddressTracker from "./components/InternetProtocolAddressTracker/IpAddressTracker";
+import IpAddressTrackerPage from "./components/InternetProtocolAddressTracker/IpAddressTrackerPage";
 import NotFoundPage from "./components/NotFoundPage";
 import StaticJobListingsPage from "./components/StaticJobListings/StaticJobListingsPage";
 
@@ -62,7 +62,7 @@ const routes = [
         path: "/frontend-challenges/ip-address-tracker",
         authNeeded: false,
         exact: true,
-        component: IpAddressTracker,
+        component: IpAddressTrackerPage,
     },
     {
         name: "Not Found",
