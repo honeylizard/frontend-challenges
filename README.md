@@ -107,6 +107,15 @@ Your users should be able to:
 - See their own IP address on the map on the initial page load
 - Search for any IP addresses or domains and see the key information and location
 
+### Solution Features
+- Responsive Design
+- Internationalization Capabilities
+- WCAG 2.0 AA compliance (except for color contrasts as the color scheme is a hard requirement)
+- Visitor's IP is detected an initially shown
+- Can query based on an IP address or a domain
+
 ### Notes
 
-To get the IP Address locations, Frontend Mentor suggests using the [IP Geolocation API by IPify](https://geo.ipify.org/). To generate the map, they recommend using [LeafletJS](https://leafletjs.com/).
+- To get the IP Address locations, Frontend Mentor suggests using the [IP Geolocation API by IPify](https://geo.ipify.org/). To generate the map, they recommend using [LeafletJS](https://leafletjs.com/).
+
+- I decided to not let the user intereact with the map as it is the result of the IP query rather than a free-for-all exploration of the world.
