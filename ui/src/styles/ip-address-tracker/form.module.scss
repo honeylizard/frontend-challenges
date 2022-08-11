@@ -30,10 +30,6 @@
       min-width: 0;
       width: 100%;
     }
-
-    &:focus-within {
-      // outline: 6px solid $challenge-red;
-    }
   }
 
   .suffixIcon {
@@ -53,9 +49,6 @@
 
     font-size: 18px;
 
-    // &:focus {
-    //   outline: none;
-    // }
     /* do not group these rules */
     &::-webkit-input-placeholder {
       color: $challenge-gray;
