@@ -23,7 +23,7 @@ const OutputScreen = () => {
             inputIds.push(`keypad-btn-${index}`);
         }
         setInputButtonIds(inputIds);
-    }, []);
+    }, [TOTAL_KEYS]);
 
     // TODO: format the numbers even when it is a wip
 

@@ -38,7 +38,7 @@ const CalculatorApp = () => {
         if (newClasses !== currentThemeClasses) {
             setCurrentThemeClasses(newClasses);
         }
-    }, [currentTheme]);
+    }, [currentTheme, currentThemeClasses]);
 
     return (
         <React.Fragment>
