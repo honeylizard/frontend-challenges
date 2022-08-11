@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { injectIntl } from "react-intl";
@@ -52,35 +52,38 @@ const IpAddressTrackerForm = ({ intl, setResults }) => {
         }));
     };
 
-    const getResults = (value) => {
-        if (!value) {
-            return Promise.reject(emptyInputError);
-        }
-
-        const path = IPIFY_API_BASE_URL + "apiKey=" + IPIFY_API_KEY;
-        // Validate if it is an IP or domain
-        const searchTerm = isValidDomain(value)
-            ? SEARCH_TYPE_DOMAIN
-            : SEARCH_TYPE_IP;
-        const searchQuery = `&${searchTerm}=${value}`;
-
-        return axios.get(path + searchQuery).then((response) => {
-            if (response.status === 200) {
-                const { isp, location, ip } = response.data;
-
-                return {
-                    ip_address: ip,
-                    location: `${location.city}, ${location.region} ${location.postalCode}`,
-                    country: location.country,
-                    timezone: `${utcLabel} ${location.timezone}`,
-                    provider: isp,
-                    coordinates: [location.lat, location.lng],
-                };
+    const getResults = useCallback(
+        (value) => {
+            if (!value) {
+                return Promise.reject(emptyInputError);
             }
 
-            return Promise.reject(response);
-        });
-    };
+            const path = IPIFY_API_BASE_URL + "apiKey=" + IPIFY_API_KEY;
+            // Validate if it is an IP or domain
+            const searchTerm = isValidDomain(value)
+                ? SEARCH_TYPE_DOMAIN
+                : SEARCH_TYPE_IP;
+            const searchQuery = `&${searchTerm}=${value}`;
+
+            return axios.get(path + searchQuery).then((response) => {
+                if (response.status === 200) {
+                    const { isp, location, ip } = response.data;
+
+                    return {
+                        ip_address: ip,
+                        location: `${location.city}, ${location.region} ${location.postalCode}`,
+                        country: location.country,
+                        timezone: `${utcLabel} ${location.timezone}`,
+                        provider: isp,
+                        coordinates: [location.lat, location.lng],
+                    };
+                }
+
+                return Promise.reject(response);
+            });
+        },
+        [utcLabel, emptyInputError]
+    );
 
     const setError = (message) => {
         // Set the applicable message and provide a polite alert for accessibility purposes to notify users that at least one error occurred.
@@ -140,7 +143,7 @@ const IpAddressTrackerForm = ({ intl, setResults }) => {
                     });
             }
         });
-    }, [setResults]);
+    }, [setResults, getResults]);
 
     return (
         <React.Fragment>
