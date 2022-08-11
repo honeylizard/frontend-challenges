@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
-
-import markerIcon from "../../assets/ip-address-tracker/icon-location.svg";
+import { injectIntl } from "react-intl";
 import * as Leaflet from "leaflet";
 import { MapContainer } from "react-leaflet/MapContainer";
 import { Marker } from "react-leaflet/Marker";
 import { TileLayer } from "react-leaflet/TileLayer";
 
+import markerIcon from "../../assets/ip-address-tracker/icon-location.svg";
 import mapStyles from "../../styles/ip-address-tracker/map.module.scss";
 
-const LeafletMap = ({ results = {} }) => {
+const LeafletMap = ({ intl, results = {} }) => {
     const initialZoom = 5;
 
     const [map, setMap] = useState(null);
     const [latitude, setLatitude] = useState(0);
     const [longitude, setLongitude] = useState(0);
+
+    const mapMarkerAlt = intl.formatMessage({
+        id: "ipAddressTracker.map.alt",
+    });
 
     useEffect(() => {
         if (results.coordinates) {
@@ -63,14 +67,14 @@ const LeafletMap = ({ results = {} }) => {
                     ref={setMap}
                 >
                     <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     <Marker
                         position={coordinates}
                         icon={marker}
                         keyboard={false}
-                        alt="Location of IP Address on map"
+                        alt={mapMarkerAlt}
                     ></Marker>
                 </MapContainer>
             </div>
@@ -79,9 +83,10 @@ const LeafletMap = ({ results = {} }) => {
 };
 
 LeafletMap.propTypes = {
+    intl: PropTypes.object.isRequired,
     results: PropTypes.shape({
         coordinates: PropTypes.array,
     }),
 };
 
-export default LeafletMap;
+export default injectIntl(LeafletMap);

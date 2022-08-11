@@ -121,5 +121,8 @@
 	"ipAddressTracker.isp.full": "Internet Service Provider",
 	"ipAddressTracker.isp": "ISP",
 	"ipAddressTracker.location": "Location",
-	"ipAddressTracker.timezone": "Timezone"
+	"ipAddressTracker.timezone": "Timezone",
+	"ipAddressTracker.input.empty": "Provide an actual value",
+	"ipAddressTracker.utc": "UTC",
+	"ipAddressTracker.map.alt": "Location of IP Address on map"
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { injectIntl } from "react-intl";
@@ -12,9 +12,9 @@ import appStyles from "../../styles/ip-address-tracker/app.module.scss";
 import Button from "./common/Button";
 
 const IpAddressTrackerForm = ({ intl, setResults }) => {
-    // TODO: move to env var?
     const IPIFY_API_KEY = "at_SnevHZ5viEh6DR8tGzZWvKrTG02v2";
     const IPIFY_API_BASE_URL = "https://geo.ipify.org/api/v1?";
+    const IPIFY_GET_IP_URL = "https://api.ipify.org?format=json";
 
     const inputLabel = intl.formatMessage({
         id: "ipAddressTracker.input.label",
@@ -25,9 +25,15 @@ const IpAddressTrackerForm = ({ intl, setResults }) => {
     const submitButtonLabel = intl.formatMessage({
         id: "ipAddressTracker.submit.label",
     });
+    const emptyInputError = intl.formatMessage({
+        id: "ipAddressTracker.input.empty",
+    });
+    const utcLabel = intl.formatMessage({
+        id: "ipAddressTracker.utc",
+    });
 
     const initialFormData = {
-        ipAddressOrDomain: "18.23.456.7", // "8.8.8.8",
+        ipAddressOrDomain: "",
     };
 
     const [processingSubmit, setProcessingSubmit] = useState(false); // Toggle for disabling submit button for form
@@ -43,6 +49,47 @@ const IpAddressTrackerForm = ({ intl, setResults }) => {
         }));
     };
 
+    const getResults = (value) => {
+        if (!value) {
+            return Promise.reject(emptyInputError);
+        }
+
+        const path =
+            IPIFY_API_BASE_URL +
+            "apiKey=" +
+            IPIFY_API_KEY +
+            "&ipAddress=" +
+            value;
+
+        return axios.get(path).then((response) => {
+            if (response.status === 200) {
+                const { isp, location, ip } = response.data;
+
+                return {
+                    ip_address: ip,
+                    location: `${location.city}, ${location.region} ${location.postalCode}`,
+                    country: location.country,
+                    timezone: `${utcLabel} ${location.timezone}`,
+                    provider: isp,
+                    coordinates: [location.lat, location.lng],
+                };
+            }
+
+            return Promise.reject(response);
+        });
+    };
+
+    const setError = (message) => {
+        // Set the applicable message and provide a polite alert for accessibility purposes to notify users that at least one error occurred.
+        setFormErrors((prevState) => ({
+            ...prevState,
+            general: message,
+        }));
+
+        // Toggle the ability to click on the submit since the current submission is finished
+        setProcessingSubmit(false);
+    };
+
     const handleSubmit = (event) => {
         if (event) {
             event.preventDefault();
@@ -51,46 +98,46 @@ const IpAddressTrackerForm = ({ intl, setResults }) => {
         // Toggle the ability to click on the submit while the current submission is processing
         setProcessingSubmit(true);
 
-        const path =
-            IPIFY_API_BASE_URL +
-            "apiKey=" +
-            IPIFY_API_KEY +
-            "&ipAddress=" +
-            formData["ipAddressOrDomain"];
+        if (formData["ipAddressOrDomain"]) {
+            getResults(formData["ipAddressOrDomain"])
+                .then((response) => {
+                    setResults(response);
 
-        axios
-            .get(path)
-            .then((response) => {
-                if (response.status === 200) {
-                    const { isp, location, ip } = response.data;
+                    // Clear the form of errors in case anything was left over
+                    setFormErrors(null);
 
-                    setResults({
-                        ip_address: ip,
-                        location: `${location.city}, ${location.region} ${location.postalCode}`,
-                        country: location.country,
-                        timezone: `UTC ${location.timezone}`,
-                        provider: isp,
-                        coordinates: [location.lat, location.lng],
-                    });
-                }
-
-                // Clear the form of errors in case anything was left over
-                setFormErrors(null);
-
-                // Toggle the ability to click on the submit since the current submission is finished
-                setProcessingSubmit(false);
-            })
-            .catch((error) => {
-                // Set the applicable message and provide a polite alert for accessibility purposes to notify users that at least one error occurred.
-                setFormErrors((prevState) => ({
-                    ...prevState,
-                    general: error.message,
-                }));
-
-                // Toggle the ability to click on the submit since the current submission is finished
-                setProcessingSubmit(false);
-            });
+                    // Toggle the ability to click on the submit since the current submission is finished
+                    setProcessingSubmit(false);
+                })
+                .catch((error) => {
+                    setError(error.message);
+                });
+        } else {
+            // Toggle the ability to click on the submit since the current submission is finished
+            setProcessingSubmit(false);
+        }
     };
+
+    useEffect(() => {
+        // Get the browser's IP address
+        axios.get(IPIFY_GET_IP_URL).then((response) => {
+            if (response.status === 200) {
+                const { ip } = response.data;
+
+                getResults(ip)
+                    .then((response) => {
+                        setFormData((prevState) => ({
+                            ...prevState,
+                            ipAddressOrDomain: ip,
+                        }));
+                        setResults(response);
+                    })
+                    .catch((error) => {
+                        setError(error.message);
+                    });
+            }
+        });
+    }, [setResults]);
 
     return (
         <React.Fragment>
