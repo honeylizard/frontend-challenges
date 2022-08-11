@@ -119,3 +119,19 @@ Your users should be able to:
 - To get the IP Address locations, Frontend Mentor suggests using the [IP Geolocation API by IPify](https://geo.ipify.org/). To generate the map, they recommend using [LeafletJS](https://leafletjs.com/).
 
 - I decided to not let the user intereact with the map as it is the result of the IP query rather than a free-for-all exploration of the world.
+
+## To Do App
+
+## The challenge
+
+Your users should be able to:
+
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Add new todos to the list
+- Mark todos as complete
+- Delete todos from the list
+- Filter by all/active/complete todos
+- Clear all completed todos
+- Toggle light and dark mode
+- **Bonus**: Drag and drop to reorder items on the list

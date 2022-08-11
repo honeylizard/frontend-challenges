@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage";
 import IpAddressTrackerPage from "./components/InternetProtocolAddressTracker/IpAddressTrackerPage";
 import NotFoundPage from "./components/NotFoundPage";
 import StaticJobListingsPage from "./components/StaticJobListings/StaticJobListingsPage";
+import TodoAppPage from "./components/TodoApp/TodoAppPage";
 
 const routes = [
     {
@@ -63,6 +64,13 @@ const routes = [
         authNeeded: false,
         exact: true,
         component: IpAddressTrackerPage,
+    },
+    {
+        name: "To Do App",
+        path: "/frontend-challenges/todo-app",
+        authNeeded: false,
+        exact: true,
+        component: TodoAppPage,
     },
     {
         name: "Not Found",

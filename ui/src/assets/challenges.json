@@ -18,5 +18,9 @@
     {
       "title": "IP Address Tracker",
       "solution_url": "/frontend-challenges/ip-address-tracker"
+    },
+    {
+      "title": "To Do app",
+      "solution_url": "/frontend-challenges/todo-app"
     }
 ]
