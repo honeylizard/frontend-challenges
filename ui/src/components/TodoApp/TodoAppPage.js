@@ -1,27 +1,133 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { injectIntl } from "react-intl";
+import lodash from "lodash";
 
 import Footer from "./Footer";
 
 import appStyles from "../../styles/todo-app/app.module.scss";
+import TodoListItem from "./common/TodoListItem";
+import ThemeToggleButton from "./common/ThemeToggleButton";
 
 const TodoAppPage = ({ intl }) => {
+    const FILTER_COMPLETED = "completed";
+    const FILTER_ACTIVE = "active";
+    const [filter, setFilter] = useState(null);
+    const [records, setRecords] = useState([
+        {
+            title: "Complete online Javascript course",
+            completed: true,
+            order: 1,
+        },
+        {
+            title: "Jog around the park 3x",
+            completed: false,
+            order: 2,
+        },
+        {
+            title: "10 minutes meditation",
+            completed: false,
+            order: 3,
+        },
+    ]);
+    const [filteredRecords, setFilteredRecords] = useState([]);
+
+    const clearCompletedItems = () => {
+        setRecords(records.filter((item) => !item.completed));
+    };
+
+    const showAllItems = () => {
+        setFilter(null);
+    };
+
+    const showOnlyCompletedItems = () => {
+        setFilter(FILTER_COMPLETED);
+    };
+
+    const showOnlyActiveItems = () => {
+        setFilter(FILTER_ACTIVE);
+    };
+
+    const filterRecords = (list, currentFilter) => {
+        let output = [];
+        switch (currentFilter) {
+            case FILTER_COMPLETED:
+                output = list.filter((item) => item.completed);
+                break;
+            case FILTER_ACTIVE:
+                output = list.filter((item) => !item.completed);
+                break;
+            default:
+                output = list;
+                break;
+        }
+        return output;
+    };
+
+    useEffect(() => {
+        setFilteredRecords(
+            lodash.orderBy(filterRecords(records, filter), ["order"], ["title"])
+        );
+    }, [filter, records]);
+
+    const activeRecords = records.filter((item) => !item.completed);
+
     return (
-        <React.Fragment>
+        <div className={appStyles.container}>
             <Helmet>
-                <body className={appStyles.solutionContainer} />
+                <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+                />
             </Helmet>
-            <div className={appStyles.container}>
-                <main id="content">
-                    <div className={appStyles.wrapper}>
-                        <h1>Hello World!</h1>
+            <main id="content">
+                <div className={appStyles.wrapper}>
+                    <div className={appStyles.header}>
+                        <h1 className={appStyles.appTitle}>Todo</h1>
+                        <ThemeToggleButton />
                     </div>
-                </main>
-                <Footer />
-            </div>
-        </React.Fragment>
+                    <form>
+                        <input placeholder="Create a new todo..." />
+                        <input type="submit" value="Create" />
+                    </form>
+                    <ul>
+                        {filteredRecords &&
+                            filteredRecords.length > 0 &&
+                            filteredRecords.map((item, index) => (
+                                <TodoListItem
+                                    key={`todo-item-${item.order}`}
+                                    index={index}
+                                    data={item}
+                                />
+                            ))}
+                    </ul>
+                    <div className={appStyles.listFooterContainer}>
+                        <div className={appStyles.listFooterLeft}>
+                            {activeRecords.length} items left
+                        </div>
+                        <div className={appStyles.filterButtonsContainer}>
+                            <button onClick={showAllItems}>All</button>
+                            <button onClick={showOnlyActiveItems}>
+                                Active
+                            </button>
+                            <button onClick={showOnlyCompletedItems}>
+                                Completed
+                            </button>
+                        </div>
+                        <div className={appStyles.listFooterRight}>
+                            <button onClick={clearCompletedItems}>
+                                Clear Completed Todos
+                            </button>
+                        </div>
+                    </div>
+                    <div className={appStyles.dragDropNotice}>
+                        Drag and drop to reorder list
+                    </div>
+                </div>
+            </main>
+            <Footer />
+        </div>
     );
 };
 

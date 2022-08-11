@@ -124,5 +124,11 @@
 	"ipAddressTracker.timezone": "Timezone",
 	"ipAddressTracker.input.empty": "Provide an actual value",
 	"ipAddressTracker.utc": "UTC",
-	"ipAddressTracker.map.alt": "Location of IP Address on map"
+	"ipAddressTracker.map.alt": "Location of IP Address on map",
+
+	"todoApp.theme.toggleAlt.toLight": "Change Theme To Light",
+	"todoApp.theme.toggleAlt.toDark": "Change Theme To Dark",
+	"todoApp.item.toCompleted": "Mark Todo as Completed",
+	"todoApp.item.toActive": "Mark Todo as Active",
+	"todoApp.item.delete": "Delete Todo Item"
 }

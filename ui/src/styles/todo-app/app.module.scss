@@ -1,5 +1,74 @@
 @import "../_core";
+@import "colors.module.scss";
+@import "fonts.module.scss";
 
 .solutionContainer {
+    font-family: $challenge-font;
 
+    &.solutionContainerDark {
+        background-image: url('/assets/todo-app/bg-desktop-dark.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: $challenge-dark-theme-blue-dark;
+    }
+
+    &.solutionContainerLight {
+        background-image: url('/assets/todo-app/bg-desktop-light.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: $challenge-light-theme-grey;
+    }
+
+    .wrapper {
+        box-sizing: border-box;
+        padding: 0 30px;
+        max-width: 600px;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        padding: 1em 0;
+
+        .appTitle {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .listFooterContainer {
+        display: flex;
+        flex-direction: row;
+
+        .listFooterLeft,
+        .listFooterRight {
+            width: 25%;
+        }
+
+        .filterButtonsContainer {
+            width: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .listFooterRight {
+            text-align: right;
+        }
+    }
+
+    .dragDropNotice {
+        text-align: center;
+    }
+
+    .footer {
+        text-align: center;
+    }
+
+    .itemActiveToggleButton {
+
+    }
 }

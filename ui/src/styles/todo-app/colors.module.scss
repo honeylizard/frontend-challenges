@@ -1,0 +1,18 @@
+@import "../_core";
+
+$challenge-blue: hsl(220, 98%, 61%);
+$challenge-check-bg: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+$challenge-light-theme-grey: hsl(0, 0%, 98%);
+$challenge-light-theme-grey-blue-light: hsl(236, 33%, 92%);
+$challenge-light-theme-grey-blue: hsl(233, 11%, 84%);
+$challenge-light-theme-grey-blue-dark: hsl(236, 9%, 61%);
+$challenge-light-theme-grey-blue-very-dark: hsl(235, 19%, 35%);
+
+$challenge-dark-theme-grey: hsl(0, 0%, 98%);
+$challenge-dark-theme-grey-blue-light: hsl(234, 39%, 85%);
+$challenge-dark-theme-grey-blue-light-hover: hsl(236, 33%, 92%);
+$challenge-dark-theme-grey-blue-dark: hsl(234, 11%, 52%);
+$challenge-dark-theme-grey-blue-very-dark: hsl(237, 14%, 26%); // hsl(233, 14%, 35%)
+$challenge-dark-theme-blue: hsl(235, 21%, 11%);
+$challenge-dark-theme-blue-dark: hsl(235, 24%, 19%);
