@@ -4,6 +4,7 @@ import axios from "axios";
 import { injectIntl } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import isValidDomain from "is-valid-domain";
 
 import FormInput from "./common/FormInput";
 import Alert from "./common/Alert";
@@ -15,6 +16,8 @@ const IpAddressTrackerForm = ({ intl, setResults }) => {
     const IPIFY_API_KEY = "at_SnevHZ5viEh6DR8tGzZWvKrTG02v2";
     const IPIFY_API_BASE_URL = "https://geo.ipify.org/api/v1?";
     const IPIFY_GET_IP_URL = "https://api.ipify.org?format=json";
+    const SEARCH_TYPE_IP = "ipAddress";
+    const SEARCH_TYPE_DOMAIN = "domain";
 
     const inputLabel = intl.formatMessage({
         id: "ipAddressTracker.input.label",
@@ -54,14 +57,14 @@ const IpAddressTrackerForm = ({ intl, setResults }) => {
             return Promise.reject(emptyInputError);
         }
 
-        const path =
-            IPIFY_API_BASE_URL +
-            "apiKey=" +
-            IPIFY_API_KEY +
-            "&ipAddress=" +
-            value;
+        const path = IPIFY_API_BASE_URL + "apiKey=" + IPIFY_API_KEY;
+        // Validate if it is an IP or domain
+        const searchTerm = isValidDomain(value)
+            ? SEARCH_TYPE_DOMAIN
+            : SEARCH_TYPE_IP;
+        const searchQuery = `&${searchTerm}=${value}`;
 
-        return axios.get(path).then((response) => {
+        return axios.get(path + searchQuery).then((response) => {
             if (response.status === 200) {
                 const { isp, location, ip } = response.data;
 

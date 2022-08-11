@@ -19,6 +19,7 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
+    "is-valid-domain": "^0.1.6",
     "leaflet": "^1.8.0",
     "lodash": "^4.17.21",
     "mathjs": "^10.6.1",
