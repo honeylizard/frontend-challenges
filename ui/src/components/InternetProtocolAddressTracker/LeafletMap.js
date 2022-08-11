@@ -29,7 +29,7 @@ const LeafletMap = ({ results = {} }) => {
                 map.setZoom(initialZoom);
             }
         }
-    }, [results]);
+    }, [results, latitude, longitude, map]);
 
     const coordinates = [latitude, longitude];
 

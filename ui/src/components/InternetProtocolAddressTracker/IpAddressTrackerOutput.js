@@ -38,7 +38,7 @@ const IpAddressTrackerOutput = ({ intl, results }) => {
                 label={locationLabel}
                 value={results?.location}
                 value2={
-                    results?.country == defaultCountry ? null : results.country
+                    results?.country === defaultCountry ? null : results.country
                 }
             />
             <OutputBlock label={timezoneLabel} value={results?.timezone} />
