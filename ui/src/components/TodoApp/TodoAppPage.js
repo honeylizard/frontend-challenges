@@ -10,6 +10,7 @@ import Footer from "./Footer";
 import appStyles from "../../styles/todo-app/app.module.scss";
 import TodoListItem from "./common/TodoListItem";
 import ThemeToggleButton from "./common/ThemeToggleButton";
+import TodoCreateItemForm from "./common/TodoCreateItemForm";
 
 const TodoAppPage = ({ intl }) => {
     const { todoApp: globalData, updateTodoData } = useContext(GlobalContext);
@@ -82,7 +83,10 @@ const TodoAppPage = ({ intl }) => {
 
     useEffect(() => {
         setRecords(globalData.todoList);
-    }, [globalData.todoList]);
+        setFilteredRecords(
+            lodash.orderBy(filterRecords(records, filter), ["order"], ["title"])
+        );
+    }, [globalData]);
 
     useEffect(() => {
         setFilteredRecords(
@@ -106,16 +110,15 @@ const TodoAppPage = ({ intl }) => {
                         <h1 className={appStyles.appTitle}>Todo</h1>
                         <ThemeToggleButton />
                     </div>
-                    <form>
-                        <input placeholder="Create a new todo..." />
-                        <input type="submit" value="Create" />
-                    </form>
+                    <TodoCreateItemForm />
                     <ul>
                         {filteredRecords &&
                             filteredRecords.length > 0 &&
                             filteredRecords.map((item, index) => (
                                 <TodoListItem
-                                    key={`todo-item-${item.order}`}
+                                    key={`todo-item-${item.title
+                                        .replace(/\s+/g, "-")
+                                        .toLowerCase()}-${item.order}`}
                                     index={index}
                                     data={item}
                                 />

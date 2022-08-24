@@ -130,5 +130,9 @@
 	"todoApp.theme.toggleAlt.toDark": "Change Theme To Dark",
 	"todoApp.item.toCompleted": "Mark Todo as Completed",
 	"todoApp.item.toActive": "Mark Todo as Active",
-	"todoApp.item.delete": "Delete Todo Item"
+	"todoApp.item.delete": "Delete Todo Item",
+	"todoApp.form.error": "General error occurred during todo submission. Please review.",
+	"todoApp.form.submit": "Create",
+	"todoApp.form.newTodo.label": "New Todo",
+	"todoApp.form.newTodo.placeholder": "Create a new todo..."
 }

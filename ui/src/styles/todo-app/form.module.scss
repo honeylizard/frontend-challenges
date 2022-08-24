@@ -1,0 +1,101 @@
+@import "colors.module.scss";
+
+.fieldWrapper {
+  display: inline-block;
+  margin: 10px;
+  margin-right: 0;
+
+  @media all and (max-width: 600px) {
+    width: 90%;
+  }
+
+  .requiredText {
+    color: $challenge-red;
+  }
+
+  .inputWrapper {
+    min-width: 450px;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: $white;
+    color: $black;
+
+    @media all and (max-width: 600px) {
+      min-width: 0;
+      width: 100%;
+    }
+  }
+
+  .suffixIcon {
+    font-size: 20px;
+    margin: 0 10px;
+    box-sizing: border-box;
+  }
+
+  input,
+  select {
+    box-sizing: border-box;
+    border-color: transparent;
+    flex-grow: 1;
+
+    /* do not group these rules */
+    &::-webkit-input-placeholder {
+      color: $challenge-gray;
+    }
+    &:-moz-placeholder {
+      color: $challenge-gray;
+      opacity: 1;
+    }
+    &::-moz-placeholder {
+      color: $challenge-gray;
+      opacity: 1;
+    }
+    &:-ms-input-placeholder {
+      color: $challenge-gray;
+    }
+    &::-ms-input-placeholder {
+      color: $challenge-gray;
+    }
+    &::placeholder {
+      color: $challenge-gray;
+    }
+  }
+
+  &.invalidField {
+    label {
+      color: $red;
+    }
+
+    .inputWrapper {
+      border-color: $challenge-red !important;
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+      color: $challenge-red;
+    }
+
+    .fieldErrorText {
+      font-size: .7em;
+      padding: 15px 20px;
+      color: $white;
+      background-color: $challenge-red;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      box-sizing: border-box;
+      max-width: 260px;
+      font-style: italic;
+      text-align: left;
+
+      @media all and (max-width: 450px) {
+        max-width: none;
+      }
+    }
+  }
+}
+
+.fieldHelpText {
+  font-size: .875em;
+  color: $white;
+}
