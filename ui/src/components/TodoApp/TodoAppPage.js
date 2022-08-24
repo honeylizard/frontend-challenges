@@ -97,14 +97,14 @@ const TodoAppPage = ({ intl }) => {
             todoList:
                 previousTodoList?.length > 0 ? previousTodoList : initialData,
         });
-    }, []);
+    }, [updateTodoData]);
 
     useEffect(() => {
         setRecords(globalData.todoList);
         setFilteredRecords(
             lodash.orderBy(filterRecords(records, filter), ["order"], ["title"])
         );
-    }, [globalData]);
+    }, [globalData, filter, records]);
 
     useEffect(() => {
         setFilteredRecords(
