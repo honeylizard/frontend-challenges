@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,9 +8,13 @@ import {
     faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { GlobalContext } from "../../../GlobalStateProvider";
+
 import appStyles from "../../../styles/todo-app/app.module.scss";
 
 const TodoListItem = ({ intl, data }) => {
+    const { todoApp: globalData, updateTodoData } = useContext(GlobalContext);
+
     const toCompletedLabel = intl.formatMessage({
         id: "todoApp.item.toCompleted",
     });
@@ -22,11 +26,19 @@ const TodoListItem = ({ intl, data }) => {
     });
 
     const toggleItemStatus = () => {
-        // TODO: add logic to toggle the item's status
+        const newList = globalData.todoList;
+        const objIndex = newList.findIndex((obj) => obj === data);
+        newList[objIndex].completed = !data.completed;
+        updateTodoData({
+            todoList: newList,
+        });
     };
 
     const deleteItem = () => {
-        // TODO: add logic to remove hte item from the list
+        const newList = globalData.todoList.filter((obj) => obj !== data);
+        updateTodoData({
+            todoList: newList,
+        });
     };
 
     return (

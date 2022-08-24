@@ -13,6 +13,9 @@ const initialState = {
         formula: "",
         error: null,
     },
+    todoApp: {
+        todoList: [],
+    },
 };
 
 const GlobalContext = createContext(initialState);
@@ -36,13 +39,22 @@ const GlobalProvider = ({ children }) => {
         });
     }
 
+    function updateTodoData(item) {
+        dispatch({
+            type: "UPDATE_TODOS",
+            payload: item,
+        });
+    }
+
     return (
         <GlobalContext.Provider
             value={{
                 countriesApi: state.countriesApi,
                 calculatorApp: state.calculatorApp,
+                todoApp: state.todoApp,
                 updateCountriesData,
                 updateCalcData,
+                updateTodoData,
             }}
         >
             {children}

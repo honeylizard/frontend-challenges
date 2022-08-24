@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { injectIntl } from "react-intl";
 import lodash from "lodash";
 
+import { GlobalContext } from "../../GlobalStateProvider";
 import Footer from "./Footer";
 
 import appStyles from "../../styles/todo-app/app.module.scss";
@@ -11,30 +12,18 @@ import TodoListItem from "./common/TodoListItem";
 import ThemeToggleButton from "./common/ThemeToggleButton";
 
 const TodoAppPage = ({ intl }) => {
+    const { todoApp: globalData, updateTodoData } = useContext(GlobalContext);
     const FILTER_COMPLETED = "completed";
     const FILTER_ACTIVE = "active";
     const [filter, setFilter] = useState(null);
-    const [records, setRecords] = useState([
-        {
-            title: "Complete online Javascript course",
-            completed: true,
-            order: 1,
-        },
-        {
-            title: "Jog around the park 3x",
-            completed: false,
-            order: 2,
-        },
-        {
-            title: "10 minutes meditation",
-            completed: false,
-            order: 3,
-        },
-    ]);
+    const [records, setRecords] = useState(globalData.todoList);
     const [filteredRecords, setFilteredRecords] = useState([]);
 
     const clearCompletedItems = () => {
-        setRecords(records.filter((item) => !item.completed));
+        const newList = records.filter((item) => !item.completed);
+        updateTodoData({
+            todoList: newList,
+        });
     };
 
     const showAllItems = () => {
@@ -64,6 +53,36 @@ const TodoAppPage = ({ intl }) => {
         }
         return output;
     };
+
+    useEffect(() => {
+        // Initialize the list of todos based on the previously saved data or our example set of items
+        const previousTodoList = JSON.parse(localStorage.getItem("todoList"));
+        const initialData = [
+            {
+                title: "Complete online Javascript course",
+                completed: true,
+                order: 1,
+            },
+            {
+                title: "Jog around the park 3x",
+                completed: false,
+                order: 2,
+            },
+            {
+                title: "10 minutes meditation",
+                completed: false,
+                order: 3,
+            },
+        ];
+        updateTodoData({
+            todoList:
+                previousTodoList?.length > 0 ? previousTodoList : initialData,
+        });
+    }, []);
+
+    useEffect(() => {
+        setRecords(globalData.todoList);
+    }, [globalData.todoList]);
 
     useEffect(() => {
         setFilteredRecords(

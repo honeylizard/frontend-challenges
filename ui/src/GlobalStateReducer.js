@@ -15,6 +15,17 @@ const GlobalStateReducer = (state, action) => {
                     ...action.payload,
                 },
             };
+        case "UPDATE_TODOS":
+            localStorage.setItem(
+                "todoList",
+                JSON.stringify(action.payload.todoList)
+            );
+            return {
+                todoApp: {
+                    ...state.todoApp,
+                    ...action.payload,
+                },
+            };
         default:
             return state;
     }
