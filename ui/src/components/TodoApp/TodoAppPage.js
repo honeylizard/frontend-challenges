@@ -11,6 +11,7 @@ import appStyles from "../../styles/todo-app/app.module.scss";
 import TodoListItem from "./common/TodoListItem";
 import ThemeToggleButton from "./common/ThemeToggleButton";
 import TodoCreateItemForm from "./common/TodoCreateItemForm";
+import Button from "./common/Button";
 
 const TodoAppPage = ({ intl }) => {
     const { todoApp: globalData, updateTodoData } = useContext(GlobalContext);
@@ -19,6 +20,23 @@ const TodoAppPage = ({ intl }) => {
     const [filter, setFilter] = useState(null);
     const [records, setRecords] = useState(globalData.todoList);
     const [filteredRecords, setFilteredRecords] = useState([]);
+
+    const appTitle = intl.formatMessage({
+        id: "todoApp.header.title",
+    });
+    const filterLabelAll = intl.formatMessage({ id: "todoApp.filters.all" });
+    const filterLabelActive = intl.formatMessage({
+        id: "todoApp.filters.active",
+    });
+    const filterLabelCompleted = intl.formatMessage({
+        id: "todoApp.filters.completed",
+    });
+    const clearCompletedItemsLabel = intl.formatMessage({
+        id: "todoApp.clearCompletedTodos",
+    });
+    const dragAndDropLabel = intl.formatMessage({
+        id: "todoApp.dragAndDrop",
+    });
 
     const clearCompletedItems = () => {
         const newList = records.filter((item) => !item.completed);
@@ -107,7 +125,7 @@ const TodoAppPage = ({ intl }) => {
             <main id="content">
                 <div className={appStyles.wrapper}>
                     <div className={appStyles.header}>
-                        <h1 className={appStyles.appTitle}>Todo</h1>
+                        <h1 className={appStyles.appTitle}>{appTitle}</h1>
                         <ThemeToggleButton />
                     </div>
                     <TodoCreateItemForm />
@@ -126,25 +144,34 @@ const TodoAppPage = ({ intl }) => {
                     </ul>
                     <div className={appStyles.listFooterContainer}>
                         <div className={appStyles.listFooterLeft}>
-                            {activeRecords.length} items left
+                            {intl.formatMessage(
+                                {
+                                    id: "todoApp.list.count",
+                                },
+                                {
+                                    count: activeRecords.length,
+                                }
+                            )}
                         </div>
                         <div className={appStyles.filterButtonsContainer}>
-                            <button onClick={showAllItems}>All</button>
-                            <button onClick={showOnlyActiveItems}>
-                                Active
-                            </button>
-                            <button onClick={showOnlyCompletedItems}>
-                                Completed
-                            </button>
+                            <Button onClick={showAllItems}>
+                                {filterLabelAll}
+                            </Button>
+                            <Button onClick={showOnlyActiveItems}>
+                                {filterLabelActive}
+                            </Button>
+                            <Button onClick={showOnlyCompletedItems}>
+                                {filterLabelCompleted}
+                            </Button>
                         </div>
                         <div className={appStyles.listFooterRight}>
-                            <button onClick={clearCompletedItems}>
-                                Clear Completed Todos
-                            </button>
+                            <Button onClick={clearCompletedItems}>
+                                {clearCompletedItemsLabel}
+                            </Button>
                         </div>
                     </div>
                     <div className={appStyles.dragDropNotice}>
-                        Drag and drop to reorder list
+                        {dragAndDropLabel}
                     </div>
                 </div>
             </main>
