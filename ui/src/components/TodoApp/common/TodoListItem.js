@@ -42,7 +42,7 @@ const TodoListItem = ({ intl, data }) => {
     };
 
     return (
-        <li>
+        <li className={appStyles.listItem}>
             <button
                 className={appStyles.itemActiveToggleButton}
                 title={data.completed ? toActiveLabel : toCompletedLabel}
@@ -54,11 +54,11 @@ const TodoListItem = ({ intl, data }) => {
                 />
             </button>
             {data.completed ? (
-                <span>
+                <span className={appStyles.listItemTitle}>
                     <del>{data.title}</del>
                 </span>
             ) : (
-                <span>{data.title}</span>
+                <span className={appStyles.listItemTitle}>{data.title}</span>
             )}
             <button onClick={deleteItem} title={deleteLabel}>
                 <FontAwesomeIcon icon={faXmark} aria-hidden="true" />

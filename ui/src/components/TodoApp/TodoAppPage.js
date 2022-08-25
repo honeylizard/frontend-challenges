@@ -31,8 +31,11 @@ const TodoAppPage = ({ intl }) => {
     const filterLabelCompleted = intl.formatMessage({
         id: "todoApp.filters.completed",
     });
-    const clearCompletedItemsLabel = intl.formatMessage({
+    const clearCompletedItemsTitle = intl.formatMessage({
         id: "todoApp.clearCompletedTodos",
+    });
+    const clearCompletedItemsLabel = intl.formatMessage({
+        id: "todoApp.clearCompleted",
     });
     const dragAndDropLabel = intl.formatMessage({
         id: "todoApp.dragAndDrop",
@@ -71,6 +74,16 @@ const TodoAppPage = ({ intl }) => {
                 break;
         }
         return output;
+    };
+
+    const getActiveFilterStyle = (expectedFilter) => {
+        if (expectedFilter && filter === expectedFilter) {
+            return [appStyles.activeFilter];
+        }
+        if (!filter && !expectedFilter) {
+            return [appStyles.activeFilter];
+        }
+        return [];
     };
 
     useEffect(() => {
@@ -129,45 +142,64 @@ const TodoAppPage = ({ intl }) => {
                         <ThemeToggleButton />
                     </div>
                     <TodoCreateItemForm />
-                    <ul>
-                        {filteredRecords &&
-                            filteredRecords.length > 0 &&
-                            filteredRecords.map((item, index) => (
-                                <TodoListItem
-                                    key={`todo-item-${item.title
-                                        .replace(/\s+/g, "-")
-                                        .toLowerCase()}-${item.order}`}
-                                    index={index}
-                                    data={item}
-                                />
-                            ))}
-                    </ul>
-                    <div className={appStyles.listFooterContainer}>
-                        <div className={appStyles.listFooterLeft}>
-                            {intl.formatMessage(
-                                {
-                                    id: "todoApp.list.count",
-                                },
-                                {
-                                    count: activeRecords.length,
-                                }
-                            )}
-                        </div>
-                        <div className={appStyles.filterButtonsContainer}>
-                            <Button onClick={showAllItems}>
-                                {filterLabelAll}
-                            </Button>
-                            <Button onClick={showOnlyActiveItems}>
-                                {filterLabelActive}
-                            </Button>
-                            <Button onClick={showOnlyCompletedItems}>
-                                {filterLabelCompleted}
-                            </Button>
-                        </div>
-                        <div className={appStyles.listFooterRight}>
-                            <Button onClick={clearCompletedItems}>
-                                {clearCompletedItemsLabel}
-                            </Button>
+                    <div className={appStyles.listContainer}>
+                        <ul className={appStyles.list}>
+                            {filteredRecords &&
+                                filteredRecords.length > 0 &&
+                                filteredRecords.map((item, index) => (
+                                    <TodoListItem
+                                        key={`todo-item-${item.title
+                                            .replace(/\s+/g, "-")
+                                            .toLowerCase()}-${item.order}`}
+                                        index={index}
+                                        data={item}
+                                    />
+                                ))}
+                        </ul>
+                        <div className={appStyles.listFooterContainer}>
+                            <div className={appStyles.listFooterLeft}>
+                                {intl.formatMessage(
+                                    {
+                                        id: "todoApp.list.count",
+                                    },
+                                    {
+                                        count: activeRecords.length,
+                                    }
+                                )}
+                            </div>
+                            <div className={appStyles.filterButtonsContainer}>
+                                <Button
+                                    onClick={showAllItems}
+                                    customClasses={getActiveFilterStyle(null)}
+                                >
+                                    {filterLabelAll}
+                                </Button>
+                                <Button
+                                    onClick={showOnlyActiveItems}
+                                    customClasses={getActiveFilterStyle(
+                                        FILTER_ACTIVE
+                                    )}
+                                >
+                                    {filterLabelActive}
+                                </Button>
+                                <Button
+                                    onClick={showOnlyCompletedItems}
+                                    customClasses={getActiveFilterStyle(
+                                        FILTER_COMPLETED
+                                    )}
+                                >
+                                    {filterLabelCompleted}
+                                </Button>
+                            </div>
+                            <div className={appStyles.listFooterRight}>
+                                <Button
+                                    onClick={clearCompletedItems}
+                                    aria-label={clearCompletedItemsTitle}
+                                    customClasses={[appStyles.clearButton]}
+                                >
+                                    {clearCompletedItemsLabel}
+                                </Button>
+                            </div>
                         </div>
                     </div>
                     <div className={appStyles.dragDropNotice}>

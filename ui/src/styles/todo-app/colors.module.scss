@@ -9,14 +9,13 @@ $challenge-light-theme-grey-blue: hsl(233, 11%, 84%);
 $challenge-light-theme-grey-blue-dark: hsl(236, 9%, 61%);
 $challenge-light-theme-grey-blue-very-dark: hsl(235, 19%, 35%);
 
-$challenge-dark-theme-grey: hsl(0, 0%, 98%);
-$challenge-dark-theme-grey-blue-light: hsl(234, 39%, 85%);
-$challenge-dark-theme-grey-blue-light-hover: hsl(236, 33%, 92%);
-$challenge-dark-theme-grey-blue-dark: hsl(234, 11%, 52%);
-$challenge-dark-theme-grey-blue-very-dark: hsl(237, 14%, 26%); // hsl(233, 14%, 35%)
-$challenge-dark-theme-blue: hsl(235, 21%, 11%);
-$challenge-dark-theme-blue-dark: hsl(235, 24%, 19%);
-
+$challenge-dark-theme-grey: #FAFAFA; // hsl(0, 0%, 98%);
+$challenge-dark-theme-grey-blue-light: #CACDE8; // hsl(234, 39%, 85%);
+$challenge-dark-theme-grey-blue-light-hover: #E4E5F1; // hsl(236, 33%, 92%);
+$challenge-dark-theme-grey-blue-dark: #777A92; // hsl(234, 11%, 52%);
+$challenge-dark-theme-grey-blue-very-dark: #393A4C; // hsl(237, 14%, 26%); // hsl(233, 14%, 35%)
+$challenge-dark-theme-blue: #161722; // hsl(235, 21%, 11%);
+$challenge-dark-theme-blue-dark: #25273C; // hsl(235, 24%, 19%);
 
 // Update to reflect form colors
 $challenge-gray: #969696; // hsl(0, 0%, 59%)

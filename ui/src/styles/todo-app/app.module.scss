@@ -9,7 +9,31 @@
         background-image: url('/assets/todo-app/bg-desktop-dark.jpg');
         background-size: contain;
         background-repeat: no-repeat;
-        background-color: $challenge-dark-theme-blue-dark;
+        background-color: $challenge-dark-theme-blue;
+
+        .listContainer {
+            background-color: $challenge-dark-theme-blue-dark;
+            color: $white;
+
+            .listItem {
+                border-bottom-color: $challenge-dark-theme-grey-blue-very-dark;
+
+                .listItemTitle {
+                    del {
+                        color: $challenge-dark-theme-grey-blue-dark;
+                    }
+                }
+            }
+
+            .listFooterContainer {
+                color: $challenge-dark-theme-grey-blue-dark;
+            }
+        }
+
+        .dragDropNotice,
+        .footer {
+            color: $white;
+        }
     }
 
     &.solutionContainerLight {
@@ -17,12 +41,37 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-color: $challenge-light-theme-grey;
+
+        .listContainer {
+            background-color: $white;
+            color: $black;
+
+            .listItem {
+                border-bottom-color: $challenge-dark-theme-grey-blue-very-dark;
+
+                .listItemTitle {
+                    del {
+                        color: $challenge-dark-theme-grey-blue-dark;
+                    }
+                }
+            }
+
+            .listFooterContainer {
+                color: $black;
+            }
+        }
+
+        .dragDropNotice,
+        .footer {
+            color: $black;
+        }
     }
 
     .wrapper {
         box-sizing: border-box;
         padding: 0 30px;
         max-width: 600px;
+        margin: 0 auto;
     }
 
     .header {
@@ -35,33 +84,67 @@
         .appTitle {
             margin: 0;
             padding: 0;
+            text-transform: uppercase;
+        }
+    }
+
+    .listContainer {
+        box-shadow: 0px 8px 24px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        margin: 10px 0;
+    }
+
+    .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        .listItem {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+
+            border-bottom: 1px solid transparent;
+
+            .listItemTitle {
+                flex-grow: 1;
+                padding: 5px 10px;
+            }
         }
     }
 
     .listFooterContainer {
         display: flex;
         flex-direction: row;
-
-        .listFooterLeft,
-        .listFooterRight {
-            width: 25%;
-        }
+        padding: 10px 20px 10px 20px;
+        align-items: center;
+        font-size: 14px;
+        justify-content: space-between;
 
         .filterButtonsContainer {
             width: auto;
             display: flex;
             flex-direction: row;
             justify-content: center;
-            flex-grow: 1;
         }
 
         .listFooterRight {
             text-align: right;
         }
+
+        .activeFilter {
+            color: $challenge-blue;
+        }
+
+        .clearButton {
+            padding: 10px 0;
+        }
     }
 
     .dragDropNotice {
         text-align: center;
+        padding: 20px 0;
     }
 
     .footer {

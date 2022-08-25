@@ -1,4 +1,5 @@
 @import "colors.module.scss";
+@import "fonts.module.scss";
 
 .fieldWrapper {
   display: inline-block;
@@ -98,4 +99,19 @@
 .fieldHelpText {
   font-size: .875em;
   color: $white;
+}
+
+.button {
+  background-color: $challenge-dark-theme-blue-dark;
+  color: $challenge-dark-theme-grey-blue-dark;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-family: $challenge-font;
+  font-size: 14px;
+
+  &:hover,
+  &:focus-visible {
+    color: $white;
+  }
 }
