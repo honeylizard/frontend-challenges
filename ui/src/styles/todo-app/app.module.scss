@@ -23,6 +23,30 @@
                         color: $challenge-dark-theme-grey-blue-dark;
                     }
                 }
+
+                .itemActiveToggleButton {
+                    &.itemToggleButtonChecked {
+                        color: $challenge-blue;
+                    }
+
+                    &:hover,
+                    &:focus-visible {
+                        color: $challenge-blue;
+                    }
+                }
+
+                &:hover {
+                    .itemDeleteButton {
+                        color: $challenge-dark-theme-grey-blue-dark;
+                    }
+                }
+
+                .itemDeleteButton {
+                    &:hover,
+                    &:focus-visible {
+                        color: $white;
+                    }
+                }
             }
 
             .listFooterContainer {
@@ -40,18 +64,45 @@
         background-image: url('/assets/todo-app/bg-desktop-light.jpg');
         background-size: contain;
         background-repeat: no-repeat;
-        background-color: $challenge-light-theme-grey;
+        background-color: $challenge-grey;
 
         .listContainer {
             background-color: $white;
             color: $black;
 
             .listItem {
-                border-bottom-color: $challenge-dark-theme-grey-blue-very-dark;
+                border-bottom-color: $challenge-light-theme-grey-blue;
 
                 .listItemTitle {
                     del {
-                        color: $challenge-dark-theme-grey-blue-dark;
+                        color: $challenge-light-theme-grey-blue;
+                    }
+                }
+
+
+                .itemActiveToggleButton {
+                    color: $challenge-light-theme-grey-blue;
+
+                    &.itemToggleButtonChecked {
+                        color: $challenge-blue;
+                    }
+
+                    &:hover,
+                    &:focus-visible {
+                        color: $challenge-blue;
+                    }
+                }
+
+                &:hover {
+                    .itemDeleteButton {
+                        color: $challenge-light-theme-grey-blue;
+                    }
+                }
+
+                .itemDeleteButton {
+                    &:hover,
+                    &:focus-visible {
+                        color: $challenge-light-theme-grey-blue-very-dark;
                     }
                 }
             }
@@ -111,6 +162,19 @@
                 flex-grow: 1;
                 padding: 5px 10px;
             }
+
+            .itemActiveToggleButton {
+                background-color: transparent;
+                font-size: 24px;
+                padding: 5px;
+            }
+
+            .itemDeleteButton {
+                background-color: transparent;
+                font-size: 24px;
+                padding: 5px;
+                color: transparent;
+            }
         }
     }
 
@@ -149,9 +213,5 @@
 
     .footer {
         text-align: center;
-    }
-
-    .itemActiveToggleButton {
-
     }
 }

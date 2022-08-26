@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
+import Button from "./Button";
 
 import appStyles from "../../../styles/todo-app/app.module.scss";
 
@@ -27,7 +28,7 @@ const TodoListItem = ({ intl, data }) => {
 
     const toggleItemStatus = () => {
         const newList = globalData.todoList;
-        const objIndex = newList.findIndex((obj) => obj === data);
+        const objIndex = newList.findIndex((obj) => obj.title === data.title);
         newList[objIndex].completed = !data.completed;
         updateTodoData({
             todoList: newList,
@@ -35,7 +36,9 @@ const TodoListItem = ({ intl, data }) => {
     };
 
     const deleteItem = () => {
-        const newList = globalData.todoList.filter((obj) => obj !== data);
+        const newList = globalData.todoList.filter(
+            (obj) => obj.title !== data.title
+        );
         updateTodoData({
             todoList: newList,
         });
@@ -43,8 +46,11 @@ const TodoListItem = ({ intl, data }) => {
 
     return (
         <li className={appStyles.listItem}>
-            <button
-                className={appStyles.itemActiveToggleButton}
+            <Button
+                customClasses={[
+                    appStyles.itemActiveToggleButton,
+                    data.completed ? appStyles.itemToggleButtonChecked : null,
+                ]}
                 title={data.completed ? toActiveLabel : toCompletedLabel}
                 onClick={toggleItemStatus}
             >
@@ -52,7 +58,7 @@ const TodoListItem = ({ intl, data }) => {
                     icon={data.completed ? faCheckCircle : faCircle}
                     aria-hidden="true"
                 />
-            </button>
+            </Button>
             {data.completed ? (
                 <span className={appStyles.listItemTitle}>
                     <del>{data.title}</del>
@@ -60,9 +66,13 @@ const TodoListItem = ({ intl, data }) => {
             ) : (
                 <span className={appStyles.listItemTitle}>{data.title}</span>
             )}
-            <button onClick={deleteItem} title={deleteLabel}>
+            <Button
+                customClasses={[appStyles.itemDeleteButton]}
+                title={deleteLabel}
+                onClick={deleteItem}
+            >
                 <FontAwesomeIcon icon={faXmark} aria-hidden="true" />
-            </button>
+            </Button>
         </li>
     );
 };
