@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 import appStyles from "../../../styles/todo-app/app.module.scss";
+import Button from "./Button";
 
 const ThemeToggleButton = ({ intl }) => {
     const [isDarkTheme, setIsDarkTheme] = useState(true);
@@ -32,15 +33,16 @@ const ThemeToggleButton = ({ intl }) => {
             <Helmet>
                 <body className={bodyClasses.join(" ")} />
             </Helmet>
-            <button
-                onClick={toggleTheme}
+            <Button
+                customClasses={[appStyles.themeButton]}
                 title={isDarkTheme ? toLightLabel : toDarkLabel}
+                onClick={toggleTheme}
             >
                 <FontAwesomeIcon
                     icon={isDarkTheme ? faSun : faMoon}
                     aria-hidden="true"
                 />
-            </button>
+            </Button>
         </React.Fragment>
     );
 };
