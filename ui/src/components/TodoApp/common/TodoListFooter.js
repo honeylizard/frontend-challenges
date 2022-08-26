@@ -51,12 +51,12 @@ const TodoListFooter = ({
 
     const getActiveFilterStyle = (expectedFilter) => {
         if (expectedFilter && filter === expectedFilter) {
-            return [appStyles.activeFilter];
+            return [appStyles.filterButton, appStyles.activeFilter];
         }
         if (!filter && !expectedFilter) {
-            return [appStyles.activeFilter];
+            return [appStyles.filterButton, appStyles.activeFilter];
         }
-        return [];
+        return [appStyles.filterButton];
     };
 
     return (

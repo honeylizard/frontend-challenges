@@ -51,6 +51,14 @@
 
             .listFooterContainer {
                 color: $challenge-dark-theme-grey-blue-dark;
+
+                .filterButton,
+                .clearButton {
+                    &:hover,
+                    &:focus-visible {
+                        color: $white;
+                    }
+                }
             }
         }
 
@@ -108,7 +116,15 @@
             }
 
             .listFooterContainer {
-                color: $black;
+                color: $challenge-light-theme-grey-blue-dark;
+
+                .filterButton,
+                .clearButton {
+                    &:hover,
+                    &:focus-visible {
+                        color: $black;
+                    }
+                }
             }
         }
 
@@ -197,12 +213,17 @@
             text-align: right;
         }
 
+        .filterButton {
+            background-color: transparent;
+        }
+
         .activeFilter {
             color: $challenge-blue;
         }
 
         .clearButton {
             padding: 10px 0;
+            background-color: transparent;
         }
     }
 
