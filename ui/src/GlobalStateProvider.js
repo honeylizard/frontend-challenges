@@ -15,6 +15,8 @@ const initialState = {
     },
     todoApp: {
         todoList: [],
+        FILTER_COMPLETED: "completed",
+        FILTER_ACTIVE: "active",
     },
 };
 

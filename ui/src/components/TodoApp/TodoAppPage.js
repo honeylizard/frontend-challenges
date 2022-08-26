@@ -11,12 +11,10 @@ import appStyles from "../../styles/todo-app/app.module.scss";
 import TodoListItem from "./common/TodoListItem";
 import ThemeToggleButton from "./common/ThemeToggleButton";
 import TodoCreateItemForm from "./common/TodoCreateItemForm";
-import Button from "./common/Button";
+import TodoListFooter from "./common/TodoListFooter";
 
 const TodoAppPage = ({ intl }) => {
     const { todoApp: globalData, updateTodoData } = useContext(GlobalContext);
-    const FILTER_COMPLETED = "completed";
-    const FILTER_ACTIVE = "active";
     const [filter, setFilter] = useState(null);
     const [records, setRecords] = useState(globalData.todoList);
     const [filteredRecords, setFilteredRecords] = useState([]);
@@ -24,49 +22,17 @@ const TodoAppPage = ({ intl }) => {
     const appTitle = intl.formatMessage({
         id: "todoApp.header.title",
     });
-    const filterLabelAll = intl.formatMessage({ id: "todoApp.filters.all" });
-    const filterLabelActive = intl.formatMessage({
-        id: "todoApp.filters.active",
-    });
-    const filterLabelCompleted = intl.formatMessage({
-        id: "todoApp.filters.completed",
-    });
-    const clearCompletedItemsTitle = intl.formatMessage({
-        id: "todoApp.clearCompletedTodos",
-    });
-    const clearCompletedItemsLabel = intl.formatMessage({
-        id: "todoApp.clearCompleted",
-    });
     const dragAndDropLabel = intl.formatMessage({
         id: "todoApp.dragAndDrop",
     });
 
-    const clearCompletedItems = () => {
-        const newList = records.filter((item) => !item.completed);
-        updateTodoData({
-            todoList: newList,
-        });
-    };
-
-    const showAllItems = () => {
-        setFilter(null);
-    };
-
-    const showOnlyCompletedItems = () => {
-        setFilter(FILTER_COMPLETED);
-    };
-
-    const showOnlyActiveItems = () => {
-        setFilter(FILTER_ACTIVE);
-    };
-
     const filterRecords = (list, currentFilter) => {
         let output = [];
         switch (currentFilter) {
-            case FILTER_COMPLETED:
+            case globalData.FILTER_COMPLETED:
                 output = list.filter((item) => item.completed);
                 break;
-            case FILTER_ACTIVE:
+            case globalData.FILTER_ACTIVE:
                 output = list.filter((item) => !item.completed);
                 break;
             default:
@@ -74,16 +40,6 @@ const TodoAppPage = ({ intl }) => {
                 break;
         }
         return output;
-    };
-
-    const getActiveFilterStyle = (expectedFilter) => {
-        if (expectedFilter && filter === expectedFilter) {
-            return [appStyles.activeFilter];
-        }
-        if (!filter && !expectedFilter) {
-            return [appStyles.activeFilter];
-        }
-        return [];
     };
 
     useEffect(() => {
@@ -156,51 +112,12 @@ const TodoAppPage = ({ intl }) => {
                                     />
                                 ))}
                         </ul>
-                        <div className={appStyles.listFooterContainer}>
-                            <div className={appStyles.listFooterLeft}>
-                                {intl.formatMessage(
-                                    {
-                                        id: "todoApp.list.count",
-                                    },
-                                    {
-                                        count: activeRecords.length,
-                                    }
-                                )}
-                            </div>
-                            <div className={appStyles.filterButtonsContainer}>
-                                <Button
-                                    onClick={showAllItems}
-                                    customClasses={getActiveFilterStyle(null)}
-                                >
-                                    {filterLabelAll}
-                                </Button>
-                                <Button
-                                    onClick={showOnlyActiveItems}
-                                    customClasses={getActiveFilterStyle(
-                                        FILTER_ACTIVE
-                                    )}
-                                >
-                                    {filterLabelActive}
-                                </Button>
-                                <Button
-                                    onClick={showOnlyCompletedItems}
-                                    customClasses={getActiveFilterStyle(
-                                        FILTER_COMPLETED
-                                    )}
-                                >
-                                    {filterLabelCompleted}
-                                </Button>
-                            </div>
-                            <div className={appStyles.listFooterRight}>
-                                <Button
-                                    onClick={clearCompletedItems}
-                                    aria-label={clearCompletedItemsTitle}
-                                    customClasses={[appStyles.clearButton]}
-                                >
-                                    {clearCompletedItemsLabel}
-                                </Button>
-                            </div>
-                        </div>
+                        <TodoListFooter
+                            records={records}
+                            filteredRecords={activeRecords}
+                            setFilter={setFilter}
+                            filter={filter}
+                        />
                     </div>
                     <div className={appStyles.dragDropNotice}>
                         {dragAndDropLabel}
