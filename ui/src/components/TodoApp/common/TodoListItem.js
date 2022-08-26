@@ -2,11 +2,8 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faCircle,
-    faCheckCircle,
-    faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircle } from "@fortawesome/free-regular-svg-icons";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 import Button from "./Button";
