@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { injectIntl } from "react-intl";
@@ -26,21 +26,24 @@ const TodoAppPage = ({ intl }) => {
         id: "todoApp.dragAndDrop",
     });
 
-    const filterRecords = (list, currentFilter) => {
-        let output = [];
-        switch (currentFilter) {
-            case globalData.FILTER_COMPLETED:
-                output = list.filter((item) => item.completed);
-                break;
-            case globalData.FILTER_ACTIVE:
-                output = list.filter((item) => !item.completed);
-                break;
-            default:
-                output = list;
-                break;
-        }
-        return output;
-    };
+    const filterRecords = useCallback(
+        (list, currentFilter) => {
+            let output = [];
+            switch (currentFilter) {
+                case globalData.FILTER_COMPLETED:
+                    output = list.filter((item) => item.completed);
+                    break;
+                case globalData.FILTER_ACTIVE:
+                    output = list.filter((item) => !item.completed);
+                    break;
+                default:
+                    output = list;
+                    break;
+            }
+            return output;
+        },
+        [globalData.FILTER_COMPLETED, globalData.FILTER_ACTIVE]
+    );
 
     useEffect(() => {
         // Initialize the list of todos based on the previously saved data or our example set of items
@@ -73,13 +76,13 @@ const TodoAppPage = ({ intl }) => {
         setFilteredRecords(
             lodash.orderBy(filterRecords(records, filter), ["order"], ["title"])
         );
-    }, [globalData, filter, records]);
+    }, [globalData, filter, records, filterRecords]);
 
     useEffect(() => {
         setFilteredRecords(
             lodash.orderBy(filterRecords(records, filter), ["order"], ["title"])
         );
-    }, [filter, records]);
+    }, [filter, records, filterRecords]);
 
     const activeRecords = records.filter((item) => !item.completed);
 
