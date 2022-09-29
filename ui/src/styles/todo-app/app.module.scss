@@ -71,6 +71,29 @@
         .footer {
             color: $white;
         }
+
+        .formContainer {
+            background-color: $challenge-dark-theme-blue-dark;
+            color: $white;
+
+            .formToggleIcon {
+                color: $challenge-dark-theme-grey-blue-dark;
+            }
+
+            .formInput {
+                background-color: $challenge-dark-theme-blue-dark;
+                color: $white;
+
+                input {
+                    color: $white;
+                }
+            }
+
+            .formSubmit {
+                background-color: $challenge-dark-theme-blue-dark;
+                color: $white;
+            }
+        }
     }
 
     &.solutionContainerLight {
@@ -141,6 +164,29 @@
         .dragDropNotice,
         .footer {
             color: $black;
+        }
+
+        .formContainer {
+            background-color: $white;
+            color: $black;
+
+            .formToggleIcon {
+                color: $challenge-light-theme-grey-blue;
+            }
+
+            .formInput {
+                background-color: $white;
+                color: $black;
+
+                input {
+                    color: $black;
+                }
+            }
+
+            .formSubmit {
+                background-color: $white;
+                color: $black;
+            }
         }
     }
 
@@ -271,5 +317,37 @@
 
     .footer {
         text-align: center;
+    }
+
+    .formContainer {
+        box-shadow: 0px 8px 24px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+
+        .formToggleIcon {
+            background-color: transparent;
+            font-size: 24px;
+            padding: 5px;
+        }
+
+        .formInput {
+            flex-grow: 1;
+            margin: 0 5px;
+            padding: 5px 0;
+
+            input {
+                background-color: transparent;
+                font-family: $challenge-font;
+                font-size: 18px;
+            }
+        }
+
+        .formSubmit {
+            min-width: 70px;
+        }
     }
 }

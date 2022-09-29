@@ -13,7 +13,7 @@ const FormInput = ({
     value = "",
     type = "text",
     required = false,
-    classNames,
+    classNames = [],
     placeholder = "Input Text",
     errorMessage,
     helpMessage,
@@ -87,7 +87,7 @@ const FormInput = ({
     const parentLevelClasses = [
         formFieldStyles.fieldWrapper,
         errorMessage ? formFieldStyles.invalidField : null,
-        classNames ? classNames : null,
+        ...classNames,
     ].filter(Boolean);
 
     return (
@@ -134,7 +134,7 @@ FormInput.propTypes = {
     value: PropTypes.string,
     type: PropTypes.string,
     required: PropTypes.bool,
-    classNames: PropTypes.string,
+    classNames: PropTypes.array,
     placeholder: PropTypes.string,
     errorMessage: PropTypes.string,
     helpMessage: PropTypes.string,

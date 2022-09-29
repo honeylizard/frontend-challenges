@@ -1,13 +1,17 @@
 import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircle } from "@fortawesome/free-regular-svg-icons";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 
 import FormInput from "./FormInput";
 import Alert from "./Alert";
 import Button from "./Button";
-import _ from "lodash";
+// import _ from "lodash";
+
+import appStyles from "../../../styles/todo-app/app.module.scss";
 
 const TodoCreateItemForm = ({ intl }) => {
     const { todoApp: globalData, updateTodoData } = useContext(GlobalContext);
@@ -84,7 +88,12 @@ const TodoCreateItemForm = ({ intl }) => {
                     />
                 )}
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={appStyles.formContainer}>
+                <FontAwesomeIcon
+                    icon={faCircle}
+                    aria-hidden="true"
+                    className={appStyles.formToggleIcon}
+                />
                 <FormInput
                     id="new-todo-item"
                     name="newTodoItem"
@@ -99,8 +108,14 @@ const TodoCreateItemForm = ({ intl }) => {
                     value={formData["newTodoItem"]}
                     onChange={updateValue}
                     errorMessage={formErrors && formErrors["newTodoItem"]}
+                    classNames={[appStyles.formInput]}
                 />
-                <Button type="submit" disabled={processingSubmit}>
+                <Button
+                    type="submit"
+                    disabled={processingSubmit}
+                    customClasses={[appStyles.formSubmit]}
+                    aria-describedby="new-todo-item"
+                >
                     {intl.formatMessage({ id: "todoApp.form.submit" })}
                 </Button>
             </form>
