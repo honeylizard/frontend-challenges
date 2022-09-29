@@ -136,6 +136,12 @@ Your users should be able to:
 - Toggle light and dark mode
 - **Bonus**: Drag and drop to reorder items on the list
 
+### Solution Features
+- Responsive Design
+- Internationalization Capabilities
+- WCAG 2.0 AA compliance (except for color contrasts as the color scheme is a hard requirement)
+- User can toggle between light and dark mode
+
 ### Notes
 
 - I have not implemented the bonus feature of drag and drop. Might come back to that later...
