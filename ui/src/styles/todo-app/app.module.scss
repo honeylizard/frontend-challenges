@@ -51,15 +51,20 @@
 
             .listFooterContainer {
                 color: $challenge-dark-theme-grey-blue-dark;
-
-                .filterButton,
-                .clearButton {
-                    &:hover,
-                    &:focus-visible {
-                        color: $white;
-                    }
-                }
             }
+        }
+
+        .filterButton,
+        .clearButton {
+            &:hover,
+            &:focus-visible {
+                color: $white;
+            }
+        }
+
+        .mobileFilterButtonsContainer {
+            background-color: $challenge-dark-theme-blue-dark;
+            color: $white;
         }
 
         .dragDropNotice,
@@ -117,15 +122,20 @@
 
             .listFooterContainer {
                 color: $challenge-light-theme-grey-blue-dark;
-
-                .filterButton,
-                .clearButton {
-                    &:hover,
-                    &:focus-visible {
-                        color: $black;
-                    }
-                }
             }
+        }
+
+        .filterButton,
+        .clearButton {
+            &:hover,
+            &:focus-visible {
+                color: $black;
+            }
+        }
+
+        .mobileFilterButtonsContainer {
+            background-color: $white;
+            color: $black;
         }
 
         .dragDropNotice,
@@ -168,7 +178,7 @@
     }
 
     .listContainer {
-        box-shadow: 0px 8px 24px rgba(0,0,0,0.3);
+        box-shadow: 0px 8px 24px rgba(0,0,0,0.1);
         border-radius: 10px;
         margin: 10px 0;
     }
@@ -224,18 +234,33 @@
         .listFooterRight {
             text-align: right;
         }
+    }
+
+    .filterButton {
+        background-color: transparent;
+    }
+
+    .activeFilter {
+        color: $challenge-blue;
+    }
+
+    .clearButton {
+        padding: 10px 0;
+        background-color: transparent;
+    }
+
+    .mobileFilterButtonsContainer {
+        box-shadow: 0px 8px 24px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        padding: 5px 10px;
+        margin-top: 20px;
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
 
         .filterButton {
-            background-color: transparent;
-        }
-
-        .activeFilter {
-            color: $challenge-blue;
-        }
-
-        .clearButton {
-            padding: 10px 0;
-            background-color: transparent;
+            font-size: 16px;
         }
     }
 

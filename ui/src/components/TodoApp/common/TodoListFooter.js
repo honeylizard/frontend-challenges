@@ -4,6 +4,7 @@ import { injectIntl } from "react-intl";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 import Button from "./Button";
+import TodoListFooterFilterSet from "./TodoListFooterFilterSet";
 
 import appStyles from "../../../styles/todo-app/app.module.scss";
 
@@ -13,16 +14,10 @@ const TodoListFooter = ({
     filteredRecords,
     setFilter,
     filter,
+    isDesktop,
 }) => {
-    const { todoApp: globalData, updateTodoData } = useContext(GlobalContext);
+    const { updateTodoData } = useContext(GlobalContext);
 
-    const filterLabelAll = intl.formatMessage({ id: "todoApp.filters.all" });
-    const filterLabelActive = intl.formatMessage({
-        id: "todoApp.filters.active",
-    });
-    const filterLabelCompleted = intl.formatMessage({
-        id: "todoApp.filters.completed",
-    });
     const clearCompletedItemsTitle = intl.formatMessage({
         id: "todoApp.clearCompletedTodos",
     });
@@ -37,28 +32,6 @@ const TodoListFooter = ({
         });
     };
 
-    const showAllItems = () => {
-        setFilter(null);
-    };
-
-    const showOnlyCompletedItems = () => {
-        setFilter(globalData.FILTER_COMPLETED);
-    };
-
-    const showOnlyActiveItems = () => {
-        setFilter(globalData.FILTER_ACTIVE);
-    };
-
-    const getActiveFilterStyle = (expectedFilter) => {
-        if (expectedFilter && filter === expectedFilter) {
-            return [appStyles.filterButton, appStyles.activeFilter];
-        }
-        if (!filter && !expectedFilter) {
-            return [appStyles.filterButton, appStyles.activeFilter];
-        }
-        return [appStyles.filterButton];
-    };
-
     return (
         <div className={appStyles.listFooterContainer}>
             <div className={appStyles.listFooterLeft}>
@@ -71,30 +44,12 @@ const TodoListFooter = ({
                     }
                 )}
             </div>
-            <div className={appStyles.filterButtonsContainer}>
-                <Button
-                    onClick={showAllItems}
-                    customClasses={getActiveFilterStyle(null)}
-                >
-                    {filterLabelAll}
-                </Button>
-                <Button
-                    onClick={showOnlyActiveItems}
-                    customClasses={getActiveFilterStyle(
-                        globalData.FILTER_ACTIVE
-                    )}
-                >
-                    {filterLabelActive}
-                </Button>
-                <Button
-                    onClick={showOnlyCompletedItems}
-                    customClasses={getActiveFilterStyle(
-                        globalData.FILTER_COMPLETED
-                    )}
-                >
-                    {filterLabelCompleted}
-                </Button>
-            </div>
+            {isDesktop && (
+                <TodoListFooterFilterSet
+                    setFilter={setFilter}
+                    filter={filter}
+                />
+            )}
             <div className={appStyles.listFooterRight}>
                 <Button
                     onClick={clearCompletedItems}
@@ -114,6 +69,7 @@ TodoListFooter.propTypes = {
     filteredRecords: PropTypes.array,
     setFilter: PropTypes.func,
     filter: PropTypes.string,
+    isDesktop: PropTypes.bool,
 };
 
 export default injectIntl(TodoListFooter);
