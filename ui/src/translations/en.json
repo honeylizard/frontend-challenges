@@ -141,6 +141,6 @@
 	"todoApp.filters.completed": "Completed",
 	"todoApp.clearCompletedTodos": "Clear Completed Todos",
 	"todoApp.clearCompleted": "Clear Completed",
-	"todoApp.dragAndDrop": "Drag and drop to reorder list",
+	"todoApp.dragAndDrop": "Drag and drop to reorder list (Coming Soon!)",
 	"todoApp.list.count": "{count} items left"
 }

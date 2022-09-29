@@ -135,3 +135,8 @@ Your users should be able to:
 - Clear all completed todos
 - Toggle light and dark mode
 - **Bonus**: Drag and drop to reorder items on the list
+
+### Notes
+
+- I have not implemented the bonus feature of drag and drop. Might come back to that later...
+- The list defaults to the example items to begin with and then checks for what is stored in localStorage going forward. Clear that data in order to "reset" the app

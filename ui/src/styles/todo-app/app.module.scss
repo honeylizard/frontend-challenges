@@ -58,6 +58,7 @@
 
         .dragDropNotice,
         .footer {
+            background-color: $challenge-dark-theme-blue;
             color: $white;
         }
 
@@ -138,6 +139,7 @@
 
         .dragDropNotice,
         .footer {
+            background-color: $challenge-grey;
             color: $black;
         }
 
@@ -305,6 +307,7 @@
     .dragDropNotice {
         text-align: center;
         padding: 20px 0;
+        width: 100%;
     }
 
     .footer {

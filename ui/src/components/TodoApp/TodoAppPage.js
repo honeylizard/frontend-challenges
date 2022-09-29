@@ -144,9 +144,9 @@ const TodoAppPage = ({ intl }) => {
                             isMobile={!isDesktop}
                         />
                     )}
-                    <div className={appStyles.dragDropNotice}>
-                        {dragAndDropLabel}
-                    </div>
+                </div>
+                <div className={appStyles.dragDropNotice}>
+                    <div className={appStyles.wrapper}>{dragAndDropLabel}</div>
                 </div>
             </main>
             <Footer />
