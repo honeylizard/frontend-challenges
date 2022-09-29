@@ -2,8 +2,14 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { faCircle } from "@fortawesome/free-regular-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+
+import checkIcon from "../../../assets/todo-app/check-circle-gradient.png";
+import checkIconGrey from "../../../assets/todo-app/check-circle-grey.png";
+import checkIconGreyLight from "../../../assets/todo-app/check-circle-grey-light.png";
+import circleIcon from "../../../assets/todo-app/circle-gradient.png";
+import circleIconGrey from "../../../assets/todo-app/circle-grey.png";
+import circleIconGreyLight from "../../../assets/todo-app/circle-grey-light.png";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 import Button from "./Button";
@@ -51,9 +57,36 @@ const TodoListItem = ({ intl, data }) => {
                 title={data.completed ? toActiveLabel : toCompletedLabel}
                 onClick={toggleItemStatus}
             >
-                <FontAwesomeIcon
-                    icon={data.completed ? faCheckCircle : faCircle}
-                    aria-hidden="true"
+                <span className="sr-only">
+                    {data.completed ? toActiveLabel : toCompletedLabel}
+                </span>
+                <img
+                    src={
+                        data.completed
+                            ? globalData.darkMode
+                                ? checkIconGrey
+                                : checkIconGreyLight
+                            : circleIcon
+                    }
+                    alt=""
+                    role="presentation"
+                    height="24"
+                    width="24"
+                    className={appStyles.itemToggleButtonHoverIcon}
+                />
+                <img
+                    src={
+                        data.completed
+                            ? checkIcon
+                            : globalData.darkMode
+                            ? circleIconGrey
+                            : circleIconGreyLight
+                    }
+                    alt=""
+                    role="presentation"
+                    height="24"
+                    width="24"
+                    className={appStyles.itemToggleButtonIcon}
                 />
             </Button>
             {data.completed ? (

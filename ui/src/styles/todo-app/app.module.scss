@@ -24,17 +24,6 @@
                     }
                 }
 
-                .itemActiveToggleButton {
-                    &.itemToggleButtonChecked {
-                        color: $challenge-blue;
-                    }
-
-                    &:hover,
-                    &:focus-visible {
-                        color: $challenge-blue;
-                    }
-                }
-
                 &:hover {
                     .itemDeleteButton {
                         color: $challenge-dark-theme-grey-blue-dark;
@@ -112,20 +101,6 @@
                 .listItemTitle {
                     del {
                         color: $challenge-light-theme-grey-blue;
-                    }
-                }
-
-
-                .itemActiveToggleButton {
-                    color: $challenge-light-theme-grey-blue;
-
-                    &.itemToggleButtonChecked {
-                        color: $challenge-blue;
-                    }
-
-                    &:hover,
-                    &:focus-visible {
-                        color: $challenge-blue;
                     }
                 }
 
@@ -251,6 +226,23 @@
                 background-color: transparent;
                 font-size: 24px;
                 padding: 5px;
+
+                .itemToggleButtonHoverIcon {
+                    display: none;
+                }
+                .itemToggleButtonIcon {
+                    display: inline-block;
+                }
+
+                &:hover,
+                &:focus-visible {
+                    .itemToggleButtonHoverIcon {
+                        display: inline-block;
+                    }
+                    .itemToggleButtonIcon {
+                        display: none;
+                    }
+                }
             }
 
             .itemDeleteButton {
