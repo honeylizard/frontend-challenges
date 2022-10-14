@@ -25,7 +25,7 @@ Users should be able to:
 
 This is a solution to the [REST Countries API with color theme switcher](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
 
-## The challenge
+### The challenge
 
 Your challenge is to integrate with the [REST Countries V2 API](https://restcountries.com/#api-endpoints-v2) to pull country data and display it like in the designs.
 
@@ -98,7 +98,7 @@ I have added a basic view between the keypad and the output area to show the for
 
 ## IP Address Tracker
 
-## The challenge
+### The challenge
 
 Your users should be able to:
 
@@ -122,7 +122,7 @@ Your users should be able to:
 
 ## To Do App
 
-## The challenge
+### The challenge
 
 Your users should be able to:
 
@@ -146,3 +146,21 @@ Your users should be able to:
 
 - I have not implemented the bonus feature of drag and drop. Might come back to that later...
 - The list defaults to the example items to begin with and then checks for what is stored in localStorage going forward. Clear that data in order to "reset" the app
+
+## Time Tracking Dashboard
+
+## The challenge
+
+Your users should be able to:
+
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Switch between viewing Daily, Weekly, and Monthly stats
+
+### Solution Features
+
+TBD
+
+### Notes
+
+TBD

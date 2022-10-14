@@ -7,6 +7,7 @@ import IpAddressTrackerPage from "./components/InternetProtocolAddressTracker/Ip
 import NotFoundPage from "./components/NotFoundPage";
 import StaticJobListingsPage from "./components/StaticJobListings/StaticJobListingsPage";
 import TodoAppPage from "./components/TodoApp/TodoAppPage";
+import TimeTrackingDashboardPage from "./components/TimeTrackingDashboard/TimeTrackingDashboardPage";
 
 const routes = [
     {
@@ -71,6 +72,13 @@ const routes = [
         authNeeded: false,
         exact: true,
         component: TodoAppPage,
+    },
+    {
+        name: "Time Tracking Dashboard",
+        path: "/frontend-challenges/time-tracking-dashboard",
+        authNeeded: false,
+        exact: true,
+        component: TimeTrackingDashboardPage,
     },
     {
         name: "Not Found",

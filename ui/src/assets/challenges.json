@@ -22,5 +22,9 @@
     {
       "title": "To Do app",
       "solution_url": "/frontend-challenges/todo-app"
+    },
+    {
+      "title": "Time Tracking Dashboard",
+      "solution_url": "/frontend-challenges/time-tracking-dashboard"
     }
 ]
