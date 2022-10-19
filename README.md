@@ -77,6 +77,8 @@ Users should be able to:
 
 ## Calculator App
 
+This is a solution to the [Calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29).
+
 ### The challenge
 
 Your users should be able to:
@@ -99,6 +101,8 @@ Your users should be able to:
 I have added a basic view between the keypad and the output area to show the formula being entered for ease of use. The mockups do not include an area to show this.
 
 ## IP Address Tracker
+
+This is a solution to the [IP Address Tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0).
 
 ### The challenge
 
@@ -123,6 +127,8 @@ Your users should be able to:
 - I decided to not let the user intereact with the map as it is the result of the IP query rather than a free-for-all exploration of the world.
 
 ## To Do App
+
+This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).
 
 ### The challenge
 
@@ -150,6 +156,8 @@ Your users should be able to:
 - The list defaults to the example items to begin with and then checks for what is stored in localStorage going forward. Clear that data in order to "reset" the app
 
 ## Time Tracking Dashboard
+
+This is a solution to the [Time tracking dashboard challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/time-tracking-dashboard-UIQ7167Jw).
 
 ## The challenge
 
