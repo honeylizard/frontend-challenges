@@ -2,6 +2,8 @@
 
 Challenges attempted from FrontendMentor.io
 
+This codebase is also deployed to https://honeylizard.github.io/frontend-challenges/#/frontend-challenges/
+
 ## Job listings with filtering solution
 
 This is a solution to the [Job listings with filtering challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt).
@@ -159,8 +161,7 @@ Your users should be able to:
 
 ### Solution Features
 
-TBD
-
-### Notes
-
-TBD
+- Responsive Design
+- Internationalization Capabilities
+- WCAG 2.0 AA compliance (except for color contrasts as the color scheme is a hard requirement)
+- User can toggle between the time views (e.g. daily, weekly, monthly)
