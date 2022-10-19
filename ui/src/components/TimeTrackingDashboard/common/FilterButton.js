@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import PropTypes from "prop-types";
-import { injectIntl } from "react-intl";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
+
 import appStyles from "../../../styles/time-tracking-dashboard/filter-button.module.scss";
 
 const FilterButton = ({ label, filterCode }) => {
@@ -48,4 +48,4 @@ FilterButton.propTypes = {
     filterCode: PropTypes.string.isRequired,
 };
 
-export default injectIntl(FilterButton);
+export default FilterButton;

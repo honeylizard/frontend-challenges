@@ -2,41 +2,60 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import TimeCategoryCard from "./TimeCategoryCard";
 import data from "../../../assets/time-tracking-dashboard/data.json";
+import TimeCategoryCard from "./TimeCategoryCard";
 
 import appStyles from "../../../styles/time-tracking-dashboard/category-list.module.scss";
 
 const CategoryList = ({ intl }) => {
+    const workLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.work",
+    });
+    const studyLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.study",
+    });
+    const playLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.play",
+    });
+    const exerciseLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.exercise",
+    });
+    const socialLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.social",
+    });
+    const selfCareLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.selfCare",
+    });
+
     return (
         <div className={appStyles.categoryList}>
             <TimeCategoryCard
-                label="Work"
+                label={workLabel}
                 categoryData={data["work"]}
                 customClass={appStyles.categoryCardOrange}
             />
             <TimeCategoryCard
-                label="Play"
+                label={playLabel}
                 categoryData={data["play"]}
                 customClass={appStyles.categoryCardBlue}
             />
             <TimeCategoryCard
-                label="Study"
+                label={studyLabel}
                 categoryData={data["study"]}
                 customClass={appStyles.categoryCardRed}
             />
             <TimeCategoryCard
-                label="Exercise"
+                label={exerciseLabel}
                 categoryData={data["exercise"]}
                 customClass={appStyles.categoryCardGreen}
             />
             <TimeCategoryCard
-                label="Social"
+                label={socialLabel}
                 categoryData={data["social"]}
                 customClass={appStyles.categoryCardPurple}
             />
             <TimeCategoryCard
-                label="Self Care"
+                label={selfCareLabel}
                 categoryData={data["selfCare"]}
                 customClass={appStyles.categoryCardYellow}
             />

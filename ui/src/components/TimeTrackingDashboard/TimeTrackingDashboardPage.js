@@ -9,6 +9,10 @@ import OverviewCard from "./common/OverviewCard";
 import appStyles from "../../styles/time-tracking-dashboard/app.module.scss";
 
 const TimeTrackingDashboardPage = ({ intl }) => {
+    const title = intl.formatMessage({
+        id: "timeTrackingDashboard.title",
+    });
+
     return (
         <React.Fragment>
             <Helmet>
@@ -20,7 +24,7 @@ const TimeTrackingDashboardPage = ({ intl }) => {
             </Helmet>
             <div className={appStyles.container}>
                 <main id="content">
-                    <h1 className="sr-only">Time Tracking Dashboard</h1>
+                    <h1 className="sr-only">{title}</h1>
                     <div className={appStyles.dashboard}>
                         <OverviewCard />
                         <CategoryList />

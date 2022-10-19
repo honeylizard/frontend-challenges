@@ -1,11 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { injectIntl } from "react-intl";
 
 import appStyles from "../../../styles/time-tracking-dashboard/timeframe.module.scss";
 
 const TimeFrame = ({
-    intl,
     currentLabel = "Current",
     previousLabel = "Previous",
     data,
@@ -26,10 +24,9 @@ const TimeFrame = ({
 };
 
 TimeFrame.propTypes = {
-    intl: PropTypes.object.isRequired,
     currentLabel: PropTypes.string,
     previousLabel: PropTypes.string,
     data: PropTypes.object,
 };
 
-export default injectIntl(TimeFrame);
+export default TimeFrame;

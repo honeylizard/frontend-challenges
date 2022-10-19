@@ -2,45 +2,65 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import FilterButton from "./FilterButton";
-import { GlobalContext } from "../../../GlobalStateProvider";
 import data from "../../../assets/time-tracking-dashboard/data.json";
+import { GlobalContext } from "../../../GlobalStateProvider";
+import FilterButton from "./FilterButton";
 
 import appStyles from "../../../styles/time-tracking-dashboard/overview-card.module.scss";
 
 const OverviewCard = ({ intl }) => {
     const { timeTrackingDashboard: globalData } = useContext(GlobalContext);
 
+    const avatarOfLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.avatarOf",
+    });
+    const reportForLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.reportFor",
+    });
+    const viewAsLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.viewAs",
+    });
+    const dailyLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.daily",
+    });
+    const weeklyLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.weekly",
+    });
+    const monthlyLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.monthly",
+    });
+
     return (
         <div className={appStyles.overviewCard}>
             <div className={appStyles.profile}>
                 <img
                     src={process.env.PUBLIC_URL + data.profile.avatar}
-                    alt={`Avatar of ${data.profile.name}`}
+                    alt={avatarOfLabel}
+                    aria-describedby="profileName"
                 />
                 <h2 className={appStyles.name}>
-                    <div>Report for</div>
-                    <div>{data.profile.name}</div>
+                    <div>{reportForLabel}</div>
+                    <div id="profileName">{data.profile.name}</div>
                 </h2>
             </div>
             <div className={appStyles.filters}>
-                <h3 className="sr-only">View As</h3>
+                <h3 className="sr-only">{viewAsLabel}</h3>
                 <ul>
                     <li>
                         <FilterButton
-                            label="Daily"
+                            label={dailyLabel}
                             filterCode={globalData.DAILY_KEY}
                         />
                     </li>
                     <li>
                         <FilterButton
-                            label="Weekly"
+                            label={weeklyLabel}
                             filterCode={globalData.WEEKLY_KEY}
                         />
                     </li>
                     <li>
                         <FilterButton
-                            label="Monthly"
+                            label={monthlyLabel}
                             filterCode={globalData.MONTHLY_KEY}
                         />
                     </li>

@@ -20,6 +20,25 @@ const TimeCategoryCard = ({
     const WEEKLY_KEY = globalData.WEEKLY_KEY;
     const MONTHLY_KEY = globalData.MONTHLY_KEY;
 
+    const todayLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.today",
+    });
+    const yesterdayLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.yesterday",
+    });
+    const thisWeekLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.thisWeek",
+    });
+    const lastWeekLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.lastWeek",
+    });
+    const thisMonthLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.thisMonth",
+    });
+    const lastMonthLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.lastMonth",
+    });
+
     const cardStyles = [appStyles.categoryCard];
     cardStyles.push(customClass);
 
@@ -36,22 +55,22 @@ const TimeCategoryCard = ({
                 {currentTimeFrameKey === DAILY_KEY && (
                     <TimeFrame
                         data={categoryData[DAILY_KEY]}
-                        currentLabel="Today"
-                        previousLabel="Yesterday"
+                        currentLabel={todayLabel}
+                        previousLabel={yesterdayLabel}
                     />
                 )}
                 {currentTimeFrameKey === WEEKLY_KEY && (
                     <TimeFrame
                         data={categoryData[WEEKLY_KEY]}
-                        currentLabel="This Week"
-                        previousLabel="Last Week"
+                        currentLabel={thisWeekLabel}
+                        previousLabel={lastWeekLabel}
                     />
                 )}
                 {currentTimeFrameKey === MONTHLY_KEY && (
                     <TimeFrame
                         data={categoryData[MONTHLY_KEY]}
-                        currentLabel="This Month"
-                        previousLabel="Last Month"
+                        currentLabel={thisMonthLabel}
+                        previousLabel={lastMonthLabel}
                     />
                 )}
             </div>
