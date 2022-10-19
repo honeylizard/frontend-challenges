@@ -31,7 +31,10 @@ const TimeTrackingDashboardPage = ({ intl }) => {
                                     }
                                     alt={`Avatar of ${data.profile.name}`}
                                 />
-                                <h2>Report for {data.profile.name}</h2>
+                                <h2 className={appStyles.name}>
+                                    <div>Report for</div>
+                                    <div>{data.profile.name}</div>
+                                </h2>
                             </div>
                             <div className={appStyles.filters}>
                                 <h3 className="sr-only">View As</h3>

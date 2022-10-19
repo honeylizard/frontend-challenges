@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import appStyles from "../../../styles/time-tracking-dashboard/app.module.scss";
+import appStyles from "../../../styles/time-tracking-dashboard/time-category-card.module.scss";
 import TimeFrame from "./TimeFrame";
 
 const TimeCategoryCard = ({

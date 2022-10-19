@@ -1,0 +1,30 @@
+@import "app.module.scss";
+
+.categoryCard {
+    margin: 15px;
+    width: 256px;
+    border-radius: 17px;
+    background-color: $white;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+
+    @media all and (max-width: 570px) {
+        width: 90%;
+    }
+
+    .categoryCardInner {
+        background-color: $challenge-card-bg;
+        color: $white;
+        border-radius: 15px;
+        box-sizing: border-box;
+        padding: 30px;
+        margin-top: 45px;
+
+        .title {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0;
+        }
+    }
+}
