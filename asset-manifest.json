@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/frontend-challenges/static/css/main.2aae8a86.css",
-    "main.js": "/frontend-challenges/static/js/main.59d3ca3f.js",
+    "main.css": "/frontend-challenges/static/css/main.1feceb52.css",
+    "main.js": "/frontend-challenges/static/js/main.69140a0e.js",
     "static/css/548.2f7fa992.chunk.css": "/frontend-challenges/static/css/548.2f7fa992.chunk.css",
     "static/js/548.4cde043f.chunk.js": "/frontend-challenges/static/js/548.4cde043f.chunk.js",
     "static/media/pattern-bg.png": "/frontend-challenges/static/media/pattern-bg.a60a3c85aa8b88aac4b7.png",
@@ -23,13 +23,13 @@
     "static/media/icon-remove.svg": "/frontend-challenges/static/media/icon-remove.fc0df4e77a5c7983a05ea7a2a5ff3214.svg",
     "static/media/icon-arrow-up.svg": "/frontend-challenges/static/media/icon-arrow-up.f0f90d0647ed9f5962004d46a160f492.svg",
     "static/media/icon-arrow.svg": "/frontend-challenges/static/media/icon-arrow.1a2c6b29a68916828dc89aba46aa09a8.svg",
-    "main.2aae8a86.css.map": "/frontend-challenges/static/css/main.2aae8a86.css.map",
-    "main.59d3ca3f.js.map": "/frontend-challenges/static/js/main.59d3ca3f.js.map",
+    "main.1feceb52.css.map": "/frontend-challenges/static/css/main.1feceb52.css.map",
+    "main.69140a0e.js.map": "/frontend-challenges/static/js/main.69140a0e.js.map",
     "548.2f7fa992.chunk.css.map": "/frontend-challenges/static/css/548.2f7fa992.chunk.css.map",
     "548.4cde043f.chunk.js.map": "/frontend-challenges/static/js/548.4cde043f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2aae8a86.css",
-    "static/js/main.59d3ca3f.js"
+    "static/css/main.1feceb52.css",
+    "static/js/main.69140a0e.js"
   ]
 }
