@@ -1,6 +1,8 @@
 import React, { useEffect, useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 import TimeFrame from "./TimeFrame";
@@ -38,6 +40,9 @@ const TimeCategoryCard = ({
     const lastMonthLabel = intl.formatMessage({
         id: "timeTrackingDashboard.lastMonth",
     });
+    const seeMoreLabel = intl.formatMessage({
+        id: "timeTrackingDashboard.seeMore",
+    });
 
     const cardStyles = [appStyles.categoryCard];
     cardStyles.push(customClass);
@@ -51,7 +56,13 @@ const TimeCategoryCard = ({
     return (
         <div className={cardStyles.join(" ")}>
             <div className={appStyles.categoryCardInner}>
-                <h3 className={appStyles.title}>{label}</h3>
+                <div className={appStyles.categoryTitleWrapper}>
+                    <h3 className={appStyles.title}>{label}</h3>
+                    <div>
+                        <FontAwesomeIcon icon={faEllipsis} aria-hidden="true" />
+                        <span className="sr-only">{seeMoreLabel}</span>
+                    </div>
+                </div>
                 {currentTimeFrameKey === DAILY_KEY && (
                     <TimeFrame
                         data={categoryData[DAILY_KEY]}

@@ -10,7 +10,7 @@ const TimeFrame = ({
 }) => {
     return (
         data && (
-            <div>
+            <div className={appStyles.timeFrameWrapper}>
                 <div className={appStyles.current}>
                     <span className="sr-only">{currentLabel}:</span>{" "}
                     {data.current}
