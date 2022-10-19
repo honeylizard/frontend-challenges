@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { Helmet } from "react-helmet";
 
+import Footer from "./Footer";
 import CategoryList from "./common/CategoryList";
 import OverviewCard from "./common/OverviewCard";
 
@@ -30,6 +31,7 @@ const TimeTrackingDashboardPage = ({ intl }) => {
                         <CategoryList />
                     </div>
                 </main>
+                <Footer />
             </div>
         </React.Fragment>
     );
