@@ -39,8 +39,8 @@ const OverviewCard = ({ intl }) => {
                     aria-describedby="profileName"
                 />
                 <h2 className={appStyles.name}>
-                    <div>{reportForLabel}</div>
-                    <div id="profileName">{data.profile.name}</div>
+                    <span>{reportForLabel}</span>
+                    <span id="profileName">{data.profile.name}</span>
                 </h2>
             </div>
             <div className={appStyles.filters}>
