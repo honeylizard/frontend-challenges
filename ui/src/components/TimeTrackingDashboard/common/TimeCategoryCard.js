@@ -1,23 +1,33 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import appStyles from "../../../styles/time-tracking-dashboard/time-category-card.module.scss";
+import { GlobalContext } from "../../../GlobalStateProvider";
 import TimeFrame from "./TimeFrame";
+
+import appStyles from "../../../styles/time-tracking-dashboard/time-category-card.module.scss";
 
 const TimeCategoryCard = ({
     intl,
     label = "Unknown",
     categoryData = {},
-    currentTimeFrameKey = "daily",
     customClass = "",
 }) => {
-    const DAILY_KEY = "daily";
-    const WEEKLY_KEY = "weekly";
-    const MONTHLY_KEY = "monthly";
+    const { timeTrackingDashboard: globalData } = useContext(GlobalContext);
+    const [currentTimeFrameKey, setCurrentTimeFrameKey] = useState(null);
+
+    const DAILY_KEY = globalData.DAILY_KEY;
+    const WEEKLY_KEY = globalData.WEEKLY_KEY;
+    const MONTHLY_KEY = globalData.MONTHLY_KEY;
 
     const cardStyles = [appStyles.categoryCard];
     cardStyles.push(customClass);
+
+    useEffect(() => {
+        if (currentTimeFrameKey !== globalData.currentFilter) {
+            setCurrentTimeFrameKey(globalData.currentFilter);
+        }
+    }, [globalData.currentFilter, currentTimeFrameKey]);
 
     return (
         <div className={cardStyles.join(" ")}>
@@ -53,7 +63,6 @@ TimeCategoryCard.propTypes = {
     intl: PropTypes.object.isRequired,
     label: PropTypes.string,
     categoryData: PropTypes.object,
-    currentTimeFrameKey: PropTypes.string,
     customClass: PropTypes.string,
 };
 

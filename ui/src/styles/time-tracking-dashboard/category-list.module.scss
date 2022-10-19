@@ -1,0 +1,56 @@
+@import "app.module.scss";
+
+.categoryList {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    box-sizing: border-box;
+
+    @media all and (max-width: 1150px) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .categoryCardOrange {
+        background-color: $challenge-orange;
+        background-image: url("/assets/time-tracking-dashboard/icon-work.svg");
+        background-position: top right;
+        background-repeat: no-repeat;
+    }
+
+    .categoryCardBlue {
+        background-color: $challenge-blue;
+        background-image: url("/assets/time-tracking-dashboard/icon-play.svg");
+        background-position: top right;
+        background-repeat: no-repeat;
+    }
+
+    .categoryCardRed {
+        background-color: $challenge-red;
+        background-image: url("/assets/time-tracking-dashboard/icon-study.svg");
+        background-position: top right;
+        background-repeat: no-repeat;
+    }
+
+    .categoryCardGreen {
+        background-color: $challenge-green;
+        background-image: url("/assets/time-tracking-dashboard/icon-exercise.svg");
+        background-position: top right;
+        background-repeat: no-repeat;
+    }
+
+    .categoryCardPurple {
+        background-color: $challenge-purple;
+        background-image: url("/assets/time-tracking-dashboard/icon-social.svg");
+        background-position: top right;
+        background-repeat: no-repeat;
+    }
+
+    .categoryCardYellow {
+        background-color: $challenge-yellow;
+        background-image: url("/assets/time-tracking-dashboard/icon-self-care.svg");
+        background-position: top right;
+        background-repeat: no-repeat;
+    }
+}

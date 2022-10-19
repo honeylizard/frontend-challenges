@@ -19,6 +19,12 @@ const initialState = {
         FILTER_COMPLETED: "completed",
         FILTER_ACTIVE: "active",
     },
+    timeTrackingDashboard: {
+        currentFilter: "daily",
+        DAILY_KEY: "daily",
+        WEEKLY_KEY: "weekly",
+        MONTHLY_KEY: "monthly",
+    },
 };
 
 const GlobalContext = createContext(initialState);
@@ -49,15 +55,24 @@ const GlobalProvider = ({ children }) => {
         });
     }
 
+    function updateTimeTrackingData(item) {
+        dispatch({
+            type: "UPDATE_TIME_TRACKING",
+            payload: item,
+        });
+    }
+
     return (
         <GlobalContext.Provider
             value={{
                 countriesApi: state.countriesApi,
                 calculatorApp: state.calculatorApp,
                 todoApp: state.todoApp,
+                timeTrackingDashboard: state.timeTrackingDashboard,
                 updateCountriesData,
                 updateCalcData,
                 updateTodoData,
+                updateTimeTrackingData,
             }}
         >
             {children}

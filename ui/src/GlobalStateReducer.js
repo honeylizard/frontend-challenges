@@ -28,6 +28,13 @@ const GlobalStateReducer = (state, action) => {
                     ...action.payload,
                 },
             };
+        case "UPDATE_TIME_TRACKING":
+            return {
+                timeTrackingDashboard: {
+                    ...state.timeTrackingDashboard,
+                    ...action.payload,
+                },
+            };
         default:
             return state;
     }
