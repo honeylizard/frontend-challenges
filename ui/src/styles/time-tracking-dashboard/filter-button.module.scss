@@ -6,13 +6,17 @@
     text-align: left;
     padding: 10px;
     box-sizing: border-box;
-    color: $grey-01;
+    color: $challenge-text-light;
     border-color: transparent;
     cursor: pointer;
+    font-size: 16px;
 
     &:hover,
     &:focus-visible {
-        scale: 1.1;
+        color: $white;
+    }
+
+    &.activeFilter {
         color: $white;
     }
 }

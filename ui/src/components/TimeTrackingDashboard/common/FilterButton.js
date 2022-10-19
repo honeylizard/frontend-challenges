@@ -9,6 +9,7 @@ const FilterButton = ({ label, filterCode }) => {
     const { updateTimeTrackingData, timeTrackingDashboard: globalData } =
         useContext(GlobalContext);
     const [currentFilter, setCurrentFilter] = useState(null);
+    const [currentStyles, setCurrentStyles] = useState([]);
 
     const handleFilterClick = (newFilter) => {
         if (currentFilter !== newFilter) {
@@ -24,9 +25,17 @@ const FilterButton = ({ label, filterCode }) => {
         }
     }, [globalData.currentFilter, currentFilter]);
 
+    useEffect(() => {
+        if (currentFilter === filterCode) {
+            setCurrentStyles([appStyles.filterButton, appStyles.activeFilter]);
+        } else {
+            setCurrentStyles([appStyles.filterButton]);
+        }
+    }, [currentFilter, filterCode]);
+
     return (
         <button
-            className={appStyles.filterButton}
+            className={currentStyles.join(" ")}
             onClick={() => handleFilterClick(filterCode)}
         >
             {label}

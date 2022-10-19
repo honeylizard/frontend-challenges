@@ -21,6 +21,10 @@
         padding: 30px;
         margin-top: 45px;
 
+        &:hover {
+            background-color: $challenge-card-bg-hover
+        }
+
         .title {
             font-size: 18px;
             font-weight: 500;
