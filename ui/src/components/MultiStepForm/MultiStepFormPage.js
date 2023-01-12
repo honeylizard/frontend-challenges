@@ -1,16 +1,79 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { Helmet } from "react-helmet";
 
 import Footer from "./Footer";
+import PersonalInfoFormSet from "./common/PersonalInfoFormSet";
+import PlanSelectionFormSet from "./common/PlanSelectionFormSet";
+import AddOnsFormSet from "./common/AddOnsFormSet";
+import SummaryFormSet from "./common/SummaryFormSet";
+import FormSuccessMessage from "./common/FormSuccessMessage";
+import Button from "./common/Button";
 
 import appStyles from "../../styles/multi-step-form/app.module.scss";
 
 const MultiStepFormPage = ({ intl }) => {
+    const [currentStepIndex, setCurrentStepIndex] = useState(null);
+    const [currentStep, setCurrentStep] = useState(null);
+    const [formSubmitted, setFormSubmitted] = useState(false);
     const title = intl.formatMessage({
         id: "multiStepForm.title",
     });
+
+    const steps = [
+        {
+            title: "Your info",
+            component: PersonalInfoFormSet,
+            isCompleted: false,
+        },
+        {
+            title: "Select plan",
+            component: PlanSelectionFormSet,
+            isCompleted: false,
+        },
+        {
+            title: "Add-ons",
+            component: AddOnsFormSet,
+            isCompleted: false,
+        },
+        {
+            title: "Summary",
+            component: SummaryFormSet,
+            isCompleted: false,
+        },
+    ];
+
+    useEffect(() => {
+        if (steps && steps.length > 0) {
+            setCurrentStep(steps[0]);
+            setCurrentStepIndex(0);
+        }
+    }, []);
+
+    const goToPrevSection = () => {
+        const newIndex = currentStepIndex > 1 ? currentStepIndex - 1 : 0;
+        setCurrentStep(steps[newIndex]);
+        setCurrentStepIndex(newIndex);
+    };
+
+    const goToNextSection = () => {
+        const newIndex =
+            currentStepIndex < steps.length - 1
+                ? currentStepIndex + 1
+                : steps.length;
+        setCurrentStep(steps[newIndex]);
+        setCurrentStepIndex(newIndex);
+    };
+
+    const handleSubmit = () => {
+        console.log("Handle submission of the form here...");
+        setFormSubmitted(true);
+    };
+
+    const CurrentStepComponent = currentStep?.component;
+    const isCurrentFirstInSet = currentStepIndex === 0;
+    const isCurrentLastInSet = currentStepIndex === steps.length - 1;
 
     return (
         <React.Fragment>
@@ -21,117 +84,68 @@ const MultiStepFormPage = ({ intl }) => {
                     href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
                 />
             </Helmet>
-            <div className={appStyles.container}>
-                <main id="content">
-                    <h1 className="sr-only">{title}</h1>
-                    <div>
-                        {/*
-                        Sidebar
-
-                        Step 1
-                        Your info
-
-                        Step 2
-                        Select plan
-
-                        Step 3
-                        Add-ons
-
-                        Step 4
-                        Summary
-                        */}
-                    </div>
-                    <div>
-                        {/*
-                        Step 1
-
-                        Personal info
-                        Please provide your name, email address, and phone number.
-
-                        Name
-                        e.g. Stephen King
-
-                        Email Address
-                        e.g. stephenking@lorem.com
-
-                        Phone Number
-                        e.g. +1 234 567 890
-
-                        Next Step
-                        */}
-                    </div>
-                    <div>
-                        {/*
-                        Step 2
-
-                        Select your plan
-                        You have the option of monthly or yearly billing.
-
-                        Arcade
-                        $9/mo
-
-                        Advanced
-                        $12/mo
-
-                        Pro
-                        $15/mo
-
-                        Monthly
-                        Yearly
-
-                        Go Back
-                        Next Step
-                        */}
-                    </div>
-                    <div>
-                        {/*
-                        Step 3
-
-                        Pick add-ons
-                        Add-ons help enhance your gaming experience.
-
-                        Online service
-                        Access to multiplayer games
-                        +$1/mo
-
-                        Larger storage
-                        Extra 1TB of cloud save
-                        +$2/mo
-
-                        Customizable Profile
-                        Custom theme on your profile
-                        +$2/mo
-
-                        Go Back
-                        Next Step
-                        */}
-                    </div>
-                    <div>
-                        {/*
-                        Step 4
-
-                        Finishing up
-                        Double-check everything looks OK before confirming.
-
-                        ...Dynamically add subscription and add-on selections here...
-
-                        Total (per month/year)
-
-                        Go Back
-                        Confirm
-                        */}
-                    </div>
-                    <div>
-                        {/*
-                        Step 5
-
-                        Thank you!
-
-                        Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.
-                        */}
-                    </div>
-                </main>
-                <Footer />
+            <div className={appStyles.centerBox}>
+                <div className={appStyles.container}>
+                    <main id="content" className={appStyles.content}>
+                        <h1 className="sr-only">{title}</h1>
+                        <div className={appStyles.sidebar}>
+                            <ol>
+                                {steps.map((step, index) => {
+                                    const isCurrent =
+                                        step.component ==
+                                            currentStep?.component &&
+                                        step.title == currentStep?.title;
+                                    return (
+                                        <li key={`step-${index}`}>
+                                            {isCurrent && (
+                                                <span className="sr-only">
+                                                    Current:{" "}
+                                                </span>
+                                            )}
+                                            {step.isCompleted && (
+                                                <span className="sr-only">
+                                                    Completed:{" "}
+                                                </span>
+                                            )}
+                                            Step {index + 1}
+                                            <br />
+                                            {step.title}
+                                        </li>
+                                    );
+                                })}
+                            </ol>
+                        </div>
+                        <div className={appStyles.currentStep}>
+                            {formSubmitted ? (
+                                <FormSuccessMessage />
+                            ) : (
+                                <React.Fragment>
+                                    {CurrentStepComponent && (
+                                        <CurrentStepComponent />
+                                    )}
+                                    <div className={appStyles.buttonRow}>
+                                        {!isCurrentFirstInSet && (
+                                            <Button onClick={goToPrevSection}>
+                                                Go Back
+                                            </Button>
+                                        )}
+                                        {!isCurrentLastInSet && (
+                                            <Button onClick={goToNextSection}>
+                                                Next Step
+                                            </Button>
+                                        )}
+                                        {isCurrentLastInSet && (
+                                            <Button onClick={handleSubmit}>
+                                                Confirm
+                                            </Button>
+                                        )}
+                                    </div>
+                                </React.Fragment>
+                            )}
+                        </div>
+                    </main>
+                    <Footer />
+                </div>
             </div>
         </React.Fragment>
     );

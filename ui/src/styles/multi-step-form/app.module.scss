@@ -7,6 +7,70 @@
     background-color: $challenge-magnolia;
     color: $black;
 
+    .centerBox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            max-width: 852px;
+            width: 100%;
+
+            .content {
+                border-radius: 15px;
+                background-color: $white;
+                color: $black;
+
+                box-sizing: border-box;
+                padding: 15px;
+                min-height: 550px;
+
+                display: flex;
+                justify-content: space-between;
+
+                .sidebar {
+                    border-radius: 15px;
+                    width: 250px;
+                    box-sizing: border-box;
+                    padding: 30px;
+
+                    color: $white;
+                    background-color: $challenge-purple;
+                    background-image: url("/assets/multi-step-form/bg-sidebar-desktop.svg");
+                    background-position: top center;
+                    background-repeat: no-repeat;
+                }
+
+                .currentStep {
+                    box-sizing: border-box;
+                    padding: 15px 90px;
+                    background-color: $white;
+                    color: $black;
+                    width: 650px;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    .currentFormSet {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .buttonRow {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
     footer {
         text-align: center;
     }
