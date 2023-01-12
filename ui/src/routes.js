@@ -8,6 +8,7 @@ import NotFoundPage from "./components/NotFoundPage";
 import StaticJobListingsPage from "./components/StaticJobListings/StaticJobListingsPage";
 import TodoAppPage from "./components/TodoApp/TodoAppPage";
 import TimeTrackingDashboardPage from "./components/TimeTrackingDashboard/TimeTrackingDashboardPage";
+import MultiStepFormPage from "./components/MultiStepForm/MultiStepFormPage";
 
 const routes = [
     {
@@ -79,6 +80,13 @@ const routes = [
         authNeeded: false,
         exact: true,
         component: TimeTrackingDashboardPage,
+    },
+    {
+        name: "Multi Step Form",
+        path: "/frontend-challenges/multi-step-form",
+        authNeeded: false,
+        exact: true,
+        component: MultiStepFormPage,
     },
     {
         name: "Not Found",

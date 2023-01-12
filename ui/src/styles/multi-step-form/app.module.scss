@@ -1,0 +1,13 @@
+@import "../_core";
+@import "colors.module.scss";
+@import "fonts.module.scss";
+
+.solutionContainer {
+    font-family: $challenge-font;
+    background-color: $challenge-magnolia;
+    color: $black;
+
+    footer {
+        text-align: center;
+    }
+}

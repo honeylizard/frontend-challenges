@@ -26,5 +26,9 @@
     {
       "title": "Time Tracking Dashboard",
       "solution_url": "/frontend-challenges/time-tracking-dashboard"
+    },
+    {
+      "title": "Multi Step Form",
+      "solution_url": "/frontend-challenges/multi-step-form"
     }
 ]

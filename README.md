@@ -159,7 +159,7 @@ Your users should be able to:
 
 This is a solution to the [Time tracking dashboard challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/time-tracking-dashboard-UIQ7167Jw).
 
-## The challenge
+### The challenge
 
 Your users should be able to:
 
@@ -173,3 +173,16 @@ Your users should be able to:
 - Internationalization Capabilities
 - WCAG 2.0 AA compliance (except for color contrasts as the color scheme is a hard requirement)
 - User can toggle between the time views (e.g. daily, weekly, monthly)
+
+## Multi Step Form
+
+This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ).
+
+### The challenge
+
+Your users should be able to:
+
+- Complete each step of the sequence
+- See a summary of their selections on the final step and confirm their order
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page

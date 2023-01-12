@@ -143,6 +143,7 @@
 	"todoApp.clearCompleted": "Clear Completed",
 	"todoApp.dragAndDrop": "Drag and drop to reorder list (Coming Soon!)",
 	"todoApp.list.count": "{count} items left",
+
 	"timeTrackingDashboard.title": "Time Tracking Dashboard",
 	"timeTrackingDashboard.work": "Work",
 	"timeTrackingDashboard.play": "Play",
@@ -162,5 +163,7 @@
 	"timeTrackingDashboard.lastWeek": "Last Week",
 	"timeTrackingDashboard.thisMonth": "This Month",
 	"timeTrackingDashboard.lastMonth": "Last Month",
-	"timeTrackingDashboard.seeMore": "See More..."
+	"timeTrackingDashboard.seeMore": "See More...",
+
+	"multiStepForm.title": "Multi Step Form"
 }
