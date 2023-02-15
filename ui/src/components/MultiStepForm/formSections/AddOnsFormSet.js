@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import FormInput from "./FormInput";
+import FormInput from "../common/FormInput";
 
 import appStyles from "../../../styles/multi-step-form/app.module.scss";
 

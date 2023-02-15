@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import FormInput from "./FormInput";
+import FormInput from "../common/FormInput";
 
 import appStyles from "../../../styles/multi-step-form/app.module.scss";
 
@@ -28,9 +28,9 @@ const PersonalInfoFormSet = ({
                     placeholder="e.g. Stephen King"
                     required={true}
                     label="Name"
-                    // value={formData["name"]}
-                    // onChange={updateValue}
-                    // errorMessage={formErrors && formErrors["name"]}
+                    value={formData["name"]}
+                    onChange={onChange}
+                    errorMessage={formErrors && formErrors["name"]}
                 />
 
                 <FormInput
@@ -40,9 +40,9 @@ const PersonalInfoFormSet = ({
                     required={true}
                     label="Email Address"
                     type="email"
-                    // value={formData["email"]}
-                    // onChange={updateValue}
-                    // errorMessage={formErrors && formErrors["email"]}
+                    value={formData["email"]}
+                    onChange={onChange}
+                    errorMessage={formErrors && formErrors["email"]}
                 />
                 <FormInput
                     id="phone"
@@ -51,9 +51,9 @@ const PersonalInfoFormSet = ({
                     required={true}
                     label="Phone Number"
                     type="tel"
-                    // value={formData["phone"]}
-                    // onChange={updateValue}
-                    // errorMessage={formErrors && formErrors["phone"]}
+                    value={formData["phone"]}
+                    onChange={onChange}
+                    errorMessage={formErrors && formErrors["phone"]}
                 />
             </div>
         </div>

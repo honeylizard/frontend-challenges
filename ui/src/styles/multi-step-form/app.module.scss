@@ -65,6 +65,27 @@
                         display: flex;
                         justify-content: space-between;
                         width: 100%;
+
+                        &.buttonRowSingle {
+                            justify-content: flex-end;
+                        }
+                    }
+                }
+
+                .planTypesContainer {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    flex-wrap: wrap;
+
+                    .planTypeCard {
+                        width: 30%;
+                        box-sizing: border-box;
+                        border: 1px solid black;
+                        border-radius: 5px;
+                        min-height: 160px;
+                        background-color: white;
+                        color: black;
                     }
                 }
             }
