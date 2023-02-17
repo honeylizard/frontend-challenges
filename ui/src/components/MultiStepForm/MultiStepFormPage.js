@@ -25,6 +25,11 @@ const MultiStepFormPage = ({ intl }) => {
         phone: "",
         planType: "",
         planFrequency: "",
+        addOns: {
+            online: "",
+            storage: "",
+            customization: "",
+        },
     };
     const [formData, setFormData] = useState(initialFormData);
     const [formErrors, setFormErrors] = useState(null); // Set of form field errors
@@ -100,6 +105,30 @@ const MultiStepFormPage = ({ intl }) => {
         }
     };
 
+    /**
+     * Updates the form data with a new value for a specific form field set.
+     *
+     * @param {Object} event
+     */
+    const updateValueSet = (event) => {
+        const { name, type } = event.target;
+
+        const nameExploded = name.split("-");
+        const parentName = nameExploded[0];
+        const optionName = nameExploded[1];
+
+        if (type === "checkbox") {
+            setFormData((prevState) => {
+                const newValues = prevState[parentName];
+                newValues[optionName] = !prevState[parentName][optionName];
+                return {
+                    ...prevState,
+                    [parentName]: newValues,
+                };
+            });
+        }
+    };
+
     const handleSubmit = () => {
         console.log("Handle submission of the form here...");
         setFormSubmitted(true);
@@ -167,6 +196,7 @@ const MultiStepFormPage = ({ intl }) => {
                                             formData={formData}
                                             formErrors={formErrors}
                                             onChange={updateValue}
+                                            onChangeSet={updateValueSet}
                                         />
                                     )}
                                     <div className={buttonRowClasses.join(" ")}>

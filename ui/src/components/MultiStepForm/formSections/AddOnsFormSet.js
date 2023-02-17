@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import FormInput from "../common/FormInput";
+import FormInputCheckboxSet from "../common/FormInputCheckboxSet";
+import data from "../../../assets/multi-step-form/data.json";
 
 import appStyles from "../../../styles/multi-step-form/app.module.scss";
+import AddOnItemLabel from "../common/AddOnItemLabel";
 
 const AddOnsFormSet = ({
     formData,
     formErrors,
-    onChange,
+    onChangeSet,
     currentStep = 3,
     totalSteps = 4,
 }) => {
@@ -22,13 +24,20 @@ const AddOnsFormSet = ({
             </h2>
             <p>Add-ons help enhance your gaming experience.</p>
             <div className={appStyles.currentFormSet}>
-                <div>
-                    <div>Online service Access to multiplayer games +$1/mo</div>
-                    <div>Larger storage Extra 1TB of cloud save +$2/mo</div>
-                    <div>
-                        Customizable Profile Custom theme on your profile +$2/mo
-                    </div>
-                </div>
+                <FormInputCheckboxSet
+                    id="addOns"
+                    name="addOns"
+                    label="Add-ons"
+                    required={false}
+                    errorMessage={formErrors && formErrors["addOns"]}
+                    values={formData["addOns"]}
+                    options={data.addOns}
+                    helpMessage="Example Help Text"
+                    onChange={onChangeSet}
+                    classNames={[appStyles.addOnsContainer]}
+                    optionClassNames={[appStyles.addOnCard]}
+                    labelComponent={AddOnItemLabel}
+                />
             </div>
         </div>
     );
@@ -37,7 +46,7 @@ const AddOnsFormSet = ({
 AddOnsFormSet.propTypes = {
     formData: PropTypes.object,
     formErrors: PropTypes.object,
-    onChange: PropTypes.func,
+    onChangeSet: PropTypes.func,
     currentStep: PropTypes.number,
     totalSteps: PropTypes.number,
 };

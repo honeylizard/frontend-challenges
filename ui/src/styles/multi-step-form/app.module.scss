@@ -88,6 +88,54 @@
                         color: black;
                     }
                 }
+
+                .addOnsContainer {
+                    fieldSet {
+                        padding: 0;
+                        border: none;
+                    }
+                    .addOnCard {
+                        display: flex;
+                        border: 1px solid black;
+                        border-radius: 5px;
+                        margin: 10px 0;
+                        box-sizing: border-box;
+                        padding: 10px;
+                        cursor: pointer;
+
+                        input {
+                            box-sizing: border-box;
+                            flex-grow: initial;
+                            max-width: 20%;
+                            width: 25px;
+                        }
+
+                        label {
+                            flex-grow: 1;
+                        }
+
+                        .addOnLabel {
+                            box-sizing: border-box;
+                            padding: 0 10px;
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .addOnTitle {
+                                font-weight: bold;
+                            }
+
+                            .addOnDesc {
+
+                            }
+
+                            .addOnPrice {
+
+                            }
+                        }
+                    }
+                }                
             }
         }
     }

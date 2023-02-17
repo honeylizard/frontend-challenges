@@ -30,5 +30,31 @@
                 "currency": "USD"
             }
         }
+    ],
+    "addOns": [
+        {
+            "name": "online",
+            "label": "Online service",
+            "subLabel": "Access to multiplayer games",
+            "price": 1,
+            "priceFrequency": "monthly",
+            "currency": "USD"
+        },
+        {
+            "name": "storage",
+            "label": "Larger storage",
+            "subLabel": "Extra 1TB of cloud save",
+            "price": 2,
+            "priceFrequency": "monthly",
+            "currency": "USD"
+        },
+        {
+            "name": "customization",
+            "label": "Customizable Profile",
+            "subLabel": "Custom theme on your profile",
+            "price": 2,
+            "priceFrequency": "monthly",
+            "currency": "USD"
+        }
     ]
 }
