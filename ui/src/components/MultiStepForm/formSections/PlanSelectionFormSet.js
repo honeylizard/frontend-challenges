@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Button from "../common/Button";
-import FormInput from "../common/FormInput";
 import Price from "../common/Price";
+import FormInputSwitch from "../common/FormInputSwitch";
 
 import data from "../../../assets/multi-step-form/data.json";
 
@@ -27,6 +27,18 @@ const PlanSelectionFormSet = ({
         );
     };
 
+    const handlePlanFrequency = (event, value) => {
+        event.preventDefault();
+        onChange(
+            {
+                id: "planFrequency",
+                name: "planFrequency",
+                value: value,
+            },
+            "special"
+        );
+    };
+
     return (
         <div>
             <h2>
@@ -44,6 +56,7 @@ const PlanSelectionFormSet = ({
                         name="planType"
                         value={formData["planType"]}
                     />
+                    {/* TODO: convert to component and handle frequency toggling */}
                     {data.planTypes.map((planType, index) => (
                         <Button
                             key={`plan-${index}`}
@@ -63,7 +76,20 @@ const PlanSelectionFormSet = ({
                         </Button>
                     ))}
                 </div>
-                <div>Monthly Yearly</div>
+                <div>
+                    Monthly Yearly
+                    <FormInputSwitch
+                        id="planFrequency"
+                        name="planFrequency"
+                        value={formData["planFrequency"]}
+                        label="Plan Frequency"
+                        labelOff="Monthly"
+                        valueOff="monthly"
+                        labelOn="Yearly"
+                        valueOn="annual"
+                        onChange={handlePlanFrequency}
+                    />
+                </div>
             </div>
         </div>
     );

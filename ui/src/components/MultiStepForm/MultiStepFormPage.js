@@ -24,7 +24,7 @@ const MultiStepFormPage = ({ intl }) => {
         email: "",
         phone: "",
         planType: "",
-        planFrequency: "",
+        planFrequency: "monthly",
         addOns: {
             online: "",
             storage: "",
