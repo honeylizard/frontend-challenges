@@ -26,7 +26,7 @@ const language = navigator.language.split(/[-_]/)[0]; // language without region
 
 // Adds Validation against axe-core accessibility testing library
 if (process.env.NODE_ENV !== "production") {
-    const { default: axe } = require("@axe-core/react");
+    const axe = require("@axe-core/react");
     axe(React, ReactDOM, 1000);
 }
 
