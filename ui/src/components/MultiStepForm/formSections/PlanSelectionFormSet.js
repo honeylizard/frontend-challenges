@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 
 import Button from "../common/Button";
 import FormInput from "../common/FormInput";
+import Price from "../common/Price";
+
+import data from "../../../assets/multi-step-form/data.json";
 
 import appStyles from "../../../styles/multi-step-form/app.module.scss";
 
@@ -12,47 +15,6 @@ const PlanSelectionFormSet = ({
     currentStep = 2,
     totalSteps = 4,
 }) => {
-    const planTypes = [
-        {
-            title: "Arcade",
-            value: "arcade",
-            cost: {
-                monthly: 9,
-                annual: "",
-                currency: "USD",
-            },
-        },
-        {
-            title: "Advanced",
-            value: "advanced",
-            cost: {
-                monthly: 12,
-                annual: "",
-                currency: "USD",
-            },
-        },
-        {
-            title: "Pro",
-            value: "pro",
-            cost: {
-                monthly: 15,
-                annual: "",
-                currency: "USD",
-            },
-        },
-    ];
-
-    // TODO: update to handle multiple currencies
-    const displayWithCurrency = (amount, frequency, currency = "USD") => {
-        const planFrequencyText = frequency === "monthly" ? "mo" : "yr";
-        const amountWithCurrency = new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: currency,
-            trailingZeroDisplay: "stripIfInteger",
-        }).format(amount);
-        return amount ? `${amountWithCurrency}/${planFrequencyText}` : null;
-    };
-
     const handlePlanType = (event, value) => {
         event.preventDefault();
         onChange(
@@ -82,7 +44,7 @@ const PlanSelectionFormSet = ({
                         name="planType"
                         value={formData["planType"]}
                     />
-                    {planTypes.map((planType, index) => (
+                    {data.planTypes.map((planType, index) => (
                         <Button
                             key={`plan-${index}`}
                             type="button"
@@ -93,11 +55,11 @@ const PlanSelectionFormSet = ({
                         >
                             {planType.title}
                             <br />
-                            {displayWithCurrency(
-                                planType.cost.monthly,
-                                formData["planFrequency"],
-                                planType.cost.currency
-                            )}
+                            <Price
+                                amount={planType.cost.monthly}
+                                frequency={formData["planFrequency"]}
+                                currency={planType.cost.currency}
+                            />
                         </Button>
                     ))}
                 </div>
