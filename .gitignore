@@ -11,6 +11,8 @@ npm-debug.log*
 
 */package-lock.json
 **/package-lock.json
+*/yarn.lock
+**/yarn.lock
 
 */database/seeds/data_files/
 **/database/seeds/data_files/
