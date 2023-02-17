@@ -61,7 +61,7 @@ const Tabs = ({ id, children, ...attrs }) => {
                         {renderTabNavItem(
                             id,
                             index,
-                            item.props.tabName,
+                            item.props["data-tabName"],
                             activeTabIndex,
                             handleTabChange
                         )}

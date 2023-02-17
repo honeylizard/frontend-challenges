@@ -17,7 +17,7 @@ const FeatureSection = ({ data }) => {
         url
     ) => {
         return (
-            <div tabName={tabLabel} key={key}>
+            <div data-tabName={tabLabel} key={key}>
                 <div
                     className={[
                         pageStyles.row,
