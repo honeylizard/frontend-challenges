@@ -25,11 +25,17 @@ const FormInputSwitch = ({
     }, [value]);
 
     // TODO: convert to components and add a aria-describedby to link to button?
-    const renderOption = (label, className) => (
-        <span className={className} aria-hidden="true">
-            {label}
-        </span>
-    );
+    const renderOption = (label, className, isSelected = false) => {
+        const classes = [formFieldStyles.switchToggleLabel, className];
+        if (isSelected) {
+            classes.push(formFieldStyles.switchToggleLabelSelected);
+        }
+        return (
+            <span className={classes.join(" ")} aria-hidden="true">
+                {label}
+            </span>
+        );
+    };
 
     const handleToggle = (event) => {
         const newValue = !isToggleOn;
@@ -51,16 +57,26 @@ const FormInputSwitch = ({
                 onClick={(event) => handleToggle(event)}
                 {...attrs}
             >
-                {renderOption(labelOff, valueOff)}
-                <svg xmlns="http://www.w3.org/2000/svg" height="20" width="36">
-                    <rect className="container" x="1" y="1" width="34" height="18" rx="4"></rect>
+                {renderOption(labelOff, valueOff, !isToggleOn)}
+                <svg xmlns="http://www.w3.org/2000/svg" height="20" width="38">
+                    <rect className={formFieldStyles.container} x="1" y="1" width="34" height="18" rx="10"></rect>
                     {isToggleOn ? (
-                        <rect className="on" x="20" y="4" width="12" height="12" rx="4"></rect>
+                        <circle
+                            className={[formFieldStyles.circle, formFieldStyles.on].join(" ")}
+                            cx="26"
+                            cy="10"
+                            r="6"
+                        />
                     ) : (
-                        <rect className="off" x="4" y="4" width="12" height="12" rx="4"></rect>
+                        <circle
+                            className={[formFieldStyles.circle, formFieldStyles.off].join(" ")}
+                            cx="11"
+                            cy="10"
+                            r="6"
+                        />
                     )}
                 </svg>
-                {renderOption(labelOn, valueOn)}
+                {renderOption(labelOn, valueOn, isToggleOn)}
             </button>
         </div>
     );
