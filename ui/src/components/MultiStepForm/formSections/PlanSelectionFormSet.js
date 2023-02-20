@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { injectIntl } from "react-intl";
 
 import Button from "../common/Button";
 import Price from "../common/Price";
@@ -10,11 +11,37 @@ import data from "../../../assets/multi-step-form/data.json";
 import appStyles from "../../../styles/multi-step-form/app.module.scss";
 
 const PlanSelectionFormSet = ({
+    intl,
     formData,
     onChange,
     currentStep = 2,
     totalSteps = 4,
 }) => {
+    const sectionTitle = intl.formatMessage({
+        id: "multiStepForm.planSelection.title",
+    });
+    const sectionStep = intl.formatMessage(
+        {
+            id: "multiStepForm.step",
+        },
+        {
+            current: currentStep,
+            total: totalSteps,
+        }
+    );
+    const sectionDescription = intl.formatMessage({
+        id: "multiStepForm.planSelection.description",
+    });
+    const frequencyLabel = intl.formatMessage({
+        id: "multiStepForm.planSelection.planFrequency",
+    });
+    const frequencyMonthlyLabel = intl.formatMessage({
+        id: "multiStepForm.planSelection.planFrequency.monthly",
+    });
+    const frequencyAnnualLabel = intl.formatMessage({
+        id: "multiStepForm.planSelection.planFrequency.annual",
+    });
+
     const handlePlanType = (event, value) => {
         event.preventDefault();
         onChange(
@@ -42,12 +69,10 @@ const PlanSelectionFormSet = ({
     return (
         <div>
             <h2>
-                Select your plan
-                <span className="sr-only">
-                    &nbsp;(Step {currentStep} of {totalSteps})
-                </span>
+                {sectionTitle}
+                <span className="sr-only">&nbsp;({sectionStep})</span>
             </h2>
-            <p>You have the option of monthly or yearly billing.</p>
+            <p>{sectionDescription}</p>
             <div className={appStyles.currentFormSet}>
                 <div className={appStyles.planTypesContainer}>
                     <input
@@ -77,15 +102,14 @@ const PlanSelectionFormSet = ({
                     ))}
                 </div>
                 <div>
-                    Monthly Yearly
                     <FormInputSwitch
                         id="planFrequency"
                         name="planFrequency"
                         value={formData["planFrequency"]}
-                        label="Plan Frequency"
-                        labelOff="Monthly"
+                        label={frequencyLabel}
+                        labelOff={frequencyMonthlyLabel}
                         valueOff="monthly"
-                        labelOn="Yearly"
+                        labelOn={frequencyAnnualLabel}
                         valueOn="annual"
                         onChange={handlePlanFrequency}
                     />
@@ -96,6 +120,7 @@ const PlanSelectionFormSet = ({
 };
 
 PlanSelectionFormSet.propTypes = {
+    intl: PropTypes.object.isRequired,
     formData: PropTypes.object,
     formErrors: PropTypes.object,
     onChange: PropTypes.func,
@@ -103,4 +128,4 @@ PlanSelectionFormSet.propTypes = {
     totalSteps: PropTypes.number,
 };
 
-export default PlanSelectionFormSet;
+export default injectIntl(PlanSelectionFormSet);

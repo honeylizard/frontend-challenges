@@ -165,5 +165,21 @@
 	"timeTrackingDashboard.lastMonth": "Last Month",
 	"timeTrackingDashboard.seeMore": "See More...",
 
-	"multiStepForm.title": "Multi Step Form"
+	"multiStepForm.title": "Multi Step Form",
+	"multiStepForm.step": "Step {current} of {total}",
+
+	"multiStepForm.personalInfo.title": "Personal info",
+	"multiStepForm.personalInfo.description": "Please provide your name, email address, and phone number.",
+	"multiStepForm.personalInfo.name": "Name",
+	"multiStepForm.personalInfo.name.placeholder": "e.g. Stephen King",
+	"multiStepForm.personalInfo.phone": "Phone Number",
+	"multiStepForm.personalInfo.phone.placeholder": "e.g. +1 234 567 890",
+	"multiStepForm.personalInfo.email": "Email Address",
+	"multiStepForm.personalInfo.email.placeholder": "e.g. stephenking@lorem.com",
+
+	"multiStepForm.planSelection.title": "Select your plan",
+	"multiStepForm.planSelection.description": "You have the option of monthly or yearly billing.",
+	"multiStepForm.planSelection.planFrequency": "Plan Frequency",
+	"multiStepForm.planSelection.planFrequency.monthly": "Monthly",
+	"multiStepForm.planSelection.planFrequency.annual": "Yearly"
 }
