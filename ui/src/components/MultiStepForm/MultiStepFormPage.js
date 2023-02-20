@@ -39,26 +39,45 @@ const MultiStepFormPage = ({ intl }) => {
     const title = intl.formatMessage({
         id: "multiStepForm.title",
     });
+    const currentPrefix = intl.formatMessage({
+        id: "multiStepForm.nav.current",
+    });
+    const completedPrefix = intl.formatMessage({
+        id: "multiStepForm.nav.completed",
+    });
+    const prevButtonLabel = intl.formatMessage({
+        id: "multiStepForm.prevStep",
+    });
+    const nextButtonLabel = intl.formatMessage({
+        id: "multiStepForm.nextStep",
+    });
+    const submitButtonLabel = intl.formatMessage({
+        id: "multiStepForm.submit",
+    });
 
     const steps = useMemo(() => {
         return [
             {
-                title: "Your info",
+                key: "personalInfo",
+                titleKey: "multiStepForm.personalInfo.label",
                 component: PersonalInfoFormSet,
                 isCompleted: false,
             },
             {
-                title: "Select plan",
+                key: "plan",
+                titleKey: "multiStepForm.planSelection.label",
                 component: PlanSelectionFormSet,
                 isCompleted: false,
             },
             {
-                title: "Add-ons",
+                key: "addOns",
+                titleKey: "multiStepForm.addOns.label",
                 component: AddOnsFormSet,
                 isCompleted: false,
             },
             {
-                title: "Summary",
+                key: "summary",
+                titleKey: "multiStepForm.summary.label",
                 component: SummaryFormSet,
                 isCompleted: false,
             },
@@ -160,14 +179,27 @@ const MultiStepFormPage = ({ intl }) => {
                             <ol>
                                 {steps.map((step, index) => {
                                     const isCurrent =
-                                        step.component === currentStep?.component && step.title === currentStep?.title;
+                                        step.component === currentStep?.component && step.key === currentStep?.key;
+                                    const stepTitle = intl.formatMessage({
+                                        id: step.titleKey,
+                                    });
+                                    const stepNumber = intl.formatMessage(
+                                        {
+                                            id: "multiStepForm.nav.step",
+                                        },
+                                        {
+                                            number: index + 1,
+                                        }
+                                    );
                                     return (
                                         <li key={`step-${index}`}>
-                                            {isCurrent && <span className="sr-only">Current: </span>}
-                                            {step.isCompleted && <span className="sr-only">Completed: </span>}
-                                            Step {index + 1}
+                                            {isCurrent && <span className="sr-only">{currentPrefix}&nbsp;</span>}
+                                            {step.isCompleted && (
+                                                <span className="sr-only">{completedPrefix}&nbsp;</span>
+                                            )}
+                                            {stepNumber}
                                             <br />
-                                            {step.title}
+                                            {stepTitle}
                                         </li>
                                     );
                                 })}
@@ -187,9 +219,15 @@ const MultiStepFormPage = ({ intl }) => {
                                         />
                                     )}
                                     <div className={buttonRowClasses.join(" ")}>
-                                        {!isCurrentFirstInSet && <Button onClick={goToPrevSection}>Go Back</Button>}
-                                        {!isCurrentLastInSet && <Button onClick={goToNextSection}>Next Step</Button>}
-                                        {isCurrentLastInSet && <Button onClick={handleSubmit}>Confirm</Button>}
+                                        {!isCurrentFirstInSet && (
+                                            <Button onClick={goToPrevSection}>{prevButtonLabel}</Button>
+                                        )}
+                                        {!isCurrentLastInSet && (
+                                            <Button onClick={goToNextSection}>{nextButtonLabel}</Button>
+                                        )}
+                                        {isCurrentLastInSet && (
+                                            <Button onClick={handleSubmit}>{submitButtonLabel}</Button>
+                                        )}
                                     </div>
                                 </React.Fragment>
                             )}

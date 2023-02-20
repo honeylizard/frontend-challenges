@@ -167,7 +167,17 @@
 
 	"multiStepForm.title": "Multi Step Form",
 	"multiStepForm.step": "Step {current} of {total}",
+	"multiStepForm.nav.current": "Current:",
+	"multiStepForm.nav.completed": "Completed:",
+	"multiStepForm.nav.step": "Step {number}",
+	"multiStepForm.prevStep": "Go Back",
+	"multiStepForm.nextStep": "Next Step",
+	"multiStepForm.submit": "Confirm",
 
+	"multiStepForm.monthly.abbreviation": "mo",
+	"multiStepForm.annual.abbreviation": "yr",
+
+	"multiStepForm.personalInfo.label": "Your info",
 	"multiStepForm.personalInfo.title": "Personal info",
 	"multiStepForm.personalInfo.description": "Please provide your name, email address, and phone number.",
 	"multiStepForm.personalInfo.name": "Name",
@@ -177,9 +187,19 @@
 	"multiStepForm.personalInfo.email": "Email Address",
 	"multiStepForm.personalInfo.email.placeholder": "e.g. stephenking@lorem.com",
 
+	"multiStepForm.planSelection.label": "Select plan",
 	"multiStepForm.planSelection.title": "Select your plan",
 	"multiStepForm.planSelection.description": "You have the option of monthly or yearly billing.",
 	"multiStepForm.planSelection.planFrequency": "Plan Frequency",
 	"multiStepForm.planSelection.planFrequency.monthly": "Monthly",
-	"multiStepForm.planSelection.planFrequency.annual": "Yearly"
+	"multiStepForm.planSelection.planFrequency.annual": "Yearly",
+
+	"multiStepForm.addOns.title": "Pick add-ons",
+	"multiStepForm.addOns.description": "Add-ons help enhance your gaming experience.",
+	"multiStepForm.addOns.label": "Add-ons",
+
+	"multiStepForm.summary.label": "Summary",
+
+	"multiStepForm.success.title": "Thank you!",
+	"multiStepForm.success.description": "Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com."
 }
