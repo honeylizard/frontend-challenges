@@ -95,12 +95,14 @@ const MultiStepFormPage = ({ intl }) => {
         const newIndex = currentStepIndex > 1 ? currentStepIndex - 1 : 0;
         setCurrentStep(steps[newIndex]);
         setCurrentStepIndex(newIndex);
+        // TODO: get the focus to change to the top of the new section
     };
 
     const goToNextSection = () => {
         const newIndex = currentStepIndex < steps.length - 1 ? currentStepIndex + 1 : steps.length;
         setCurrentStep(steps[newIndex]);
         setCurrentStepIndex(newIndex);
+        // TODO: get the focus to change to the top of the new section
     };
 
     const updateValue = (event, type = "general") => {
