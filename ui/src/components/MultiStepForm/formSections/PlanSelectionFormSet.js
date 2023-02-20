@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import Button from "../common/Button";
-import Price from "../common/Price";
+import PlanCard from "../common/PlanCard";
 import FormInputSwitch from "../common/FormInputSwitch";
 
 import data from "../../../assets/multi-step-form/data.json";
@@ -70,22 +69,27 @@ const PlanSelectionFormSet = ({ intl, formData, onChange, currentStep = 2, total
             <div className={appStyles.currentFormSet}>
                 <div className={appStyles.planTypesContainer}>
                     <input type="hidden" id="planType" name="planType" value={formData["planType"]} />
-                    {/* TODO: convert to component and handle frequency toggling */}
                     {data.planTypes.map((planType, index) => (
-                        <Button
+                        <PlanCard
                             key={`plan-${index}`}
-                            type="button"
-                            customClasses={[appStyles.planTypeCard]}
-                            onClick={(event) => handlePlanType(event, planType.value)}
-                        >
-                            {planType.title}
-                            <br />
-                            <Price
-                                amount={planType.cost.monthly}
-                                frequency={formData["planFrequency"]}
-                                currency={planType.cost.currency}
-                            />
-                        </Button>
+                            title={planType.title}
+                            value={planType.value}
+                            frequency={formData["planFrequency"]}
+                            costOptions={[
+                                {
+                                    amount: planType.cost.monthly,
+                                    frequency: "monthly",
+                                    currency: planType.cost.currency,
+                                },
+                                {
+                                    amount: planType.cost.annual,
+                                    frequency: "annual",
+                                    currency: planType.cost.currency,
+                                    description: planType.cost.annualDescription,
+                                },
+                            ]}
+                            onChange={(event) => handlePlanType(event, planType.value)}
+                        />
                     ))}
                 </div>
                 <div>
