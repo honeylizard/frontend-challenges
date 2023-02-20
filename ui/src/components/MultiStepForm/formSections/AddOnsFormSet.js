@@ -48,6 +48,7 @@ const AddOnsFormSet = ({ intl, formData, formErrors, onChangeSet, currentStep = 
                     classNames={[appStyles.addOnsContainer]}
                     optionClassNames={[appStyles.addOnCard]}
                     optionCheckedClassNames={[appStyles.addOnCardChecked]}
+                    planFrequency={formData["planFrequency"]}
                     labelComponent={AddOnItemLabel}
                 />
             </div>

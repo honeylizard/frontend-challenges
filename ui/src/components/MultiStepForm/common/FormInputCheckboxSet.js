@@ -18,6 +18,7 @@ const FormInputCheckboxSet = ({
     errorMessage,
     helpMessage,
     labelComponent,
+    onChange,
     ...attrs
 }) => {
     const optionalLabel = intl.formatMessage({ id: "form.optional" });
@@ -40,15 +41,15 @@ const FormInputCheckboxSet = ({
         return (
             <div key={optionKey} className={optionLevelClasses.join(" ")}>
                 <input
-                    {...attrs}
                     type="checkbox"
                     name={optionName}
                     id={optionId}
                     checked={isChecked ? "checked" : false}
+                    onChange={onChange}
                 />
                 {labelComponent ? (
                     <label htmlFor={optionId}>
-                        <CustomComponent data={option} />
+                        <CustomComponent data={option} {...attrs} />
                     </label>
                 ) : (
                     <label htmlFor={optionId}>{option.label}</label>
@@ -107,6 +108,7 @@ FormInputCheckboxSet.propTypes = {
     errorMessage: PropTypes.string,
     helpMessage: PropTypes.string,
     labelComponent: PropTypes.func,
+    onChange: PropTypes.func,
 };
 
 export default injectIntl(FormInputCheckboxSet);
