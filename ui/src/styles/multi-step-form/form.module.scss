@@ -45,8 +45,9 @@
     box-sizing: border-box;
     border: 1px solid $challenge-grey;
     flex-grow: 1;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 14px;
 
     /* do not group these rules */
     &::-webkit-input-placeholder {

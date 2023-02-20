@@ -30,11 +30,11 @@ const AddOnsFormSet = ({ intl, formData, formErrors, onChangeSet, currentStep = 
 
     return (
         <div>
-            <h2>
+            <h2 className={appStyles.currentFormTitle}>
                 {sectionTitle}
                 <span className="sr-only">&nbsp;({sectionStep})</span>
             </h2>
-            <p>{sectionDescription}</p>
+            <p className={appStyles.currentFormDescription}>{sectionDescription}</p>
             <div className={appStyles.currentFormSet}>
                 <FormInputCheckboxSet
                     id="addOns"
@@ -47,6 +47,7 @@ const AddOnsFormSet = ({ intl, formData, formErrors, onChangeSet, currentStep = 
                     onChange={onChangeSet}
                     classNames={[appStyles.addOnsContainer]}
                     optionClassNames={[appStyles.addOnCard]}
+                    optionCheckedClassNames={[appStyles.addOnCardChecked]}
                     labelComponent={AddOnItemLabel}
                 />
             </div>

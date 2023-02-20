@@ -61,11 +61,11 @@ const PlanSelectionFormSet = ({ intl, formData, onChange, currentStep = 2, total
 
     return (
         <div>
-            <h2>
+            <h2 className={appStyles.currentFormTitle}>
                 {sectionTitle}
                 <span className="sr-only">&nbsp;({sectionStep})</span>
             </h2>
-            <p>{sectionDescription}</p>
+            <p className={appStyles.currentFormDescription}>{sectionDescription}</p>
             <div className={appStyles.currentFormSet}>
                 <div className={appStyles.planTypesContainer}>
                     <input type="hidden" id="planType" name="planType" value={formData["planType"]} />
@@ -73,6 +73,7 @@ const PlanSelectionFormSet = ({ intl, formData, onChange, currentStep = 2, total
                         <PlanCard
                             key={`plan-${index}`}
                             title={planType.title}
+                            imageSrc={planType.imageSrc}
                             value={planType.value}
                             frequency={formData["planFrequency"]}
                             costOptions={[
@@ -89,10 +90,11 @@ const PlanSelectionFormSet = ({ intl, formData, onChange, currentStep = 2, total
                                 },
                             ]}
                             onChange={(event) => handlePlanType(event, planType.value)}
+                            isCurrent={formData["planType"] === planType.value}
                         />
                     ))}
                 </div>
-                <div>
+                <div className={appStyles.planFrequencyContainer}>
                     <FormInputSwitch
                         id="planFrequency"
                         name="planFrequency"

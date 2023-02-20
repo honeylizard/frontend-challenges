@@ -13,6 +13,8 @@ const FormInputSwitch = ({
     labelOff = "Off",
     valueOff = "false",
     onChange,
+    hideLabel = true,
+    ...attrs
 }) => {
     const [isToggleOn, setIsToggleOn] = useState(false);
 
@@ -37,7 +39,9 @@ const FormInputSwitch = ({
 
     return (
         <div className={formFieldStyles.fieldWrapper}>
-            <label htmlFor={id}>{label}</label>
+            <label htmlFor={id} className={hideLabel ? "sr-only" : null}>
+                {label}
+            </label>
             <input type="hidden" id={id} name={name} value={value} />
             <button
                 type="button"
@@ -45,6 +49,7 @@ const FormInputSwitch = ({
                 aria-checked={isToggleOn}
                 className={formFieldStyles.switchToggle}
                 onClick={(event) => handleToggle(event)}
+                {...attrs}
             >
                 {renderOption(labelOff, valueOff)}
                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="36">
@@ -71,6 +76,7 @@ FormInputSwitch.propTypes = {
     valueOn: PropTypes.string,
     valueOff: PropTypes.string,
     onChange: PropTypes.func,
+    hideLabel: PropTypes.bool,
 };
 
 export default FormInputSwitch;

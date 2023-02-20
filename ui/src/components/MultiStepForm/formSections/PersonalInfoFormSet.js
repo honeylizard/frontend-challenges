@@ -51,11 +51,11 @@ const PersonalInfoFormSet = ({ intl, formData, formErrors, onChange, currentStep
     ];
     return (
         <div>
-            <h2>
+            <h2 className={appStyles.currentFormTitle}>
                 {sectionTitle}
                 <span className="sr-only">&nbsp;({sectionStep})</span>
             </h2>
-            <p>{sectionDescription}</p>
+            <p className={appStyles.currentFormDescription}>{sectionDescription}</p>
             <div className={appStyles.currentFormSet}>
                 {fields.map((field, index) => (
                     <FormInput

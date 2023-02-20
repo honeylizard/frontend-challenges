@@ -13,6 +13,7 @@ const FormInputCheckboxSet = ({
     required = false,
     classNames = [],
     optionClassNames = [],
+    optionCheckedClassNames = [],
     options = [],
     errorMessage,
     helpMessage,
@@ -28,6 +29,12 @@ const FormInputCheckboxSet = ({
 
         const optionLevelClasses = [formFieldStyles.horizontalRow, ...optionClassNames].filter(Boolean);
 
+        const isChecked = values[option.name] === true;
+
+        if (isChecked) {
+            optionLevelClasses.push([formFieldStyles.optionChecked, ...optionCheckedClassNames].filter(Boolean));
+        }
+
         const CustomComponent = labelComponent;
 
         return (
@@ -37,7 +44,7 @@ const FormInputCheckboxSet = ({
                     type="checkbox"
                     name={optionName}
                     id={optionId}
-                    checked={values[option.name] === true ? "checked" : false}
+                    checked={isChecked ? "checked" : false}
                 />
                 {labelComponent ? (
                     <label htmlFor={optionId}>
@@ -95,6 +102,7 @@ FormInputCheckboxSet.propTypes = {
     required: PropTypes.bool,
     classNames: PropTypes.array,
     optionClassNames: PropTypes.array,
+    optionCheckedClassNames: PropTypes.array,
     options: PropTypes.array,
     errorMessage: PropTypes.string,
     helpMessage: PropTypes.string,

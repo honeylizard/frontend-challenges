@@ -47,10 +47,10 @@
 
                 .currentStep {
                     box-sizing: border-box;
-                    padding: 15px 90px;
+                    padding: 15px 80px;
                     background-color: $white;
                     color: $black;
-                    width: 650px;
+                    width: 700px;
 
                     display: flex;
                     flex-direction: column;
@@ -59,6 +59,18 @@
                     .currentFormSet {
                         display: flex;
                         flex-direction: column;
+                    }
+
+                    .currentFormTitle {
+                        color: $challenge-blue-dark;
+                        margin-bottom: 9px;
+                    }
+
+                    .currentFormDescription {
+                        color: $challenge-gray;
+                        margin: 0;
+                        padding: 0;
+                        margin-bottom: 10px;
                     }
 
                     .buttonRow {
@@ -77,16 +89,55 @@
                     justify-content: space-between;
                     align-items: flex-start;
                     flex-wrap: wrap;
+                    margin-top: 20px;
 
                     .planTypeCard {
                         width: 30%;
                         box-sizing: border-box;
-                        border: 1px solid black;
-                        border-radius: 5px;
+                        border: 1px solid $challenge-grey;
+                        border-radius: 11px;
                         min-height: 160px;
-                        background-color: white;
-                        color: black;
+                        background-color: $white;
+                        color: $black;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        text-align: left;
+
+                        &.planTypeCardCurrent {
+                            border-color: $challenge-blue-dark;
+                            background-color: $challenge-magnolia;
+                        }
+
+                        img {
+                            margin-bottom: 40px;
+                        }
+
+                        .planTypeCardTitle {
+                            color: $challenge-blue-dark;
+                            font-weight: bold;
+                            font-size: 1rem;
+                        }
+
+                        .planTypeCardCost {
+                            color: $challenge-gray;
+                            font-size: .875rem;
+                            line-height: 1.25rem;
+                        }
+
+                        .planTypeCardDesc {
+                            color: $challenge-blue-dark;
+                            font-size: .75rem;
+                            line-height: 1rem;
+                        }
                     }
+                }
+
+                .planFrequencyContainer {
+                    background-color: $challenge-alabaster;
+                    border-radius: 5px;
+                    margin: 30px 0;
+                    text-align: center;
                 }
 
                 .addOnsContainer {
@@ -96,7 +147,7 @@
                     }
                     .addOnCard {
                         display: flex;
-                        border: 1px solid black;
+                        border: 1px solid $challenge-grey;
                         border-radius: 5px;
                         margin: 10px 0;
                         box-sizing: border-box;
@@ -108,6 +159,7 @@
                             flex-grow: initial;
                             max-width: 20%;
                             width: 25px;
+                            accent-color: $challenge-purple;
                         }
 
                         label {
@@ -123,19 +175,30 @@
                             align-items: center;
 
                             .addOnTitle {
+                                color: $challenge-blue-dark;
                                 font-weight: bold;
+                                font-size: 1rem;
                             }
 
                             .addOnDesc {
-
+                                color: $challenge-gray;
+                                font-size: .875rem;
+                                line-height: 1.25rem;
                             }
 
                             .addOnPrice {
-
+                                color: $challenge-purple;
+                                font-size: .875rem;
+                                line-height: 1.25rem;
                             }
                         }
+
+                        &.addOnCardChecked {
+                            border-color: $challenge-blue-dark;
+                            background-color: $challenge-magnolia;
+                        }
                     }
-                }                
+                }
             }
         }
     }
