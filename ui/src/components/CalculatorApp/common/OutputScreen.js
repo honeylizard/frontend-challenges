@@ -29,16 +29,11 @@ const OutputScreen = () => {
 
     return (
         <React.Fragment>
-            <output
-                className={appStyles.output}
-                htmlFor={inputButtonIds.join(" ")}
-            >
+            <output className={appStyles.output} htmlFor={inputButtonIds.join(" ")}>
                 {currentOutput}
             </output>
             <div className={appStyles.formula}>{currentFormula}</div>
-            {currentError ? (
-                <div className={appStyles.error}>{currentError}</div>
-            ) : null}
+            {currentError ? <div className={appStyles.error}>{currentError}</div> : null}
         </React.Fragment>
     );
 };

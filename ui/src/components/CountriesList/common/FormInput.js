@@ -29,10 +29,7 @@ const FormInput = ({
             <label htmlFor={id}>
                 {label}
                 {required ? (
-                    <span
-                        className={formFieldStyles.requiredText}
-                        aria-hidden="true"
-                    >
+                    <span className={formFieldStyles.requiredText} aria-hidden="true">
                         {" "}
                         *
                     </span>
@@ -43,20 +40,10 @@ const FormInput = ({
         );
     };
 
-    const renderBasicInput = (
-        id,
-        type,
-        value,
-        required,
-        placeholder,
-        errorMessage,
-        helpMessage,
-        attrs
-    ) => {
-        const describedByList = [
-            errorMessage ? `${id}-error` : null,
-            helpMessage ? `${id}-help` : null,
-        ].filter(Boolean);
+    const renderBasicInput = (id, type, value, required, placeholder, errorMessage, helpMessage, attrs) => {
+        const describedByList = [errorMessage ? `${id}-error` : null, helpMessage ? `${id}-help` : null].filter(
+            Boolean
+        );
 
         return type === "search" ? (
             <div className={formFieldStyles.inputWrapper}>
@@ -70,11 +57,7 @@ const FormInput = ({
                     required={required}
                     placeholder={placeholder}
                     aria-invalid={errorMessage ? true : false}
-                    aria-describedby={
-                        describedByList.length > 0
-                            ? describedByList.join(" ")
-                            : null
-                    }
+                    aria-describedby={describedByList.length > 0 ? describedByList.join(" ") : null}
                     {...attrs}
                 />
             </div>
@@ -87,11 +70,7 @@ const FormInput = ({
                     required={required}
                     placeholder={placeholder}
                     aria-invalid={errorMessage ? true : false}
-                    aria-describedby={
-                        describedByList.length > 0
-                            ? describedByList.join(" ")
-                            : null
-                    }
+                    aria-describedby={describedByList.length > 0 ? describedByList.join(" ") : null}
                     {...attrs}
                 />
             </div>
@@ -100,9 +79,7 @@ const FormInput = ({
 
     const parentLevelClasses = [
         formFieldStyles.fieldWrapper,
-        currentTheme
-            ? formFieldStyles.fieldWrapperDark
-            : formFieldStyles.fieldWrapperLight,
+        currentTheme ? formFieldStyles.fieldWrapperDark : formFieldStyles.fieldWrapperLight,
         errorMessage ? formFieldStyles.invalidField : null,
         classNames ? classNames : null,
     ].filter(Boolean);
@@ -111,31 +88,14 @@ const FormInput = ({
         <div className={parentLevelClasses.join(" ")}>
             {renderLabel(id, label, required)}
             <div className={formFieldStyles.inputGroup}>
-                {renderBasicInput(
-                    id,
-                    type,
-                    value,
-                    required,
-                    placeholder,
-                    errorMessage,
-                    helpMessage,
-                    attrs
-                )}
+                {renderBasicInput(id, type, value, required, placeholder, errorMessage, helpMessage, attrs)}
                 {errorMessage && (
-                    <div
-                        id={`${id}-error`}
-                        className={formFieldStyles.fieldErrorText}
-                        role="alert"
-                        aria-atomic="true"
-                    >
+                    <div id={`${id}-error`} className={formFieldStyles.fieldErrorText} role="alert" aria-atomic="true">
                         {errorMessage}
                     </div>
                 )}
                 {helpMessage && (
-                    <div
-                        id={`${id}-help`}
-                        className={formFieldStyles.fieldHelpText}
-                    >
+                    <div id={`${id}-help`} className={formFieldStyles.fieldHelpText}>
                         {helpMessage}
                     </div>
                 )}

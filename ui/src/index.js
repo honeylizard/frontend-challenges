@@ -45,12 +45,7 @@ root.render(
                     />
                     <Routes>
                         {routes.map((route, key) => (
-                            <Route
-                                key={key}
-                                path={route.path}
-                                exact={route.exact}
-                                element={<route.component />}
-                            />
+                            <Route key={key} path={route.path} exact={route.exact} element={<route.component />} />
                         ))}
                     </Routes>
                 </HashRouter>

@@ -1,10 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl, FormattedMessage } from "react-intl";
-import {
-    faFacebookSquare,
-    faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+import { faFacebookSquare, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import appLogo from "../../assets/bookmark-landing-page/logo-bookmark-dark-bg.svg";
 import NewsletterCallToAction from "./NewsletterCallToAction";
 
@@ -33,12 +30,7 @@ const Footer = ({ intl, data = {} }) => {
     const socialNavItems = data.socialNav.map((item) => {
         return {
             ...item,
-            icon:
-                item.iconType === "facebook"
-                    ? faFacebookSquare
-                    : item.iconType === "twitter"
-                    ? faTwitter
-                    : null,
+            icon: item.iconType === "facebook" ? faFacebookSquare : item.iconType === "twitter" ? faTwitter : null,
         };
     });
 
@@ -47,16 +39,9 @@ const Footer = ({ intl, data = {} }) => {
             <NewsletterCallToAction />
             <div className={pageStyles.footer}>
                 <div className={pageStyles.wrapper}>
-                    <img
-                        src={appLogo}
-                        alt={footerLogoAlt}
-                        className={pageStyles.footerLogo}
-                    />
+                    <img src={appLogo} alt={footerLogoAlt} className={pageStyles.footerLogo} />
                     <NavList
-                        navClasses={[
-                            pageStyles.footerNav,
-                            pageStyles.footerNavStretch,
-                        ].join(" ")}
+                        navClasses={[pageStyles.footerNav, pageStyles.footerNavStretch].join(" ")}
                         label={footerNavLabel}
                         data={navItems}
                         itemKeyPrefix="nav-item-"
@@ -77,11 +62,7 @@ const Footer = ({ intl, data = {} }) => {
                     id="footer.challenge.link"
                     values={{
                         link: (
-                            <a
-                                href={challengeLinkUrl}
-                                target="_blank"
-                                rel="noreferrer"
-                            >
+                            <a href={challengeLinkUrl} target="_blank" rel="noreferrer">
                                 {challengeLinkLabel}
                             </a>
                         ),

@@ -41,23 +41,11 @@ const Keypad = () => {
                     keypadButtonValues.map((value, index) => {
                         const itemKey = `keypad-btn-${index}`;
                         return isNumber(value) ? (
-                            <NumberButton
-                                id={itemKey}
-                                key={itemKey}
-                                value={value}
-                            />
+                            <NumberButton id={itemKey} key={itemKey} value={value} />
                         ) : OPERATORS.includes(value) ? (
-                            <OperatorButton
-                                id={itemKey}
-                                key={itemKey}
-                                value={value}
-                            />
+                            <OperatorButton id={itemKey} key={itemKey} value={value} />
                         ) : ACTIONS.includes(value) ? (
-                            <ActionButton
-                                id={itemKey}
-                                key={itemKey}
-                                value={value}
-                            />
+                            <ActionButton id={itemKey} key={itemKey} value={value} />
                         ) : (
                             value
                         );

@@ -8,8 +8,7 @@ const axiosGet = (path) => {
         const cachedObject = JSON.parse(cachedPath);
         cachedObject.timestamp = new Date(cachedObject.timestamp);
         const currentDate = new Date();
-        const difference =
-            currentDate.getMinutes() - cachedObject.timestamp.getMinutes();
+        const difference = currentDate.getMinutes() - cachedObject.timestamp.getMinutes();
         if (difference < CACHE_MINUTES_LIMIT) {
             console.group("API GET");
             console.log("pulling from cache", cachedObject);

@@ -12,11 +12,7 @@ const AddOnItemLabel = ({ data }) => (
             <div className={appStyles.addOnDesc}>{data.subLabel}</div>
         </div>
         <div className={appStyles.addOnPrice}>
-            <Price
-                amount={data.price}
-                frequency={data.priceFrequency}
-                currency={data.currency}
-            />
+            <Price amount={data.price} frequency={data.priceFrequency} currency={data.currency} />
         </div>
     </div>
 );

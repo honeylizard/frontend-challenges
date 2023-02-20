@@ -26,10 +26,7 @@ const FormInputCheckboxSet = ({
         const optionId = `${id}-${optionKey}`;
         const optionName = `${name}-${option.name}`;
 
-        const optionLevelClasses = [
-            formFieldStyles.horizontalRow,
-            ...optionClassNames,
-        ].filter(Boolean);
+        const optionLevelClasses = [formFieldStyles.horizontalRow, ...optionClassNames].filter(Boolean);
 
         const CustomComponent = labelComponent;
 
@@ -65,10 +62,7 @@ const FormInputCheckboxSet = ({
                 <legend className="sr-only">
                     {label}
                     {required ? (
-                        <span
-                            className={formFieldStyles.requiredText}
-                            aria-hidden="true"
-                        >
+                        <span className={formFieldStyles.requiredText} aria-hidden="true">
                             {" "}
                             *
                         </span>
@@ -76,23 +70,15 @@ const FormInputCheckboxSet = ({
                         <span aria-hidden="true"> ({optionalLabel})</span>
                     )}
                 </legend>
-                {options &&
-                    options.map((opt, index) => renderOption(opt, index))}
+                {options && options.map((opt, index) => renderOption(opt, index))}
             </fieldset>
             {errorMessage && (
-                <div
-                    id={`${id}-error`}
-                    className={formFieldStyles.fieldErrorText}
-                    role="alert"
-                >
+                <div id={`${id}-error`} className={formFieldStyles.fieldErrorText} role="alert">
                     {errorMessage}
                 </div>
             )}
             {helpMessage && (
-                <div
-                    id={`${id}-help`}
-                    className={formFieldStyles.fieldHelpText}
-                >
+                <div id={`${id}-help`} className={formFieldStyles.fieldHelpText}>
                     {helpMessage}
                 </div>
             )}

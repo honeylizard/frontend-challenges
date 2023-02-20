@@ -19,9 +19,7 @@ const JobsList = ({ intl }) => {
         if (!currentFilters.includes(newFilter)) {
             setCurrentFilters([...currentFilters, newFilter]);
         } else {
-            setCurrentFilters(
-                currentFilters.filter((element) => element !== newFilter)
-            );
+            setCurrentFilters(currentFilters.filter((element) => element !== newFilter));
         }
     };
 
@@ -33,18 +31,10 @@ const JobsList = ({ intl }) => {
         let filteredData = data;
         if (currentFilters && currentFilters.length > 0) {
             filteredData = data.filter((job) =>
-                currentFilters.every((filter) =>
-                    [job.role, job.level, ...job.languages].includes(filter)
-                )
+                currentFilters.every((filter) => [job.role, job.level, ...job.languages].includes(filter))
             );
         }
-        setFilteredJobs(
-            lodash.orderBy(
-                filteredData,
-                ["featured", "new", "position"],
-                ["desc", "desc", "desc"]
-            )
-        );
+        setFilteredJobs(lodash.orderBy(filteredData, ["featured", "new", "position"], ["desc", "desc", "desc"]));
     }, [currentFilters]);
 
     return (

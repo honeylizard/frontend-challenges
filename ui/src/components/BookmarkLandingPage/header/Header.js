@@ -22,25 +22,14 @@ const Header = ({ intl, data = {} }) => {
         <React.Fragment>
             <Helmet>
                 <body className={bodyClasses.join(" ")} />
-                <link
-                    rel="stylesheet"
-                    href="https://fonts.googleapis.com/css2?family=Rubik"
-                />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik" />
             </Helmet>
-            <a
-                className="sr-only sr-focusable"
-                href="#content"
-                title={skipToContentLabel}
-            >
+            <a className="sr-only sr-focusable" href="#content" title={skipToContentLabel}>
                 {skipToContentLabel}
             </a>
             <header className={pageStyles.header}>
                 <div className={pageStyles.wrapper}>
-                    <img
-                        src={appLogo}
-                        alt={headerLogoAlt}
-                        className={pageStyles.headerLogo}
-                    />
+                    <img src={appLogo} alt={headerLogoAlt} className={pageStyles.headerLogo} />
                     <HeaderNav navLabel={primaryNavLabel} data={data} />
                 </div>
             </header>

@@ -7,13 +7,7 @@ import data from "../../../assets/multi-step-form/data.json";
 import appStyles from "../../../styles/multi-step-form/app.module.scss";
 import AddOnItemLabel from "../common/AddOnItemLabel";
 
-const AddOnsFormSet = ({
-    formData,
-    formErrors,
-    onChangeSet,
-    currentStep = 3,
-    totalSteps = 4,
-}) => {
+const AddOnsFormSet = ({ formData, formErrors, onChangeSet, currentStep = 3, totalSteps = 4 }) => {
     return (
         <div>
             <h2>

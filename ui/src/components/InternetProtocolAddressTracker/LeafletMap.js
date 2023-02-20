@@ -70,12 +70,7 @@ const LeafletMap = ({ intl, results = {} }) => {
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker
-                        position={coordinates}
-                        icon={marker}
-                        keyboard={false}
-                        alt={mapMarkerAlt}
-                    ></Marker>
+                    <Marker position={coordinates} icon={marker} keyboard={false} alt={mapMarkerAlt}></Marker>
                 </MapContainer>
             </div>
         </React.Fragment>

@@ -9,10 +9,7 @@ const PageTemplate = ({ intl, children }) => {
     return (
         <React.Fragment>
             <Header />
-            <main
-                id="content"
-                className={[pageTemplateStyle.content, "main"].join(" ")}
-            >
+            <main id="content" className={[pageTemplateStyle.content, "main"].join(" ")}>
                 <div className={pageTemplateStyle.wrapper}>{children}</div>
             </main>
             <Footer />

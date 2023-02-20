@@ -4,12 +4,7 @@ import { injectIntl } from "react-intl";
 import CategoryListItem from "./CategoryListItem";
 import jobListStyle from "../../styles/static-job-listings/job-list.module.scss";
 
-const JobsListFiltersList = ({
-    intl,
-    filters,
-    clearFilters,
-    onFilterClick,
-}) => {
+const JobsListFiltersList = ({ intl, filters, clearFilters, onFilterClick }) => {
     const filtersLabel = intl.formatMessage({
         id: "staticJobListings.jobs.filters",
     });
@@ -23,18 +18,11 @@ const JobsListFiltersList = ({
             <ul className={jobListStyle.filterList}>
                 {filters.map((filter, index) => (
                     <li key={`job-filter-${index}`}>
-                        <CategoryListItem
-                            name={filter}
-                            onClick={() => onFilterClick(filter)}
-                            showX={true}
-                        />
+                        <CategoryListItem name={filter} onClick={() => onFilterClick(filter)} showX={true} />
                     </li>
                 ))}
             </ul>
-            <button
-                className={jobListStyle.clearFiltersButton}
-                onClick={clearFilters}
-            >
+            <button className={jobListStyle.clearFiltersButton} onClick={clearFilters}>
                 {clearFiltersLabel}
             </button>
         </div>

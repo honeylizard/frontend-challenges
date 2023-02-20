@@ -8,14 +8,7 @@ import TodoListFooterFilterSet from "./TodoListFooterFilterSet";
 
 import appStyles from "../../../styles/todo-app/app.module.scss";
 
-const TodoListFooter = ({
-    intl,
-    records,
-    filteredRecords,
-    setFilter,
-    filter,
-    isDesktop,
-}) => {
+const TodoListFooter = ({ intl, records, filteredRecords, setFilter, filter, isDesktop }) => {
     const { updateTodoData } = useContext(GlobalContext);
 
     const clearCompletedItemsTitle = intl.formatMessage({
@@ -44,12 +37,7 @@ const TodoListFooter = ({
                     }
                 )}
             </div>
-            {isDesktop && (
-                <TodoListFooterFilterSet
-                    setFilter={setFilter}
-                    filter={filter}
-                />
-            )}
+            {isDesktop && <TodoListFooterFilterSet setFilter={setFilter} filter={filter} />}
             <div className={appStyles.listFooterRight}>
                 <Button
                     onClick={clearCompletedItems}

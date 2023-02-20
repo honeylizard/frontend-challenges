@@ -42,10 +42,7 @@ const JobListItem = ({ intl, data, onCategoryClick, currentFilters }) => {
     return (
         <div className={classes.join(" ")}>
             <div className={jobListItemStyle.listItemCompanyLogo}>
-                <img
-                    src={process.env.PUBLIC_URL + data.logo}
-                    alt={data.company}
-                />
+                <img src={process.env.PUBLIC_URL + data.logo} alt={data.company} />
             </div>
             <div className={jobListItemStyle.listItemDetailsContainer}>
                 <div className={jobListItemStyle.listItemCompanyDetails}>
@@ -53,20 +50,10 @@ const JobListItem = ({ intl, data, onCategoryClick, currentFilters }) => {
                         <span className="sr-only">{companyLabel}:&nbsp;</span>
                         {data.company}
                     </div>
-                    {isNew && (
-                        <div className={jobListItemStyle.primaryPill}>
-                            {newLabel}
-                        </div>
-                    )}
-                    {isFeatured && (
-                        <div className={jobListItemStyle.secondaryPill}>
-                            {featuredLabel}
-                        </div>
-                    )}
+                    {isNew && <div className={jobListItemStyle.primaryPill}>{newLabel}</div>}
+                    {isFeatured && <div className={jobListItemStyle.secondaryPill}>{featuredLabel}</div>}
                 </div>
-                <div className={jobListItemStyle.listItemTitle}>
-                    {data.position}
-                </div>
+                <div className={jobListItemStyle.listItemTitle}>{data.position}</div>
                 <div className={jobListItemStyle.listItemPositionDetails}>
                     <div>
                         <span className="sr-only">{postedAtLabel}:&nbsp;</span>

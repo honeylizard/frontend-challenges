@@ -20,9 +20,7 @@ const TodoAppPage = ({ intl }) => {
     const [records, setRecords] = useState(globalData.todoList);
     const [filteredRecords, setFilteredRecords] = useState([]);
     const DESKTOP_PIXEL_BREAKPOINT = 1450;
-    const [isDesktop, setDesktop] = useState(
-        window.innerWidth > DESKTOP_PIXEL_BREAKPOINT
-    );
+    const [isDesktop, setDesktop] = useState(window.innerWidth > DESKTOP_PIXEL_BREAKPOINT);
 
     const appTitle = intl.formatMessage({
         id: "todoApp.header.title",
@@ -75,22 +73,17 @@ const TodoAppPage = ({ intl }) => {
             },
         ];
         updateTodoData({
-            todoList:
-                previousTodoList?.length > 0 ? previousTodoList : initialData,
+            todoList: previousTodoList?.length > 0 ? previousTodoList : initialData,
         });
     }, [updateTodoData]);
 
     useEffect(() => {
         setRecords(globalData.todoList);
-        setFilteredRecords(
-            lodash.orderBy(filterRecords(records, filter), ["order"], ["title"])
-        );
+        setFilteredRecords(lodash.orderBy(filterRecords(records, filter), ["order"], ["title"]));
     }, [globalData, filter, records, filterRecords]);
 
     useEffect(() => {
-        setFilteredRecords(
-            lodash.orderBy(filterRecords(records, filter), ["order"], ["title"])
-        );
+        setFilteredRecords(lodash.orderBy(filterRecords(records, filter), ["order"], ["title"]));
     }, [filter, records, filterRecords]);
 
     useEffect(() => {
@@ -121,9 +114,7 @@ const TodoAppPage = ({ intl }) => {
                                 filteredRecords.length > 0 &&
                                 filteredRecords.map((item, index) => (
                                     <TodoListItem
-                                        key={`todo-item-${item.title
-                                            .replace(/\s+/g, "-")
-                                            .toLowerCase()}-${item.order}`}
+                                        key={`todo-item-${item.title.replace(/\s+/g, "-").toLowerCase()}-${item.order}`}
                                         index={index}
                                         data={item}
                                     />
@@ -138,11 +129,7 @@ const TodoAppPage = ({ intl }) => {
                         />
                     </div>
                     {!isDesktop && (
-                        <TodoListFooterFilterSet
-                            setFilter={setFilter}
-                            filter={filter}
-                            isMobile={!isDesktop}
-                        />
+                        <TodoListFooterFilterSet setFilter={setFilter} filter={filter} isMobile={!isDesktop} />
                     )}
                 </div>
                 <div className={appStyles.dragDropNotice}>

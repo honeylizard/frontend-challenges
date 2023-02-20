@@ -28,10 +28,7 @@ const FormSelect = ({
             <label htmlFor={id}>
                 {label}
                 {required ? (
-                    <span
-                        className={formFieldStyles.requiredText}
-                        aria-hidden="true"
-                    >
+                    <span className={formFieldStyles.requiredText} aria-hidden="true">
                         {" "}
                         *
                     </span>
@@ -52,17 +49,12 @@ const FormSelect = ({
 
     const parentLevelClasses = [
         formFieldStyles.fieldWrapper,
-        currentTheme
-            ? formFieldStyles.fieldWrapperDark
-            : formFieldStyles.fieldWrapperLight,
+        currentTheme ? formFieldStyles.fieldWrapperDark : formFieldStyles.fieldWrapperLight,
         errorMessage ? formFieldStyles.invalidField : null,
         classNames ? classNames : null,
     ].filter(Boolean);
 
-    const describedByList = [
-        errorMessage ? `${id}-error` : null,
-        helpMessage ? `${id}-help` : null,
-    ].filter(Boolean);
+    const describedByList = [errorMessage ? `${id}-error` : null, helpMessage ? `${id}-help` : null].filter(Boolean);
 
     return (
         <div className={parentLevelClasses.join(" ")}>
@@ -73,33 +65,21 @@ const FormSelect = ({
                     required={required}
                     value={selectedOptionValue}
                     aria-invalid={errorMessage ? true : false}
-                    aria-describedby={
-                        describedByList.length > 0
-                            ? describedByList.join(" ")
-                            : null
-                    }
+                    aria-describedby={describedByList.length > 0 ? describedByList.join(" ") : null}
                     {...attrs}
                 >
                     <option value="" disabled={disablePlaceholder}>
                         {placeholder}
                     </option>
-                    {options &&
-                        options.map((opt, index) => renderOption(opt, index))}
+                    {options && options.map((opt, index) => renderOption(opt, index))}
                 </select>
                 {errorMessage && (
-                    <div
-                        id={`${id}-error`}
-                        className={formFieldStyles.fieldErrorText}
-                        role="alert"
-                    >
+                    <div id={`${id}-error`} className={formFieldStyles.fieldErrorText} role="alert">
                         {errorMessage}
                     </div>
                 )}
                 {helpMessage && (
-                    <div
-                        id={`${id}-help`}
-                        className={formFieldStyles.fieldHelpText}
-                    >
+                    <div id={`${id}-help`} className={formFieldStyles.fieldHelpText}>
                         {helpMessage}
                     </div>
                 )}

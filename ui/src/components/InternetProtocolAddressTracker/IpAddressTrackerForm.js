@@ -60,9 +60,7 @@ const IpAddressTrackerForm = ({ intl, setResults }) => {
 
             const path = IPIFY_API_BASE_URL + "apiKey=" + IPIFY_API_KEY;
             // Validate if it is an IP or domain
-            const searchTerm = isValidDomain(value)
-                ? SEARCH_TYPE_DOMAIN
-                : SEARCH_TYPE_IP;
+            const searchTerm = isValidDomain(value) ? SEARCH_TYPE_DOMAIN : SEARCH_TYPE_IP;
             const searchQuery = `&${searchTerm}=${value}`;
 
             return axios.get(path + searchQuery).then((response) => {
@@ -171,11 +169,7 @@ const IpAddressTrackerForm = ({ intl, setResults }) => {
             </form>
             <div id="alertContainer">
                 {formErrors && Object.keys(formErrors).includes("general") && (
-                    <Alert
-                        id="generalError"
-                        type="error"
-                        message={formErrors["general"]}
-                    />
+                    <Alert id="generalError" type="error" message={formErrors["general"]} />
                 )}
             </div>
         </React.Fragment>

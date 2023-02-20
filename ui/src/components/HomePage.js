@@ -31,10 +31,7 @@ const HomePage = ({ intl }) => {
                                 <tr key={`challenge-row-${index}`}>
                                     <th scope="row">{challenge.title}</th>
                                     <td>
-                                        <Link
-                                            to={challenge.solution_url}
-                                            className="link"
-                                        >
+                                        <Link to={challenge.solution_url} className="link">
                                             {linkLabel}
                                         </Link>
                                     </td>

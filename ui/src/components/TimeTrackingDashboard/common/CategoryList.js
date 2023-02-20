@@ -34,16 +34,8 @@ const CategoryList = ({ intl }) => {
                 categoryData={data["work"]}
                 customClass={appStyles.categoryCardOrange}
             />
-            <TimeCategoryCard
-                label={playLabel}
-                categoryData={data["play"]}
-                customClass={appStyles.categoryCardBlue}
-            />
-            <TimeCategoryCard
-                label={studyLabel}
-                categoryData={data["study"]}
-                customClass={appStyles.categoryCardRed}
-            />
+            <TimeCategoryCard label={playLabel} categoryData={data["play"]} customClass={appStyles.categoryCardBlue} />
+            <TimeCategoryCard label={studyLabel} categoryData={data["study"]} customClass={appStyles.categoryCardRed} />
             <TimeCategoryCard
                 label={exerciseLabel}
                 categoryData={data["exercise"]}

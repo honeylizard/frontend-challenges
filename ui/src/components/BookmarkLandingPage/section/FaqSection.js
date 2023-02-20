@@ -9,11 +9,7 @@ const FaqSection = ({ data }) => {
     const renderQuestion = (key, title, description) => {
         return (
             <li key={key} className={pageStyles.faqListItem}>
-                <Accordion
-                    id={key}
-                    title={title}
-                    customTitleClasses={[pageStyles.faqQuestion]}
-                >
+                <Accordion id={key} title={title} customTitleClasses={[pageStyles.faqQuestion]}>
                     <p>{description}</p>
                 </Accordion>
             </li>
@@ -25,25 +21,14 @@ const FaqSection = ({ data }) => {
             <div className={pageStyles.wrapper}>
                 <h2 className={pageStyles.title}>{data.title}</h2>
                 <p className={pageStyles.description}>{data.description}</p>
-                <ul
-                    className={[
-                        pageStyles.listNoStyle,
-                        pageStyles.faqList,
-                    ].join(" ")}
-                >
+                <ul className={[pageStyles.listNoStyle, pageStyles.faqList].join(" ")}>
                     {data.details &&
                         data.details.map((item, index) =>
-                            renderQuestion(
-                                `faq-item-${index}`,
-                                item.title,
-                                item.description
-                            )
+                            renderQuestion(`faq-item-${index}`, item.title, item.description)
                         )}
                 </ul>
                 <div className={pageStyles.sectionLink}>
-                    <ButtonLink url={data.link.url}>
-                        {data.link.label}
-                    </ButtonLink>
+                    <ButtonLink url={data.link.url}>{data.link.label}</ButtonLink>
                 </div>
             </div>
         </section>

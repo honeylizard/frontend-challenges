@@ -81,19 +81,11 @@ const TodoCreateItemForm = ({ intl }) => {
         <React.Fragment>
             <div id="alertContainer">
                 {formErrors && Object.keys(formErrors).includes("general") && (
-                    <Alert
-                        id="generalError"
-                        type="error"
-                        message={formErrors["general"]}
-                    />
+                    <Alert id="generalError" type="error" message={formErrors["general"]} />
                 )}
             </div>
             <form onSubmit={handleSubmit} className={appStyles.formContainer}>
-                <FontAwesomeIcon
-                    icon={faCircle}
-                    aria-hidden="true"
-                    className={appStyles.formToggleIcon}
-                />
+                <FontAwesomeIcon icon={faCircle} aria-hidden="true" className={appStyles.formToggleIcon} />
                 <FormInput
                     id="new-todo-item"
                     name="newTodoItem"

@@ -9,12 +9,7 @@ import TimeFrame from "./TimeFrame";
 
 import appStyles from "../../../styles/time-tracking-dashboard/time-category-card.module.scss";
 
-const TimeCategoryCard = ({
-    intl,
-    label = "Unknown",
-    categoryData = {},
-    customClass = "",
-}) => {
+const TimeCategoryCard = ({ intl, label = "Unknown", categoryData = {}, customClass = "" }) => {
     const { timeTrackingDashboard: globalData } = useContext(GlobalContext);
     const [currentTimeFrameKey, setCurrentTimeFrameKey] = useState(null);
 

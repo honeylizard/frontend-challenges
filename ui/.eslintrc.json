@@ -11,13 +11,14 @@
         "prettier"
       ],
     "extends": [
-        "eslint:recommended", 
+        "eslint:recommended",
         "plugin:react/recommended",
         "react-app",
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
         "plugin:prettier/recommended",
-        "prettier"
+        "prettier",
+        "eslint-config-prettier"
     ],
     "rules": {
         "prettier/prettier": [

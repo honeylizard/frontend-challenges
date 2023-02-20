@@ -21,19 +21,9 @@ const addAfter = (list, index, newItem) => {
     return [...list.slice(0, index), newItem, ...list.slice(index)];
 };
 
-const OPERATORS = [
-    OPERATOR_ADD,
-    OPERATOR_MINUS,
-    OPERATOR_DIVIDE,
-    OPERATOR_MULTIPLY,
-];
+const OPERATORS = [OPERATOR_ADD, OPERATOR_MINUS, OPERATOR_DIVIDE, OPERATOR_MULTIPLY];
 
-const ACTIONS = [
-    ACTION_DELETE,
-    ACTION_DECIMAL_PERIOD,
-    ACTION_RESET,
-    ACTION_CALCULATE,
-];
+const ACTIONS = [ACTION_DELETE, ACTION_DECIMAL_PERIOD, ACTION_RESET, ACTION_CALCULATE];
 
 export {
     THEMES,

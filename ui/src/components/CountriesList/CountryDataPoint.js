@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
 const CountryDataPoint = ({ intl, label, value, labelIntlId }) => {
-    const labelIntl = labelIntlId
-        ? intl.formatMessage({ id: labelIntlId })
-        : null;
+    const labelIntl = labelIntlId ? intl.formatMessage({ id: labelIntlId }) : null;
 
     return (
         <div>

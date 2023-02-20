@@ -39,9 +39,7 @@ const TodoListItem = ({ intl, data }) => {
     };
 
     const deleteItem = () => {
-        const newList = globalData.todoList.filter(
-            (obj) => obj.title !== data.title
-        );
+        const newList = globalData.todoList.filter((obj) => obj.title !== data.title);
         updateTodoData({
             todoList: newList,
         });
@@ -57,17 +55,9 @@ const TodoListItem = ({ intl, data }) => {
                 title={data.completed ? toActiveLabel : toCompletedLabel}
                 onClick={toggleItemStatus}
             >
-                <span className="sr-only">
-                    {data.completed ? toActiveLabel : toCompletedLabel}
-                </span>
+                <span className="sr-only">{data.completed ? toActiveLabel : toCompletedLabel}</span>
                 <img
-                    src={
-                        data.completed
-                            ? globalData.darkMode
-                                ? checkIconGrey
-                                : checkIconGreyLight
-                            : circleIcon
-                    }
+                    src={data.completed ? (globalData.darkMode ? checkIconGrey : checkIconGreyLight) : circleIcon}
                     alt=""
                     role="presentation"
                     height="24"
@@ -75,13 +65,7 @@ const TodoListItem = ({ intl, data }) => {
                     className={appStyles.itemToggleButtonHoverIcon}
                 />
                 <img
-                    src={
-                        data.completed
-                            ? checkIcon
-                            : globalData.darkMode
-                            ? circleIconGrey
-                            : circleIconGreyLight
-                    }
+                    src={data.completed ? checkIcon : globalData.darkMode ? circleIconGrey : circleIconGreyLight}
                     alt=""
                     role="presentation"
                     height="24"
@@ -96,11 +80,7 @@ const TodoListItem = ({ intl, data }) => {
             ) : (
                 <span className={appStyles.listItemTitle}>{data.title}</span>
             )}
-            <Button
-                customClasses={[appStyles.itemDeleteButton]}
-                title={deleteLabel}
-                onClick={deleteItem}
-            >
+            <Button customClasses={[appStyles.itemDeleteButton]} title={deleteLabel} onClick={deleteItem}>
                 <FontAwesomeIcon icon={faXmark} aria-hidden="true" />
             </Button>
         </li>

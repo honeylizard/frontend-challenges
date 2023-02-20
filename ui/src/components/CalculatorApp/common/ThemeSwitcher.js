@@ -20,10 +20,7 @@ const ThemeSwitcher = ({ intl }) => {
     useEffect(() => {
         if (!isInitialized) {
             const storedTheme = localStorage.getItem("calculatorTheme");
-            const initialTheme =
-                storedTheme && THEMES.includes(storedTheme)
-                    ? storedTheme
-                    : defaultTheme;
+            const initialTheme = storedTheme && THEMES.includes(storedTheme) ? storedTheme : defaultTheme;
             setIsInitialized(true);
             updateCalcData({
                 theme: initialTheme,
@@ -53,16 +50,13 @@ const ThemeSwitcher = ({ intl }) => {
                     <button
                         key={`theme-switch-button-${index}`}
                         className={
-                            currentTheme === item.code ||
-                            (currentTheme === null && item.code === THEME_DARK)
+                            currentTheme === item.code || (currentTheme === null && item.code === THEME_DARK)
                                 ? appStyles.currentTheme
                                 : null
                         }
                         onClick={() => changeTheme(item.code)}
                     >
-                        <span className="sr-only">
-                            {intl.formatMessage({ id: item.labelKey })}
-                        </span>
+                        <span className="sr-only">{intl.formatMessage({ id: item.labelKey })}</span>
                     </button>
                 ))}
             </div>

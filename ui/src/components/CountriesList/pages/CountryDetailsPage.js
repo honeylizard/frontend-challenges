@@ -45,11 +45,7 @@ const CountryDetailsPage = ({ intl }) => {
     useEffect(() => {
         if (id && record && record.borders && record.borders.length > 0) {
             const borderCountryCodes = record.borders;
-            axiosGet(
-                `https://restcountries.com/v2/alpha?codes=${borderCountryCodes.join(
-                    ","
-                )}`
-            )
+            axiosGet(`https://restcountries.com/v2/alpha?codes=${borderCountryCodes.join(",")}`)
                 .then((response) => {
                     const names = response.map((country) => {
                         return {
@@ -73,16 +69,11 @@ const CountryDetailsPage = ({ intl }) => {
         });
         const classes = [
             countryDetailsStyle.linkButton,
-            currentTheme
-                ? countryDetailsStyle.linkButtonDark
-                : countryDetailsStyle.linkButtonLight,
+            currentTheme ? countryDetailsStyle.linkButtonDark : countryDetailsStyle.linkButtonLight,
         ].filter(Boolean);
 
         return (
-            <Link
-                to="/frontend-challenges/countries-api"
-                className={classes.join(" ")}
-            >
+            <Link to="/frontend-challenges/countries-api" className={classes.join(" ")}>
                 <FontAwesomeIcon icon={faArrowLeftLong} aria-hidden="true" />
                 &nbsp; {backLabel}
             </Link>
@@ -101,9 +92,7 @@ const CountryDetailsPage = ({ intl }) => {
 
         const classes = [
             countryDetailsStyle.linkButton,
-            currentTheme
-                ? countryDetailsStyle.linkButtonDark
-                : countryDetailsStyle.linkButtonLight,
+            currentTheme ? countryDetailsStyle.linkButtonDark : countryDetailsStyle.linkButtonLight,
         ].filter(Boolean);
 
         return (
@@ -139,66 +128,33 @@ const CountryDetailsPage = ({ intl }) => {
                     <h1 className={countryDetailsStyle.title}>{record.name}</h1>
                     <div className={countryDetailsStyle.listItemDetails}>
                         <div className={countryDetailsStyle.listColumn}>
-                            <CountryDataPoint
-                                value={data.nativeName}
-                                labelIntlId="countriesApi.countries.nativeName"
-                            />
-                            <CountryDataPoint
-                                value={data.population}
-                                labelIntlId="countriesApi.countries.population"
-                            />
-                            <CountryDataPoint
-                                value={data.region}
-                                labelIntlId="countriesApi.countries.region"
-                            />
-                            <CountryDataPoint
-                                value={data.subregion}
-                                labelIntlId="countriesApi.countries.subregion"
-                            />
-                            <CountryDataPoint
-                                value={data.capital}
-                                labelIntlId="countriesApi.countries.capital"
-                            />
+                            <CountryDataPoint value={data.nativeName} labelIntlId="countriesApi.countries.nativeName" />
+                            <CountryDataPoint value={data.population} labelIntlId="countriesApi.countries.population" />
+                            <CountryDataPoint value={data.region} labelIntlId="countriesApi.countries.region" />
+                            <CountryDataPoint value={data.subregion} labelIntlId="countriesApi.countries.subregion" />
+                            <CountryDataPoint value={data.capital} labelIntlId="countriesApi.countries.capital" />
                         </div>
                         <div className={countryDetailsStyle.listColumn}>
                             <CountryDataPoint
-                                value={renderListAsCommaSeperatedText(
-                                    data.topLevelDomain
-                                )}
+                                value={renderListAsCommaSeperatedText(data.topLevelDomain)}
                                 labelIntlId="countriesApi.countries.topLevelDomain"
                             />
                             <CountryDataPoint
-                                value={renderListAsCommaSeperatedText(
-                                    data.currencies,
-                                    "name"
-                                )}
+                                value={renderListAsCommaSeperatedText(data.currencies, "name")}
                                 labelIntlId="countriesApi.countries.currencies"
                             />
                             <CountryDataPoint
-                                value={renderListAsCommaSeperatedText(
-                                    data.languages,
-                                    "name"
-                                )}
+                                value={renderListAsCommaSeperatedText(data.languages, "name")}
                                 labelIntlId="countriesApi.countries.languages"
                             />
                         </div>
                     </div>
                     {borderCountries && borderCountries.length > 0 && (
-                        <div
-                            className={
-                                countryDetailsStyle.borderCountriesListContainer
-                            }
-                        >
+                        <div className={countryDetailsStyle.borderCountriesListContainer}>
                             <strong>{borderCountriesLabel}</strong>:{" "}
-                            <ul
-                                className={
-                                    countryDetailsStyle.borderCountriesList
-                                }
-                            >
+                            <ul className={countryDetailsStyle.borderCountriesList}>
                                 {borderCountries.map((country, index) => (
-                                    <li key={`border-country-${index}`}>
-                                        {renderBorderCountry(country)}
-                                    </li>
+                                    <li key={`border-country-${index}`}>{renderBorderCountry(country)}</li>
                                 ))}
                             </ul>
                         </div>
@@ -215,10 +171,7 @@ const CountryDetailsPage = ({ intl }) => {
                 {isLoaded ? (
                     renderDetails(record)
                 ) : (
-                    <Loading
-                        customMessage={loadError}
-                        customClasses={countryDetailsStyle.loadingContainer}
-                    />
+                    <Loading customMessage={loadError} customClasses={countryDetailsStyle.loadingContainer} />
                 )}
             </section>
         </PageTemplate>

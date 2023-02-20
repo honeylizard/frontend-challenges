@@ -27,18 +27,14 @@ const CountriesList = ({ intl }) => {
 
     const listItemClasses = [
         countriesListStyle.listItem,
-        currentTheme
-            ? countriesListStyle.listItemDark
-            : countriesListStyle.listItemLight,
+        currentTheme ? countriesListStyle.listItemDark : countriesListStyle.listItemLight,
     ].filter(Boolean);
 
     useEffect(() => {
         axiosGet(`https://restcountries.com/v2/all`)
             .then((response) => {
                 setRecords(response);
-                setRegionOptions([
-                    ...new Set(response.map((item) => item.region)),
-                ]);
+                setRegionOptions([...new Set(response.map((item) => item.region))]);
                 setIsLoaded(true);
             })
             .catch((error) => {
@@ -52,25 +48,20 @@ const CountriesList = ({ intl }) => {
             currentFilters?.name ? country.name === currentFilters?.name : true
         );
         const filterByRegion = filteredByName.filter((country) =>
-            currentFilters?.region
-                ? country.region === currentFilters?.region
-                : true
+            currentFilters?.region ? country.region === currentFilters?.region : true
         );
         setFilteredRecords(lodash.orderBy(filterByRegion, ["name"], ["asc"]));
     }, [currentFilters, records]);
 
     const renderPlaceholderItem = () => {
-        const placeholderImage =
-            process.env.PUBLIC_URL + "/assets/flag_placeholder.jpg";
+        const placeholderImage = process.env.PUBLIC_URL + "/assets/flag_placeholder.jpg";
         const contentLabel = intl.formatMessage({
             id: "countriesApi.countries.loadingSingle",
         });
         return (
             <div className={countriesListStyle.placeholderBox}>
                 <img src={placeholderImage} alt="" role="presentation" />
-                <div className={countriesListStyle.placeholderBoxContent}>
-                    {contentLabel}
-                </div>
+                <div className={countriesListStyle.placeholderBoxContent}>{contentLabel}</div>
             </div>
         );
     };
@@ -82,10 +73,7 @@ const CountriesList = ({ intl }) => {
                 {filteredRecords && filteredRecords.length > 0 ? (
                     <ul className={countriesListStyle.list}>
                         {filteredRecords.map((country, index) => (
-                            <li
-                                key={`country-${index}`}
-                                className={listItemClasses.join(" ")}
-                            >
+                            <li key={`country-${index}`} className={listItemClasses.join(" ")}>
                                 <Suspense fallback={renderPlaceholderItem()}>
                                     <CountriesListItem data={country} />
                                 </Suspense>
@@ -93,9 +81,7 @@ const CountriesList = ({ intl }) => {
                         ))}
                     </ul>
                 ) : (
-                    <div className={countriesListStyle.listEmpty}>
-                        {emptyListLabel}
-                    </div>
+                    <div className={countriesListStyle.listEmpty}>{emptyListLabel}</div>
                 )}
             </React.Fragment>
         );
@@ -104,10 +90,7 @@ const CountriesList = ({ intl }) => {
     return isLoaded ? (
         renderList()
     ) : (
-        <Loading
-            customMessage={loadError}
-            customClasses={countriesListStyle.loadingContainer}
-        />
+        <Loading customMessage={loadError} customClasses={countriesListStyle.loadingContainer} />
     );
 };
 

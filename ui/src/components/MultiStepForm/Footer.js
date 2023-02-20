@@ -17,11 +17,7 @@ const Footer = ({ intl }) => {
                     id="footer.challenge.link"
                     values={{
                         link: (
-                            <a
-                                href={challengeLinkUrl}
-                                target="_blank"
-                                rel="noreferrer"
-                            >
+                            <a href={challengeLinkUrl} target="_blank" rel="noreferrer">
                                 {challengeLinkLabel}
                             </a>
                         ),

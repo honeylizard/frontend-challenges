@@ -4,19 +4,13 @@ import { create as mathEngineGenerator, all } from "mathjs";
 import { injectIntl } from "react-intl";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
-import {
-    ACTION_CALCULATE,
-    ACTION_DECIMAL_PERIOD,
-    ACTION_DELETE,
-    ACTION_RESET,
-} from "../utils/common";
+import { ACTION_CALCULATE, ACTION_DECIMAL_PERIOD, ACTION_DELETE, ACTION_RESET } from "../utils/common";
 import data from "../../../assets/calculator-app/data.json";
 
 import appStyles from "../../../styles/calculator-app/app.module.scss";
 
 const ActionButton = ({ intl, value = "", ...attr }) => {
-    const { updateCalcData, calculatorApp: globalData } =
-        useContext(GlobalContext);
+    const { updateCalcData, calculatorApp: globalData } = useContext(GlobalContext);
 
     const [mathEngine, setMathEngine] = useState(null);
     const [label, setLabel] = useState(null);
@@ -45,8 +39,7 @@ const ActionButton = ({ intl, value = "", ...attr }) => {
             }
         } else if (value === ACTION_DELETE) {
             const oldValue = globalData.output || "";
-            const newValue =
-                oldValue.length > 0 ? oldValue.slice(0, -1) : oldValue;
+            const newValue = oldValue.length > 0 ? oldValue.slice(0, -1) : oldValue;
             updateCalcData({
                 output: newValue,
                 error: null,
@@ -59,9 +52,7 @@ const ActionButton = ({ intl, value = "", ...attr }) => {
             });
         } else if (value === ACTION_CALCULATE) {
             try {
-                const results = mathEngine.evaluate(
-                    globalData.formula + globalData.output
-                );
+                const results = mathEngine.evaluate(globalData.formula + globalData.output);
                 updateCalcData({
                     output: results.toString(),
                     formula: "",
@@ -86,8 +77,7 @@ const ActionButton = ({ intl, value = "", ...attr }) => {
             const labelMap = {};
             const titleMap = {};
             data.actions.forEach((item) => {
-                labelMap[item.code] =
-                    item.symbol || intl.formatMessage({ id: item.symbolKey });
+                labelMap[item.code] = item.symbol || intl.formatMessage({ id: item.symbolKey });
                 titleMap[item.code] = intl.formatMessage({ id: item.labelKey });
             });
 
@@ -106,12 +96,7 @@ const ActionButton = ({ intl, value = "", ...attr }) => {
     }, [value, intl, currentValue]);
 
     return (
-        <button
-            className={buttonClasses}
-            title={title}
-            onClick={() => handleClick()}
-            {...attr}
-        >
+        <button className={buttonClasses} title={title} onClick={() => handleClick()} {...attr}>
             {label}
         </button>
     );

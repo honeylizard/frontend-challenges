@@ -30,42 +30,25 @@ const CountriesListItem = ({ intl, data }) => {
 
     const classes = [
         countriesListItemStyle.listItemContainer,
-        currentTheme
-            ? countriesListItemStyle.listItemContainerDark
-            : countriesListItemStyle.listItemContainerLight,
+        currentTheme ? countriesListItemStyle.listItemContainerDark : countriesListItemStyle.listItemContainerLight,
     ].filter(Boolean);
 
     return (
         <div className={classes.join(" ")}>
-            <Link
-                to={`/frontend-challenges/countries-api/country/${data.alpha3Code}`}
-                title={linkTooltip}
-            >
+            <Link to={`/frontend-challenges/countries-api/country/${data.alpha3Code}`} title={linkTooltip}>
                 <div className={countriesListItemStyle.listItemImage}>
                     <LazyImage
                         src={data.flag}
                         alt={imageAlt}
-                        placeholderImage={
-                            process.env.PUBLIC_URL +
-                            "/assets/flag_placeholder.jpg"
-                        }
+                        placeholderImage={process.env.PUBLIC_URL + "/assets/flag_placeholder.jpg"}
                     />
                 </div>
                 <div className={countriesListItemStyle.listItemContent}>
                     <h3>{data.name}</h3>
                     <div className={countriesListItemStyle.listItemDetails}>
-                        <CountryDataPoint
-                            value={data.population}
-                            labelIntlId="countriesApi.countries.population"
-                        />
-                        <CountryDataPoint
-                            value={data.region}
-                            labelIntlId="countriesApi.countries.region"
-                        />
-                        <CountryDataPoint
-                            value={data.capital}
-                            labelIntlId="countriesApi.countries.capital"
-                        />
+                        <CountryDataPoint value={data.population} labelIntlId="countriesApi.countries.population" />
+                        <CountryDataPoint value={data.region} labelIntlId="countriesApi.countries.region" />
+                        <CountryDataPoint value={data.capital} labelIntlId="countriesApi.countries.capital" />
                     </div>
                 </div>
             </Link>

@@ -79,10 +79,7 @@ const MultiStepFormPage = ({ intl }) => {
     };
 
     const goToNextSection = () => {
-        const newIndex =
-            currentStepIndex < steps.length - 1
-                ? currentStepIndex + 1
-                : steps.length;
+        const newIndex = currentStepIndex < steps.length - 1 ? currentStepIndex + 1 : steps.length;
         setCurrentStep(steps[newIndex]);
         setCurrentStepIndex(newIndex);
     };
@@ -163,21 +160,11 @@ const MultiStepFormPage = ({ intl }) => {
                             <ol>
                                 {steps.map((step, index) => {
                                     const isCurrent =
-                                        step.component ===
-                                            currentStep?.component &&
-                                        step.title === currentStep?.title;
+                                        step.component === currentStep?.component && step.title === currentStep?.title;
                                     return (
                                         <li key={`step-${index}`}>
-                                            {isCurrent && (
-                                                <span className="sr-only">
-                                                    Current:{" "}
-                                                </span>
-                                            )}
-                                            {step.isCompleted && (
-                                                <span className="sr-only">
-                                                    Completed:{" "}
-                                                </span>
-                                            )}
+                                            {isCurrent && <span className="sr-only">Current: </span>}
+                                            {step.isCompleted && <span className="sr-only">Completed: </span>}
                                             Step {index + 1}
                                             <br />
                                             {step.title}
@@ -200,21 +187,9 @@ const MultiStepFormPage = ({ intl }) => {
                                         />
                                     )}
                                     <div className={buttonRowClasses.join(" ")}>
-                                        {!isCurrentFirstInSet && (
-                                            <Button onClick={goToPrevSection}>
-                                                Go Back
-                                            </Button>
-                                        )}
-                                        {!isCurrentLastInSet && (
-                                            <Button onClick={goToNextSection}>
-                                                Next Step
-                                            </Button>
-                                        )}
-                                        {isCurrentLastInSet && (
-                                            <Button onClick={handleSubmit}>
-                                                Confirm
-                                            </Button>
-                                        )}
+                                        {!isCurrentFirstInSet && <Button onClick={goToPrevSection}>Go Back</Button>}
+                                        {!isCurrentLastInSet && <Button onClick={goToNextSection}>Next Step</Button>}
+                                        {isCurrentLastInSet && <Button onClick={handleSubmit}>Confirm</Button>}
                                     </div>
                                 </React.Fragment>
                             )}

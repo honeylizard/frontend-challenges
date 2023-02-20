@@ -3,19 +3,13 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
-import {
-    OPERATOR_ADD,
-    OPERATOR_MINUS,
-    OPERATOR_MULTIPLY,
-    OPERATOR_DIVIDE,
-} from "../utils/common";
+import { OPERATOR_ADD, OPERATOR_MINUS, OPERATOR_MULTIPLY, OPERATOR_DIVIDE } from "../utils/common";
 import data from "../../../assets/calculator-app/data.json";
 
 import appStyles from "../../../styles/calculator-app/app.module.scss";
 
 const OperatorButton = ({ intl, value = "", ...attr }) => {
-    const { updateCalcData, calculatorApp: globalData } =
-        useContext(GlobalContext);
+    const { updateCalcData, calculatorApp: globalData } = useContext(GlobalContext);
 
     const [label, setLabel] = useState(null);
     const [title, setTitle] = useState(null);
@@ -61,12 +55,7 @@ const OperatorButton = ({ intl, value = "", ...attr }) => {
     }, [value, intl, currentValue]);
 
     return (
-        <button
-            className={appStyles.button}
-            title={title}
-            onClick={() => handleClick()}
-            {...attr}
-        >
+        <button className={appStyles.button} title={title} onClick={() => handleClick()} {...attr}>
             {label}
         </button>
     );

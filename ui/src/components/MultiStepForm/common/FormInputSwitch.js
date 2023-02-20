@@ -48,32 +48,11 @@ const FormInputSwitch = ({
             >
                 {renderOption(labelOff, valueOff)}
                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="36">
-                    <rect
-                        className="container"
-                        x="1"
-                        y="1"
-                        width="34"
-                        height="18"
-                        rx="4"
-                    ></rect>
+                    <rect className="container" x="1" y="1" width="34" height="18" rx="4"></rect>
                     {isToggleOn ? (
-                        <rect
-                            className="on"
-                            x="20"
-                            y="4"
-                            width="12"
-                            height="12"
-                            rx="4"
-                        ></rect>
+                        <rect className="on" x="20" y="4" width="12" height="12" rx="4"></rect>
                     ) : (
-                        <rect
-                            className="off"
-                            x="4"
-                            y="4"
-                            width="12"
-                            height="12"
-                            rx="4"
-                        ></rect>
+                        <rect className="off" x="4" y="4" width="12" height="12" rx="4"></rect>
                     )}
                 </svg>
                 {renderOption(labelOn, valueOn)}

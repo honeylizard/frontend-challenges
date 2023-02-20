@@ -9,11 +9,7 @@ const DownloadSection = ({ data }) => {
         return (
             <li key={key} className={pageStyles.card}>
                 <div className={pageStyles.cardContent}>
-                    <img
-                        src={process.env.PUBLIC_URL + image}
-                        alt=""
-                        role="presentation"
-                    />
+                    <img src={process.env.PUBLIC_URL + image} alt="" role="presentation" />
                     <h3>{title}</h3>
                     <p>{description}</p>
                     <div className={pageStyles.cardDivider} aria-hidden="true">
@@ -30,11 +26,7 @@ const DownloadSection = ({ data }) => {
             <div className={pageStyles.wrapper}>
                 <h2 className={pageStyles.title}>{data.title}</h2>
                 <p className={pageStyles.description}>{data.description}</p>
-                <ul
-                    className={[pageStyles.row, pageStyles.cardOffsetList].join(
-                        " "
-                    )}
-                >
+                <ul className={[pageStyles.row, pageStyles.cardOffsetList].join(" ")}>
                     {data.details &&
                         data.details.map((item, index) =>
                             renderItem(

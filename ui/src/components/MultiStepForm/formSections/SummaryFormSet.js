@@ -3,12 +3,7 @@ import PropTypes from "prop-types";
 
 import appStyles from "../../../styles/multi-step-form/app.module.scss";
 
-const SummaryFormSet = ({
-    formData,
-    formErrors,
-    currentStep = 4,
-    totalSteps = 4,
-}) => {
+const SummaryFormSet = ({ formData, formErrors, currentStep = 4, totalSteps = 4 }) => {
     return (
         <div>
             <h2>
@@ -19,10 +14,7 @@ const SummaryFormSet = ({
             </h2>
             <p>Double-check everything looks OK before confirming.</p>
             <div className={appStyles.currentFormSet}>
-                <div>
-                    ...Dynamically add subscription and add-on selections
-                    here...
-                </div>
+                <div>...Dynamically add subscription and add-on selections here...</div>
                 <div>Total (per month/year)</div>
             </div>
         </div>

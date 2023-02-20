@@ -6,16 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const NavListItem = ({ data = {}, linkClasses, iconOnly = false, ...attr }) => {
     return (
         <li {...attr}>
-            <Link
-                to={data.url}
-                className={linkClasses}
-                title={iconOnly ? data.label : null}
-            >
-                {iconOnly ? (
-                    <FontAwesomeIcon icon={data.icon} aria-hidden="true" />
-                ) : (
-                    data.label
-                )}
+            <Link to={data.url} className={linkClasses} title={iconOnly ? data.label : null}>
+                {iconOnly ? <FontAwesomeIcon icon={data.icon} aria-hidden="true" /> : data.label}
             </Link>
         </li>
     );

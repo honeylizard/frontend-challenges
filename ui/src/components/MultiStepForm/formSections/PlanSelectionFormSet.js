@@ -10,13 +10,7 @@ import data from "../../../assets/multi-step-form/data.json";
 
 import appStyles from "../../../styles/multi-step-form/app.module.scss";
 
-const PlanSelectionFormSet = ({
-    intl,
-    formData,
-    onChange,
-    currentStep = 2,
-    totalSteps = 4,
-}) => {
+const PlanSelectionFormSet = ({ intl, formData, onChange, currentStep = 2, totalSteps = 4 }) => {
     const sectionTitle = intl.formatMessage({
         id: "multiStepForm.planSelection.title",
     });
@@ -75,21 +69,14 @@ const PlanSelectionFormSet = ({
             <p>{sectionDescription}</p>
             <div className={appStyles.currentFormSet}>
                 <div className={appStyles.planTypesContainer}>
-                    <input
-                        type="hidden"
-                        id="planType"
-                        name="planType"
-                        value={formData["planType"]}
-                    />
+                    <input type="hidden" id="planType" name="planType" value={formData["planType"]} />
                     {/* TODO: convert to component and handle frequency toggling */}
                     {data.planTypes.map((planType, index) => (
                         <Button
                             key={`plan-${index}`}
                             type="button"
                             customClasses={[appStyles.planTypeCard]}
-                            onClick={(event) =>
-                                handlePlanType(event, planType.value)
-                            }
+                            onClick={(event) => handlePlanType(event, planType.value)}
                         >
                             {planType.title}
                             <br />

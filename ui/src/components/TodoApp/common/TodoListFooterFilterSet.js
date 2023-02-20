@@ -41,31 +41,14 @@ const TodoListFooterFilterSet = ({ intl, setFilter, filter, isMobile }) => {
     };
 
     return (
-        <div
-            className={
-                isMobile
-                    ? appStyles.mobileFilterButtonsContainer
-                    : appStyles.filterButtonsContainer
-            }
-        >
-            <Button
-                onClick={showAllItems}
-                customClasses={getActiveFilterStyle(null)}
-            >
+        <div className={isMobile ? appStyles.mobileFilterButtonsContainer : appStyles.filterButtonsContainer}>
+            <Button onClick={showAllItems} customClasses={getActiveFilterStyle(null)}>
                 {filterLabelAll}
             </Button>
-            <Button
-                onClick={showOnlyActiveItems}
-                customClasses={getActiveFilterStyle(globalData.FILTER_ACTIVE)}
-            >
+            <Button onClick={showOnlyActiveItems} customClasses={getActiveFilterStyle(globalData.FILTER_ACTIVE)}>
                 {filterLabelActive}
             </Button>
-            <Button
-                onClick={showOnlyCompletedItems}
-                customClasses={getActiveFilterStyle(
-                    globalData.FILTER_COMPLETED
-                )}
-            >
+            <Button onClick={showOnlyCompletedItems} customClasses={getActiveFilterStyle(globalData.FILTER_COMPLETED)}>
                 {filterLabelCompleted}
             </Button>
         </div>

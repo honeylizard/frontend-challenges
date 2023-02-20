@@ -76,14 +76,9 @@ const NewsletterCallToAction = ({ intl }) => {
 
         if (validateForm()) {
             // Update the polite alert for accessibility purposes to notify users that the list is updated
-            setSuccessfulSubmission(
-                intl.formatMessage({ id: "bookmarkLanding.cta.form.success" })
-            );
+            setSuccessfulSubmission(intl.formatMessage({ id: "bookmarkLanding.cta.form.success" }));
 
-            console.log(
-                "Send the form data to a backend for processing...",
-                formData
-            );
+            console.log("Send the form data to a backend for processing...", formData);
 
             // Clear the form of errors in case anything was left over
             setFormErrors(null);
@@ -112,18 +107,12 @@ const NewsletterCallToAction = ({ intl }) => {
             <div className={pageStyles.wrapper}>
                 <div className={pageStyles.reverseHeaderOrder}>
                     <h2 className={pageStyles.callToActionTitle}>{title}</h2>
-                    <h3 className={pageStyles.callToActionSubtitle}>
-                        {subtitle}
-                    </h3>
+                    <h3 className={pageStyles.callToActionSubtitle}>{subtitle}</h3>
                 </div>
                 <form onSubmit={submitForm}>
                     <div role="status" aria-live="polite">
                         {successfulSubmission && (
-                            <Alert
-                                id="generalSuccess"
-                                type="success"
-                                message={successfulSubmission}
-                            />
+                            <Alert id="generalSuccess" type="success" message={successfulSubmission} />
                         )}
                     </div>
                     <div className={pageStyles.callToActionRow}>
@@ -132,9 +121,7 @@ const NewsletterCallToAction = ({ intl }) => {
                             id="newsletter-email"
                             name="newsletterEmail"
                             placeholder={emailPlaceholder}
-                            errorMessage={
-                                formErrors && formErrors["newsletterEmail"]
-                            }
+                            errorMessage={formErrors && formErrors["newsletterEmail"]}
                             value={formData["newsletterEmail"]}
                             onChange={updateValue}
                             type="email"

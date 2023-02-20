@@ -3,10 +3,7 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import {
-    faFacebookSquare,
-    faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+import { faFacebookSquare, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import ModalWrapper from "../common/ModalWrapper";
 import appLogo from "../../../assets/bookmark-landing-page/logo-bookmark-white.svg";
 
@@ -28,12 +25,7 @@ const Nav = ({ intl, navLabel, data = {} }) => {
     const socialNavItems = data.socialNav.map((item) => {
         return {
             ...item,
-            icon:
-                item.iconType === "facebook"
-                    ? faFacebookSquare
-                    : item.iconType === "twitter"
-                    ? faTwitter
-                    : null,
+            icon: item.iconType === "facebook" ? faFacebookSquare : item.iconType === "twitter" ? faTwitter : null,
         };
     });
 
@@ -43,20 +35,12 @@ const Nav = ({ intl, navLabel, data = {} }) => {
                 id="header_nav_primary"
                 triggerLabel={headerNavOpenButtonLabel}
                 triggerIconOnly={true}
-                triggerIcon={
-                    <FontAwesomeIcon icon={faBars} aria-hidden="true" />
-                }
+                triggerIcon={<FontAwesomeIcon icon={faBars} aria-hidden="true" />}
                 customTriggerButtonClasses={[pageStyles.headerNavMobileButton]}
                 showConfirmButton={false}
                 customContainerClasses={[pageStyles.headerNavModal]}
                 customCloseClasses={[pageStyles.headerNavModalClose]}
-                title={
-                    <img
-                        src={appLogo}
-                        alt={headerLogoAlt}
-                        className={pageStyles.headerNavMobileLogo}
-                    />
-                }
+                title={<img src={appLogo} alt={headerLogoAlt} className={pageStyles.headerNavMobileLogo} />}
                 customFooter={
                     <NavList
                         label={headerSocialNavLabel}

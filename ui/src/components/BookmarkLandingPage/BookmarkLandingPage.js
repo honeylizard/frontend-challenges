@@ -19,10 +19,7 @@ const BookmarkLandingPage = () => {
     return (
         <React.Fragment>
             <Header data={navData} />
-            <main
-                id="content"
-                className={[pageStyles.content, "main"].join(" ")}
-            >
+            <main id="content" className={[pageStyles.content, "main"].join(" ")}>
                 <OverviewSection data={data.overview} />
                 <FeatureSection data={data.features} />
                 <DownloadSection data={data.download} />

@@ -22,12 +22,7 @@ const Alert = ({ intl, id, type = "general", message, ...attrs }) => {
     }
 
     return (
-        <div
-            id={id}
-            role="alert"
-            className={`${alertStyles.formGeneralAlert} ${typeStyle}`}
-            {...attrs}
-        >
+        <div id={id} role="alert" className={`${alertStyles.formGeneralAlert} ${typeStyle}`} {...attrs}>
             {prefix} {message}
         </div>
     );

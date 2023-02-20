@@ -3,13 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import buttonStyles from "../../../styles/bookmark-landing-page/button-link.module.scss";
 
-const ButtonLink = ({
-    url,
-    children,
-    type = "primary",
-    customClasses = [],
-    ...attrs
-}) => {
+const ButtonLink = ({ url, children, type = "primary", customClasses = [], ...attrs }) => {
     const classes = [
         buttonStyles.button,
         type === "primary" ? buttonStyles.buttonPrimary : null,

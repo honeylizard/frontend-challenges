@@ -28,10 +28,7 @@ const CalculatorApp = () => {
             }
             return themeClass;
         };
-        const newClasses = [
-            appStyles.solutionContainer,
-            getThemeContainerClass(currentTheme),
-        ]
+        const newClasses = [appStyles.solutionContainer, getThemeContainerClass(currentTheme)]
             .filter(Boolean)
             .join(" ");
 

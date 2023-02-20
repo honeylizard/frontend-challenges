@@ -17,38 +17,19 @@ const OverviewSection = ({ data }) => {
 
     return (
         <section className={[pageStyles.section].join(" ")}>
-            <div
-                className={[
-                    pageStyles.wrapper,
-                    pageStyles.overview,
-                    pageStyles.row,
-                ].join(" ")}
-            >
+            <div className={[pageStyles.wrapper, pageStyles.overview, pageStyles.row].join(" ")}>
                 <div className={pageStyles.overviewContent}>
                     <h1 className={pageStyles.title}>{data.title}</h1>
                     <p className={pageStyles.description}>{data.description}</p>
-                    <ul
-                        className={[pageStyles.row, pageStyles.buttonRow].join(
-                            " "
-                        )}
-                    >
+                    <ul className={[pageStyles.row, pageStyles.buttonRow].join(" ")}>
                         {data.callToActions &&
                             data.callToActions.map((item, index) =>
-                                renderCallToAction(
-                                    `overview-cta-${index}`,
-                                    item.label,
-                                    item.url,
-                                    item.type
-                                )
+                                renderCallToAction(`overview-cta-${index}`, item.label, item.url, item.type)
                             )}
                     </ul>
                 </div>
                 <div>
-                    <img
-                        src={process.env.PUBLIC_URL + data.image}
-                        alt=""
-                        role="presentation"
-                    />
+                    <img src={process.env.PUBLIC_URL + data.image} alt="" role="presentation" />
                 </div>
             </div>
         </section>

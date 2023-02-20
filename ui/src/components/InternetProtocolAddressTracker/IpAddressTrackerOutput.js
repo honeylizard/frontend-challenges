@@ -30,22 +30,14 @@ const IpAddressTrackerOutput = ({ intl, results }) => {
 
     return (
         <div className={outputStyles.outputContainer}>
-            <OutputBlock
-                label={<abbr title={ipAddressFull}>{ipAddressLabel}</abbr>}
-                value={results?.ip_address}
-            />
+            <OutputBlock label={<abbr title={ipAddressFull}>{ipAddressLabel}</abbr>} value={results?.ip_address} />
             <OutputBlock
                 label={locationLabel}
                 value={results?.location}
-                value2={
-                    results?.country === defaultCountry ? null : results.country
-                }
+                value2={results?.country === defaultCountry ? null : results.country}
             />
             <OutputBlock label={timezoneLabel} value={results?.timezone} />
-            <OutputBlock
-                label={<abbr title={ispFull}>{ispLabel}</abbr>}
-                value={results?.provider}
-            />
+            <OutputBlock label={<abbr title={ispFull}>{ispLabel}</abbr>} value={results?.provider} />
         </div>
     );
 };

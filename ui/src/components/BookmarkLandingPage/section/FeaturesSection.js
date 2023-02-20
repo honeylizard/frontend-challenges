@@ -6,34 +6,19 @@ import Tabs from "../common/Tabs";
 import pageStyles from "../../../styles/bookmark-landing-page/page.module.scss";
 
 const FeatureSection = ({ data }) => {
-    const renderTab = (
-        key,
-        tabLabel,
-        title,
-        description,
-        image,
-        imageOrder = "left",
-        label,
-        url
-    ) => {
+    const renderTab = (key, tabLabel, title, description, image, imageOrder = "left", label, url) => {
         return (
             <div data-tabName={tabLabel} key={key}>
                 <div
                     className={[
                         pageStyles.row,
                         pageStyles.featureTabContainer,
-                        imageOrder === "left"
-                            ? null
-                            : pageStyles.featureTabContainerReverse,
+                        imageOrder === "left" ? null : pageStyles.featureTabContainerReverse,
                     ]
                         .filter(Boolean)
                         .join(" ")}
                 >
-                    <img
-                        src={process.env.PUBLIC_URL + image}
-                        alt=""
-                        role="presentation"
-                    />
+                    <img src={process.env.PUBLIC_URL + image} alt="" role="presentation" />
                     <div className={pageStyles.featureTabContent}>
                         <h3>{title}</h3>
                         <p>{description}</p>

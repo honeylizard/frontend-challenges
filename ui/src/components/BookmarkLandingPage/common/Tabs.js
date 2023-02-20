@@ -8,9 +8,7 @@ const Tabs = ({ id, children, ...attrs }) => {
     const [activeTabIndex, setActiveTabIndex] = useState(0);
 
     const handleTabChange = (event) => {
-        const newActiveIndex = parseInt(
-            event.target.parentElement.dataset.index
-        );
+        const newActiveIndex = parseInt(event.target.parentElement.dataset.index);
         setActiveTabIndex(newActiveIndex);
         event.currentTarget.blur();
         tabPanelRef.current.focus();
@@ -54,17 +52,10 @@ const Tabs = ({ id, children, ...attrs }) => {
                         key={index}
                         role="presentation"
                         className={`${tabStyles.tabsListItem} ${
-                            index === activeTabIndex &&
-                            tabStyles.tabsListItemActive
+                            index === activeTabIndex && tabStyles.tabsListItemActive
                         }`}
                     >
-                        {renderTabNavItem(
-                            id,
-                            index,
-                            item.props["data-tabName"],
-                            activeTabIndex,
-                            handleTabChange
-                        )}
+                        {renderTabNavItem(id, index, item.props["data-tabName"], activeTabIndex, handleTabChange)}
                     </li>
                 ))}
             </ul>
@@ -74,14 +65,7 @@ const Tabs = ({ id, children, ...attrs }) => {
                 tabIndex={-1}
                 className={tabStyles.tabsPanel}
             >
-                {children.map((item, index) =>
-                    renderTabContent(
-                        id,
-                        index,
-                        item.props.children,
-                        activeTabIndex
-                    )
-                )}
+                {children.map((item, index) => renderTabContent(id, index, item.props.children, activeTabIndex))}
             </div>
         </div>
     );

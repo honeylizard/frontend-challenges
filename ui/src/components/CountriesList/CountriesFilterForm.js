@@ -9,8 +9,7 @@ import { GlobalContext } from "../../GlobalStateProvider";
 import filterFormFieldStyles from "../../styles/countries-api/countries-filter-form.module.scss";
 
 const CountriesFilterForm = ({ intl, regionOptions }) => {
-    const { updateCountriesData, countriesApi: globalData } =
-        useContext(GlobalContext);
+    const { updateCountriesData, countriesApi: globalData } = useContext(GlobalContext);
     const currentTheme = globalData.darkMode;
     const currentFilters = globalData.currentFilters;
 
@@ -70,9 +69,7 @@ const CountriesFilterForm = ({ intl, regionOptions }) => {
 
         if (isValidForm) {
             // Update the polite alert for accessibility purposes to notify users that the list is updated
-            setSuccessfulSubmission(
-                intl.formatMessage({ id: "countriesApi.filter.success" })
-            );
+            setSuccessfulSubmission(intl.formatMessage({ id: "countriesApi.filter.success" }));
 
             // Clear the form of errors in case anything was left over
             setFormErrors(null);
@@ -98,9 +95,7 @@ const CountriesFilterForm = ({ intl, regionOptions }) => {
 
     const classes = [
         filterFormFieldStyles.formWrapper,
-        currentTheme
-            ? filterFormFieldStyles.formWrapperDark
-            : filterFormFieldStyles.formWrapperLight,
+        currentTheme ? filterFormFieldStyles.formWrapperDark : filterFormFieldStyles.formWrapperLight,
     ].filter(Boolean);
 
     return (
@@ -112,22 +107,13 @@ const CountriesFilterForm = ({ intl, regionOptions }) => {
                     autoFocus={true} // eslint-disable-line jsx-a11y/no-autofocus
                     tabIndex={-1}
                 >
-                    {formErrors &&
-                        Object.keys(formErrors).includes("general") && (
-                            <Alert
-                                id="generalError"
-                                type="error"
-                                message={formErrors["general"]}
-                            />
-                        )}
+                    {formErrors && Object.keys(formErrors).includes("general") && (
+                        <Alert id="generalError" type="error" message={formErrors["general"]} />
+                    )}
                 </div>
                 <div role="status" aria-live="polite" className="sr-only">
                     {successfulSubmission && (
-                        <Alert
-                            id="generalSuccess"
-                            type="success"
-                            message={successfulSubmission}
-                        />
+                        <Alert id="generalSuccess" type="success" message={successfulSubmission} />
                     )}
                 </div>
 
@@ -137,16 +123,13 @@ const CountriesFilterForm = ({ intl, regionOptions }) => {
                         id="country-search-name"
                         name="countrySearchName"
                         placeholder={fieldNamePlaceholder}
-                        errorMessage={
-                            formErrors && formErrors["countrySearchName"]
-                        }
+                        errorMessage={formErrors && formErrors["countrySearchName"]}
                         value={formData["countrySearchName"]}
                         onChange={updateValue}
                         type="search"
-                        classNames={[
-                            filterFormFieldStyles.formField,
-                            filterFormFieldStyles.fieldWrapperStretch,
-                        ].join(" ")}
+                        classNames={[filterFormFieldStyles.formField, filterFormFieldStyles.fieldWrapperStretch].join(
+                            " "
+                        )}
                     />
 
                     {
@@ -157,12 +140,8 @@ const CountriesFilterForm = ({ intl, regionOptions }) => {
                             id="country-search-region"
                             name="countrySearchRegion"
                             label={fieldRegionLabel}
-                            errorMessage={
-                                formErrors && formErrors["countrySearchRegion"]
-                            }
-                            selectedOptionValue={
-                                formData["countrySearchRegion"]
-                            }
+                            errorMessage={formErrors && formErrors["countrySearchRegion"]}
+                            selectedOptionValue={formData["countrySearchRegion"]}
                             placeholder={fieldRegionDefaultOptionLabel}
                             disablePlaceholder={false}
                             options={regionOptions.map((option) => ({

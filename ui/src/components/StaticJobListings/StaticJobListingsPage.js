@@ -18,24 +18,13 @@ const StaticJobListingsPage = ({ intl }) => {
         <React.Fragment>
             <Helmet>
                 <body className={staticJobListingsStyle.solutionContainer} />
-                <link
-                    rel="stylesheet"
-                    href="https://fonts.googleapis.com/css2?family=League+Spartan"
-                />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan" />
             </Helmet>
-            <a
-                className="sr-only sr-focusable"
-                href="#content"
-                title={skipToContentLabel}
-            >
+            <a className="sr-only sr-focusable" href="#content" title={skipToContentLabel}>
                 {skipToContentLabel}
             </a>
             <header className={staticJobListingsStyle.header} />
-            <div
-                id="content"
-                className={[staticJobListingsStyle.content, "main"].join(" ")}
-                role="main"
-            >
+            <div id="content" className={[staticJobListingsStyle.content, "main"].join(" ")} role="main">
                 <div className="wrapper">
                     <section className={staticJobListingsStyle.section}>
                         <h1 className={"sr-only"}>{title}</h1>
@@ -50,11 +39,7 @@ const StaticJobListingsPage = ({ intl }) => {
                         id="footer.challenge.link"
                         values={{
                             link: (
-                                <a
-                                    href={challengeLinkUrl}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                >
+                                <a href={challengeLinkUrl} target="_blank" rel="noreferrer">
                                     {challengeLinkLabel}
                                 </a>
                             ),

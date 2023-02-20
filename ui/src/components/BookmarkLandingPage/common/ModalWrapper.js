@@ -65,15 +65,9 @@ const ModalWrapper = ({
         handleModalClose();
     };
 
-    const modalContainerClasses = [
-        modalStyles.modalContainer,
-        ...customContainerClasses,
-    ].filter(Boolean);
+    const modalContainerClasses = [modalStyles.modalContainer, ...customContainerClasses].filter(Boolean);
 
-    const modalCloseClasses = [
-        modalStyles.headerCloseButton,
-        ...customCloseClasses,
-    ].filter(Boolean);
+    const modalCloseClasses = [modalStyles.headerCloseButton, ...customCloseClasses].filter(Boolean);
 
     return (
         <React.Fragment>
@@ -98,17 +92,8 @@ const ModalWrapper = ({
                     aria-describedby={`${id}_desc`}
                 >
                     <div className={modalStyles.modal}>
-                        <div
-                            className={
-                                !showTitle
-                                    ? modalStyles.modalHeaderNoTitle
-                                    : modalStyles.modalHeader
-                            }
-                        >
-                            <h2
-                                id={`${id}_label`}
-                                className={!showTitle ? "sr-only" : ""}
-                            >
+                        <div className={!showTitle ? modalStyles.modalHeaderNoTitle : modalStyles.modalHeader}>
+                            <h2 id={`${id}_label`} className={!showTitle ? "sr-only" : ""}>
                                 {title}
                             </h2>
                             {showCloseHeaderButton ? (
@@ -119,34 +104,22 @@ const ModalWrapper = ({
                                     aria-label={closeLabelDefault}
                                     className={modalCloseClasses.join(" ")}
                                 >
-                                    <FontAwesomeIcon
-                                        icon={faXmark}
-                                        aria-hidden="true"
-                                    />
+                                    <FontAwesomeIcon icon={faXmark} aria-hidden="true" />
                                 </Button>
                             ) : null}
                         </div>
-                        <div
-                            id={`${id}_desc`}
-                            className={modalStyles.modalContent}
-                        >
+                        <div id={`${id}_desc`} className={modalStyles.modalContent}>
                             {children}
                         </div>
                         <div className={modalStyles.modalFooter}>
                             {customFooter ? customFooter : null}
                             {confirmAndCancelSet ? (
-                                <Button
-                                    type="button"
-                                    onClick={handleCancelFunction}
-                                >
+                                <Button type="button" onClick={handleCancelFunction}>
                                     {cancelLabel || cancelLabelDefault}
                                 </Button>
                             ) : null}
                             {showConfirmButton ? (
-                                <Button
-                                    type="button"
-                                    onClick={handleConfirmFunction}
-                                >
+                                <Button type="button" onClick={handleConfirmFunction}>
                                     {confirmLabel || closeLabelDefault}
                                 </Button>
                             ) : null}
@@ -162,11 +135,7 @@ ModalWrapper.propTypes = {
     intl: PropTypes.object.isRequired,
     id: PropTypes.string,
     triggerLabel: PropTypes.string,
-    title: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.node,
-        PropTypes.object,
-    ]),
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.object]),
     showTitle: PropTypes.bool,
     children: PropTypes.node,
     confirmLabel: PropTypes.string,

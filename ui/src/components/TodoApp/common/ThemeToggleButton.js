@@ -23,9 +23,7 @@ const ThemeToggleButton = ({ intl }) => {
 
     const bodyClasses = [
         appStyles.solutionContainer,
-        isDarkTheme
-            ? appStyles.solutionContainerDark
-            : appStyles.solutionContainerLight,
+        isDarkTheme ? appStyles.solutionContainerDark : appStyles.solutionContainerLight,
     ].filter(Boolean);
 
     const toggleTheme = () => {
@@ -45,10 +43,7 @@ const ThemeToggleButton = ({ intl }) => {
                 title={isDarkTheme ? toLightLabel : toDarkLabel}
                 onClick={toggleTheme}
             >
-                <FontAwesomeIcon
-                    icon={isDarkTheme ? faSun : faMoon}
-                    aria-hidden="true"
-                />
+                <FontAwesomeIcon icon={isDarkTheme ? faSun : faMoon} aria-hidden="true" />
             </Button>
         </React.Fragment>
     );

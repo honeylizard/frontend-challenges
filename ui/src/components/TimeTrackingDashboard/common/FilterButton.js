@@ -6,8 +6,7 @@ import { GlobalContext } from "../../../GlobalStateProvider";
 import appStyles from "../../../styles/time-tracking-dashboard/filter-button.module.scss";
 
 const FilterButton = ({ label, filterCode }) => {
-    const { updateTimeTrackingData, timeTrackingDashboard: globalData } =
-        useContext(GlobalContext);
+    const { updateTimeTrackingData, timeTrackingDashboard: globalData } = useContext(GlobalContext);
     const [currentFilter, setCurrentFilter] = useState(null);
     const [currentStyles, setCurrentStyles] = useState([]);
 
@@ -34,10 +33,7 @@ const FilterButton = ({ label, filterCode }) => {
     }, [currentFilter, filterCode]);
 
     return (
-        <button
-            className={currentStyles.join(" ")}
-            onClick={() => handleFilterClick(filterCode)}
-        >
+        <button className={currentStyles.join(" ")} onClick={() => handleFilterClick(filterCode)}>
             {label}
         </button>
     );

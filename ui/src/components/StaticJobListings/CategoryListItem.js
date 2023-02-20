@@ -4,13 +4,7 @@ import { injectIntl } from "react-intl";
 import removeIcon from "../../assets/static-job-listings/icon-remove.svg";
 import categoryListItemStyle from "../../styles/static-job-listings/category-list-item.module.scss";
 
-const CategoryListItem = ({
-    intl,
-    name,
-    currentFilters = [],
-    showX = false,
-    ...attrs
-}) => {
+const CategoryListItem = ({ intl, name, currentFilters = [], showX = false, ...attrs }) => {
     const isSelected = currentFilters.includes(name);
 
     const addLabel = intl.formatMessage(
@@ -29,26 +23,15 @@ const CategoryListItem = ({
             name,
         }
     );
-    const classes = [
-        showX
-            ? categoryListItemStyle.lightPillWithX
-            : categoryListItemStyle.lightPill,
-    ];
+    const classes = [showX ? categoryListItemStyle.lightPillWithX : categoryListItemStyle.lightPill];
     if (isSelected) {
         classes.push(categoryListItemStyle.lightPillSelected);
     }
     return (
-        <button
-            className={classes.join(" ")}
-            title={isSelected ? removeLabel : addLabel}
-            {...attrs}
-        >
+        <button className={classes.join(" ")} title={isSelected ? removeLabel : addLabel} {...attrs}>
             <span className={categoryListItemStyle.pillContent}>{name}</span>
             {showX && (
-                <span
-                    className={categoryListItemStyle.pillSuffix}
-                    aria-hidden={true}
-                >
+                <span className={categoryListItemStyle.pillSuffix} aria-hidden={true}>
                     <img src={removeIcon} alt="" role="presentation" />
                 </span>
             )}
