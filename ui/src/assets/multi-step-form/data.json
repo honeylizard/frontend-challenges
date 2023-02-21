@@ -1,4 +1,18 @@
 {
+    "frequencies": [
+        {
+            "value": "monthly",
+            "label": "Monthly",
+            "altLabel": "month",
+            "abbreviation": "mo"
+        },
+        {
+            "value": "annual",
+            "label": "Yearly",
+            "altLabel": "year",
+            "abbreviation": "yr"
+        }
+    ],
     "planTypes": [
         {
             "title": "Arcade",

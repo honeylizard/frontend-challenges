@@ -162,6 +162,7 @@ const MultiStepFormPage = ({ intl }) => {
         buttonRowClasses.push(appStyles.buttonRowSingle);
     }
 
+    // TODO: Handle validation between steps
     console.log("formData", formData);
 
     return (
@@ -180,6 +181,7 @@ const MultiStepFormPage = ({ intl }) => {
                         <div className={appStyles.sidebar}>
                             <ol>
                                 {steps.map((step, index) => {
+                                    // TODO: style the steps in the nav for desktop and mobile
                                     const isCurrent =
                                         step.component === currentStep?.component && step.key === currentStep?.key;
                                     const stepTitle = intl.formatMessage({

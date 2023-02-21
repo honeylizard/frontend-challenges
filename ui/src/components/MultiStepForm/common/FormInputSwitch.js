@@ -23,7 +23,7 @@ const FormInputSwitch = ({
         if (value === valueOn && !isToggleOn) {
             setIsToggleOn(true);
         }
-    }, [value]);
+    }, [value, isToggleOn, valueOn]);
 
     // TODO: convert to components and add a aria-describedby to link to button?
     const renderOption = (label, className, isSelected = false) => {
