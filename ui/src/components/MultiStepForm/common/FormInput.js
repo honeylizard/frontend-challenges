@@ -4,6 +4,8 @@ import { injectIntl } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 
+import FormInputLabel from "./FormInputLabel";
+
 import formFieldStyles from "../../../styles/multi-step-form/form.module.scss";
 
 const FormInput = ({
@@ -20,24 +22,6 @@ const FormInput = ({
     hideLabel = false,
     ...attrs
 }) => {
-    const renderLabel = (id, label, required) => {
-        const optionalLabel = intl.formatMessage({ id: "form.optional" });
-
-        return (
-            <label htmlFor={id} className={hideLabel ? "sr-only" : null}>
-                {label}
-                {required ? (
-                    <span className={formFieldStyles.requiredText} aria-hidden="true">
-                        {" "}
-                        *
-                    </span>
-                ) : (
-                    <span aria-hidden="true"> ({optionalLabel})</span>
-                )}
-            </label>
-        );
-    };
-
     const renderBasicInput = (id, type, value, required, placeholder, errorMessage, helpMessage, attrs) => {
         const describedByList = [errorMessage ? `${id}-error` : null, helpMessage ? `${id}-help` : null].filter(
             Boolean
@@ -72,7 +56,7 @@ const FormInput = ({
 
     return (
         <div className={parentLevelClasses.join(" ")}>
-            {renderLabel(id, label, required)}
+            <FormInputLabel id={id} label={label} required={required} hideLabel={hideLabel} />
             <div className={formFieldStyles.inputGroup}>
                 {renderBasicInput(id, type, value, required, placeholder, errorMessage, helpMessage, attrs)}
                 {errorMessage && (
@@ -97,7 +81,7 @@ FormInput.propTypes = {
     value: PropTypes.string,
     type: PropTypes.string,
     required: PropTypes.bool,
-    classNames: PropTypes.array,
+    classNames: PropTypes.arrayOf(PropTypes.string),
     placeholder: PropTypes.string,
     errorMessage: PropTypes.string,
     helpMessage: PropTypes.string,

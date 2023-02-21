@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 import { GlobalContext } from "../../../GlobalStateProvider";
+
+import FormInputLabel from "./FormInputLabel";
+
 import formFieldStyles from "../../../styles/countries-api/form.module.scss";
 
 const FormInput = ({
@@ -21,24 +25,6 @@ const FormInput = ({
 }) => {
     const { countriesApi: globalData } = useContext(GlobalContext);
     const currentTheme = globalData.darkMode;
-
-    const renderLabel = (id, label, required) => {
-        const optionalLabel = intl.formatMessage({ id: "form.optional" });
-
-        return (
-            <label htmlFor={id}>
-                {label}
-                {required ? (
-                    <span className={formFieldStyles.requiredText} aria-hidden="true">
-                        {" "}
-                        *
-                    </span>
-                ) : (
-                    <span aria-hidden="true"> ({optionalLabel})</span>
-                )}
-            </label>
-        );
-    };
 
     const renderBasicInput = (id, type, value, required, placeholder, errorMessage, helpMessage, attrs) => {
         const describedByList = [errorMessage ? `${id}-error` : null, helpMessage ? `${id}-help` : null].filter(
@@ -86,7 +72,7 @@ const FormInput = ({
 
     return (
         <div className={parentLevelClasses.join(" ")}>
-            {renderLabel(id, label, required)}
+            <FormInputLabel id={id} label={label} required={required} />
             <div className={formFieldStyles.inputGroup}>
                 {renderBasicInput(id, type, value, required, placeholder, errorMessage, helpMessage, attrs)}
                 {errorMessage && (

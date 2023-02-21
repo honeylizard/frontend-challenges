@@ -1,7 +1,11 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
+
 import { GlobalContext } from "../../../GlobalStateProvider";
+
+import FormInputLabel from "./FormInputLabel";
+
 import formFieldStyles from "../../../styles/countries-api/form.module.scss";
 
 const FormSelect = ({
@@ -20,24 +24,6 @@ const FormSelect = ({
 }) => {
     const { countriesApi: globalData } = useContext(GlobalContext);
     const currentTheme = globalData.darkMode;
-
-    const renderLabel = (id, label, required) => {
-        const optionalLabel = intl.formatMessage({ id: "form.optional" });
-
-        return (
-            <label htmlFor={id}>
-                {label}
-                {required ? (
-                    <span className={formFieldStyles.requiredText} aria-hidden="true">
-                        {" "}
-                        *
-                    </span>
-                ) : (
-                    <span aria-hidden="true"> ({optionalLabel})</span>
-                )}
-            </label>
-        );
-    };
 
     const renderOption = (option, index) => {
         return (
@@ -58,7 +44,7 @@ const FormSelect = ({
 
     return (
         <div className={parentLevelClasses.join(" ")}>
-            {renderLabel(id, label, required)}
+            <FormInputLabel id={id} label={label} required={required} />
             <div className={formFieldStyles.inputGroup}>
                 <select
                     id={id}
