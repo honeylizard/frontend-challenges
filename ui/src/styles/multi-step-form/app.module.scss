@@ -43,6 +43,67 @@
                     background-image: url("/assets/multi-step-form/bg-sidebar-desktop.svg");
                     background-position: top center;
                     background-repeat: no-repeat;
+
+                    ul, ol {
+                        box-sizing: border-box;
+                        display: flex;
+                        flex-direction: column;
+                        list-style: none;
+                        list-style-position: inside;
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .sidebarNavItem {
+                        display: flex;
+                        align-items: center;
+                        margin: 3px 0;
+
+                        .sidebarNumber {
+                            display: flex;
+                            box-sizing: border-box;
+                            width: 30px;
+                            height: 30px;
+                            border: 2px solid $white;
+                            border-radius: 50%;
+                            align-items: center;
+                            justify-content: center;
+                            color: $white;
+                            margin-right: 20px;
+                            font-size: 0.85rem;
+                            font-weight: bold;
+
+                            &.sidebarNumberCurrent {
+                                background-color: $challenge-blue-light;
+                                color: $black;
+                                border-color: $challenge-grey;
+                            }
+                        }
+
+                        .sidebarStepNumber {
+                            font-size: 0.75rem;
+                            text-transform: uppercase;
+                            color: $challenge-grey;
+                        }
+
+                        .sidebarStepTitle {
+                            font-size: 0.85rem;
+                            font-weight: bold;
+                            color: $white;
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    @media all and (max-width: 865px) {
+                        ul, ol {
+                            flex-direction: row;
+                            padding: 60px;
+                            justify-content: center;
+                        }
+                        .sidebarStepLabel {
+                            display: none;
+                        }
+                    }
                 }
 
                 .currentStep {

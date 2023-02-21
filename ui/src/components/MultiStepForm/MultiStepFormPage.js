@@ -14,6 +14,7 @@ import FormSuccessMessage from "./common/FormSuccessMessage";
 import Button from "./common/Button";
 
 import appStyles from "../../styles/multi-step-form/app.module.scss";
+import StepNavItem from "./common/StepNavItem";
 
 const MultiStepFormPage = ({ intl }) => {
     const [currentStepIndex, setCurrentStepIndex] = useState(null);
@@ -187,23 +188,14 @@ const MultiStepFormPage = ({ intl }) => {
                                     const stepTitle = intl.formatMessage({
                                         id: step.titleKey,
                                     });
-                                    const stepNumber = intl.formatMessage(
-                                        {
-                                            id: "multiStepForm.nav.step",
-                                        },
-                                        {
-                                            number: index + 1,
-                                        }
-                                    );
                                     return (
-                                        <li key={`step-${index}`}>
-                                            {isCurrent && <span className="sr-only">{currentPrefix}&nbsp;</span>}
-                                            {step.isCompleted && (
-                                                <span className="sr-only">{completedPrefix}&nbsp;</span>
-                                            )}
-                                            {stepNumber}
-                                            <br />
-                                            {stepTitle}
+                                        <li key={`step-${index}`} className={appStyles.sidebarNavItem}>
+                                            <StepNavItem
+                                                title={stepTitle}
+                                                number={index + 1}
+                                                isCurrent={isCurrent}
+                                                isCompleted={step.isCompleted}
+                                            />
                                         </li>
                                     );
                                 })}
