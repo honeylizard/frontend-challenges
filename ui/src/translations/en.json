@@ -199,6 +199,10 @@
 	"multiStepForm.addOns.label": "Add-ons",
 
 	"multiStepForm.summary.label": "Summary",
+	"multiStepForm.summary.title": "Finishing up",
+	"multiStepForm.summary.description": "Double-check everything looks OK before confirming.",
+	"multiStepForm.summary.change": "Change",
+	"multiStepForm.summary.totalLabel": "Total (per {frequency})",
 
 	"multiStepForm.success.title": "Thank you!",
 	"multiStepForm.success.description": "Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com."

@@ -1,27 +1,149 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { injectIntl } from "react-intl";
+
+import Price from "../common/Price";
+
+import data from "../../../assets/multi-step-form/data.json";
 
 import appStyles from "../../../styles/multi-step-form/app.module.scss";
 
-const SummaryFormSet = ({ formData, formErrors, currentStep = 4, totalSteps = 4 }) => {
+const SummaryFormSet = ({ intl, formData, formErrors, currentStep = 4, totalSteps = 4 }) => {
+    const [total, setTotal] = useState(0);
+    const [addOns, setAddOns] = useState([]);
+    const [planType, setPlanType] = useState({});
+    const [frequency, setFrequency] = useState({});
+    const [currency, setCurrency] = useState("USD");
+
+    const sectionTitle = intl.formatMessage({
+        id: "multiStepForm.summary.title",
+    });
+    const sectionStep = intl.formatMessage(
+        {
+            id: "multiStepForm.step",
+        },
+        {
+            current: currentStep,
+            total: totalSteps,
+        }
+    );
+    const sectionDescription = intl.formatMessage({
+        id: "multiStepForm.summary.description",
+    });
+    const changeLabel = intl.formatMessage({
+        id: "multiStepForm.summary.change",
+    });
+    const totalLabel = intl.formatMessage(
+        {
+            id: "multiStepForm.summary.totalLabel",
+        },
+        {
+            frequency: frequency?.altLabel || "",
+        }
+    );
+
+    useEffect(() => {
+        const mappedAddOns = Object.keys(formData["addOns"])
+            .map((key) => {
+                return formData["addOns"][key]
+                    ? {
+                          id: key,
+                          value: formData["addOns"][key],
+                      }
+                    : null;
+            })
+            .filter(Boolean);
+        setAddOns(mappedAddOns);
+
+        const mappedPlanType = data.planTypes.find((elem) => elem.value === formData["planType"]);
+        const mappedFrequency = data.frequencies.find((elem) => elem.value === formData["planFrequency"]);
+
+        const addOnTotal = mappedAddOns.reduce((subtotal, elem) => {
+            const addOnData = data.addOns.find((item) => item.name === elem.id);
+            if (addOnData) {
+                return (subtotal = subtotal + addOnData.cost[mappedFrequency.value]);
+            }
+            return subtotal;
+        }, 0);
+
+        if (mappedPlanType && mappedFrequency) {
+            setTotal(mappedPlanType.cost[mappedFrequency.value] + addOnTotal || 0);
+            setPlanType(mappedPlanType);
+            setCurrency(mappedPlanType.cost.currency);
+            setFrequency(mappedFrequency);
+        }
+    }, [formData]);
+
+    const renderAddOn = (key, item) => {
+        const addOnData = data.addOns.find((elem) => elem.name === item.id);
+        return (
+            <div key={key} className={[appStyles.summaryRow, appStyles.summaryAddOn].join(" ")}>
+                <div>{addOnData.label}</div>
+                <div className={appStyles.summaryPrice}>
+                    +
+                    <Price
+                        amount={addOnData.cost[frequency.value]}
+                        frequency={frequency.value}
+                        currency={addOnData.cost.currency}
+                    />
+                </div>
+            </div>
+        );
+    };
+
+    // TODO: show errors or success after submission
+    // TODO: convert "Change" to link to previous step in wizard
+
     return (
         <div>
             <h2 className={appStyles.currentFormTitle}>
-                Finishing up
-                <span className="sr-only">
-                    &nbsp;(Step {currentStep} of {totalSteps})
-                </span>
+                {sectionTitle}
+                <span className="sr-only">&nbsp;({sectionStep})</span>
             </h2>
-            <p className={appStyles.currentFormDescription}>Double-check everything looks OK before confirming.</p>
+            <p className={appStyles.currentFormDescription}>{sectionDescription}</p>
             <div className={appStyles.currentFormSet}>
-                <div>...Dynamically add subscription and add-on selections here...</div>
-                <div>Total (per month/year)</div>
+                {planType?.title && frequency?.value && currency && (
+                    <div className={appStyles.summaryBlock}>
+                        <div className={[appStyles.summaryRow, appStyles.summaryPlan].join(" ")}>
+                            <div>
+                                <div className={appStyles.summaryPlanTitle}>
+                                    {planType?.title} ({frequency?.label})
+                                </div>
+                                <div>{changeLabel}</div>
+                            </div>
+                            <div className={appStyles.summaryPrice}>
+                                <Price
+                                    amount={planType?.cost[frequency?.value]}
+                                    frequency={frequency?.value}
+                                    currency={currency}
+                                />
+                            </div>
+                        </div>
+                        {addOns?.length > 0 && (
+                            <div className={appStyles.summaryAddOns}>
+                                {addOns.map((addOn, index) => renderAddOn(`addon-${index}`, addOn))}
+                            </div>
+                        )}
+                    </div>
+                )}
+                {total > 0 && (
+                    <div className={appStyles.summaryTotal}>
+                        <div className={appStyles.summaryRow}>
+                            <div>{totalLabel}</div>
+                            <div className={appStyles.summaryTotalPrice}>
+                                +
+                                <Price amount={total} frequency={frequency?.value} currency={currency} />
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
 };
 
 SummaryFormSet.propTypes = {
+    intl: PropTypes.object.isRequired,
     formData: PropTypes.object,
     formErrors: PropTypes.object,
     onChange: PropTypes.func,
@@ -29,4 +151,4 @@ SummaryFormSet.propTypes = {
     totalSteps: PropTypes.number,
 };
 
-export default SummaryFormSet;
+export default injectIntl(SummaryFormSet);
