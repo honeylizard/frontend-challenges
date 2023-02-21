@@ -106,6 +106,18 @@ const MultiStepFormPage = ({ intl }) => {
         // TODO: get the focus to change to the top of the new section
     };
 
+    const goToPlanSelectionStep = () => {
+        const planStep = steps.find((elem) => elem.key === "plan");
+        const planIndex = steps.indexOf(planStep);
+        console.log("planStep", planStep);
+        console.log("planIndex", planIndex);
+        if (planStep && planIndex) {
+            setCurrentStep(planStep);
+            setCurrentStepIndex(planIndex);
+            // TODO: get the focus to change to the top of the new section
+        }
+    };
+
     const updateValue = (event, type = "general") => {
         if (type === "general") {
             const { id, name, value: newValue } = event.target;
@@ -182,7 +194,6 @@ const MultiStepFormPage = ({ intl }) => {
                         <div className={appStyles.sidebar}>
                             <ol>
                                 {steps.map((step, index) => {
-                                    // TODO: style the steps in the nav for desktop and mobile
                                     const isCurrent =
                                         step.component === currentStep?.component && step.key === currentStep?.key;
                                     const stepTitle = intl.formatMessage({
@@ -212,17 +223,26 @@ const MultiStepFormPage = ({ intl }) => {
                                             formErrors={formErrors}
                                             onChange={updateValue}
                                             onChangeSet={updateValueSet}
+                                            goToPlanSelectionStep={goToPlanSelectionStep}
                                         />
                                     )}
                                     <div className={buttonRowClasses.join(" ")}>
                                         {!isCurrentFirstInSet && (
-                                            <Button onClick={goToPrevSection}>{prevButtonLabel}</Button>
+                                            <Button onClick={goToPrevSection} customClasses={[appStyles.textButton]}>
+                                                {prevButtonLabel}
+                                            </Button>
                                         )}
                                         {!isCurrentLastInSet && (
                                             <Button onClick={goToNextSection}>{nextButtonLabel}</Button>
                                         )}
                                         {isCurrentLastInSet && (
-                                            <Button onClick={handleSubmit}>{submitButtonLabel}</Button>
+                                            <Button
+                                                onClick={handleSubmit}
+                                                type="submit"
+                                                customClasses={[appStyles.submitButton]}
+                                            >
+                                                {submitButtonLabel}
+                                            </Button>
                                         )}
                                     </div>
                                 </React.Fragment>

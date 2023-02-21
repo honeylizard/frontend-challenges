@@ -218,6 +218,14 @@
                             font-size: .75rem;
                             line-height: 1rem;
                         }
+
+                        &:focus-visible {
+                            outline-color: $challenge-blue-dark;
+                        }
+
+                        &:hover {
+                            border-color: $challenge-blue-dark;
+                        }
                     }
 
                     @media all and (max-width: 580px) {
@@ -321,11 +329,15 @@
                         }
 
                         &:focus-within {
-                            outline: 2px solid $black;
+                            outline: 1px solid $challenge-blue-dark;
 
                             input {
                                 outline: none;
                             }
+                        }
+
+                        &:hover {
+                            border-color: $challenge-blue-dark;
                         }
                     }
 
@@ -387,6 +399,41 @@
 
                     &.summaryAddOn {
                         padding-bottom: 0;
+                    }
+                }
+
+                .textButton {
+                    color: $challenge-gray;
+                    background-color: transparent;
+                    border-color: transparent;
+                    font-size: 16px;
+                    padding: 0 5px;
+                    border-radius: 0;
+
+                    &:hover,
+                    &:focus-visible {
+                        color: $challenge-blue-dark;
+                    }
+                }
+
+                .linkButton {
+                    background-color: transparent;
+                    border-color: transparent;
+                    padding: 0;
+                    color: $challenge-gray;
+                    border-radius: 0;
+
+                    &:hover,
+                    &:focus-visible {
+                        text-decoration: underline;
+                        color: $challenge-purple;
+                    }
+                }
+
+                .submitButton {
+                    &:hover,
+                    &:focus-visible {
+                        background-color: $challenge-purple;
                     }
                 }
             }

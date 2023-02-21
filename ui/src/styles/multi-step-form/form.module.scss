@@ -70,6 +70,14 @@
     &::placeholder {
       color: $challenge-gray;
     }
+
+    &:hover {
+      border-color: $challenge-blue-dark;
+    }
+
+    &:focus-visible {
+      outline-color: $challenge-blue-dark;
+    }
   }
 
   &.invalidField {
@@ -121,6 +129,7 @@
   &:hover,
   &:focus-visible {
     color: $white;
+    background-color: $challenge-blue-highlight;
   }
 }
 

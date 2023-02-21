@@ -4,12 +4,13 @@ import { injectIntl } from "react-intl";
 
 import SummaryAddOnRow from "../common/SummaryAddOnRow";
 import Price from "../common/Price";
+import Button from "../common/Button";
 
 import data from "../../../assets/multi-step-form/data.json";
 
 import appStyles from "../../../styles/multi-step-form/app.module.scss";
 
-const SummaryFormSet = ({ intl, formData, formErrors, currentStep = 4, totalSteps = 4 }) => {
+const SummaryFormSet = ({ intl, formData, formErrors, currentStep = 4, totalSteps = 4, goToPlanSelectionStep }) => {
     const [total, setTotal] = useState(0);
     const [addOns, setAddOns] = useState([]);
     const [planType, setPlanType] = useState({});
@@ -93,7 +94,9 @@ const SummaryFormSet = ({ intl, formData, formErrors, currentStep = 4, totalStep
                                 <div className={appStyles.summaryPlanTitle}>
                                     {planType?.title} ({frequency?.label})
                                 </div>
-                                <div>{changeLabel}</div>
+                                <Button onClick={goToPlanSelectionStep} customClasses={[appStyles.linkButton]}>
+                                    {changeLabel}
+                                </Button>
                             </div>
                             <div className={appStyles.summaryPrice}>
                                 <Price
@@ -135,6 +138,7 @@ SummaryFormSet.propTypes = {
     onChange: PropTypes.func,
     currentStep: PropTypes.number,
     totalSteps: PropTypes.number,
+    goToPlanSelectionStep: PropTypes.func,
 };
 
 export default injectIntl(SummaryFormSet);

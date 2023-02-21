@@ -6,7 +6,7 @@ const Button = ({ label, children, customClasses = [], ...attrs }) => {
     const classes = [buttonStyles.button, ...customClasses];
 
     return (
-        <button className={classes.join(" ")} {...attrs}>
+        <button className={classes.join(" ")} type="button" {...attrs}>
             {children}
         </button>
     );
