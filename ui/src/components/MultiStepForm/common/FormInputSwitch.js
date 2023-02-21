@@ -14,6 +14,7 @@ const FormInputSwitch = ({
     valueOff = "false",
     onChange,
     hideLabel = true,
+    classNames = [],
     ...attrs
 }) => {
     const [isToggleOn, setIsToggleOn] = useState(false);
@@ -43,8 +44,10 @@ const FormInputSwitch = ({
         onChange(event, newValue ? valueOn : valueOff);
     };
 
+    const parentLevelClasses = [formFieldStyles.fieldWrapper, ...classNames].filter(Boolean);
+
     return (
-        <div className={formFieldStyles.fieldWrapper}>
+        <div className={parentLevelClasses.join(" ")}>
             <label htmlFor={id} className={hideLabel ? "sr-only" : null}>
                 {label}
             </label>
@@ -93,6 +96,7 @@ FormInputSwitch.propTypes = {
     valueOff: PropTypes.string,
     onChange: PropTypes.func,
     hideLabel: PropTypes.bool,
+    classNames: PropTypes.array,
 };
 
 export default FormInputSwitch;

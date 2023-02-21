@@ -105,6 +105,7 @@ const PlanSelectionFormSet = ({ intl, formData, onChange, currentStep = 2, total
                         labelOn={frequencyAnnualLabel}
                         valueOn="annual"
                         onChange={handlePlanFrequency}
+                        classNames={[appStyles.planFrequencyField]}
                     />
                 </div>
             </div>
