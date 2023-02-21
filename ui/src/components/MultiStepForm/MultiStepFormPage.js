@@ -33,18 +33,13 @@ const MultiStepFormPage = ({ intl }) => {
         },
     };
     const [formData, setFormData] = useState(initialFormData);
+    /* eslint-disable-next-line no-unused-vars */
     const [formErrors, setFormErrors] = useState(null); // Set of form field errors
 
     const [formSubmitted, setFormSubmitted] = useState(false);
 
     const title = intl.formatMessage({
         id: "multiStepForm.title",
-    });
-    const currentPrefix = intl.formatMessage({
-        id: "multiStepForm.nav.current",
-    });
-    const completedPrefix = intl.formatMessage({
-        id: "multiStepForm.nav.completed",
     });
     const prevButtonLabel = intl.formatMessage({
         id: "multiStepForm.prevStep",

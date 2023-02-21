@@ -5,9 +5,6 @@ import { injectIntl } from "react-intl";
 import appStyles from "../../../styles/multi-step-form/app.module.scss";
 
 const StepNavItem = ({ intl, title, number = 0, isCurrent = false, isCompleted = false }) => {
-    const currentPrefix = intl.formatMessage({
-        id: "multiStepForm.nav.current",
-    });
     const completedPrefix = intl.formatMessage({
         id: "multiStepForm.nav.completed",
     });

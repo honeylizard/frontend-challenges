@@ -167,7 +167,6 @@
 
 	"multiStepForm.title": "Multi Step Form",
 	"multiStepForm.step": "Step {current} of {total}",
-	"multiStepForm.nav.current": "Current:",
 	"multiStepForm.nav.completed": "Completed:",
 	"multiStepForm.nav.step": "Step {number}",
 	"multiStepForm.prevStep": "Go Back",
