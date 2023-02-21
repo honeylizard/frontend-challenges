@@ -15,7 +15,7 @@ const Button = ({ label, children, customClasses = [], ...attrs }) => {
 Button.propTypes = {
     label: PropTypes.string,
     children: PropTypes.node,
-    customClasses: PropTypes.array,
+    customClasses: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default Button;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
+import SummaryAddOnRow from "../common/SummaryAddOnRow";
 import Price from "../common/Price";
 
 import data from "../../../assets/multi-step-form/data.json";
@@ -74,23 +75,6 @@ const SummaryFormSet = ({ intl, formData, formErrors, currentStep = 4, totalStep
         }
     }, [formData]);
 
-    const renderAddOn = (key, item) => {
-        const addOnData = data.addOns.find((elem) => elem.name === item.id);
-        return (
-            <div key={key} className={[appStyles.summaryRow, appStyles.summaryAddOn].join(" ")}>
-                <div>{addOnData.label}</div>
-                <div className={appStyles.summaryPrice}>
-                    +
-                    <Price
-                        amount={addOnData.cost[frequency.value]}
-                        frequency={frequency.value}
-                        currency={addOnData.cost.currency}
-                    />
-                </div>
-            </div>
-        );
-    };
-
     // TODO: show errors or success after submission
     // TODO: convert "Change" to link to previous step in wizard
 
@@ -121,7 +105,9 @@ const SummaryFormSet = ({ intl, formData, formErrors, currentStep = 4, totalStep
                         </div>
                         {addOns?.length > 0 && (
                             <div className={appStyles.summaryAddOns}>
-                                {addOns.map((addOn, index) => renderAddOn(`addon-${index}`, addOn))}
+                                {addOns.map((addOn, index) => (
+                                    <SummaryAddOnRow key={`addon-${index}`} item={addOn} frequency={frequency} />
+                                ))}
                             </div>
                         )}
                     </div>

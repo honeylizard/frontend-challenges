@@ -21,7 +21,11 @@ const AddOnItemLabel = ({ data = {}, planFrequency = "" }) => {
 };
 
 AddOnItemLabel.propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.shape({
+        cost: PropTypes.object,
+        label: PropTypes.string,
+        subLabel: PropTypes.string,
+    }),
     planFrequency: PropTypes.string,
 };
 

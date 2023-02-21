@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
 import formFieldStyles from "../../../styles/multi-step-form/form.module.scss";
+import FormInputCheckboxSetOption from "./FormInputCheckboxSetOption";
 
 const FormInputCheckboxSet = ({
     intl,
@@ -22,41 +23,6 @@ const FormInputCheckboxSet = ({
     ...attrs
 }) => {
     const optionalLabel = intl.formatMessage({ id: "form.optional" });
-
-    const renderOption = (option, index) => {
-        const optionKey = option.key || index;
-        const optionId = `${id}-${optionKey}`;
-        const optionName = `${name}-${option.name}`;
-
-        const optionLevelClasses = [formFieldStyles.horizontalRow, ...optionClassNames].filter(Boolean);
-
-        const isChecked = values[option.name] === true;
-
-        if (isChecked) {
-            optionLevelClasses.push([formFieldStyles.optionChecked, ...optionCheckedClassNames].filter(Boolean));
-        }
-
-        const CustomComponent = labelComponent;
-
-        return (
-            <div key={optionKey} className={optionLevelClasses.join(" ")}>
-                <input
-                    type="checkbox"
-                    name={optionName}
-                    id={optionId}
-                    checked={isChecked ? "checked" : false}
-                    onChange={onChange}
-                />
-                {labelComponent ? (
-                    <label htmlFor={optionId}>
-                        <CustomComponent data={option} {...attrs} />
-                    </label>
-                ) : (
-                    <label htmlFor={optionId}>{option.label}</label>
-                )}
-            </div>
-        );
-    };
 
     const parentLevelClasses = [
         formFieldStyles.fieldWrapper,
@@ -78,7 +44,21 @@ const FormInputCheckboxSet = ({
                         <span aria-hidden="true"> ({optionalLabel})</span>
                     )}
                 </legend>
-                {options && options.map((opt, index) => renderOption(opt, index))}
+                {options?.length > 0 &&
+                    options.map((opt, index) => (
+                        <FormInputCheckboxSetOption
+                            key={opt.key || index}
+                            id={id}
+                            name={name}
+                            values={values}
+                            option={opt}
+                            classNames={optionClassNames}
+                            checkedClassNames={optionCheckedClassNames}
+                            labelComponent={labelComponent}
+                            onChange={onChange}
+                            {...attrs}
+                        />
+                    ))}
             </fieldset>
             {errorMessage && (
                 <div id={`${id}-error`} className={formFieldStyles.fieldErrorText} role="alert">
@@ -101,9 +81,9 @@ FormInputCheckboxSet.propTypes = {
     name: PropTypes.string,
     values: PropTypes.object,
     required: PropTypes.bool,
-    classNames: PropTypes.array,
-    optionClassNames: PropTypes.array,
-    optionCheckedClassNames: PropTypes.array,
+    classNames: PropTypes.arrayOf(PropTypes.string),
+    optionClassNames: PropTypes.arrayOf(PropTypes.string),
+    optionCheckedClassNames: PropTypes.arrayOf(PropTypes.string),
     options: PropTypes.array,
     errorMessage: PropTypes.string,
     helpMessage: PropTypes.string,
