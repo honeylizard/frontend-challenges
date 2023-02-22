@@ -172,6 +172,19 @@
                     }
                 }
 
+                .alertError {
+                    width: 100%;
+                    margin: 0 0 10px 0;
+                    color: $black;
+                    background-color: $grey-02;
+                    border: 1px solid $black;
+                    padding: 1rem 1rem;
+                    border-radius: 0.25rem;
+                    background-color: $red-light;
+                    color: $challenge-red;
+                    border-color: $challenge-red;
+                }
+
                 .planTypesContainer {
                     display: flex;
                     justify-content: space-between;

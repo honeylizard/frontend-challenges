@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 import FormInputLabel from "./FormInputLabel";
 
@@ -39,11 +37,6 @@ const FormInput = ({
                     aria-describedby={describedByList.length > 0 ? describedByList.join(" ") : null}
                     {...attrs}
                 />
-                {errorMessage && (
-                    <div className={formFieldStyles.suffixIcon}>
-                        <FontAwesomeIcon icon={faCircleExclamation} aria-hidden="true" />
-                    </div>
-                )}
             </div>
         );
     };
@@ -56,14 +49,16 @@ const FormInput = ({
 
     return (
         <div className={parentLevelClasses.join(" ")}>
-            <FormInputLabel id={id} label={label} required={required} hideLabel={hideLabel} />
-            <div className={formFieldStyles.inputGroup}>
-                {renderBasicInput(id, type, value, required, placeholder, errorMessage, helpMessage, attrs)}
+            <div className={formFieldStyles.labelAndErrorContainer}>
+                <FormInputLabel id={id} label={label} required={required} hideLabel={hideLabel} />
                 {errorMessage && (
                     <div id={`${id}-error`} className={formFieldStyles.fieldErrorText} role="alert" aria-atomic="true">
                         {errorMessage}
                     </div>
                 )}
+            </div>
+            <div className={formFieldStyles.inputGroup}>
+                {renderBasicInput(id, type, value, required, placeholder, errorMessage, helpMessage, attrs)}
                 {helpMessage && (
                     <div id={`${id}-help`} className={formFieldStyles.fieldHelpText}>
                         {helpMessage}

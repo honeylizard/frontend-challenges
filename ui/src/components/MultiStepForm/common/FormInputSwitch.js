@@ -16,6 +16,7 @@ const FormInputSwitch = ({
     onChange,
     hideLabel = true,
     classNames = [],
+    errorMessage,
     ...attrs
 }) => {
     const [isToggleOn, setIsToggleOn] = useState(false);
@@ -35,44 +36,58 @@ const FormInputSwitch = ({
     const parentLevelClasses = [formFieldStyles.fieldWrapper, ...classNames].filter(Boolean);
 
     return (
-        <div className={parentLevelClasses.join(" ")}>
-            <label htmlFor={id} className={hideLabel ? "sr-only" : null}>
-                {label}
-            </label>
-            <input type="hidden" id={id} name={name} value={value} />
-            <button
-                type="button"
-                role="switch"
-                aria-checked={isToggleOn}
-                className={formFieldStyles.switchToggle}
-                onClick={(event) => handleToggle(event)}
-                title={`Change "${label}" from "${isToggleOn ? labelOn : labelOff}" to "${
-                    isToggleOn ? labelOff : labelOn
-                }"`}
-                {...attrs}
-            >
-                <FormInputSwitchOption label={labelOff} className={valueOff} isSelected={!isToggleOn} />
-                <svg xmlns="http://www.w3.org/2000/svg" height="20" width="38">
-                    <rect className={formFieldStyles.container} x="1" y="1" width="34" height="18" rx="10"></rect>
-                    {isToggleOn ? (
-                        <circle
-                            className={[formFieldStyles.circle, formFieldStyles.on].join(" ")}
-                            cx="26"
-                            cy="10"
-                            r="6"
-                        />
-                    ) : (
-                        <circle
-                            className={[formFieldStyles.circle, formFieldStyles.off].join(" ")}
-                            cx="11"
-                            cy="10"
-                            r="6"
-                        />
-                    )}
-                </svg>
-                <FormInputSwitchOption label={labelOn} className={valueOn} isSelected={isToggleOn} />
-            </button>
-        </div>
+        <React.Fragment>
+            {errorMessage && (
+                <div id={`${id}-error`} className={formFieldStyles.alertError} role="alert" aria-atomic="true">
+                    {errorMessage}
+                </div>
+            )}
+            <div className={parentLevelClasses.join(" ")}>
+                <label htmlFor={id} className={hideLabel ? "sr-only" : null}>
+                    {label}
+                </label>
+                <input
+                    type="hidden"
+                    id={id}
+                    name={name}
+                    value={value}
+                    aria-describedby={errorMessage ? `${id}-error` : null}
+                    aria-invalid={errorMessage ? true : false}
+                />
+                <button
+                    type="button"
+                    role="switch"
+                    aria-checked={isToggleOn}
+                    className={formFieldStyles.switchToggle}
+                    onClick={(event) => handleToggle(event)}
+                    title={`Change "${label}" from "${isToggleOn ? labelOn : labelOff}" to "${
+                        isToggleOn ? labelOff : labelOn
+                    }"`}
+                    {...attrs}
+                >
+                    <FormInputSwitchOption label={labelOff} className={valueOff} isSelected={!isToggleOn} />
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="38">
+                        <rect className={formFieldStyles.container} x="1" y="1" width="34" height="18" rx="10"></rect>
+                        {isToggleOn ? (
+                            <circle
+                                className={[formFieldStyles.circle, formFieldStyles.on].join(" ")}
+                                cx="26"
+                                cy="10"
+                                r="6"
+                            />
+                        ) : (
+                            <circle
+                                className={[formFieldStyles.circle, formFieldStyles.off].join(" ")}
+                                cx="11"
+                                cy="10"
+                                r="6"
+                            />
+                        )}
+                    </svg>
+                    <FormInputSwitchOption label={labelOn} className={valueOn} isSelected={isToggleOn} />
+                </button>
+            </div>
+        </React.Fragment>
     );
 };
 
@@ -88,6 +103,7 @@ FormInputSwitch.propTypes = {
     onChange: PropTypes.func,
     hideLabel: PropTypes.bool,
     classNames: PropTypes.arrayOf(PropTypes.string),
+    errorMessage: PropTypes.string,
 };
 
 export default FormInputSwitch;

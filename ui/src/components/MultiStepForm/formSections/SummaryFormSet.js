@@ -77,7 +77,6 @@ const SummaryFormSet = ({ intl, formData, formErrors, currentStep = 4, totalStep
     }, [formData]);
 
     // TODO: show errors or success after submission
-    // TODO: convert "Change" to link to previous step in wizard
 
     return (
         <div>

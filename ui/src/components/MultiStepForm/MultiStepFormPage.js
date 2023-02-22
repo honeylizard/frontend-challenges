@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { Helmet } from "react-helmet";
+import validator from "validator";
 
 import Footer from "./Footer";
 
@@ -12,9 +13,9 @@ import SummaryFormSet from "./formSections/SummaryFormSet";
 
 import FormSuccessMessage from "./common/FormSuccessMessage";
 import Button from "./common/Button";
+import StepNavItem from "./common/StepNavItem";
 
 import appStyles from "../../styles/multi-step-form/app.module.scss";
-import StepNavItem from "./common/StepNavItem";
 
 const MultiStepFormPage = ({ intl }) => {
     const [currentStepIndex, setCurrentStepIndex] = useState(null);
@@ -24,7 +25,7 @@ const MultiStepFormPage = ({ intl }) => {
         name: "",
         email: "",
         phone: "",
-        planType: "",
+        planType: "arcade",
         planFrequency: "monthly",
         addOns: {
             online: "",
@@ -33,7 +34,6 @@ const MultiStepFormPage = ({ intl }) => {
         },
     };
     const [formData, setFormData] = useState(initialFormData);
-    /* eslint-disable-next-line no-unused-vars */
     const [formErrors, setFormErrors] = useState(null); // Set of form field errors
 
     const [formSubmitted, setFormSubmitted] = useState(false);
@@ -52,18 +52,67 @@ const MultiStepFormPage = ({ intl }) => {
     });
 
     const steps = useMemo(() => {
+        const validatePersonalInfo = () => {
+            let validForm = true;
+
+            setFormErrors({}); // Reset form errors
+
+            const tempFormErrors = {};
+
+            if (!formData?.name || formData?.name === "") {
+                tempFormErrors["name"] = "Name is requried";
+                validForm = false;
+            } else if (!validator.isEmail(formData?.email)) {
+                tempFormErrors["email"] = "Email is invalid";
+                validForm = false;
+            } else if (!formData?.phone || formData?.phone === "" || !validator.isMobilePhone(formData?.phone)) {
+                tempFormErrors["phone"] = "Phone is invalid";
+                validForm = false;
+            }
+
+            if (!validForm) {
+                setFormErrors(tempFormErrors);
+            }
+
+            return validForm;
+        };
+
+        const validatePlanSelection = () => {
+            let validForm = true;
+
+            setFormErrors({}); // Reset form errors
+
+            const tempFormErrors = {};
+
+            if (!formData?.planType || formData?.planType === "") {
+                tempFormErrors["planType"] = "Plan is invalid";
+                validForm = false;
+            } else if (!formData?.planFrequency || formData?.planFrequency === "") {
+                tempFormErrors["planFrequency"] = "Frequency is invalid";
+                validForm = false;
+            }
+
+            if (!validForm) {
+                setFormErrors(tempFormErrors);
+            }
+
+            return validForm;
+        };
+
         return [
             {
                 key: "personalInfo",
                 titleKey: "multiStepForm.personalInfo.label",
                 component: PersonalInfoFormSet,
                 isCompleted: false,
+                onValidation: validatePersonalInfo,
             },
             {
                 key: "plan",
                 titleKey: "multiStepForm.planSelection.label",
                 component: PlanSelectionFormSet,
                 isCompleted: false,
+                onValidation: validatePlanSelection,
             },
             {
                 key: "addOns",
@@ -78,7 +127,7 @@ const MultiStepFormPage = ({ intl }) => {
                 isCompleted: false,
             },
         ];
-    }, []);
+    }, [formData]);
 
     useEffect(() => {
         if (steps && steps.length > 0) {
@@ -95,17 +144,17 @@ const MultiStepFormPage = ({ intl }) => {
     };
 
     const goToNextSection = () => {
-        const newIndex = currentStepIndex < steps.length - 1 ? currentStepIndex + 1 : steps.length;
-        setCurrentStep(steps[newIndex]);
-        setCurrentStepIndex(newIndex);
-        // TODO: get the focus to change to the top of the new section
+        if (typeof currentStep?.onValidation === "undefined" || currentStep?.onValidation()) {
+            const newIndex = currentStepIndex < steps.length - 1 ? currentStepIndex + 1 : steps.length;
+            setCurrentStep(steps[newIndex]);
+            setCurrentStepIndex(newIndex);
+            // TODO: get the focus to change to the top of the new section
+        }
     };
 
     const goToPlanSelectionStep = () => {
         const planStep = steps.find((elem) => elem.key === "plan");
         const planIndex = steps.indexOf(planStep);
-        console.log("planStep", planStep);
-        console.log("planIndex", planIndex);
         if (planStep && planIndex) {
             setCurrentStep(planStep);
             setCurrentStepIndex(planIndex);
@@ -169,9 +218,6 @@ const MultiStepFormPage = ({ intl }) => {
     if (isCurrentFirstInSet) {
         buttonRowClasses.push(appStyles.buttonRowSingle);
     }
-
-    // TODO: Handle validation between steps
-    console.log("formData", formData);
 
     return (
         <React.Fragment>

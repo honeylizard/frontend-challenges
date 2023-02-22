@@ -80,35 +80,41 @@
     }
   }
 
-  &.invalidField {
-    label {
-      color: $red;
-    }
+  .labelAndErrorContainer {
+    display: flex;
+    justify-content: space-between;
 
-    .inputWrapper {
+    @media all and (max-width: 430px) {
+      flex-direction: column;
+    }
+  }
+
+  &.invalidField {
+    input {
       border-color: $challenge-red !important;
-      border-bottom-left-radius: 0 !important;
-      border-bottom-right-radius: 0 !important;
-      color: $challenge-red;
     }
 
     .fieldErrorText {
-      font-size: .7em;
-      padding: 15px 20px;
-      color: $white;
-      background-color: $challenge-red;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: $challenge-red;
       box-sizing: border-box;
-      max-width: 260px;
-      font-style: italic;
-      text-align: left;
-
-      @media all and (max-width: 450px) {
-        max-width: none;
-      }
+      padding: 5px 0;
     }
   }
+}
+
+.alertError {
+  width: 100%;
+  margin: 0 0 10px 0;
+  color: $black;
+  background-color: $grey-02;
+  border: 1px solid $black;
+  padding: 1rem 1rem;
+  border-radius: 0.25rem;
+  background-color: $red-light;
+  color: $challenge-red;
+  border-color: $challenge-red;
 }
 
 .fieldHelpText {
