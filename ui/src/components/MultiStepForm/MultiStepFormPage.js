@@ -59,13 +59,19 @@ const MultiStepFormPage = ({ intl }) => {
         const tempFormErrors = {};
 
         if (!data?.name || data?.name === "") {
-            tempFormErrors["name"] = "Name is requried";
+            tempFormErrors["name"] = intl.formatMessage({
+                id: "multiStepForm.form.error.required",
+            });
             validForm = false;
-        } else if (!validator.isEmail(data?.email)) {
-            tempFormErrors["email"] = "Email is invalid";
+        } else if (!data?.email || data?.email === "" || !validator.isEmail(data?.email)) {
+            tempFormErrors["email"] = intl.formatMessage({
+                id: "multiStepForm.form.email.error.invalid",
+            });
             validForm = false;
         } else if (!data?.phone || data?.phone === "" || !validator.isMobilePhone(data?.phone)) {
-            tempFormErrors["phone"] = "Phone is invalid";
+            tempFormErrors["phone"] = intl.formatMessage({
+                id: "multiStepForm.form.phone.error.invalid",
+            });
             validForm = false;
         }
 
@@ -84,10 +90,14 @@ const MultiStepFormPage = ({ intl }) => {
         const tempFormErrors = {};
 
         if (!data?.planType || data?.planType === "") {
-            tempFormErrors["planType"] = "Plan is invalid";
+            tempFormErrors["planType"] = intl.formatMessage({
+                id: "multiStepForm.form.error.required",
+            });
             validForm = false;
         } else if (!data?.planFrequency || data?.planFrequency === "") {
-            tempFormErrors["planFrequency"] = "Frequency is invalid";
+            tempFormErrors["planFrequency"] = intl.formatMessage({
+                id: "multiStepForm.form.error.required",
+            });
             validForm = false;
         }
 

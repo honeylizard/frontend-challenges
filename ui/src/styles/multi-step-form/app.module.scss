@@ -435,10 +435,10 @@
                     padding: 0;
                     color: $challenge-gray;
                     border-radius: 0;
+                    text-decoration: underline;
 
                     &:hover,
                     &:focus-visible {
-                        text-decoration: underline;
                         color: $challenge-purple;
                     }
                 }
