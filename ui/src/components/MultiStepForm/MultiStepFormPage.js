@@ -51,68 +51,66 @@ const MultiStepFormPage = ({ intl }) => {
         id: "multiStepForm.submit",
     });
 
+    const validatePersonalInfo = (data) => {
+        let validForm = true;
+
+        setFormErrors({}); // Reset form errors
+
+        const tempFormErrors = {};
+
+        if (!data?.name || data?.name === "") {
+            tempFormErrors["name"] = "Name is requried";
+            validForm = false;
+        } else if (!validator.isEmail(data?.email)) {
+            tempFormErrors["email"] = "Email is invalid";
+            validForm = false;
+        } else if (!data?.phone || data?.phone === "" || !validator.isMobilePhone(data?.phone)) {
+            tempFormErrors["phone"] = "Phone is invalid";
+            validForm = false;
+        }
+
+        if (!validForm) {
+            setFormErrors(tempFormErrors);
+        }
+
+        return validForm;
+    };
+
+    const validatePlanSelection = (data) => {
+        let validForm = true;
+
+        setFormErrors({}); // Reset form errors
+
+        const tempFormErrors = {};
+
+        if (!data?.planType || data?.planType === "") {
+            tempFormErrors["planType"] = "Plan is invalid";
+            validForm = false;
+        } else if (!data?.planFrequency || data?.planFrequency === "") {
+            tempFormErrors["planFrequency"] = "Frequency is invalid";
+            validForm = false;
+        }
+
+        if (!validForm) {
+            setFormErrors(tempFormErrors);
+        }
+
+        return validForm;
+    };
+
     const steps = useMemo(() => {
-        const validatePersonalInfo = () => {
-            let validForm = true;
-
-            setFormErrors({}); // Reset form errors
-
-            const tempFormErrors = {};
-
-            if (!formData?.name || formData?.name === "") {
-                tempFormErrors["name"] = "Name is requried";
-                validForm = false;
-            } else if (!validator.isEmail(formData?.email)) {
-                tempFormErrors["email"] = "Email is invalid";
-                validForm = false;
-            } else if (!formData?.phone || formData?.phone === "" || !validator.isMobilePhone(formData?.phone)) {
-                tempFormErrors["phone"] = "Phone is invalid";
-                validForm = false;
-            }
-
-            if (!validForm) {
-                setFormErrors(tempFormErrors);
-            }
-
-            return validForm;
-        };
-
-        const validatePlanSelection = () => {
-            let validForm = true;
-
-            setFormErrors({}); // Reset form errors
-
-            const tempFormErrors = {};
-
-            if (!formData?.planType || formData?.planType === "") {
-                tempFormErrors["planType"] = "Plan is invalid";
-                validForm = false;
-            } else if (!formData?.planFrequency || formData?.planFrequency === "") {
-                tempFormErrors["planFrequency"] = "Frequency is invalid";
-                validForm = false;
-            }
-
-            if (!validForm) {
-                setFormErrors(tempFormErrors);
-            }
-
-            return validForm;
-        };
-
         return [
             {
                 key: "personalInfo",
                 titleKey: "multiStepForm.personalInfo.label",
                 component: PersonalInfoFormSet,
                 isCompleted: false,
-                onValidation: validatePersonalInfo,
             },
             {
                 key: "plan",
                 titleKey: "multiStepForm.planSelection.label",
                 component: PlanSelectionFormSet,
                 isCompleted: false,
-                onValidation: validatePlanSelection,
             },
             {
                 key: "addOns",
@@ -127,7 +125,7 @@ const MultiStepFormPage = ({ intl }) => {
                 isCompleted: false,
             },
         ];
-    }, [formData]);
+    }, []);
 
     useEffect(() => {
         if (steps && steps.length > 0) {
@@ -144,7 +142,14 @@ const MultiStepFormPage = ({ intl }) => {
     };
 
     const goToNextSection = () => {
-        if (typeof currentStep?.onValidation === "undefined" || currentStep?.onValidation()) {
+        let validForm = true;
+        if (currentStep.key === "personalInfo") {
+            validForm = validatePersonalInfo(formData);
+        } else if (currentStep.key === "plan") {
+            validForm = validatePlanSelection(formData);
+        }
+
+        if (validForm) {
             const newIndex = currentStepIndex < steps.length - 1 ? currentStepIndex + 1 : steps.length;
             setCurrentStep(steps[newIndex]);
             setCurrentStepIndex(newIndex);
@@ -236,10 +241,14 @@ const MultiStepFormPage = ({ intl }) => {
                             <ol>
                                 {steps.map((step, index) => {
                                     const isCurrent =
-                                        step.component === currentStep?.component && step.key === currentStep?.key;
+                                        (step.component === currentStep?.component &&
+                                            step.key === currentStep?.key &&
+                                            !formSubmitted) ||
+                                        (formSubmitted && index + 1 === steps.length);
                                     const stepTitle = intl.formatMessage({
                                         id: step.titleKey,
                                     });
+
                                     return (
                                         <li key={`step-${index}`} className={appStyles.sidebarNavItem}>
                                             <StepNavItem
