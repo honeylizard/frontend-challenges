@@ -14,10 +14,10 @@ const FormSuccessMessage = ({ intl }) => {
     });
 
     return (
-        <div>
-            <img src={thankYouImage} alt="" role="presentation" />
-            <h2>{title}</h2>
-            <p>{description}</p>
+        <div className={appStyles.successContainer}>
+            <img src={thankYouImage} className={appStyles.successIcon} alt="" role="presentation" />
+            <h2 className={appStyles.successTitle}>{title}</h2>
+            <p className={appStyles.successDesc}>{description}</p>
         </div>
     );
 };
