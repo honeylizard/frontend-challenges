@@ -124,7 +124,7 @@ Your users should be able to:
 
 - To get the IP Address locations, Frontend Mentor suggests using the [IP Geolocation API by IPify](https://geo.ipify.org/). To generate the map, they recommend using [LeafletJS](https://leafletjs.com/).
 
-- I decided to not let the user intereact with the map as it is the result of the IP query rather than a free-for-all exploration of the world.
+- I decided to not let the user interact with the map as it is the result of the IP query rather than a free-for-all exploration of the world.
 
 ## To Do App
 
@@ -186,3 +186,16 @@ Your users should be able to:
 - See a summary of their selections on the final step and confirm their order
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
+
+### Solution Features
+
+- Responsive Design
+- Internationalization Capabilities
+- WCAG 2.0 AA compliance (except for color contrasts as the color scheme is a hard requirement)
+- User can fill out the form and see their progress
+- User will see error messages if they do not correctly enter the requested information
+- User will see a success screen once the form is submitted
+
+### Notes
+
+- I did not implement the sticky footer for the buttons on smaller devices screens
