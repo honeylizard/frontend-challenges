@@ -30,5 +30,9 @@
     {
       "title": "Multi Step Form",
       "solution_url": "/frontend-challenges/multi-step-form"
+    },
+    {
+      "title": "Notifications Page",
+      "solution_url": "/frontend-challenges/notifications-page"
     }
 ]

@@ -208,5 +208,7 @@
 	"multiStepForm.summary.totalLabel": "Total (per {frequency})",
 
 	"multiStepForm.success.title": "Thank you!",
-	"multiStepForm.success.description": "Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com."
+	"multiStepForm.success.description": "Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.",
+
+	"notificationsPage.title": "Notifications Page"
 }
