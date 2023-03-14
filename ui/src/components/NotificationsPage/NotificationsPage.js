@@ -1,51 +1,91 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { Helmet } from "react-helmet";
 
+import Footer from "./Footer";
+
+import data from "../../assets/notifications-page/data.json";
+
 import appStyles from "../../styles/notifications-page/app.module.scss";
+import NotificationListItem from "./NotificationListItem";
 
 const NotificationsPage = ({ intl }) => {
+    const [unreadCount, setUnreadCount] = useState(0);
+    const [records, setRecords] = useState([]);
+
     const title = intl.formatMessage({
         id: "notificationsPage.title",
     });
+    const unreadBadgePrefix = intl.formatMessage({
+        id: "notificationsPage.unread",
+    });
+    const markAllReadButtonLabel = intl.formatMessage({
+        id: "notificationsPage.markAllAsRead",
+    });
+    const emptyListLabel = intl.formatMessage({
+        id: "notificationsPage.emptyListLabel",
+    });
+
+    useEffect(() => {
+        const { notifications = [] } = data;
+        if (notifications) {
+            setRecords(notifications.reverse());
+            setUnreadCount(notifications.filter((elem) => elem.read === "false").length);
+        }
+    }, []);
+
+    const handleMarkAllRead = () => {
+        setRecords(
+            records.map((elem) => ({
+                ...elem,
+                read: "true",
+            }))
+        );
+        setUnreadCount(0);
+    };
 
     return (
         <React.Fragment>
             <Helmet>
                 <body className={appStyles.solutionContainer} />
+                <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap"
+                />
             </Helmet>
-            <main id="content" className={appStyles.content}>
-                <h1 className="sr-only">{title}</h1>
-                {/*
-                Notifications 3
-
-                Mark all as read
-
-                Mark Webber reacted to your recent post My first tournament today!
-                1m ago
-
-                Angela Gray followed you
-                5m ago
-
-                Jacob Thompson has joined your group Chess Club
-                1 day ago
-
-                Rizky Hasanuddin sent you a private message
-                5 days ago
-                Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and 
-                I'm already having lots of fun and improving my game.
-
-                Kimberly Smith commented on your picture
-                1 week ago
-
-                Nathan Peterson reacted to your recent post 5 end-game strategies to increase your win rate
-                2 weeks ago
-
-                Anna Kim left the group Chess Club
-                2 weeks ago
-                */}
-            </main>
+            <div className={appStyles.centerBox}>
+                <div className={appStyles.container}>
+                    <header>
+                        <div className={appStyles.headerLeft}>
+                            <h1 className={appStyles.title}>{title}</h1>
+                            <div className={appStyles.badge} title={unreadBadgePrefix}>
+                                <span className="sr-only">{unreadBadgePrefix}: </span>
+                                {unreadCount}
+                            </div>
+                        </div>
+                        <div className={appStyles.headerRight}>
+                            <button onClick={handleMarkAllRead} className={appStyles.textButton}>
+                                {markAllReadButtonLabel}
+                            </button>
+                        </div>
+                    </header>
+                    <main id="content" className={appStyles.content}>
+                        {records && records.length > 0 ? (
+                            <ul className={appStyles.list}>
+                                {records.map((notification, index) => (
+                                    <li key={`notification-${index}`} className={appStyles.listItem}>
+                                        <NotificationListItem data={notification} />
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <div className={appStyles.listEmpty}>{emptyListLabel}</div>
+                        )}
+                    </main>
+                    <Footer />
+                </div>
+            </div>
         </React.Fragment>
     );
 };

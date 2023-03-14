@@ -1,0 +1,70 @@
+@import "app.module.scss";
+
+.container {
+    padding: 15px 20px;
+    box-sizing: border-box;
+    margin: 10px 0;
+    border-radius: 10px;
+    background-color: $challenge-grey-01;
+
+    &.readNotification {
+        background-color: $white;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .avatar {
+        margin-right: 20px;
+
+        img {
+            max-width: 45px;
+        }
+    }
+
+    .details {
+        flex-grow: 1;
+
+        .user {
+            font-weight: bold;
+            color: $challenge-steel-dark;
+        }
+
+        .action {
+            font-weight: normal;
+            color: $challenge-steel;
+
+            .link {
+                font-weight: bold;
+                color: $challenge-blue;
+            }
+
+            .linkVisited {
+                font-weight: bold;
+                color: $challenge-steel;
+            }
+        }
+
+        .readDot {
+
+        }
+    }
+
+    .date {
+        font-weight: normal;
+        color: $challenge-steel-light;
+    }
+
+    .message {
+        border: 1px solid $black;
+        padding: 20px;
+    }
+
+    .photo {
+        img {
+            max-width: 45px;
+        }
+    }
+}

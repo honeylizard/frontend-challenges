@@ -1,0 +1,60 @@
+{
+    "notifications": [
+        {
+            "username": "Anna Kim",
+            "userAvatar": "avatar-anna-kim.webp",
+            "action": "leftGroup",
+            "groupName": "Chess Club",
+            "date": "2 weeks ago",
+            "read": "true"
+        },
+        {
+            "username": "Nathan Peterson",
+            "userAvatar": "avatar-nathan-peterson.webp",
+            "action": "postReaction",
+            "postTitle": "5 end-game strategies to increase your win rate",
+            "date": "2 weeks ago",
+            "read": "true"
+        },
+        {
+            "username": "Kimberly Smith",
+            "userAvatar": "avatar-kimberly-smith.webp",
+            "action": "photoComment",
+            "photoThumbnail": "image-chess.webp",
+            "photoAlt": "A woman playing chess",
+            "date": "1 week ago",
+            "read": "true"
+        },
+        {
+            "username": "Rizky Hasanuddin",
+            "userAvatar": "avatar-rizky-hasanuddin.webp",
+            "action": "privateMessage",
+            "message": "Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.",
+            "date": "5 days ago",
+            "read": "true"
+        },
+        {
+            "username": "Jacob Thompson",
+            "userAvatar": "avatar-jacob-thompson.webp",
+            "action": "joinedGroup",
+            "groupName": "Chess Club",
+            "date": "1 day ago",
+            "read": "false"
+        },
+        {
+            "username": "Angela Gray",
+            "userAvatar": "avatar-angela-gray.webp",
+            "action": "followedYou",
+            "date": "5m ago",
+            "read": "false"
+        },
+        {
+            "username": "Mark Webber",
+            "userAvatar": "avatar-mark-webber.webp",
+            "action": "postReaction",
+            "postTitle": "My first tournament today!",
+            "date": "1m ago",
+            "read": "false"
+        }
+    ]
+}

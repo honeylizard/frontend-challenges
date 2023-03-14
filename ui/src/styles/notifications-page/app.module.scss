@@ -1,3 +1,76 @@
 @import "../_core";
 @import "colors.module.scss";
-// @import "fonts.module.scss";
+@import "fonts.module.scss";
+
+.solutionContainer {
+    font-family: $challenge-font;
+    background-color: $challenge-grey-01;
+    color: $black;
+
+    .centerBox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        max-width: 730px;
+        width: 100%;
+        background-color: $white;
+        color: $black;
+        padding: 42px 35px;
+    }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .headerLeft {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .title {
+            padding: 0;
+            margin: 0;
+            margin-right: 10px;
+        }
+
+        .badge {
+            background-color: $challenge-blue;
+            color: $white;
+            border-radius: 5px;
+            padding: 2px 12px;
+            box-sizing: border-box;
+            font-weight: bold;
+        }
+    }
+
+    .content {
+        background-color: $white;
+        color: $black;
+        margin: 0;
+        padding: 0;
+
+        .list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            .listItem {
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+
+    footer {
+        text-align: center;
+    }
+}

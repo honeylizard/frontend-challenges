@@ -210,5 +210,16 @@
 	"multiStepForm.success.title": "Thank you!",
 	"multiStepForm.success.description": "Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.",
 
-	"notificationsPage.title": "Notifications Page"
+	"notificationsPage.title": "Notifications",
+	"notificationsPage.unread": "Unread Notifications",
+	"notificationsPage.markAllAsRead": "Mark all as read",
+	"notificationsPage.emptyListLabel": "No notifications are available.",
+
+	"notificationsPage.avatarAlt": "Avatar of {{name}}",
+	"notificationsPage.action.photoComment": "commented on your picture",
+	"notificationsPage.action.privateMessage": "sent you a private message",
+	"notificationsPage.action.followedYou": "followed you",
+	"notificationsPage.action.leftGroup": "left the group",
+	"notificationsPage.action.joinedGroup": "has joined your group",
+	"notificationsPage.action.postReaction": "reacted to your recent post"
 }
