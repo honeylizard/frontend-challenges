@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { FormattedMessage, injectIntl } from "react-intl";
 
 import listItemStyles from "../../styles/notifications-page/listItem.module.scss";
+import NewDot from "./NewDot";
 
 const NotificationListItem = ({ intl, data = {} }) => {
     const {
@@ -88,7 +89,7 @@ const NotificationListItem = ({ intl, data = {} }) => {
                         &nbsp;
                         <span className={listItemStyles.action}>{actionText}</span>
                         &nbsp;
-                        <span className={listItemStyles.readDot}>{read}</span>
+                        <NewDot isNew={!(read === "true")} customClasses={[listItemStyles.readDot]} />
                     </div>
                     <div className={listItemStyles.date}>{date}</div>
                     {isPrivateMessage && <div className={listItemStyles.message}>{message}</div>}
