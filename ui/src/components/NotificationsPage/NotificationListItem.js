@@ -32,7 +32,10 @@ const NotificationListItem = ({ intl, data = {} }) => {
                     <FormattedMessage id={"notificationsPage.action." + action}>
                         {(txt) => (
                             <>
-                                {txt} <span className={listItemStyles.link}>{groupName}</span>
+                                {txt}{" "}
+                                <a href="/" className={listItemStyles.link}>
+                                    {groupName}
+                                </a>
                             </>
                         )}
                     </FormattedMessage>
@@ -43,7 +46,10 @@ const NotificationListItem = ({ intl, data = {} }) => {
                     <FormattedMessage id={"notificationsPage.action." + action}>
                         {(txt) => (
                             <>
-                                {txt} <span className={listItemStyles.linkVisited}>{postTitle}</span>
+                                {txt}{" "}
+                                <a href="/" className={listItemStyles.linkVisited}>
+                                    {postTitle}
+                                </a>
                             </>
                         )}
                     </FormattedMessage>
@@ -85,19 +91,25 @@ const NotificationListItem = ({ intl, data = {} }) => {
                 </div>
                 <div className={listItemStyles.details}>
                     <div className={listItemStyles.meta}>
-                        <span className={listItemStyles.user}>{username}</span>
+                        <a href="/" className={listItemStyles.user}>
+                            {username}
+                        </a>
                         &nbsp;
                         <span className={listItemStyles.action}>{actionText}</span>
                         &nbsp;
                         <NewDot isNew={!(read === "true")} customClasses={[listItemStyles.readDot]} />
                     </div>
                     <div className={listItemStyles.date}>{date}</div>
-                    {isPrivateMessage && <div className={listItemStyles.message}>{message}</div>}
+                    {isPrivateMessage && (
+                        <a href="/" className={listItemStyles.message}>
+                            {message}
+                        </a>
+                    )}
                 </div>
                 {isPhotoComment && (
-                    <div className={listItemStyles.photo}>
+                    <a href="/" className={listItemStyles.photo}>
                         <img src={process.env.PUBLIC_URL + `/assets/photos/${photoThumbnail}`} alt={photoAlt} />
-                    </div>
+                    </a>
                 )}
             </div>
         </div>

@@ -30,6 +30,11 @@
         .user {
             font-weight: bold;
             color: $challenge-steel-dark;
+            text-decoration: none;
+
+                &:hover, &:focus-visible {
+                    color: $challenge-blue;
+                }
         }
 
         .action {
@@ -39,11 +44,21 @@
             .link {
                 font-weight: bold;
                 color: $challenge-blue;
+                text-decoration: none;
+
+                &:hover, &:focus-visible {
+                    color: $challenge-steel;
+                }
             }
 
             .linkVisited {
                 font-weight: bold;
                 color: $challenge-steel;
+                text-decoration: none;
+
+                &:hover, &:focus-visible {
+                    color: $challenge-blue;
+                }
             }
         }
 
@@ -64,6 +79,12 @@
         margin-top: 10px;
         color: $challenge-steel;
         border-radius: 5px;
+        display: block;
+        text-decoration: none;
+
+        &:hover, &:focus-visible {
+            background-color: $challenge-grey-03;
+        }
     }
 
     .photo {
