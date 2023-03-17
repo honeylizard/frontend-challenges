@@ -59,8 +59,11 @@
     }
 
     .message {
-        border: 1px solid $black;
+        border: 1px solid $challenge-grey-03;
         padding: 20px;
+        margin-top: 10px;
+        color: $challenge-steel;
+        border-radius: 5px;
     }
 
     .photo {
