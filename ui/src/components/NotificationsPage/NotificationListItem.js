@@ -21,7 +21,14 @@ const NotificationListItem = ({ intl, data = {} }) => {
     const [actionText, setActionText] = useState("");
     const [isRead, setIsRead] = useState(false);
     const avatarUrl = process.env.PUBLIC_URL + `/assets/user-avatars/${userAvatar}`;
-    const avatarAltText = `Avatar of ${username}`;
+    const avatarAltText = intl.formatMessage(
+        {
+            id: "notificationsPage.avatarAlt",
+        },
+        {
+            name: username || "",
+        }
+    );
 
     useEffect(() => {
         let text = action;
@@ -66,7 +73,7 @@ const NotificationListItem = ({ intl, data = {} }) => {
                 break;
         }
         setActionText(text);
-    }, [action, groupName, postTitle]);
+    }, [action, groupName, postTitle, intl]);
 
     useEffect(() => {
         if (read === "true") {
