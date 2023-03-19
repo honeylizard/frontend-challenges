@@ -34,6 +34,16 @@
         justify-content: space-between;
         align-items: center;
 
+        @media all and (max-width: 350px) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .headerLeft {
+                margin-bottom: 10px;
+            }
+        }
+
         .headerLeft {
             display: flex;
             flex-direction: row;
@@ -58,6 +68,19 @@
             padding: 2px 12px;
             box-sizing: border-box;
             font-weight: bold;
+        }
+
+        .textButton {
+            font-family: $challenge-font;
+            background-color: transparent;
+            border: none;
+            font-size: 16px;
+            color: $challenge-steel;
+            cursor: pointer;
+
+            &:hover, &:focus-visible {
+                color: $challenge-blue;
+            }
         }
     }
 
