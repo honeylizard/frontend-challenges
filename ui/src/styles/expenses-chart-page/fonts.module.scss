@@ -1,0 +1,8 @@
+@import "../_core";
+
+// https://fonts.google.com/specimen/DM+Sans
+$challenge-font: "DM Sans", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+:export {
+  fontFamily: $challenge-font;
+}

@@ -1,0 +1,19 @@
+$challenge-red: #EC775F; // Soft red: hsl(10, 79%, 65%)
+$challenge-red-light: #FF9B87;
+$challenge-cyan: #76B5BC; // Cyan: hsl(186, 34%, 60%)
+$challenge-cyan-light: #B4DFE5;
+
+$challenge-cream: #F8E9DD; // Cream: hsl(27, 66%, 92%)
+$challenge-orange: #FFFAF5; // Very pale orange: hsl(33, 100%, 98%)
+$challenge-brown: #93867B; // Medium brown: hsl(28, 10%, 53%)
+$challenge-brown-dark: #382314; // Dark brown: hsl(25, 47%, 15%)
+
+:export {
+  brown: $challenge-brown;
+  brownDark: $challenge-brown-dark;
+  red: $challenge-red;
+  redLight: $challenge-red-light;
+  cyan: $challenge-cyan;
+  cyanLight: $challenge-cyan-light;
+  white: $white;
+}

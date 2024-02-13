@@ -219,3 +219,25 @@ Your users should be able to:
 - Internationalization Capabilities
 - WCAG 2.0 AA compliance (except for color contrasts as the color scheme is a hard requirement)
 - User can mark all unread/new items as read/not new via the "Mark all as read" button
+
+## Expenses Chart Page
+
+This is a solution to the [Expenses chart component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/expenses-chart-component-e7yJBUdjwt). 
+
+## The challenge
+
+Your users should be able to:
+
+- View the bar chart and hover over the individual bars to see the correct amounts for each day
+- See the current day’s bar highlighted in a different colour to the other bars
+- View the optimal layout for the content depending on their device’s screen size
+- See hover states for all interactive elements on the page
+- **Bonus**: Use the JSON data file provided to dynamically size the bars on the chart
+
+### Solution Features
+
+- Responsive Design
+- Internationalization Capabilities
+- WCAG 2.0 AA compliance (except for color contrasts as the color scheme is a hard requirement)
+- Chart's data is based on the JSON data file
+- highlighted bar in chart is based on user's current day of the week

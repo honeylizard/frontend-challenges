@@ -10,6 +10,7 @@ import TodoAppPage from "./components/TodoApp/TodoAppPage";
 import TimeTrackingDashboardPage from "./components/TimeTrackingDashboard/TimeTrackingDashboardPage";
 import MultiStepFormPage from "./components/MultiStepForm/MultiStepFormPage";
 import NotificationsPage from "./components/NotificationsPage/NotificationsPage";
+import ExpensesChartPage from "./components/ExpensesChartPage/ExpensesChartPage";
 
 const routes = [
     {
@@ -95,6 +96,13 @@ const routes = [
         authNeeded: false,
         exact: true,
         component: NotificationsPage,
+    },
+    {
+        name: "Expenses Chart Page",
+        path: "/frontend-challenges/expenses-chart-page",
+        authNeeded: false,
+        exact: true,
+        component: ExpensesChartPage,
     },
     {
         name: "Not Found",

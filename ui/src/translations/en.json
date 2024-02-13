@@ -222,5 +222,11 @@
 	"notificationsPage.action.leftGroup": "left the group",
 	"notificationsPage.action.joinedGroup": "has joined your group",
 	"notificationsPage.action.postReaction": "reacted to your recent post",
-	"notificationsPage.newDot": "New"
+	"notificationsPage.newDot": "New",
+
+  "expensesPage.balance.title": "My balance",
+  "expensesPage.title": "Expenses",
+  "expensesPage.chart.title": "Spending - Last 7 days",
+  "expensesPage.chart.summary.title": "Total this month",
+  "expensesPage.chart.difference.title": "from last month"
 }

@@ -34,5 +34,9 @@
     {
       "title": "Notifications Page",
       "solution_url": "/frontend-challenges/notifications-page"
+    },
+    {
+      "title": "Expenses Chart Page",
+      "solution_url": "/frontend-challenges/expenses-chart-page"
     }
 ]

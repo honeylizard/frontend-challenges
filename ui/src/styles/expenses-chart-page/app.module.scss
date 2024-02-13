@@ -1,0 +1,153 @@
+@import "../_core";
+@import "colors.module.scss";
+@import "fonts.module.scss";
+
+$default-text-size: 18px;
+$default-weight: 400;
+$bold-weight: 700;
+
+.solutionContainer {
+  font-family: $challenge-font;
+  background-color: $challenge-cream;
+  color: $black;
+
+  .centerBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    max-width: 545px;
+    width: 100%;
+
+    @media all and (max-width: 545px) {
+      width: 90%;
+    }
+  }
+
+  header {
+    margin: 100px 0 10px 0;
+    border-radius: 22px;
+    background-color: $challenge-red;
+    color: $white;
+    box-sizing: border-box;
+    padding: 22px 33px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    // .headerLogo { }
+
+    .summary {
+      .title {
+        font-size: $default-text-size;
+        font-weight: $default-weight;
+      }
+
+      .amount {
+        font-size: 32px;
+        font-weight: $bold-weight;
+      }
+    }
+
+    @media all and (max-width: 315px) {
+      flex-direction: column-reverse;
+      justify-content: center;
+
+      .summary {
+        text-align: center;
+      }
+    }
+  }
+
+  .content {
+    margin: 10px 0;
+    background-color: $white;
+    color: $black;
+    border-radius: 22px;
+    padding: 22px 33px;
+
+    .chartTitle {
+      font-size: 27px;
+      font-weight: $bold-weight;
+      color: $challenge-brown-dark;
+      padding: 0;
+      margin: 0;
+      margin-bottom: 15px;
+    }
+
+    .divider {
+      background-color: rgba(147, 134, 123, 0.1); // #93867B
+      border: 1px solid transparent;
+      height: 1px;
+      box-sizing: border-box;
+      margin: 37px 10px;
+    }
+
+    .chartFooter {
+      margin-bottom: 20px;
+
+      .title {
+        font-size: $default-text-size;
+        font-weight: $default-weight;
+        color: $challenge-brown;
+      }
+
+      .summary {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .totalAmount {
+          color: $challenge-brown-dark;
+          font-weight: $bold-weight;
+          font-size: 48px;
+          line-height: 1em;
+        }
+
+        .difference {
+          text-align: right;
+
+          .title {
+            font-size: $default-text-size;
+            font-weight: $default-weight;
+            color: $challenge-brown;
+            line-height: 1.5em;
+          }
+          .amount {
+            font-size: $default-text-size;
+            color: $challenge-brown-dark;
+            font-weight: $bold-weight;
+            line-height: 1em;
+          }
+        }
+
+        @media all and (max-width: 430px) {
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+
+          .totalAmount {
+            font-size: 32px;
+          }
+
+          .difference {
+            text-align: left;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    text-align: center;
+  }
+}
