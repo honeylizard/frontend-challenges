@@ -45,6 +45,7 @@ const ExpensesChartPage = ({ intl }) => {
             <div className={appStyles.centerBox}>
                 <div className={appStyles.container}>
                     <header>
+                        <h1 className="sr-only">{title}</h1>
                         <div className={appStyles.summary}>
                             <div className={appStyles.title}>{balanceLabel}</div>
                             <div className={appStyles.amount}>
