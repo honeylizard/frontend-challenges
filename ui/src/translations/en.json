@@ -228,5 +228,6 @@
   "expensesPage.title": "Expenses",
   "expensesPage.chart.title": "Spending - Last 7 days",
   "expensesPage.chart.summary.title": "Total this month",
-  "expensesPage.chart.difference.title": "from last month"
+  "expensesPage.chart.difference.title": "from last month",
+  "expensesPage.chart.alt": "chart of expenses from the last seven days"
 }

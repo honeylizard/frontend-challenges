@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { injectIntl } from "react-intl";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
@@ -7,10 +8,14 @@ import data from "../../../assets/expenses-chart-page/data.json";
 import { currencyAmount } from "../utils/common";
 import appStyles from "../../../styles/expenses-chart-page/app.module.scss";
 
-const ExpensesChart = ({ currency = "USD" }) => {
+const ExpensesChart = ({ intl, currency = "USD" }) => {
     const { chartData = [] } = data;
 
     ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+    const chartAltText = intl.formatMessage({
+        id: "expensesPage.chart.alt",
+    });
 
     const isCurrentDay = (day) => {
         const dayNames = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]; // Label Reference from Chart
@@ -63,11 +68,12 @@ const ExpensesChart = ({ currency = "USD" }) => {
         ],
     };
 
-    return <Bar options={options} data={dataSource} />;
+    return <Bar options={options} data={dataSource} aria-label={chartAltText} />;
 };
 
 ExpensesChart.propTypes = {
+    intl: PropTypes.object.isRequired,
     currency: PropTypes.string,
 };
 
-export default ExpensesChart;
+export default injectIntl(ExpensesChart);
