@@ -38,5 +38,9 @@
     {
       "title": "Expenses Chart Page",
       "solution_url": "/frontend-challenges/expenses-chart-page"
+    },
+    {
+      "title": "Age Calculator App",
+      "solution_url": "/frontend-challenges/age-calculator-app"
     }
 ]

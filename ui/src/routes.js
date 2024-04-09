@@ -11,6 +11,7 @@ import TimeTrackingDashboardPage from "./components/TimeTrackingDashboard/TimeTr
 import MultiStepFormPage from "./components/MultiStepForm/MultiStepFormPage";
 import NotificationsPage from "./components/NotificationsPage/NotificationsPage";
 import ExpensesChartPage from "./components/ExpensesChartPage/ExpensesChartPage";
+import AgeCalculatorAppPage from "./components/AgeCalculatorApp/AgeCalculatorAppPage";
 
 const routes = [
     {
@@ -103,6 +104,13 @@ const routes = [
         authNeeded: false,
         exact: true,
         component: ExpensesChartPage,
+    },
+    {
+        name: "Age Calculator App",
+        path: "/frontend-challenges/age-calculator-app",
+        authNeeded: false,
+        exact: true,
+        component: AgeCalculatorAppPage,
     },
     {
         name: "Not Found",
