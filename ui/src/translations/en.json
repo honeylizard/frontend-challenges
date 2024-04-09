@@ -13,7 +13,7 @@
 	"app.404.nav": "Go back to the ",
 	"app.404.link": "home page",
 
-    "app.loading": "Loading...",
+  "app.loading": "Loading...",
 	"app.skipToContent": "Skip to content",
 
 	"form.optional": "Optional",
@@ -47,7 +47,7 @@
 	"staticJobListings.jobs.categories": "Categories",
 	"staticJobListings.jobs.categories.emptyList": "No categories available",
 	"staticJobListings.jobs.categories.removeTooltip": "Remove \"{name}\" as a filter",
-    "staticJobListings.jobs.categories.addTooltip": "Apply \"{name}\" as a filter",
+  "staticJobListings.jobs.categories.addTooltip": "Apply \"{name}\" as a filter",
 	"staticJobListings.jobs.filters": "Filters",
 	"staticJobListings.jobs.filters.clear": "Clear",
 
@@ -229,5 +229,13 @@
   "expensesPage.chart.title": "Spending - Last 7 days",
   "expensesPage.chart.summary.title": "Total this month",
   "expensesPage.chart.difference.title": "from last month",
-  "expensesPage.chart.alt": "chart of expenses from the last seven days"
+  "expensesPage.chart.alt": "chart of expenses from the last seven days",
+
+  "ageCalculatorApp.title": "Age Calculator App",
+  "ageCalculatorApp.day": "Day",
+  "ageCalculatorApp.days": "days",
+  "ageCalculatorApp.month": "Month",
+  "ageCalculatorApp.months": "months",
+  "ageCalculatorApp.year": "Year",
+  "ageCalculatorApp.years": "years"
 }

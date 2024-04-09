@@ -6,8 +6,13 @@ import { injectIntl } from "react-intl";
 import Footer from "./Footer";
 
 import appStyles from "../../styles/age-calculator-app/app.module.scss";
+import Calculator from "./Calculator";
 
 const AgeCalculatorAppPage = ({ intl }) => {
+    const title = intl.formatMessage({
+        id: "ageCalculatorApp.title",
+    });
+
     return (
         <React.Fragment>
             <Helmet>
@@ -18,7 +23,10 @@ const AgeCalculatorAppPage = ({ intl }) => {
                 />
             </Helmet>
             <div className={appStyles.container}>
-                <main id="content">TBD</main>
+                <h1 className="sr-only">{title}</h1>
+                <main id="content">
+                    <Calculator />
+                </main>
                 <Footer />
             </div>
         </React.Fragment>
