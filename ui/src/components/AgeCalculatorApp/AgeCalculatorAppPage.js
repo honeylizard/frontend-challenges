@@ -23,7 +23,9 @@ const AgeCalculatorAppPage = ({ intl }) => {
                 />
             </Helmet>
             <div className={appStyles.container}>
-                <h1 className="sr-only">{title}</h1>
+                <header>
+                    <h1 className="sr-only">{title}</h1>
+                </header>
                 <main id="content">
                     <Calculator />
                 </main>

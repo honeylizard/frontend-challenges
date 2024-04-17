@@ -15,6 +15,11 @@
   margin: 0;
   padding: 0;
 
+  @media screen and (max-width: 900px) {
+    min-height: initial;
+    display: block;
+  }
+
   .card {
     display: block;
     border-radius: 23px 23px 200px;
@@ -26,9 +31,14 @@
     box-sizing: border-box;
 
     @media screen and (max-width: 900px) {
-      width: 90%;
-      flex-grow: 0;
+      width: 95%;
+      flex-grow: 1;
       margin: 0 auto;
+    }
+
+    @media screen and (max-width: 700px) {
+      padding: 25px;
+      border-radius: 23px 23px 100px;
     }
   }
 
@@ -42,6 +52,10 @@
       display: block;
       max-width: 160px;
       box-sizing: border-box;
+
+      @media screen and (max-width: 700px) {
+        max-width: 88px;
+      }
 
       .label {
         display: block;
@@ -74,6 +88,12 @@
           background-color: transparent;
           cursor: pointer;
         }
+
+        @media screen and (max-width: 700px) {
+          font-size: 15px;
+          line-height: 53px;
+          padding: 0 0 0 15px;
+        }
       }
     }
   }
@@ -82,10 +102,18 @@
     display: flex;
     align-items: center;
 
-    .line {
+    .lineBefore, .lineAfter {
       flex-grow: 1;
       height: 1px;
       background-color: $challenge-grey;
+    }
+
+    .lineAfter {
+      display: none;
+
+      @media screen and (max-width: 700px) {
+        display: block;
+      }
     }
 
     .submitButton {
@@ -99,6 +127,15 @@
       &:hover, &:focus-visible {
         background-color: black;
       }
+
+      @media screen and (max-width: 700px) {
+        width: 63px;
+        height: 63px;
+
+        * {
+          width: 100%;
+        }
+      }
     }
   }
 
@@ -110,6 +147,11 @@
       font-weight: bold;
       font-style: italic;
       line-height: 80px;
+
+      @media screen and (max-width: 700px) {
+        font-size: 43px;
+        line-height: 53px;
+      }
     }
 
     .number {

@@ -145,7 +145,7 @@ const Calculator = ({ intl }) => {
                     ))}
                 </div>
                 <div className={styles.divider}>
-                    <div className={styles.line} />
+                    <div className={styles.lineBefore} />
                     <Button
                         type="submit"
                         customClasses={[styles.submitButton]}
@@ -154,6 +154,7 @@ const Calculator = ({ intl }) => {
                     >
                         <img src={arrowIcon} alt="" role="presentation" />
                     </Button>
+                    <div className={styles.lineAfter} />
                 </div>
             </form>
             <output className={styles.output} htmlFor={formFields.map((field) => field.id).join(" ")}>
