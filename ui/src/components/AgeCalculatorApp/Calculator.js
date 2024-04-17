@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { injectIntl, FormattedPlural } from "react-intl";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import customParseFormat from "dayjs/plugin/customParseFormat";
 import { debounce } from "lodash";
 
 import Button from "../CountriesList/common/Button";
@@ -15,6 +16,7 @@ const INITIAL_RESULTS = { days_ago: "--", months_ago: "--", years_ago: "--" };
 
 const Calculator = ({ intl }) => {
     dayjs.extend(relativeTime);
+    dayjs.extend(customParseFormat);
 
     // Set of form fields and "hidden" fields that will be passed through when submitted
     const [formData, setFormData] = useState({ day: null, month: null, year: null });
@@ -121,20 +123,26 @@ const Calculator = ({ intl }) => {
             });
         } else if (Number(formData?.year) > dayjs().year()) {
             tempFormErrors["year"] = intl.formatMessage({
-                id: "ageCalculatorApp.form.year.error.future",
+                id: "ageCalculatorApp.form.error.future",
             });
         }
 
-        const now = dayjs();
-        const formDate = dayjs()
-            .set("year", formData.year)
-            .set("month", Number(formData.month) - 1)
-            .set("date", formData.day);
+        if (formData.year && formData.month && formData.day) {
+            const now = dayjs();
+            const dateRaw = [formData.day, formData.month, formData.year].join("-");
+            const formDate = dayjs(dateRaw, "D-M-YYYY", true);
 
-        if (formData.year && formData.month && formData.day && !tempFormErrors["year"] && formDate.isAfter(now)) {
-            tempFormErrors["general"] = intl.formatMessage({
-                id: "ageCalculatorApp.form.year.error.future",
-            });
+            if (formDate.isAfter(now)) {
+                tempFormErrors["general"] = intl.formatMessage({
+                    id: "ageCalculatorApp.form.error.future",
+                });
+            }
+
+            if (!formDate.isValid()) {
+                tempFormErrors["general"] = intl.formatMessage({
+                    id: "ageCalculatorApp.form.error.invalid",
+                });
+            }
         }
 
         if (Object.keys(tempFormErrors).length > 0) {
@@ -151,11 +159,9 @@ const Calculator = ({ intl }) => {
         }
 
         if (validateForm()) {
-            const formDate = dayjs()
-                .set("year", formData.year)
-                .set("month", Number(formData.month) - 1)
-                .set("date", formData.day);
             const now = dayjs();
+            const dateRaw = [formData.day, formData.month, formData.year].join("-");
+            const formDate = dayjs(dateRaw, "D-M-YYYY", true);
 
             const diffInYears = now.diff(formDate, "year", true);
             const yearsRemainder = diffInYears > 1 ? diffInYears - Math.floor(diffInYears) : diffInYears;
@@ -192,6 +198,7 @@ const Calculator = ({ intl }) => {
                 months_ago: Math.floor(yearsRemainderAsMonths),
                 years_ago: Math.floor(diffInYears),
             });
+            setFormErrors({});
         } else {
             if (results !== INITIAL_RESULTS) {
                 setResults(INITIAL_RESULTS);
