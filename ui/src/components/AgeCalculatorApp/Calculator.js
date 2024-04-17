@@ -14,6 +14,8 @@ import styles from "../../styles/age-calculator-app/app.module.scss";
 const INITIAL_RESULTS = { days_ago: "--", months_ago: "--", years_ago: "--" };
 
 const Calculator = ({ intl }) => {
+    dayjs.extend(relativeTime);
+
     // Set of form fields and "hidden" fields that will be passed through when submitted
     const [formData, setFormData] = useState({ day: null, month: null, year: null });
     const [formErrors, setFormErrors] = useState({}); // Set of form field errors
@@ -123,6 +125,18 @@ const Calculator = ({ intl }) => {
             });
         }
 
+        const now = dayjs();
+        const formDate = dayjs()
+            .set("year", formData.year)
+            .set("month", Number(formData.month) - 1)
+            .set("date", formData.day);
+
+        if (formData.year && formData.month && formData.day && !tempFormErrors["year"] && formDate.isAfter(now)) {
+            tempFormErrors["general"] = intl.formatMessage({
+                id: "ageCalculatorApp.form.year.error.future",
+            });
+        }
+
         if (Object.keys(tempFormErrors).length > 0) {
             validForm = false;
             setFormErrors(tempFormErrors);
@@ -137,19 +151,24 @@ const Calculator = ({ intl }) => {
         }
 
         if (validateForm()) {
-            dayjs.extend(relativeTime);
-
-            const formDate = dayjs().set("year", formData.year).set("month", formData.month).set("day", formData.day);
+            const formDate = dayjs()
+                .set("year", formData.year)
+                .set("month", Number(formData.month) - 1)
+                .set("date", formData.day);
             const now = dayjs();
 
             const diffInYears = now.diff(formDate, "year", true);
-            const yearsRemainder = diffInYears - Math.floor(diffInYears);
+            const yearsRemainder = diffInYears > 1 ? diffInYears - Math.floor(diffInYears) : diffInYears;
+
             const yearsRemainderAsMonths = yearsRemainder * 12; // remainder in months
-            const monthsRemainder = yearsRemainderAsMonths - Math.floor(yearsRemainderAsMonths);
+            const monthsRemainder =
+                yearsRemainderAsMonths > 1
+                    ? yearsRemainderAsMonths - Math.floor(yearsRemainderAsMonths)
+                    : yearsRemainderAsMonths;
             const monthsRemainderAsDays = (monthsRemainder / 12) * 365; // remainder of months (outside of the floored years)
 
             /*
-            const daysRemainder = monthsRemainderAsDays - Math.floor(monthsRemainderAsDays);
+            // const daysRemainder = monthsRemainderAsDays - Math.floor(monthsRemainderAsDays);
 
             console.log("data", {
                 formDate,
@@ -160,7 +179,7 @@ const Calculator = ({ intl }) => {
                 diffRemainingMonths: Math.floor(yearsRemainderAsMonths),
                 monthsRemainder,
                 diffRemainingDays: Math.floor(monthsRemainderAsDays),
-                daysRemainder,
+                // daysRemainder,
                 test: formDate
                     .add(diffInYears, "year")
                     .add(Math.floor(yearsRemainderAsMonths), "month")
@@ -169,13 +188,12 @@ const Calculator = ({ intl }) => {
             */
 
             setResults({
-                days_ago: Math.floor(monthsRemainderAsDays),
+                days_ago: monthsRemainderAsDays > 1 ? Math.floor(monthsRemainderAsDays) : monthsRemainderAsDays,
                 months_ago: Math.floor(yearsRemainderAsMonths),
                 years_ago: Math.floor(diffInYears),
             });
         } else {
             if (results !== INITIAL_RESULTS) {
-                console.log("reset results");
                 setResults(INITIAL_RESULTS);
             }
         }
@@ -184,6 +202,11 @@ const Calculator = ({ intl }) => {
     return (
         <div className={styles.card}>
             <form onSubmit={handleSubmit}>
+                {formErrors && Object.keys(formErrors).includes("general") && (
+                    <div id="generalError" role="alert" className={styles.generalError}>
+                        {formErrors["general"]}
+                    </div>
+                )}
                 <div className={styles.form}>
                     {formFields.map((field) => {
                         const hasError = formErrors && formErrors[field.id] ? true : false;

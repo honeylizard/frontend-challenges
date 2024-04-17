@@ -117,6 +117,14 @@
     }
   }
 
+  .generalError {
+    color: $challenge-red;
+    border: 1px solid $challenge-red;
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 10px 0;
+  }
+
   .divider {
     display: flex;
     align-items: center;
