@@ -95,6 +95,25 @@
           padding: 0 0 0 15px;
         }
       }
+
+      &.invalidField {
+        .label {
+          color: $challenge-red;
+        }
+
+        .input {
+          border: 1px solid $challenge-red;
+        }
+
+        .fieldErrorText {
+          color: $challenge-red;
+          font-size: 13px;
+          font-style: italic;
+          font-weight: normal;
+          margin-top: 10px;
+          box-sizing: border-box;
+        }
+      }
     }
   }
 

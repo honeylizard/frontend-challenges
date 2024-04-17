@@ -188,13 +188,12 @@ const Calculator = ({ intl }) => {
                     {formFields.map((field) => {
                         const hasError = formErrors && formErrors[field.id] ? true : false;
                         const describedByList = [hasError ? `${field.id}-error` : null].filter(Boolean);
-
+                        const parentLevelClasses = [styles.field, hasError ? styles.invalidField : null].filter(
+                            Boolean
+                        );
                         return (
-                            <div key={`input-${field.id}`} className={styles.field}>
-                                <label
-                                    className={hasError ? [styles.label, styles.errorLabel].join(" ") : styles.label}
-                                    htmlFor={field.id}
-                                >
+                            <div key={`input-${field.id}`} className={parentLevelClasses.join(" ")}>
+                                <label className={styles.label} htmlFor={field.id}>
                                     {field.label}
                                 </label>
                                 <input
