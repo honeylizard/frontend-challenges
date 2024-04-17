@@ -16,6 +16,7 @@ const INITIAL_RESULTS = { days_ago: "--", months_ago: "--", years_ago: "--" };
 const Calculator = ({ intl }) => {
     // Set of form fields and "hidden" fields that will be passed through when submitted
     const [formData, setFormData] = useState({ day: null, month: null, year: null });
+    const [formErrors, setFormErrors] = useState({}); // Set of form field errors
     const [results, setResults] = useState(INITIAL_RESULTS);
     const formFields = [
         {
@@ -23,18 +24,21 @@ const Calculator = ({ intl }) => {
             type: "number",
             label: intl.formatMessage({ id: "ageCalculatorApp.day" }),
             placeholder: "DD",
+            required: true,
         },
         {
             id: "month",
             type: "number",
             label: intl.formatMessage({ id: "ageCalculatorApp.month" }),
             placeholder: "MM",
+            required: true,
         },
         {
             id: "year",
             type: "number",
             label: intl.formatMessage({ id: "ageCalculatorApp.year" }),
             placeholder: "YYYY",
+            required: true,
         },
     ];
     const outputFields = [
@@ -79,8 +83,60 @@ const Calculator = ({ intl }) => {
         }));
     };
 
-    const handleSubmit = () => {
-        if (formData.year > 0 && formData.month > 0 && formData.day > 0) {
+    const validateForm = () => {
+        let validForm = true;
+        setFormErrors({}); // Reset form errors
+
+        const tempFormErrors = {};
+
+        if (formData?.day === "" || formData?.day === null) {
+            tempFormErrors["day"] = intl.formatMessage({
+                id: "ageCalculatorApp.form.error.required",
+            });
+        } else if (Number(formData?.day) <= 0 || Number(formData?.day) > 31) {
+            tempFormErrors["day"] = intl.formatMessage({
+                id: "ageCalculatorApp.form.day.error.invalid",
+            });
+        }
+
+        if (formData?.month === "" || formData?.month === null) {
+            tempFormErrors["month"] = intl.formatMessage({
+                id: "ageCalculatorApp.form.error.required",
+            });
+        } else if (Number(formData?.month) <= 0 || Number(formData?.month) > 12) {
+            tempFormErrors["month"] = intl.formatMessage({
+                id: "ageCalculatorApp.form.month.error.invalid",
+            });
+        }
+
+        if (formData?.year === "" || formData?.year === null) {
+            tempFormErrors["year"] = intl.formatMessage({
+                id: "ageCalculatorApp.form.error.required",
+            });
+        } else if (Number(formData?.year) <= 0) {
+            tempFormErrors["year"] = intl.formatMessage({
+                id: "ageCalculatorApp.form.year.error.invalid",
+            });
+        } else if (Number(formData?.year) > dayjs().year()) {
+            tempFormErrors["year"] = intl.formatMessage({
+                id: "ageCalculatorApp.form.year.error.future",
+            });
+        }
+
+        if (Object.keys(tempFormErrors).length > 0) {
+            validForm = false;
+            setFormErrors(tempFormErrors);
+        }
+
+        return validForm;
+    };
+
+    const handleSubmit = (event) => {
+        if (event) {
+            event.preventDefault();
+        }
+
+        if (validateForm()) {
             dayjs.extend(relativeTime);
 
             const formDate = dayjs().set("year", formData.year).set("month", formData.month).set("day", formData.day);
@@ -127,31 +183,47 @@ const Calculator = ({ intl }) => {
 
     return (
         <div className={styles.card}>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className={styles.form}>
-                    {formFields.map((field) => (
-                        <div key={`input-${field.id}`} className={styles.field}>
-                            <label className={styles.label} htmlFor={field.id}>
-                                {field.label}
-                            </label>
-                            <input
-                                id={field.id}
-                                className={styles.input}
-                                type={field.type || "text"}
-                                onChange={debounce(updateValue, 500)}
-                                placeholder={field.placeholder}
-                            />
-                        </div>
-                    ))}
+                    {formFields.map((field) => {
+                        const hasError = formErrors && formErrors[field.id] ? true : false;
+                        const describedByList = [hasError ? `${field.id}-error` : null].filter(Boolean);
+
+                        return (
+                            <div key={`input-${field.id}`} className={styles.field}>
+                                <label
+                                    className={hasError ? [styles.label, styles.errorLabel].join(" ") : styles.label}
+                                    htmlFor={field.id}
+                                >
+                                    {field.label}
+                                </label>
+                                <input
+                                    id={field.id}
+                                    className={styles.input}
+                                    type={field.type || "text"}
+                                    onChange={debounce(updateValue, 500)}
+                                    placeholder={field.placeholder}
+                                    required={field.required}
+                                    aria-invalid={hasError}
+                                    aria-describedby={describedByList.length > 0 ? describedByList.join(" ") : null}
+                                />
+                                {hasError && (
+                                    <div
+                                        id={`${field.id}-error`}
+                                        className={styles.fieldErrorText}
+                                        role="alert"
+                                        aria-atomic="true"
+                                    >
+                                        {formErrors[field.id]}
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
                 </div>
                 <div className={styles.divider}>
                     <div className={styles.lineBefore} />
-                    <Button
-                        type="submit"
-                        customClasses={[styles.submitButton]}
-                        aria-label={submitButtonLabel}
-                        onClick={handleSubmit}
-                    >
+                    <Button type="submit" customClasses={[styles.submitButton]} aria-label={submitButtonLabel}>
                         <img src={arrowIcon} alt="" role="presentation" />
                     </Button>
                     <div className={styles.lineAfter} />

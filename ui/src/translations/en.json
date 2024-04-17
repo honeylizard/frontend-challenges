@@ -238,5 +238,10 @@
   "ageCalculatorApp.months": "Months",
   "ageCalculatorApp.year": "Year",
   "ageCalculatorApp.years": "Years",
-  "ageCalculatorApp.submit.label": "Submit"
+  "ageCalculatorApp.submit.label": "Submit",
+  "ageCalculatorApp.form.error.required": "This field is required",
+  "ageCalculatorApp.form.month.error.invalid": "Must be a valid month",
+  "ageCalculatorApp.form.day.error.invalid": "Must be a valid day",
+  "ageCalculatorApp.form.year.error.invalid": "Must be a valid year",
+  "ageCalculatorApp.form.year.error.future": "Must be in the past"
 }
