@@ -4,4 +4,123 @@
 
 .solutionContainer {
   font-family: $challenge-font;
+  background-color: $challenge-off-white;
+
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  .card {
+    display: block;
+    border-radius: 23px 23px 200px;
+    background-color: white;
+    color: black;
+    width: 840px;
+    flex-grow: 1;
+    padding: 60px;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 900px) {
+      width: 90%;
+      flex-grow: 0;
+      margin: 0 auto;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 10px;
+
+    .field {
+      display: block;
+      max-width: 160px;
+      box-sizing: border-box;
+
+      .label {
+        display: block;
+        font-weight: bold;
+        font-size: 10px;
+        color: $challenge-gray;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+
+      .input {
+        display: block;
+        line-height: 72px;
+        border-radius: 10px;
+        font-size: 25px;
+        width: 100%;
+        padding: 0 0 0 25px;
+        box-sizing: border-box;
+        border: 1px solid $challenge-grey;
+        font-weight: bold;
+        background-color: white;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:focus, &:focus-visible {
+          border: 1px solid $challenge-purple;
+          outline: none;
+          background-color: transparent;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+
+    .line {
+      flex-grow: 1;
+      height: 1px;
+      background-color: $challenge-grey;
+    }
+
+    .submitButton {
+      border-radius: 50%;
+      border: none;
+      background-color: $challenge-purple;
+      width: 100px;
+      height: 100px;
+      box-sizing: border-box;
+
+      &:hover, &:focus-visible {
+        background-color: black;
+      }
+    }
+  }
+
+  .output {
+    .number, .label {
+      font-size: 75px;
+      color: black;
+      text-transform: lowercase;
+      font-weight: bold;
+      font-style: italic;
+      line-height: 80px;
+    }
+
+    .number {
+      color: $challenge-purple;
+    }
+  }
+
+  .footer {
+    text-align: center;
+    color: black;
+    margin: 20px;
+  }
+
 }

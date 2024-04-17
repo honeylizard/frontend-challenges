@@ -233,9 +233,10 @@
 
   "ageCalculatorApp.title": "Age Calculator App",
   "ageCalculatorApp.day": "Day",
-  "ageCalculatorApp.days": "days",
+  "ageCalculatorApp.days": "Days",
   "ageCalculatorApp.month": "Month",
-  "ageCalculatorApp.months": "months",
+  "ageCalculatorApp.months": "Months",
   "ageCalculatorApp.year": "Year",
-  "ageCalculatorApp.years": "years"
+  "ageCalculatorApp.years": "Years",
+  "ageCalculatorApp.submit.label": "Submit"
 }
