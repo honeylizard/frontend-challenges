@@ -261,7 +261,7 @@ const Calculator = ({ intl }) => {
             <output className={styles.output} htmlFor={formFields.map((field) => field.id).join(" ")}>
                 {outputFields.length > 0 &&
                     outputFields.map((field) => (
-                        <div key={`output-${field.id}`}>
+                        <span key={`output-${field.id}`} className={styles.outputRow}>
                             <span className={styles.number}>{field.value}</span>
                             &nbsp;
                             <span className={styles.label}>
@@ -272,7 +272,7 @@ const Calculator = ({ intl }) => {
                                     zero={field.label.zero}
                                 />
                             </span>
-                        </div>
+                        </span>
                     ))}
             </output>
         </div>

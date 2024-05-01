@@ -167,6 +167,10 @@
   }
 
   .output {
+    .outputRow {
+      display: block;
+    }
+
     .number, .label {
       font-size: 75px;
       color: black;
