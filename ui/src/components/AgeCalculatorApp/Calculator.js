@@ -83,7 +83,7 @@ const Calculator = ({ intl }) => {
 
         setFormData((prevState) => ({
             ...prevState,
-            [name || id]: newValue,
+            [name || id]: newValue.replace(/^0+/, ""), // trim leading zeroes
         }));
     };
 
