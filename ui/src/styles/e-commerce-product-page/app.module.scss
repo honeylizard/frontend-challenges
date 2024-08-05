@@ -9,11 +9,50 @@ $bold-weight: 700;
 .solutionContainer {
   font-family: $challenge-font;
   background-color: $white;
-  color: $black;
+  color: $challenge-gray-blue-dark;
+
+  .container {
+    max-width: 1111px;
+    margin: 0 auto;
+  }
+
+  .header {
+    border-bottom: 1px solid $challenge-gray-blue;
+    display: flex;
+    justify-content: space-between;
+
+    .headerLogo {
+      img {
+        max-height: 20px;
+      }
+
+      border: 2px solid transparent;
+      cursor: pointer;
+      outline: 0; // Replacing with orange border
+
+      &:hover,
+      &:focus-visible {
+        border-color: $challenge-orange;
+      }
+    }
+
+    .leftGroup {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .rightGroup {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+  }
 
   .content {
+    padding: 90px 45px;
     background-color: $white;
-    color: $black;
+    color: $challenge-gray-blue-dark;
   }
 
   footer {

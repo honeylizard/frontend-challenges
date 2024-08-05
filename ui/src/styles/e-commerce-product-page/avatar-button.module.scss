@@ -1,0 +1,24 @@
+@import "../_core";
+@import "colors.module.scss";
+
+.avatarImageButton {
+  padding: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: transparent;
+
+  img {
+    max-height: 50px;
+    max-width: 50px;
+    display: block;
+  }
+
+  border: 2px solid transparent;
+  cursor: pointer;
+  outline: 0; // Replacing with orange border
+
+  &:hover,
+  &:focus-visible {
+      border-color: $challenge-orange;
+  }
+}

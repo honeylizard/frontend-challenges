@@ -1,0 +1,29 @@
+@import "../_core";
+@import "colors.module.scss";
+
+.navList {
+  ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    list-style: none;
+    gap: 34px;
+  }
+
+  a {
+    display: block;
+    color: $challenge-gray-blue-dark;
+    text-decoration: none;
+    padding: 35px 0;
+
+    border: 2px solid transparent;
+    cursor: pointer;
+    outline: 0; // Replacing with orange border
+
+    &:hover,
+    &:focus-visible {
+      color: $black;
+      border-bottom-color: $challenge-orange;
+    }
+  }
+}

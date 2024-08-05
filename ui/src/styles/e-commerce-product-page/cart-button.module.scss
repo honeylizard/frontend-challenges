@@ -1,0 +1,21 @@
+@import "../_core";
+@import "colors.module.scss";
+
+.cartImageButton {
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid transparent;
+  background-color: transparent;
+  outline: 0; // Replacing with orange border and darker icon effect
+
+  &:hover,
+  &:focus-visible {
+    path {
+      fill: $black;
+    }
+  }
+
+  &:focus-visible {
+    border-color: $challenge-orange;
+  }
+}
