@@ -266,3 +266,24 @@ Your users should be able to:
 - Responsive Design
 - Internationalization Capabilities
 - WCAG 2.0 AA compliance (except for color contrasts as the color scheme is a hard requirement)
+
+## E-commerce Product Page
+
+This is a solution to the [E-commerce Product Page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6/).
+
+### The challenge
+
+Your users should be able to:
+
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Open a lightbox gallery by clicking on the large product image
+- Switch the large product image by clicking on the small thumbnail images
+- Add items to the cart
+- View the cart and remove items from it
+
+### Solution Features
+
+- Responsive Design
+- Internationalization Capabilities
+- WCAG 2.0 AA compliance (except for color contrasts as the color scheme is a hard requirement)

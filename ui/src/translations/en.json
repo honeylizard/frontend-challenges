@@ -244,5 +244,7 @@
   "ageCalculatorApp.form.error.invalid": "Must be a valid date",
   "ageCalculatorApp.form.month.error.invalid": "Must be a valid month",
   "ageCalculatorApp.form.day.error.invalid": "Must be a valid day",
-  "ageCalculatorApp.form.year.error.invalid": "Must be a valid year"
+  "ageCalculatorApp.form.year.error.invalid": "Must be a valid year",
+
+  "eCommerceProductPage.title": ""
 }

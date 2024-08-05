@@ -12,6 +12,7 @@ import MultiStepFormPage from "./components/MultiStepForm/MultiStepFormPage";
 import NotificationsPage from "./components/NotificationsPage/NotificationsPage";
 import ExpensesChartPage from "./components/ExpensesChartPage/ExpensesChartPage";
 import AgeCalculatorAppPage from "./components/AgeCalculatorApp/AgeCalculatorAppPage";
+import ElectronicCommerceProductPage from "./components/ElectronicCommerceProductPage/ElectronicCommerceProductPage";
 
 const routes = [
     {
@@ -111,6 +112,13 @@ const routes = [
         authNeeded: false,
         exact: true,
         component: AgeCalculatorAppPage,
+    },
+    {
+        name: "E-commerce Product Page",
+        path: "/frontend-challenges/e-commerce-product-page",
+        authNeeded: false,
+        exact: true,
+        component: ElectronicCommerceProductPage,
     },
     {
         name: "Not Found",

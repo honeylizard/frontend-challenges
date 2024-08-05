@@ -1,0 +1,22 @@
+@import "../_core";
+@import "colors.module.scss";
+@import "fonts.module.scss";
+
+$default-text-size: 16px;
+$default-weight: 400;
+$bold-weight: 700;
+
+.solutionContainer {
+  font-family: $challenge-font;
+  background-color: $white;
+  color: $black;
+
+  .content {
+    background-color: $white;
+    color: $black;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
