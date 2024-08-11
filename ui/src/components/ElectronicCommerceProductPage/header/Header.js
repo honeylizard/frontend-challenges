@@ -5,6 +5,7 @@ import { injectIntl } from "react-intl";
 import CartButton from "./CartButton";
 import AvatarButton from "./AvatarButton";
 import NavList from "./NavList";
+import MobileNavButton from "./MobileNavButton";
 
 import appLogo from "../../../assets/e-commerce-product-page/logo.svg";
 import appStyles from "../../../styles/e-commerce-product-page/app.module.scss";
@@ -25,6 +26,7 @@ const Header = ({ intl }) => {
                 {skipToContentLabel}
             </a>
             <div className={appStyles.leftGroup}>
+                <MobileNavButton />
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid  */}
                 <a href="#" className={appStyles.headerLogo}>
                     <img src={appLogo} alt={headerLogoAlt} />

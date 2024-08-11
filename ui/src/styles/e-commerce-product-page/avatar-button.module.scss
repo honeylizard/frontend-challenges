@@ -1,5 +1,6 @@
 @import "../_core";
 @import "colors.module.scss";
+@import "variables.module.scss";
 
 .avatarImageButton {
   padding: 0;
@@ -11,6 +12,11 @@
     max-height: 50px;
     max-width: 50px;
     display: block;
+
+    @media all and (max-width: $mobile-header-width) {
+      max-height: 25px;
+      max-width: 25px;
+    }
   }
 
   border: 2px solid transparent;

@@ -247,12 +247,16 @@
   "ageCalculatorApp.form.year.error.invalid": "Must be a valid year",
 
   "eCommerceProductPage.title": "E-Commerce Product Page",
+  "eCommerceProductPage.header.title": "Sneakers",
   "eCommerceProductPage.header.logoAlt": "Sneakers Logo",
   "eCommerceProductPage.header.cartAlt": "Open Cart",
   "eCommerceProductPage.nav.primary": "Primary Navigation",
+  "eCommerceProductPage.nav.primary.open": "Open Primary Navigation",
   "eCommerceProductPage.nav.collections": "Collections",
   "eCommerceProductPage.nav.men": "Men",
   "eCommerceProductPage.nav.women": "Women",
   "eCommerceProductPage.nav.about": "About",
-  "eCommerceProductPage.nav.contact": "Contact"
+  "eCommerceProductPage.nav.contact": "Contact",
+  "eCommerceProductPage.cancel": "Cancel",
+  "eCommerceProductPage.close": "Close"
 }

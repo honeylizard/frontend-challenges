@@ -1,5 +1,6 @@
 @import "../_core";
 @import "colors.module.scss";
+@import "variables.module.scss";
 
 .navList {
   ul {
@@ -24,6 +25,25 @@
     &:focus-visible {
       color: $black;
       border-bottom-color: $challenge-orange;
+    }
+  }
+
+  &:not(.navListMobile) {
+    @media all and (max-width: $mobile-header-width) {
+      display: none;
+    }
+  }
+
+  &.navListMobile {
+    ul {
+      gap: initial;
+      flex-direction: column;
+    }
+
+    a {
+      padding: 0;
+      font-weight: 700;
+      margin: 16px 0;
     }
   }
 }

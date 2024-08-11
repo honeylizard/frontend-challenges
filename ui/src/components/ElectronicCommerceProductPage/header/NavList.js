@@ -4,7 +4,7 @@ import { injectIntl } from "react-intl";
 
 import listStyles from "../../../styles/e-commerce-product-page/nav-list.module.scss";
 
-const NavList = ({ intl }) => {
+const NavList = ({ intl, mobile = false }) => {
     const primaryNavLabel = intl.formatMessage({
         id: "eCommerceProductPage.nav.primary",
     });
@@ -24,8 +24,14 @@ const NavList = ({ intl }) => {
         id: "eCommerceProductPage.nav.contact",
     });
 
+    const classes = [listStyles.navList];
+
+    if (mobile) {
+        classes.push(listStyles.navListMobile);
+    }
+
     return (
-        <nav aria-label={primaryNavLabel} className={listStyles.navList}>
+        <nav aria-label={primaryNavLabel} className={classes.join(" ")}>
             <ul>
                 <li>
                     <a href="#">{collectionsNavLabel}</a> {/* eslint-disable-line jsx-a11y/anchor-is-valid  */}
@@ -49,6 +55,7 @@ const NavList = ({ intl }) => {
 
 NavList.propTypes = {
     intl: PropTypes.object.isRequired,
+    mobile: PropTypes.bool,
 };
 
 export default injectIntl(NavList);

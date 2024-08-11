@@ -1,0 +1,37 @@
+@import "../_core";
+@import "colors.module.scss";
+@import "variables.module.scss";
+
+.headerNavMobileButton {
+  background-color: transparent;
+  border: 2px solid transparent;
+  cursor: pointer;
+  outline: 0; // Replacing with orange border
+
+  &:hover,
+  &:focus-visible {
+      border-color: $challenge-orange;
+  }
+
+  display: none;
+
+  @media all and (max-width: $mobile-header-width) {
+    display: block;
+  }
+}
+
+.stickyLeft {
+  position: fixed;
+  left: 0;
+  height: 100%;
+
+  &.headerNavMobile > div {
+    min-width: 250px;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  &.headerNavMobile > div > div {
+    justify-content: flex-start !important;
+  }
+}
