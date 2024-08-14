@@ -258,5 +258,6 @@
   "eCommerceProductPage.nav.about": "About",
   "eCommerceProductPage.nav.contact": "Contact",
   "eCommerceProductPage.cancel": "Cancel",
-  "eCommerceProductPage.close": "Close"
+  "eCommerceProductPage.close": "Close",
+  "eCommerceProductPage.add_to_cart": "Add to cart"
 }

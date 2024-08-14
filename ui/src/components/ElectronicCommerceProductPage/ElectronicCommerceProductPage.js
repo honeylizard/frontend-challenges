@@ -5,6 +5,7 @@ import appStyles from "../../styles/e-commerce-product-page/app.module.scss";
 
 import Footer from "./Footer";
 import Header from "./header/Header";
+import ProductDetail from "./ProductDetail";
 
 const ElectronicCommerceProductPage = () => {
     return (
@@ -18,7 +19,9 @@ const ElectronicCommerceProductPage = () => {
             </Helmet>
             <div className={appStyles.container}>
                 <Header />
-                <main id="content" className={appStyles.content} />
+                <main id="content" className={appStyles.content}>
+                    <ProductDetail />
+                </main>
                 <Footer />
             </div>
         </React.Fragment>

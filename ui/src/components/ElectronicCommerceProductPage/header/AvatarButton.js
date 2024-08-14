@@ -5,7 +5,7 @@ import buttonStyles from "../../../styles/e-commerce-product-page/avatar-button.
 
 const AvatarButton = () => {
     return (
-        <button className={buttonStyles.avatarImageButton}>
+        <button type="button" className={buttonStyles.avatarImageButton}>
             {/* avatar and alt text would be dynamic in a real application */}
             <img src={avatarImage} alt="John Doe" />
         </button>
