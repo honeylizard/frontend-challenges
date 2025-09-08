@@ -7,6 +7,7 @@ import Footer from "./Footer";
 
 import appStyles from "../../styles/weather-app/app.module.scss";
 import Header from "./Header";
+import WeatherForm from "./WeatherForm";
 
 const WeatherAppPage = ({ intl }) => {
     const formTitleLabel = intl.formatMessage({
@@ -25,6 +26,7 @@ const WeatherAppPage = ({ intl }) => {
                 <Header />
                 <main id="content" className={appStyles.content}>
                     <h2 className={appStyles.formTitle}>{formTitleLabel}</h2>
+                    <WeatherForm />
                 </main>
                 <Footer />
             </div>

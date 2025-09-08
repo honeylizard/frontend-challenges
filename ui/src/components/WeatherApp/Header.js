@@ -26,6 +26,25 @@ const Header = ({ intl }) => {
             <div className={appStyles.uomSwitcherContainer}>
                 <img src={unitsIcon} alt="" role="presentation" />
                 <span>{unitsLabel}</span>
+
+                {/*
+                Switch to Imperial/Metric
+
+                Temperature
+
+                Celsius (°C)
+                Fahrenheit (°F)
+
+                Wind Speed
+
+                km/h
+                mph
+
+                Precipitation
+
+                Millimeters (mm)
+                Inches (in)
+                */}
             </div>
         </header>
     );
