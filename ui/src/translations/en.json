@@ -263,5 +263,18 @@
 
   "weatherApp.header.title": "Weather Now",
   "weatherApp.header.units": "Units",
-  "weatherApp.form.title": "How's the sky looking today?"
+  "weatherApp.form.title": "How's the sky looking today?",
+  "weatherApp.current.title": "Current Weather",
+  "weatherApp.hourly.title": "Hourly forecast",
+  "weatherApp.daily.title": "Daily forecast",
+  "weatherApp.condition": "Condition",
+  "weatherApp.temperature": "Temperature",
+  "weatherApp.temperatureHigh": "Temperature (High)",
+  "weatherApp.temperatureLow": "Temperature (Low)",
+  "weatherApp.precipitation": "Precipitation",
+  "weatherApp.humidity": "Humidity",
+  "weatherApp.wind": "Wind",
+  "weatherApp.feels_like": "Feels like",
+  "weatherApp.date": "Date",
+  "weatherApp.location": "Location"
 }

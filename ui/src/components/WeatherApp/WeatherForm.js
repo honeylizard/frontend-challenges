@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { injectIntl } from "react-intl";
+import { injectIntl, useIntl } from "react-intl";
 import { fetchWeatherApi } from "openmeteo";
 import axios from "axios";
 
@@ -13,14 +13,19 @@ import {
     TEMPERATURE_MIN_KEY,
     WEATHER_CODE_KEY,
     WIND_SPEED_KEY,
-} from "./apiConstants";
-import { parseCurrentWeatherData } from "./parseCurrentWeatherData";
-import { parseDailyWeatherData } from "./parseDailyWeatherData";
-import { parseHourlyWeatherData } from "./parseHourlyWeatherData";
+} from "./utils/apiConstants";
+import { parseCurrentWeatherData } from "./utils/parseCurrentWeatherData";
+import { parseDailyWeatherData } from "./utils/parseDailyWeatherData";
+import { parseHourlyWeatherData } from "./utils/parseHourlyWeatherData";
+import WeatherHourly from "./WeatherHourly";
+import WeatherDaily from "./WeatherDaily";
+import WeatherCurrent from "./WeatherCurrent";
 
 // import appStyles from "../../styles/weather-app/app.module.scss";
 
 const WeatherForm = ({ intl }) => {
+    const { locale = "en-US" } = useIntl();
+
     const [currentWeatherData, setCurrentWeatherData] = useState();
     const [dailyWeatherData, setDailyWeatherData] = useState();
     const [hourlyWeatherData, setHourlyWeatherData] = useState();
@@ -51,7 +56,7 @@ const WeatherForm = ({ intl }) => {
 
         const params = new URLSearchParams();
         params.set("name", searchTerm);
-        params.set("language", "en");
+        params.set("language", locale);
         params.set("format", "json");
         params.set("count", "1");
 
@@ -69,7 +74,7 @@ const WeatherForm = ({ intl }) => {
                 longitude,
             });
         });
-    }, [searchTerm]);
+    }, [searchTerm, locale]);
 
     useEffect(() => {
         const baseUrl = "https://api.open-meteo.com";
@@ -107,110 +112,10 @@ const WeatherForm = ({ intl }) => {
             Search
             */}
             {!!currentWeatherData && (
-                <div>
-                    <h3 className="sr-only">Current Weather</h3>
-                    <div>
-                        <div>
-                            <span className="sr-only">Location: </span>
-                            {currentLocation?.name}
-                        </div>
-                        <div>
-                            <span className="sr-only">Date: </span>
-                            {currentWeatherData?.dateTime?.toString()}
-                        </div>
-                        {!!currentWeatherData?.condition && (
-                            <div>
-                                <span className="sr-only">Current Condition: </span>
-                                <img
-                                    src={process.env.PUBLIC_URL + currentWeatherData?.condition?.src}
-                                    alt={currentWeatherData?.condition?.alt}
-                                />
-                            </div>
-                        )}
-                        <div>
-                            <span className="sr-only">Temperature: </span>
-                            {currentWeatherData?.temperature} {configData?.temperature_unit}
-                        </div>
-                    </div>
-                    <div>
-                        <div>Feels Like</div>
-                        <div>
-                            {currentWeatherData?.feelsLike} {configData?.temperature_unit}
-                        </div>
-                    </div>
-                    <div>
-                        <div>Humidity</div>
-                        <div>{currentWeatherData?.humidity} %</div>
-                    </div>
-                    <div>
-                        <div>Wind</div>
-                        <div>
-                            {currentWeatherData?.wind} {configData?.wind_speed_unit}
-                        </div>
-                    </div>
-                    <div>
-                        <div>Precipitation</div>
-                        <div>
-                            {currentWeatherData?.precipitation} {configData?.precipitation_unit}
-                        </div>
-                    </div>
-                </div>
+                <WeatherCurrent data={currentWeatherData} location={currentLocation} config={configData} />
             )}
-            {dailyWeatherData?.length > 0 && (
-                <div>
-                    <h3>Daily forecast</h3>
-                    {dailyWeatherData?.map((dayWeather, index) => {
-                        return (
-                            <div key={`daily-weather-${index}`}>
-                                <div>{dayWeather?.dateTime?.toString()}</div>
-                                {!!dayWeather?.condition && (
-                                    <div>
-                                        <span className="sr-only">Condition: </span>
-                                        <img
-                                            src={process.env.PUBLIC_URL + dayWeather?.condition?.src}
-                                            alt={dayWeather?.condition?.alt}
-                                        />
-                                    </div>
-                                )}
-                                <div>
-                                    <span className="sr-only">Temperature (High): </span>
-                                    {dayWeather?.maxTemperature} {configData?.temperature_unit}
-                                </div>
-                                <div>
-                                    <span className="sr-only">Temperature (Low): </span>
-                                    {dayWeather?.minTemperature} {configData?.temperature_unit}
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            )}
-            {hourlyWeatherData?.length > 0 && (
-                <div>
-                    <h3>Hourly forecast</h3>
-                    {/* TODO: Pick a date dropdown and limit the display to just that date */}
-                    {hourlyWeatherData?.map((hourlyWeather, index) => {
-                        return (
-                            <div key={`hourly-weather-${index}`}>
-                                <div>{hourlyWeather?.dateTime?.toString()}</div>
-                                {!!hourlyWeather?.condition && (
-                                    <div>
-                                        <span className="sr-only">Condition: </span>
-                                        <img
-                                            src={process.env.PUBLIC_URL + hourlyWeather?.condition?.src}
-                                            alt={hourlyWeather?.condition?.alt}
-                                        />
-                                    </div>
-                                )}
-                                <div>
-                                    <span className="sr-only">Temperature: </span>
-                                    {hourlyWeather?.temperature} {configData?.temperature_unit}
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            )}
+            {dailyWeatherData?.length > 0 && <WeatherDaily data={dailyWeatherData} config={configData} />}
+            {hourlyWeatherData?.length > 0 && <WeatherHourly data={hourlyWeatherData} config={configData} />}
         </div>
     );
 };
