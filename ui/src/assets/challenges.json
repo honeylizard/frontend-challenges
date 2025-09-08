@@ -46,5 +46,9 @@
     {
       "title": "E-commerce Product Page",
       "solution_url": "/frontend-challenges/e-commerce-product-page"
+    },
+    {
+      "title": "Weather App",
+      "solution_url": "/frontend-challenges/weather-app"
     }
 ]

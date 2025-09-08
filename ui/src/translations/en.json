@@ -259,5 +259,9 @@
   "eCommerceProductPage.nav.contact": "Contact",
   "eCommerceProductPage.cancel": "Cancel",
   "eCommerceProductPage.close": "Close",
-  "eCommerceProductPage.add_to_cart": "Add to cart"
+  "eCommerceProductPage.add_to_cart": "Add to cart",
+
+  "weatherApp.header.title": "Weather Now",
+  "weatherApp.header.units": "Units",
+  "weatherApp.form.title": "How's the sky looking today?"
 }

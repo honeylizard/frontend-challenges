@@ -13,6 +13,7 @@ import NotificationsPage from "./components/NotificationsPage/NotificationsPage"
 import ExpensesChartPage from "./components/ExpensesChartPage/ExpensesChartPage";
 import AgeCalculatorAppPage from "./components/AgeCalculatorApp/AgeCalculatorAppPage";
 import ElectronicCommerceProductPage from "./components/ElectronicCommerceProductPage/ElectronicCommerceProductPage";
+import WeatherAppPage from "./components/WeatherApp/WeatherAppPage";
 
 const routes = [
     {
@@ -119,6 +120,13 @@ const routes = [
         authNeeded: false,
         exact: true,
         component: ElectronicCommerceProductPage,
+    },
+    {
+        name: "Weather App",
+        path: "/frontend-challenges/weather-app",
+        authNeeded: false,
+        exact: true,
+        component: WeatherAppPage,
     },
     {
         name: "Not Found",

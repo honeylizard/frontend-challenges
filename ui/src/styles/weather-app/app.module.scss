@@ -1,0 +1,60 @@
+@import "../_core";
+@import "fonts.module.scss";
+@import "colors.module.scss";
+
+.solutionContainer {
+    font-family: $challenge-font-dm;
+    font-size: 18px;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: $challenge-off-black;
+    color: $challenge-white;
+
+    .container {
+        margin: 0 auto;
+        max-width: 1215px;
+        width: 100%;
+        box-sizing: border-box;
+
+        padding: 0 20px;
+    }
+
+    .header {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+
+        .uomSwitcherContainer {
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+
+            span {
+                padding-left: 5px;
+            }
+        }
+    }
+
+    .content {
+        background-color: transparent;
+
+        .formTitle {
+            text-align: center;
+            font-family: $challenge-font-bri;
+            font-weight: 700;
+        }
+    }
+
+    .footer {
+        text-align: center;
+        margin: 20px;
+    }
+}
