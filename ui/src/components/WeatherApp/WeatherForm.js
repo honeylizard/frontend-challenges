@@ -7,7 +7,7 @@ import axios from "axios";
 import {
     FEELS_LIKE_KEY,
     HUMIDITY_KEY,
-    PERCIPITATION_KEY,
+    PRECIPITATION_KEY,
     TEMPERATURE_KEY,
     TEMPERATURE_MAX_KEY,
     TEMPERATURE_MIN_KEY,
@@ -32,7 +32,7 @@ const WeatherForm = ({ intl }) => {
         timeformat: "unixtime", // ISO 8601 (e.g. 2025-09-07) is the default. Other options: ["unixtime"]
     });
     // TODO: set this to a debounced input field
-    const [searchTerm, setSearchTerm] = useState("Atlanta, United States");
+    const [searchTerm, setSearchTerm] = useState("Kortrijk, Belgium"); // useState("Atlanta, United States");
     const [currentLocation, setCurrentLocation] = useState();
     // const appTitleLabel = intl.formatMessage({
     //     id: "weatherApp.header.title",
@@ -61,8 +61,10 @@ const WeatherForm = ({ intl }) => {
 
             setCurrentLocation({
                 name: [city, country].join(", "),
-                state,
+                city,
                 county,
+                state,
+                country,
                 latitude,
                 longitude,
             });
@@ -82,7 +84,7 @@ const WeatherForm = ({ intl }) => {
                     TEMPERATURE_KEY,
                     HUMIDITY_KEY,
                     FEELS_LIKE_KEY,
-                    PERCIPITATION_KEY,
+                    PRECIPITATION_KEY,
                     WEATHER_CODE_KEY,
                     WIND_SPEED_KEY,
                 ],
@@ -98,36 +100,117 @@ const WeatherForm = ({ intl }) => {
         }
     }, [configData, currentLocation]);
 
-    console.log("currentWeatherData", currentWeatherData);
-    console.log("hourlyWeatherData", hourlyWeatherData);
-    console.log("dailyWeatherData", dailyWeatherData);
-    console.log("configData", configData);
-    console.log("currentLocation", currentLocation);
-
     return (
         <div>
             {/*
             Search for a city, e.g., New York
             Search
-
-            Feels like
-            <!-- Insert temperature here -->
-
-            Humidity
-            <!-- Insert humidity here -->
-
-            Wind
-            <!-- Insert wind here -->   
-            
-            Precipitation
-            <!-- Insert precipitation here -->
-
-            Daily forecast
-            <!-- Insert daily forecast for the next 7 days here -->
-
-            Hourly forecast
-            <!-- Insert hourly forecast for the selected day here -->
             */}
+            {!!currentWeatherData && (
+                <div>
+                    <h3 className="sr-only">Current Weather</h3>
+                    <div>
+                        <div>
+                            <span className="sr-only">Location: </span>
+                            {currentLocation?.name}
+                        </div>
+                        <div>
+                            <span className="sr-only">Date: </span>
+                            {currentWeatherData?.dateTime?.toString()}
+                        </div>
+                        {!!currentWeatherData?.condition && (
+                            <div>
+                                <span className="sr-only">Current Condition: </span>
+                                <img
+                                    src={process.env.PUBLIC_URL + currentWeatherData?.condition?.src}
+                                    alt={currentWeatherData?.condition?.alt}
+                                />
+                            </div>
+                        )}
+                        <div>
+                            <span className="sr-only">Temperature: </span>
+                            {currentWeatherData?.temperature} {configData?.temperature_unit}
+                        </div>
+                    </div>
+                    <div>
+                        <div>Feels Like</div>
+                        <div>
+                            {currentWeatherData?.feelsLike} {configData?.temperature_unit}
+                        </div>
+                    </div>
+                    <div>
+                        <div>Humidity</div>
+                        <div>{currentWeatherData?.humidity} %</div>
+                    </div>
+                    <div>
+                        <div>Wind</div>
+                        <div>
+                            {currentWeatherData?.wind} {configData?.wind_speed_unit}
+                        </div>
+                    </div>
+                    <div>
+                        <div>Precipitation</div>
+                        <div>
+                            {currentWeatherData?.precipitation} {configData?.precipitation_unit}
+                        </div>
+                    </div>
+                </div>
+            )}
+            {dailyWeatherData?.length > 0 && (
+                <div>
+                    <h3>Daily forecast</h3>
+                    {dailyWeatherData?.map((dayWeather, index) => {
+                        return (
+                            <div key={`daily-weather-${index}`}>
+                                <div>{dayWeather?.dateTime?.toString()}</div>
+                                {!!dayWeather?.condition && (
+                                    <div>
+                                        <span className="sr-only">Condition: </span>
+                                        <img
+                                            src={process.env.PUBLIC_URL + dayWeather?.condition?.src}
+                                            alt={dayWeather?.condition?.alt}
+                                        />
+                                    </div>
+                                )}
+                                <div>
+                                    <span className="sr-only">Temperature (High): </span>
+                                    {dayWeather?.maxTemperature} {configData?.temperature_unit}
+                                </div>
+                                <div>
+                                    <span className="sr-only">Temperature (Low): </span>
+                                    {dayWeather?.minTemperature} {configData?.temperature_unit}
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            )}
+            {hourlyWeatherData?.length > 0 && (
+                <div>
+                    <h3>Hourly forecast</h3>
+                    {/* TODO: Pick a date dropdown and limit the display to just that date */}
+                    {hourlyWeatherData?.map((hourlyWeather, index) => {
+                        return (
+                            <div key={`hourly-weather-${index}`}>
+                                <div>{hourlyWeather?.dateTime?.toString()}</div>
+                                {!!hourlyWeather?.condition && (
+                                    <div>
+                                        <span className="sr-only">Condition: </span>
+                                        <img
+                                            src={process.env.PUBLIC_URL + hourlyWeather?.condition?.src}
+                                            alt={hourlyWeather?.condition?.alt}
+                                        />
+                                    </div>
+                                )}
+                                <div>
+                                    <span className="sr-only">Temperature: </span>
+                                    {hourlyWeather?.temperature} {configData?.temperature_unit}
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            )}
         </div>
     );
 };

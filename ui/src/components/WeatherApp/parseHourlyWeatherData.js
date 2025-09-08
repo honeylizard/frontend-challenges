@@ -1,6 +1,6 @@
 import { TEMPERATURE_KEY, TIME_KEY, WEATHER_CODE_KEY } from "./apiConstants";
 import { parseDateTime } from "./parseDateTime";
-import { parseWeatherCode } from "./parseWeatherCode";
+import { parseWeatherCodeToCondition } from "./parseWeatherCodeToCondition";
 
 // hourly forecast (8 sets) - time, weatherState and temperature
 export const parseHourlyWeatherData = (rawData, utcOffsetSeconds, limit = 8) => {
@@ -19,7 +19,7 @@ export const parseHourlyWeatherData = (rawData, utcOffsetSeconds, limit = 8) => 
         const newHourlyEntry = {
             dateTime,
             temperature: hourlyData[TEMPERATURE_KEY][index],
-            weatherCodeImageSource: parseWeatherCode(hourlyData[WEATHER_CODE_KEY][index]),
+            condition: parseWeatherCodeToCondition(hourlyData[WEATHER_CODE_KEY][index]),
         };
 
         newHourlyWeatherData.push(newHourlyEntry);

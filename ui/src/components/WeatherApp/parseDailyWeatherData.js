@@ -1,6 +1,6 @@
 import { TEMPERATURE_MAX_KEY, TEMPERATURE_MIN_KEY, TIME_KEY, WEATHER_CODE_KEY } from "./apiConstants";
 import { parseDateTime } from "./parseDateTime";
-import { parseWeatherCode } from "./parseWeatherCode";
+import { parseWeatherCodeToCondition } from "./parseWeatherCodeToCondition";
 
 // daily forcast - date, weatherState, and min/max temperature
 export const parseDailyWeatherData = (rawData, utcOffsetSeconds) => {
@@ -21,7 +21,7 @@ export const parseDailyWeatherData = (rawData, utcOffsetSeconds) => {
             dateTime,
             maxTemperature: dailyData[TEMPERATURE_MAX_KEY][index],
             minTemperature: dailyData[TEMPERATURE_MIN_KEY][index],
-            weatherCodeImageSource: parseWeatherCode(dailyData[WEATHER_CODE_KEY][index]),
+            condition: parseWeatherCodeToCondition(dailyData[WEATHER_CODE_KEY][index]),
         };
 
         newDailyWeatherData.push(newDailyEntry);

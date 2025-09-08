@@ -1,15 +1,15 @@
 import {
     FEELS_LIKE_KEY,
     HUMIDITY_KEY,
-    PERCIPITATION_KEY,
+    PRECIPITATION_KEY,
     TEMPERATURE_KEY,
     TIME_KEY,
     WEATHER_CODE_KEY,
     WIND_SPEED_KEY,
 } from "./apiConstants";
-import { parseWeatherCode } from "./parseWeatherCode";
+import { parseWeatherCodeToCondition } from "./parseWeatherCodeToCondition";
 
-// current forcast - date, weatherState, temperature, feelslike, humidity, percipitation, and wind
+// current forcast - date, weatherState, temperature, feelslike, humidity, precipitation, and wind
 export const parseCurrentWeatherData = (rawData, utcOffsetSeconds) => {
     const current = rawData.current();
 
@@ -19,7 +19,7 @@ export const parseCurrentWeatherData = (rawData, utcOffsetSeconds) => {
         [TEMPERATURE_KEY]: current.variables(0).value(),
         [HUMIDITY_KEY]: current.variables(1).value(),
         [FEELS_LIKE_KEY]: current.variables(2).value(),
-        [PERCIPITATION_KEY]: current.variables(3).value(),
+        [PRECIPITATION_KEY]: current.variables(3).value(),
         [WEATHER_CODE_KEY]: current.variables(4).value(),
         [WIND_SPEED_KEY]: current.variables(5).value(),
     };
@@ -27,10 +27,10 @@ export const parseCurrentWeatherData = (rawData, utcOffsetSeconds) => {
     return {
         dateTime: currentData[TIME_KEY],
         temperature: currentData[TEMPERATURE_KEY],
-        weatherCodeImageSource: parseWeatherCode(currentData[WEATHER_CODE_KEY]),
+        condition: parseWeatherCodeToCondition(currentData[WEATHER_CODE_KEY]),
         feelsLike: currentData[FEELS_LIKE_KEY],
         humidity: currentData[HUMIDITY_KEY],
         wind: currentData[WIND_SPEED_KEY],
-        percipitation: currentData[PERCIPITATION_KEY],
+        precipitation: currentData[PRECIPITATION_KEY],
     };
 };

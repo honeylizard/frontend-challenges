@@ -13,7 +13,7 @@ export const HUMIDITY_KEY = "relative_humidity_2m";
 export const FEELS_LIKE_KEY = "apparent_temperature";
 
 // Total precipitation (rain, showers, snow) sum of the preceding hour. Unit: mm (inch)
-export const PERCIPITATION_KEY = "precipitation";
+export const PRECIPITATION_KEY = "precipitation";
 
 // Wind speed at 10 meters above ground. Wind speed on 10 meters is the standard level. Unit: km/h (mph, m/s, knots)
 export const WIND_SPEED_KEY = "wind_speed_10m";
