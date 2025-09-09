@@ -5,7 +5,7 @@ import { injectIntl, useIntl } from "react-intl";
 import { dayOfWeekOnly, temperatureAmount } from "./utils/common";
 import WeatherCondition from "./WeatherCondition";
 
-import appStyles from "../../styles/weather-app/app.module.scss";
+import styles from "../../styles/weather-app/daily.module.scss";
 
 const WeatherDaily = ({ intl, data, config }) => {
     const { locale = "en-US" } = useIntl();
@@ -23,15 +23,17 @@ const WeatherDaily = ({ intl, data, config }) => {
     if (!data || data?.length === 0 || !config) return null;
 
     return (
-        <section className={appStyles.dailyWeather}>
-            <h3 className={appStyles.title}>{titleLabel}</h3>
-            <div className={appStyles.list}>
+        <section className={styles.daily}>
+            <h3 className={styles.title}>{titleLabel}</h3>
+            <div className={styles.list}>
                 {data?.map((dayWeather, index) => {
                     return (
-                        <div key={`daily-weather-${index}`} className={appStyles.listItem}>
-                            <div className={appStyles.label}>{dayOfWeekOnly(dayWeather?.dateTime)}</div>
-                            {!!dayWeather?.condition && <WeatherCondition data={dayWeather?.condition} />}
-                            <div className={appStyles.values}>
+                        <div key={`daily-weather-${index}`} className={styles.listItem}>
+                            <div className={styles.label}>{dayOfWeekOnly(dayWeather?.dateTime)}</div>
+                            {!!dayWeather?.condition && (
+                                <WeatherCondition data={dayWeather?.condition} customClasses={[styles.condition]} />
+                            )}
+                            <div className={styles.values}>
                                 <div>
                                     <span className="sr-only">{temperatureHighLabel}: </span>
                                     {temperatureAmount(dayWeather?.maxTemperature, config.temperature_unit, locale)}

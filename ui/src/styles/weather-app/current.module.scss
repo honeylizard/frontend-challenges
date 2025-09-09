@@ -1,0 +1,89 @@
+@import "app.module.scss";
+
+.current {
+    margin-bottom: 48px;
+
+    .primaryCard {
+        width: 100%;
+        border-radius: 15px;
+        padding: 80px 34px 80px 24px;
+        box-sizing: border-box;
+        width: 800px;
+        height: 286px;
+        background-image: url('/assets/weather-app/bg-today-large.svg');
+        background-repeat: no-repeat;
+        background-position: top left;
+        background-size: cover;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-bottom: 32px;
+
+        .location {
+            font-size: 28px;
+            font-weight: $challenge-weight-bold;
+            font-family: $challenge-font-dm;
+            line-height: 1.2em;
+
+            margin-bottom: 17px;
+        }
+
+        .timestamp {
+            font-size: 18px;
+            font-weight: $challenge-weight-medium;
+            font-family: $challenge-font-dm;
+            line-height: 1.2em;
+        }
+
+        .value {
+            display: flex;
+            align-items: center;
+        }
+
+        .temperature {
+            font-style: italic;
+            font-size: 96px;
+            font-weight: $challenge-weight-semi-bold;
+            font-family: $challenge-font-dm;
+            line-height: 1em;
+        }
+
+        .condition, .condition img {
+            height: 120px;
+        }
+    }
+
+    .secondaryCardList {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .secondaryCard {
+        background-color: $challenge-black-light;
+        width: 182px;
+        height: 118px;
+        border-radius: 12px;
+        padding: 20px;
+        box-sizing: border-box;
+        border: 1px solid $challenge-gray-dark;
+
+        .label {
+            font-size: 18px;
+            font-weight: $challenge-weight-medium;
+            font-family: $challenge-font-dm;
+            margin-bottom: 24px;
+            line-height: 1.2em;
+        }
+
+        .value {
+            font-size: 32px;
+            font-weight: $challenge-weight-light;
+            font-family: $challenge-font-dm;
+            line-height: 1em;
+        }
+    }
+}
