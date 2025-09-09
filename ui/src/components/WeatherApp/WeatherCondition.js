@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-// import appStyles from "../../styles/weather-app/app.module.scss";
+import appStyles from "../../styles/weather-app/app.module.scss";
 
 const WeatherCondition = ({ intl, data }) => {
     const conditionLabel = intl.formatMessage({
@@ -12,7 +12,7 @@ const WeatherCondition = ({ intl, data }) => {
     if (!data || !data?.alt || !data.src) return null;
 
     return (
-        <div>
+        <div className={appStyles.condition} title={data?.alt}>
             <span className="sr-only">{conditionLabel}: </span>
             <img src={process.env.PUBLIC_URL + data?.src} alt={data?.alt} />
         </div>

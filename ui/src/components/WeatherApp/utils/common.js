@@ -9,23 +9,26 @@ export const amountWithUnitOfMeasure = (amount, unit, locale = "en-US") => {
     }).format(amount);
     return (
         <span>
-            <span>{formattedAmount}</span> <span>{unit}</span>
+            <span>{formattedAmount}</span>
+            <span>{unit}</span>
         </span>
     );
 };
 
-export const tempuratureAmount = (amount, unit = "fahrenheit", locale = "en-US") => {
+export const temperatureAmount = (amount, unit = "fahrenheit", locale = "en-US") => {
     const unitOfMeasure =
         unit === "fahrenheit" ? (
             <>
-                <sup>&deg;</sup>F
+                &deg;
+                <span className="sr-only">F</span>
             </>
         ) : (
             <>
-                <sup>&deg;</sup>C
+                <sup>&deg;</sup>
+                <span className="sr-only">C</span>
             </>
         );
-    return amountWithUnitOfMeasure(amount, unitOfMeasure);
+    return amountWithUnitOfMeasure(amount, unitOfMeasure, locale);
 };
 
 export const hourOnly = (dateTime) => {

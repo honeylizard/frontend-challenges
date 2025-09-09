@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl, useIntl } from "react-intl";
 
-import { dayOfWeekOnly, tempuratureAmount } from "./utils/common";
+import { dayOfWeekOnly, temperatureAmount } from "./utils/common";
 import WeatherCondition from "./WeatherCondition";
 
-// import appStyles from "../../styles/weather-app/app.module.scss";
+import appStyles from "../../styles/weather-app/app.module.scss";
 
 const WeatherDaily = ({ intl, data, config }) => {
     const { locale = "en-US" } = useIntl();
@@ -13,34 +13,38 @@ const WeatherDaily = ({ intl, data, config }) => {
     const titleLabel = intl.formatMessage({
         id: "weatherApp.daily.title",
     });
-    const tempuratureHighLabel = intl.formatMessage({
+    const temperatureHighLabel = intl.formatMessage({
         id: "weatherApp.temperatureHigh",
     });
-    const tempuratureLowLabel = intl.formatMessage({
+    const temperatureLowLabel = intl.formatMessage({
         id: "weatherApp.temperatureLow",
     });
 
     if (!data || data?.length === 0 || !config) return null;
 
     return (
-        <section>
-            <h3>{titleLabel}</h3>
-            {data?.map((dayWeather, index) => {
-                return (
-                    <div key={`daily-weather-${index}`}>
-                        <div>{dayOfWeekOnly(dayWeather?.dateTime)}</div>
-                        {!!dayWeather?.condition && <WeatherCondition data={dayWeather?.condition} />}
-                        <div>
-                            <span className="sr-only">{tempuratureHighLabel}: </span>
-                            {tempuratureAmount(dayWeather?.maxTemperature, config.temperature_unit, locale)}
+        <section className={appStyles.dailyWeather}>
+            <h3 className={appStyles.title}>{titleLabel}</h3>
+            <div className={appStyles.list}>
+                {data?.map((dayWeather, index) => {
+                    return (
+                        <div key={`daily-weather-${index}`} className={appStyles.listItem}>
+                            <div className={appStyles.label}>{dayOfWeekOnly(dayWeather?.dateTime)}</div>
+                            {!!dayWeather?.condition && <WeatherCondition data={dayWeather?.condition} />}
+                            <div className={appStyles.values}>
+                                <div>
+                                    <span className="sr-only">{temperatureHighLabel}: </span>
+                                    {temperatureAmount(dayWeather?.maxTemperature, config.temperature_unit, locale)}
+                                </div>
+                                <div>
+                                    <span className="sr-only">{temperatureLowLabel}: </span>
+                                    {temperatureAmount(dayWeather?.minTemperature, config.temperature_unit, locale)}
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <span className="sr-only">{tempuratureLowLabel}: </span>
-                            {tempuratureAmount(dayWeather?.minTemperature, config.temperature_unit, locale)}
-                        </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
         </section>
     );
 };

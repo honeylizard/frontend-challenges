@@ -21,7 +21,7 @@ import WeatherHourly from "./WeatherHourly";
 import WeatherDaily from "./WeatherDaily";
 import WeatherCurrent from "./WeatherCurrent";
 
-// import appStyles from "../../styles/weather-app/app.module.scss";
+import appStyles from "../../styles/weather-app/app.module.scss";
 
 const WeatherForm = ({ intl }) => {
     const { locale = "en-US" } = useIntl();
@@ -106,16 +106,20 @@ const WeatherForm = ({ intl }) => {
     }, [configData, currentLocation]);
 
     return (
-        <div>
+        <div className={appStyles.mainContainer}>
             {/*
             Search for a city, e.g., New York
             Search
             */}
-            {!!currentWeatherData && (
-                <WeatherCurrent data={currentWeatherData} location={currentLocation} config={configData} />
-            )}
-            {dailyWeatherData?.length > 0 && <WeatherDaily data={dailyWeatherData} config={configData} />}
-            {hourlyWeatherData?.length > 0 && <WeatherHourly data={hourlyWeatherData} config={configData} />}
+            <div className={appStyles.primaryContainer}>
+                {!!currentWeatherData && (
+                    <WeatherCurrent data={currentWeatherData} location={currentLocation} config={configData} />
+                )}
+                {dailyWeatherData?.length > 0 && <WeatherDaily data={dailyWeatherData} config={configData} />}
+            </div>
+            <aside className={appStyles.secondaryContainer}>
+                {hourlyWeatherData?.length > 0 && <WeatherHourly data={hourlyWeatherData} config={configData} />}
+            </aside>
         </div>
     );
 };

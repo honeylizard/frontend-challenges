@@ -17,7 +17,6 @@
         max-width: 1215px;
         width: 100%;
         box-sizing: border-box;
-
         padding: 0 20px;
     }
 
@@ -45,11 +44,197 @@
 
     .content {
         background-color: transparent;
+        padding: 0;
 
         .formTitle {
             text-align: center;
             font-family: $challenge-font-bri;
             font-weight: 700;
+        }
+
+        .mainContainer {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            justify-content: space-between;
+            width: 100%;
+
+            @media screen and (max-width: 1250px) {
+                flex-direction: column;
+            }
+
+            .primaryContainer {
+                // max-width: 800px;
+            }
+
+            .secondaryContainer {
+            
+            }
+        }
+
+        .currentWeather {
+            margin-bottom: 30px;
+
+            .primaryCard {
+                // background-color: $challenge-gray;
+                width: 100%;
+                border-radius: 15px;
+                padding: 22px 24px;
+                margin-bottom: 30px;
+                box-sizing: border-box;
+                width: 800px;
+                height: 285px;
+                background-image: url('/assets/weather-app/bg-today-large.svg');
+                background-repeat: no-repeat;
+                background-position: top left;
+                background-size: cover;
+
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                .location {
+                    font-size: 20px;
+                    margin-bottom: 17px;
+                }
+
+                .timestamp {
+                    font-size: 14px;
+                }
+
+                .primaryRight {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .temperature {
+                    font-size: 70px;
+                    font-style: italic;
+                    font-weight: 600;
+                }
+
+                .condition, .condition img {
+                    height: 120px;
+                }
+            }
+
+            .secondaryCardList {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 24px;
+            }
+
+            .secondaryCard {
+                background-color: $challenge-black-light;
+                width: 180px;
+                border-radius: 10px;
+                padding: 22px 24px;
+                box-sizing: border-box;
+
+                .label {
+                    font-size: 14px;
+                }
+
+                .value {
+                    font-size: 25px;
+                }
+            }
+        }
+
+        .hourlyWeather {
+            background-color: $challenge-black-light;
+            border-radius: 15px;
+            padding: 22px;
+            box-sizing: border-box;
+            width: 385px;
+
+            .titleRow {
+                margin-bottom: 16px;
+            }
+
+            .title {
+                margin: 0;
+                padding: 0;
+                font-size: 22px;
+            }
+
+            .list {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .listItem {
+                background-color: $challenge-gray;
+                border-radius: 10px;
+                width: 100%;
+                padding: 20px 22px;
+                box-sizing: border-box;
+                font-size: 20px;
+
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                .listItemLeft {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
+
+                .condition, .condition img {
+                    height: 30px;
+                }
+            }
+        }
+
+        .dailyWeather {
+            .title {
+                margin: 0;
+                padding: 20px 0;
+                font-size: 22px;
+                box-sizing: border-box;
+            }
+
+            .list {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                .listItem {
+                    background-color: $challenge-black-light;
+                    border-radius: 10px;
+                    width: 100px;
+                    height: 165px;
+                    padding: 10px 20px;
+                    box-sizing: border-box;
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .label {
+                       font-size: 15px;
+                    }
+
+                    .condition, .condition img {
+                        height: 60px;
+                    }
+
+                    .values {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+                        flex-direction: row;
+
+                        font-size: 12px;
+                    }
+                }
+            }
         }
     }
 

@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl, useIntl } from "react-intl";
 
-import { hourOnly, tempuratureAmount } from "./utils/common";
+import { hourOnly, temperatureAmount } from "./utils/common";
 import WeatherCondition from "./WeatherCondition";
 
-// import appStyles from "../../styles/weather-app/app.module.scss";
+import appStyles from "../../styles/weather-app/app.module.scss";
 
 const WeatherHourly = ({ intl, data, config }) => {
     const { locale = "en-US" } = useIntl();
@@ -13,28 +13,34 @@ const WeatherHourly = ({ intl, data, config }) => {
     const titleLabel = intl.formatMessage({
         id: "weatherApp.hourly.title",
     });
-    const tempuratureLabel = intl.formatMessage({
+    const temperatureLabel = intl.formatMessage({
         id: "weatherApp.temperature",
     });
 
     if (!data || data?.length === 0 || !config) return null;
 
     return (
-        <section>
-            <h3>{titleLabel}</h3>
-            {/* TODO: Pick a date dropdown and limit the display to just that date */}
-            {data?.map((hourlyWeather, index) => {
-                return (
-                    <div key={`hourly-weather-${index}`}>
-                        <div>{hourOnly(hourlyWeather?.dateTime)}</div>
-                        {!!hourlyWeather?.condition && <WeatherCondition data={hourlyWeather?.condition} />}
-                        <div>
-                            <span className="sr-only">{tempuratureLabel}: </span>
-                            {tempuratureAmount(hourlyWeather?.temperature, config.temperature_unit, locale)}
+        <section className={appStyles.hourlyWeather}>
+            <div className={appStyles.titleRow}>
+                <h3 className={appStyles.title}>{titleLabel}</h3>
+                {/* TODO: Pick a date dropdown and limit the display to just that date */}
+            </div>
+            <div className={appStyles.list}>
+                {data?.map((hourlyWeather, index) => {
+                    return (
+                        <div key={`hourly-weather-${index}`} className={appStyles.listItem}>
+                            <div className={appStyles.listItemLeft}>
+                                {!!hourlyWeather?.condition && <WeatherCondition data={hourlyWeather?.condition} />}
+                                <div>{hourOnly(hourlyWeather?.dateTime)}</div>
+                            </div>
+                            <div>
+                                <span className="sr-only">{temperatureLabel}: </span>
+                                {temperatureAmount(hourlyWeather?.temperature, config.temperature_unit, locale)}
+                            </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
         </section>
     );
 };

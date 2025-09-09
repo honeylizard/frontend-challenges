@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl, useIntl } from "react-intl";
 
-import { amountWithUnitOfMeasure, dateWithWeekDayOnly, tempuratureAmount } from "./utils/common";
+import { amountWithUnitOfMeasure, dateWithWeekDayOnly, temperatureAmount } from "./utils/common";
 import WeatherCondition from "./WeatherCondition";
 
-// import appStyles from "../../styles/weather-app/app.module.scss";
+import appStyles from "../../styles/weather-app/app.module.scss";
 
 const WeatherCurrent = ({ intl, data, location, config }) => {
     const { locale = "en-US" } = useIntl();
@@ -13,7 +13,7 @@ const WeatherCurrent = ({ intl, data, location, config }) => {
     const titleLabel = intl.formatMessage({
         id: "weatherApp.current.title",
     });
-    const tempuratureLabel = intl.formatMessage({
+    const temperatureLabel = intl.formatMessage({
         id: "weatherApp.temperature",
     });
     const precipitationLabel = intl.formatMessage({
@@ -38,38 +38,50 @@ const WeatherCurrent = ({ intl, data, location, config }) => {
     if (!data || !location || !config) return null;
 
     return (
-        <section>
+        <section className={appStyles.currentWeather}>
             <h3 className="sr-only">{titleLabel}</h3>
-            <div>
-                <div>
-                    <span className="sr-only">{locationLabel}: </span>
-                    {location?.name}
+            <div className={appStyles.primaryCard}>
+                <div className={appStyles.primaryLeft}>
+                    <div className={appStyles.location}>
+                        <span className="sr-only">{locationLabel}: </span>
+                        {location?.name}
+                    </div>
+                    <div className={appStyles.timestamp}>
+                        <span className="sr-only">{dateLabel}: </span>
+                        {dateWithWeekDayOnly(data?.dateTime)}
+                    </div>
                 </div>
-                <div>
-                    <span className="sr-only">{dateLabel}: </span>
-                    {dateWithWeekDayOnly(data?.dateTime)}
-                </div>
-                {!!data?.condition && <WeatherCondition data={data?.condition} />}
-                <div>
-                    <span className="sr-only">{tempuratureLabel}: </span>
-                    {tempuratureAmount(data?.temperature, config.temperature_unit, locale)}
+                <div className={appStyles.primaryRight}>
+                    {!!data?.condition && <WeatherCondition data={data?.condition} />}
+                    <div className={appStyles.temperature}>
+                        <span className="sr-only">{temperatureLabel}: </span>
+                        {temperatureAmount(data?.temperature, config.temperature_unit, locale)}
+                    </div>
                 </div>
             </div>
-            <div>
-                <div>{feelsLikeLabel}</div>
-                <div>{tempuratureAmount(data?.feelsLike, config.temperature_unit, locale)}</div>
-            </div>
-            <div>
-                <div>{humidityLabel}</div>
-                <div>{amountWithUnitOfMeasure(data?.humidity, "%", locale)}</div>
-            </div>
-            <div>
-                <div>{windLabel}</div>
-                <div>{amountWithUnitOfMeasure(data?.wind, config?.wind_speed_unit, locale)}</div>
-            </div>
-            <div>
-                <div>{precipitationLabel}</div>
-                <div>{amountWithUnitOfMeasure(data?.precipitation, config?.precipitation_unit, locale)}</div>
+            <div className={appStyles.secondaryCardList}>
+                <div className={appStyles.secondaryCard}>
+                    <div className={appStyles.label}>{feelsLikeLabel}</div>
+                    <div className={appStyles.value}>
+                        {temperatureAmount(data?.feelsLike, config.temperature_unit, locale)}
+                    </div>
+                </div>
+                <div className={appStyles.secondaryCard}>
+                    <div className={appStyles.label}>{humidityLabel}</div>
+                    <div className={appStyles.value}>{amountWithUnitOfMeasure(data?.humidity, "%", locale)}</div>
+                </div>
+                <div className={appStyles.secondaryCard}>
+                    <div className={appStyles.label}>{windLabel}</div>
+                    <div className={appStyles.value}>
+                        {amountWithUnitOfMeasure(data?.wind, " " + config?.wind_speed_unit, locale)}
+                    </div>
+                </div>
+                <div className={appStyles.secondaryCard}>
+                    <div className={appStyles.label}>{precipitationLabel}</div>
+                    <div className={appStyles.value}>
+                        {amountWithUnitOfMeasure(data?.precipitation, " " + config?.precipitation_unit, locale)}
+                    </div>
+                </div>
             </div>
         </section>
     );
