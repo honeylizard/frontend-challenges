@@ -1,0 +1,35 @@
+@import "app.module.scss";
+
+.daily {
+    max-width: 800px;
+    margin: 0 auto;
+
+    .title {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+
+        @include font-dm-sans-semi-bold;
+        font-size: 20px; 
+    }
+
+    .list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        @media screen and (max-width: 1250px) {
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        @media screen and (max-width: 879px) {
+            justify-content: start; 
+        }
+
+        @media screen and (min-width: 880px) and (max-width: 1250px) {
+            justify-content: center;
+        }        
+    }
+}

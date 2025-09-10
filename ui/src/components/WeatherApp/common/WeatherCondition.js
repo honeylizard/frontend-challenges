@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import appStyles from "../../styles/weather-app/app.module.scss";
+import appStyles from "../../../styles/weather-app/app.module.scss";
 
 const WeatherCondition = ({ intl, data, customClasses = [] }) => {
     const conditionLabel = intl.formatMessage({

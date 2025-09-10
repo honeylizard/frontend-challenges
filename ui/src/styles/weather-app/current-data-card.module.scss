@@ -1,0 +1,24 @@
+
+@import "app.module.scss";
+
+.secondaryCard {
+    background-color: $challenge-black-light;
+    width: 182px;
+    height: 118px;
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid $challenge-gray-dark;
+
+    .label {
+        @include font-dm-sans-medium;
+        font-size: 18px;
+
+        margin-bottom: 24px;
+    }
+
+    .value {
+        @include font-dm-sans-light;
+        font-size: 32px;
+    }
+}

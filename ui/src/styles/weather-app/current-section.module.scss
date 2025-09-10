@@ -1,0 +1,29 @@
+@import "app.module.scss";
+
+.current {
+    margin-bottom: 48px;
+
+    .primaryCard {
+        display: flex;
+        justify-content: center;
+    }
+
+    .secondaryCardList {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        @media screen and (max-width: 1250px) {
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        @media screen and (max-width: 879px) {
+            justify-content: start; 
+        }
+
+        @media screen and (min-width: 880px) and (max-width: 1250px) {
+            justify-content: center;
+        } 
+    }
+}

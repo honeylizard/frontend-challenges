@@ -17,9 +17,9 @@ import {
 import { parseCurrentWeatherData } from "./utils/parseCurrentWeatherData";
 import { parseDailyWeatherData } from "./utils/parseDailyWeatherData";
 import { parseHourlyWeatherData } from "./utils/parseHourlyWeatherData";
-import WeatherHourly from "./WeatherHourly";
-import WeatherDaily from "./WeatherDaily";
-import WeatherCurrent from "./WeatherCurrent";
+import HourlySection from "./section/HourlySection";
+import DailySection from "./section/DailySection";
+import CurrentSection from "./section/CurrentSection";
 
 import appStyles from "../../styles/weather-app/app.module.scss";
 
@@ -27,7 +27,7 @@ const WeatherForm = ({ intl }) => {
     const { locale = "en-US" } = useIntl();
 
     const [currentWeatherData, setCurrentWeatherData] = useState();
-    const [dailyWeatherData, setDailyWeatherData] = useState();
+    const [dailyWeatherData, setDailyWeatherData] = useState([]);
     const [hourlyWeatherData, setHourlyWeatherData] = useState();
     // TODO: set this via dropdown options on "Units"
     const [configData, setConfigData] = useState({
@@ -42,6 +42,8 @@ const WeatherForm = ({ intl }) => {
     // const appTitleLabel = intl.formatMessage({
     //     id: "weatherApp.header.title",
     // });
+
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         // API takes in zip code or city/country (no country codes) => "Atlanta, United States", or "Berlin, Germany", or "30066"
@@ -79,6 +81,7 @@ const WeatherForm = ({ intl }) => {
     useEffect(() => {
         const baseUrl = "https://api.open-meteo.com";
         if (currentLocation?.latitude && currentLocation?.longitude) {
+            setIsLoading(true);
             fetchWeatherApi(`${baseUrl}/v1/forecast`, {
                 latitude: currentLocation.latitude,
                 longitude: currentLocation.longitude,
@@ -94,14 +97,18 @@ const WeatherForm = ({ intl }) => {
                     WIND_SPEED_KEY,
                 ],
                 ...configData,
-            }).then((response) => {
-                const data = response[0];
-                const utcOffsetSeconds = data.utcOffsetSeconds();
+            })
+                .then((response) => {
+                    const data = response[0];
+                    const utcOffsetSeconds = data.utcOffsetSeconds();
 
-                setCurrentWeatherData(parseCurrentWeatherData(data, utcOffsetSeconds));
-                setHourlyWeatherData(parseHourlyWeatherData(data, utcOffsetSeconds, 8));
-                setDailyWeatherData(parseDailyWeatherData(data, utcOffsetSeconds));
-            });
+                    setCurrentWeatherData(parseCurrentWeatherData(data, utcOffsetSeconds));
+                    setHourlyWeatherData(parseHourlyWeatherData(data, utcOffsetSeconds, 8));
+                    setDailyWeatherData(parseDailyWeatherData(data, utcOffsetSeconds));
+                })
+                .finally(() => {
+                    setIsLoading(false);
+                });
         }
     }, [configData, currentLocation]);
 
@@ -112,13 +119,16 @@ const WeatherForm = ({ intl }) => {
             Search
             */}
             <div className={appStyles.primaryContainer}>
-                {!!currentWeatherData && (
-                    <WeatherCurrent data={currentWeatherData} location={currentLocation} config={configData} />
-                )}
-                {dailyWeatherData?.length > 0 && <WeatherDaily data={dailyWeatherData} config={configData} />}
+                <CurrentSection
+                    data={currentWeatherData}
+                    location={currentLocation}
+                    config={configData}
+                    isLoading={isLoading}
+                />
+                <DailySection data={dailyWeatherData} config={configData} isLoading={isLoading} />
             </div>
             <aside className={appStyles.secondaryContainer}>
-                {hourlyWeatherData?.length > 0 && <WeatherHourly data={hourlyWeatherData} config={configData} />}
+                <HourlySection data={hourlyWeatherData} config={configData} isLoading={isLoading} />
             </aside>
         </div>
     );

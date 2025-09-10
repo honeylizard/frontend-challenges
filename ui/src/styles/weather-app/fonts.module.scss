@@ -15,3 +15,27 @@ $challenge-weight-semi-bold: 600;
 $challenge-weight-bold: 700;
 $challenge-weight-extra-bold: 800;
 $challenge-weight-black: 900;
+
+@mixin font-dm-sans-medium {
+  font-family: $challenge-font-dm;
+  font-weight: $challenge-weight-medium;
+  line-height: 1.2em;
+}
+
+@mixin font-dm-sans-bold {
+  font-family: $challenge-font-dm;
+  font-weight: $challenge-weight-bold;
+  line-height: 1.2em;
+}
+
+@mixin font-dm-sans-semi-bold {
+  font-family: $challenge-font-dm;
+  font-weight: $challenge-weight-semi-bold;
+  line-height: 1.2em;
+}
+
+@mixin font-dm-sans-light {
+  font-family: $challenge-font-dm;
+  font-weight: $challenge-weight-light;
+  line-height: 1em;
+}
