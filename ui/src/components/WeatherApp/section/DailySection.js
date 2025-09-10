@@ -27,9 +27,8 @@ const DailySection = ({ intl, data, config, isLoading = false }) => {
                     return (
                         <DailyListItem
                             key={`daily-weather-${index}`}
-                            data={dayWeather}
+                            data={{ ...dayWeather, isLoading }}
                             config={config}
-                            isLoading={isLoading}
                         />
                     );
                 })}

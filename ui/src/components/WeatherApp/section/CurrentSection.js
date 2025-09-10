@@ -76,7 +76,7 @@ const CurrentSection = ({ intl, data, location, config, isLoading = false }) => 
 CurrentSection.propTypes = {
     intl: PropTypes.object.isRequired,
     data: PropTypes.object,
-    location: PropTypes.object.isRequired,
+    location: PropTypes.object,
     config: PropTypes.object.isRequired,
     isLoading: PropTypes.bool,
 };

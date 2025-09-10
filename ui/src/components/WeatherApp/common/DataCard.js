@@ -14,8 +14,8 @@ const DataCard = ({ label, value, isLoading = true }) => {
 };
 
 DataCard.propTypes = {
-    label: PropTypes.element,
-    value: PropTypes.element,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     isLoading: PropTypes.bool,
 };
 

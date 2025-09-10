@@ -35,11 +35,11 @@ const CurrentCard = ({ intl, dateTime, location, condition, temperature, config,
                     <div className={styles.label}>
                         <div className={styles.location}>
                             <span className="sr-only">{locationLabel}: </span>
-                            {location?.name}
+                            {location?.name || "-"}
                         </div>
                         <div className={styles.timestamp}>
                             <span className="sr-only">{dateLabel}: </span>
-                            {dateWithWeekDayOnly(dateTime)}
+                            {dateWithWeekDayOnly(dateTime) || "-"}
                         </div>
                     </div>
                     <div className={styles.value}>
@@ -59,7 +59,7 @@ CurrentCard.propTypes = {
     intl: PropTypes.object.isRequired,
     dateTime: PropTypes.object,
     condition: PropTypes.object,
-    location: PropTypes.object.isRequired,
+    location: PropTypes.object,
     temperature: PropTypes.number,
     config: PropTypes.object.isRequired,
     isLoading: PropTypes.bool,

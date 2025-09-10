@@ -21,15 +21,10 @@ const DailyListItem = ({ intl, data, config, ...attrs }) => {
 
     return (
         <div className={styles.listItem} {...attrs}>
-            <div className={styles.label}>{!data.isLoading && dayOfWeekOnly(data?.dateTime)}</div>
+            <div className={styles.label}>{!data?.isLoading && dayOfWeekOnly(data?.dateTime)}</div>
             {!!data?.condition && <WeatherCondition data={data?.condition} customClasses={[styles.condition]} />}
             <div className={styles.values}>
-                {data.isLoading ? (
-                    <>
-                        <div />
-                        <div />
-                    </>
-                ) : (
+                {!data?.isLoading ? (
                     <>
                         <div>
                             <span className="sr-only">{temperatureHighLabel}: </span>
@@ -40,6 +35,11 @@ const DailyListItem = ({ intl, data, config, ...attrs }) => {
                             {temperatureAmount(data?.minTemperature, config.temperature_unit, locale)}
                         </div>
                     </>
+                ) : (
+                    <>
+                        <div />
+                        <div />
+                    </>
                 )}
             </div>
         </div>
@@ -48,7 +48,7 @@ const DailyListItem = ({ intl, data, config, ...attrs }) => {
 
 DailyListItem.propTypes = {
     intl: PropTypes.object.isRequired,
-    data: PropTypes.array,
+    data: PropTypes.object,
     config: PropTypes.object.isRequired,
 };
 
