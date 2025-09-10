@@ -14,7 +14,7 @@
 
     .container {
         margin: 0 auto;
-        max-width: 1215px;
+        max-width: 1255px;
         width: 100%;
         box-sizing: border-box;
         padding: 0 20px;
@@ -29,16 +29,8 @@
         margin: 0;
         padding: 0;
 
-        .uomSwitcherContainer {
-            display: flex;
-            align-items: center;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-
-            span {
-                padding-left: 5px;
-            }
+        @media screen and (max-width: 375px) {
+            flex-direction: column;
         }
     }
 
