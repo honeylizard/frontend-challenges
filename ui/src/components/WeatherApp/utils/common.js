@@ -43,6 +43,12 @@ export const dayOfWeekOnly = (dateTime) => {
     return formattedDate.isValid ? formattedDate.format("ddd") : dateTime?.toString();
 };
 
+export const dayOfWeekNumberOnly = (dateTime) => {
+    const formattedDate = dayjs(dateTime, true);
+
+    return formattedDate.isValid ? formattedDate.format("d") : dateTime?.toString();
+};
+
 export const dateWithWeekDayOnly = (dateTime) => {
     const formattedDate = dayjs(dateTime, true);
 

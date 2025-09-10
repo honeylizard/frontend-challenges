@@ -15,7 +15,10 @@
 
     .titleRow {
         margin-bottom: 16px;
-        height: 37px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .title {

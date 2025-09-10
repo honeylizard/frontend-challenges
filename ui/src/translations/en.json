@@ -276,5 +276,6 @@
   "weatherApp.wind": "Wind",
   "weatherApp.feels_like": "Feels like",
   "weatherApp.date": "Date",
-  "weatherApp.location": "Location"
+  "weatherApp.location": "Location",
+  "weatherApp.weekday": "Weekday"
 }
