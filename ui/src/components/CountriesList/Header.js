@@ -37,7 +37,11 @@ const Header = ({ intl }) => {
                 <body className={bodyClasses.join(" ")} />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans" />
             </Helmet>
-            <a className="sr-only sr-focusable" href="#content" title={skipToContentLabel}>
+            <a
+                className="sr-only sr-focusable"
+                href="/frontend-challenges#/frontend-challenges/countries-api#content"
+                title={skipToContentLabel}
+            >
                 {skipToContentLabel}
             </a>
             <header className={countriesApiStyle.header}>

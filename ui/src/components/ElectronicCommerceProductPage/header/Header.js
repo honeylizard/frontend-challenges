@@ -22,7 +22,11 @@ const Header = ({ intl }) => {
     return (
         <header className={appStyles.header}>
             <h1 className="sr-only">{title}</h1>
-            <a className="sr-only sr-focusable" href="#content" title={skipToContentLabel}>
+            <a
+                className="sr-only sr-focusable"
+                href="/frontend-challenges#/frontend-challenges/e-commerce-product-page#content"
+                title={skipToContentLabel}
+            >
                 {skipToContentLabel}
             </a>
             <div className={appStyles.leftGroup}>

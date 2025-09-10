@@ -20,7 +20,11 @@ const StaticJobListingsPage = ({ intl }) => {
                 <body className={staticJobListingsStyle.solutionContainer} />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan" />
             </Helmet>
-            <a className="sr-only sr-focusable" href="#content" title={skipToContentLabel}>
+            <a
+                className="sr-only sr-focusable"
+                href="/frontend-challenges#/frontend-challenges/static-job-listings#content"
+                title={skipToContentLabel}
+            >
                 {skipToContentLabel}
             </a>
             <header className={staticJobListingsStyle.header} />

@@ -24,7 +24,11 @@ const Header = ({ intl, data = {} }) => {
                 <body className={bodyClasses.join(" ")} />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik" />
             </Helmet>
-            <a className="sr-only sr-focusable" href="#content" title={skipToContentLabel}>
+            <a
+                className="sr-only sr-focusable"
+                href="/frontend-challenges#/frontend-challenges/bookmark-landing-page#content"
+                title={skipToContentLabel}
+            >
                 {skipToContentLabel}
             </a>
             <header className={pageStyles.header}>

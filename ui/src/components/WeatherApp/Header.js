@@ -17,7 +17,11 @@ const Header = ({ intl }) => {
 
     return (
         <header className={[appStyles.wrapper, appStyles.header].join(" ")}>
-            <a className="sr-only sr-focusable" href="#content" title={skipToContentLabel}>
+            <a
+                className="sr-only sr-focusable"
+                href="/frontend-challenges#/frontend-challenges/weather-app#content"
+                title={skipToContentLabel}
+            >
                 {skipToContentLabel}
             </a>
             <h1 className={appStyles.appTitle}>
