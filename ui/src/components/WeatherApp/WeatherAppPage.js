@@ -10,9 +10,6 @@ import Header from "./Header";
 import WeatherForm from "./WeatherForm";
 
 const WeatherAppPage = ({ intl }) => {
-    const formTitleLabel = intl.formatMessage({
-        id: "weatherApp.form.title",
-    });
     return (
         <React.Fragment>
             <Helmet>
@@ -25,7 +22,6 @@ const WeatherAppPage = ({ intl }) => {
             <div className={appStyles.container}>
                 <Header />
                 <main id="content" className={appStyles.content}>
-                    <h2 className={appStyles.formTitle}>{formTitleLabel}</h2>
                     <WeatherForm />
                 </main>
                 <Footer />

@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl, useIntl } from "react-intl";
 
 import { hourOnly, temperatureAmount } from "../utils/common";
 import WeatherCondition from "../common/WeatherCondition";
+import { GlobalContext } from "../../../GlobalStateProvider";
 
 import styles from "../../../styles/weather-app/hourly-list-item.module.scss";
 
-const HourlySection = ({ intl, dateTime, condition, temperature, config, isLoading = true, ...attrs }) => {
+const HourlySection = ({ intl, dateTime, condition, temperature, ...attrs }) => {
+    const { weatherApp: globalData } = useContext(GlobalContext);
+    const { isLoading = true, configData: config = {} } = globalData;
+
     const { locale = "en-US" } = useIntl();
     const temperatureLabel = intl.formatMessage({
         id: "weatherApp.temperature",
@@ -38,8 +42,6 @@ HourlySection.propTypes = {
     dateTime: PropTypes.object,
     condition: PropTypes.object,
     temperature: PropTypes.number,
-    config: PropTypes.object.isRequired,
-    isLoading: PropTypes.bool,
 };
 
 export default injectIntl(HourlySection);

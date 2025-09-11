@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import styles from "../../../styles/weather-app/daily-section.module.scss";
 import DailyListItem from "../common/DailyListItem";
+import { GlobalContext } from "../../../GlobalStateProvider";
 
-const DailySection = ({ intl, data, config, isLoading = false }) => {
+import styles from "../../../styles/weather-app/daily-section.module.scss";
+
+const DailySection = ({ intl }) => {
+    const { weatherApp: globalData } = useContext(GlobalContext);
+    const { isLoading = true, configData: config = {}, dailyWeatherData: data } = globalData;
+
     let listData = [];
     const titleLabel = intl.formatMessage({
         id: "weatherApp.daily.title",
@@ -24,13 +29,7 @@ const DailySection = ({ intl, data, config, isLoading = false }) => {
             <h3 className={styles.title}>{titleLabel}</h3>
             <div className={styles.list}>
                 {listData?.map((dayWeather, index) => {
-                    return (
-                        <DailyListItem
-                            key={`daily-weather-${index}`}
-                            data={{ ...dayWeather, isLoading }}
-                            config={config}
-                        />
-                    );
+                    return <DailyListItem key={`daily-weather-${index}`} data={dayWeather} config={config} />;
                 })}
             </div>
         </section>
@@ -39,9 +38,6 @@ const DailySection = ({ intl, data, config, isLoading = false }) => {
 
 DailySection.propTypes = {
     intl: PropTypes.object.isRequired,
-    data: PropTypes.array,
-    config: PropTypes.object.isRequired,
-    isLoading: PropTypes.bool,
 };
 
 export default injectIntl(DailySection);

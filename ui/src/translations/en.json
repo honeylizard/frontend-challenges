@@ -277,5 +277,12 @@
   "weatherApp.feels_like": "Feels like",
   "weatherApp.date": "Date",
   "weatherApp.location": "Location",
-  "weatherApp.weekday": "Weekday"
+  "weatherApp.weekday": "Weekday",
+  "weatherApp.form.search": "Search",
+  "weatherApp.form.searchPlaceholder": "Search for a place...",
+  "weatherApp.form.submit": "Search",
+  "weatherApp.error.title": "Something went wrong",
+  "weatherApp.error.description": "We couldn't connect to the server (API error). Please try again in a few moments.",
+  "weatherApp.error.reset": "Reset",
+  "weatherApp.form.no_results": "No search result found!"
 }

@@ -1,4 +1,4 @@
-@import "app.module.scss";
+@use "fonts.module.scss";
 
 .daily {
     max-width: 800px;
@@ -10,7 +10,7 @@
         box-sizing: border-box;
         margin-bottom: 20px;
 
-        @include font-dm-sans-semi-bold;
+        @include fonts.font-dm-sans-semi-bold;
         font-size: 20px; 
     }
 

@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
 import unitsIcon from "../../../assets/weather-app/icon-units.svg";
+import arrowIcon from "../../../assets/weather-app/icon-dropdown.svg";
+
 import styles from "../../../styles/weather-app/units-selector.module.scss";
 
 const UnitsSelector = ({ intl }) => {
@@ -14,6 +16,7 @@ const UnitsSelector = ({ intl }) => {
         <button type="button" className={styles.select}>
             <img src={unitsIcon} alt="" role="presentation" />
             <span>{unitsLabel}</span>
+            <img src={arrowIcon} alt="" role="presentation" />
 
             {/*
             Switch to Imperial/Metric

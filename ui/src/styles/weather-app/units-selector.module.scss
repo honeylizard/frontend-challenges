@@ -1,4 +1,5 @@
-@import "app.module.scss";
+@use "colors.module.scss";
+@use "fonts.module.scss";
 
 .select {
     box-sizing: border-box;
@@ -8,11 +9,11 @@
     padding: 12px 16px;
     border-radius: 8px;
 
-    background-color: $challenge-gray;
+    background-color: colors.$challenge-black-light;
     border: 1px solid transparent;
-    color: $challenge-white;
+    color: colors.$challenge-white;
 
-    font-family: $challenge-font-dm;
+    font-family: fonts.$challenge-font-dm;
     font-size: 18px;
     line-height: 1em;
 

@@ -1,7 +1,8 @@
-@import "app.module.scss";
+@use "colors.module.scss";
+@use "fonts.module.scss";
 
 .hourly {
-    background-color: $challenge-black-light;
+    background-color: colors.$challenge-black-light;
     border-radius: 20px;
     padding: 24px;
     box-sizing: border-box;
@@ -25,7 +26,7 @@
         margin: 0;
         padding: 0;
 
-        @include font-dm-sans-semi-bold;
+        @include fonts.font-dm-sans-semi-bold;
         font-size: 20px;
     }
 

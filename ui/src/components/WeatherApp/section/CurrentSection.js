@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl, useIntl } from "react-intl";
 
 import { amountWithUnitOfMeasure, temperatureAmount } from "../utils/common";
-
-import styles from "../../../styles/weather-app/current-section.module.scss";
 import DataCard from "../common/DataCard";
 import CurrentCard from "../common/CurrentCard";
+import { GlobalContext } from "../../../GlobalStateProvider";
 
-const CurrentSection = ({ intl, data, location, config, isLoading = false }) => {
+import styles from "../../../styles/weather-app/current-section.module.scss";
+
+const CurrentSection = ({ intl }) => {
+    const { weatherApp: globalData } = useContext(GlobalContext);
+    const {
+        isLoading = true,
+        configData: config = {},
+        currentWeatherData: data,
+        currentLocation: location,
+    } = globalData;
+
     const { locale = "en-US" } = useIntl();
 
     const titleLabel = intl.formatMessage({
@@ -75,10 +84,6 @@ const CurrentSection = ({ intl, data, location, config, isLoading = false }) => 
 
 CurrentSection.propTypes = {
     intl: PropTypes.object.isRequired,
-    data: PropTypes.object,
-    location: PropTypes.object,
-    config: PropTypes.object.isRequired,
-    isLoading: PropTypes.bool,
 };
 
 export default injectIntl(CurrentSection);

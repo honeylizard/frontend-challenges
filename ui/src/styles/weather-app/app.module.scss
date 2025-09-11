@@ -1,16 +1,24 @@
-@import "../_core";
-@import "fonts.module.scss";
-@import "colors.module.scss";
+@use "fonts.module.scss";
+@use "colors.module.scss";
+
+@use "../_core" as *;
+
+
+@mixin placeholder {
+  @include fonts.font-dm-sans-medium;
+  color: colors.$challenge-white;
+  font-size: 20px;
+}
 
 .solutionContainer {
-    font-family: $challenge-font-dm;
+    font-family: fonts.$challenge-font-dm;
     font-size: 18px;
 
     margin: 0;
     padding: 0;
 
-    background-color: $challenge-off-black;
-    color: $challenge-white;
+    background-color: colors.$challenge-off-black;
+    color: colors.$challenge-white;
 
     .container {
         margin: 0 auto;
@@ -40,8 +48,10 @@
 
         .formTitle {
             text-align: center;
-            font-family: $challenge-font-bri;
-            font-weight: 700;
+            font-family: fonts.$challenge-font-bri;
+            font-weight: fonts.$challenge-weight-bold;
+            font-size: 52px;
+            line-height: 1.2em;
         }
 
         .mainContainer {
@@ -50,17 +60,100 @@
             gap: 30px;
             justify-content: space-between;
             width: 100%;
+            flex-wrap: wrap;
 
             @media screen and (max-width: 1250px) {
                 flex-direction: column;
             }
 
-            .primaryContainer {
-                // max-width: 800px;
+            .formContainer {
+                width: 100%;
+                flex-grow: 1;
+                display: flex;
+                justify-content: center;
+                gap: 16px;
+
+                .searchField {
+                    border-radius: 12px;
+                    background-color: colors.$challenge-black-light;
+                    border: 1px solid transparent;
+                    width: 100%;
+                    max-width: 526px;
+
+                    background-image: url('/assets/weather-app/icon-search.svg');
+                    background-repeat: no-repeat;
+                    background-position: 24px 18px;
+                    padding-left: 55px;
+
+                    display: flex;
+
+                    .input {
+                        // sets a darker theme for styling like -internal-autofill-selected
+                        color-scheme: dark; 
+
+                        background-color: transparent;
+                        border: none;
+                        padding: 16px 24px 16px 10px;
+                        flex-grow: 1;
+                        border-radius: 0 12px 12px 0;
+
+                        @include placeholder;
+
+                        /* do not group these rules */
+                        &::-webkit-input-placeholder {
+                            @include placeholder;
+                        }
+                        &:-moz-placeholder {
+                            @include placeholder;
+                            opacity: 1;
+                        }
+                        &::-moz-placeholder {
+                            @include placeholder;
+                            opacity: 1;
+                        }
+                        &:-ms-input-placeholder {
+                            @include placeholder;
+                        }
+                        &::-ms-input-placeholder {
+                            @include placeholder;
+                        }
+                        &::placeholder {
+                            @include placeholder;
+                        }
+                    }
+                }
+
+                .submitButton {
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    padding: 12px 16px;
+                    border-radius: 8px;
+
+                    background-color: colors.$challenge-blue;
+                    border: 1px solid transparent;
+                    color: colors.$challenge-white;
+
+                    font-family: fonts.$challenge-font-dm;
+                    font-size: 18px;
+                    line-height: 1em;
+
+                    cursor: pointer;
+
+                    &:hover, &:focus-visible {
+                        background-color: colors.$challenge-blue-dark;
+                    }
+                }
             }
 
-            .secondaryContainer {
-            
+            .noResults {
+                @include fonts.font-dm-sans-bold;
+                font-size: 28px;
+
+                display: flex;
+                justify-content: center;
+                flex-grow: 1;
             }
         }
     }

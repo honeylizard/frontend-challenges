@@ -1,6 +1,8 @@
 import React, { createContext, useReducer } from "react";
 import PropTypes from "prop-types";
+
 import GlobalStateReducer from "./GlobalStateReducer";
+import { getInitialWeatherData } from "./components/WeatherApp/utils/initialData";
 
 const initialState = {
     countriesApi: {
@@ -25,6 +27,7 @@ const initialState = {
         WEEKLY_KEY: "weekly",
         MONTHLY_KEY: "monthly",
     },
+    weatherApp: getInitialWeatherData(),
 };
 
 const GlobalContext = createContext(initialState);
@@ -62,6 +65,14 @@ const GlobalProvider = ({ children }) => {
         });
     }
 
+    function updateWeatherAppData(item) {
+        console.log("updateWeatherAppData", item);
+        dispatch({
+            type: "UPDATE_WEATHER",
+            payload: item,
+        });
+    }
+
     return (
         <GlobalContext.Provider
             value={{
@@ -69,10 +80,12 @@ const GlobalProvider = ({ children }) => {
                 calculatorApp: state.calculatorApp,
                 todoApp: state.todoApp,
                 timeTrackingDashboard: state.timeTrackingDashboard,
+                weatherApp: state.weatherApp,
                 updateCountriesData,
                 updateCalcData,
                 updateTodoData,
                 updateTimeTrackingData,
+                updateWeatherAppData,
             }}
         >
             {children}

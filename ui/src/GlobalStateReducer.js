@@ -32,6 +32,13 @@ const GlobalStateReducer = (state, action) => {
                     ...action.payload,
                 },
             };
+        case "UPDATE_WEATHER":
+            return {
+                weatherApp: {
+                    ...state.weatherApp,
+                    ...action.payload,
+                },
+            };
         default:
             return state;
     }

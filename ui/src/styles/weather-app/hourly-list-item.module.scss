@@ -1,8 +1,9 @@
-@import "app.module.scss";
+@use "colors.module.scss";
+@use "fonts.module.scss";
 
 .listItem {
-    background-color: $challenge-gray-dark;
-    border: 1px solid $challenge-gray;
+    background-color: colors.$challenge-gray-dark;
+    border: 1px solid colors.$challenge-gray;
     border-radius: 8px;
     width: 100%;
     height: 60px;
@@ -21,7 +22,7 @@
         flex-direction: row;
         align-items: center;
 
-        @include font-dm-sans-medium;
+        @include fonts.font-dm-sans-medium;
         font-size: 20px;
     }
 
@@ -30,7 +31,7 @@
     }
 
     .value {
-        @include font-dm-sans-medium;
+        @include fonts.font-dm-sans-medium;
         font-size: 16px;
     }
 }

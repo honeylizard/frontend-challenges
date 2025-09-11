@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
+import { GlobalContext } from "../../../GlobalStateProvider";
 
 import styles from "../../../styles/weather-app/weekday-selector.module.scss";
 
 const WeekdaySelector = ({ intl, options }) => {
-    const [currentValue, setCurrentValue] = useState("");
+    const { updateWeatherAppData, weatherApp: globalData } = useContext(GlobalContext);
+    const { hourlyWeekday: initialValue, isLoading = true } = globalData;
+    const [currentValue, setCurrentValue] = useState(initialValue);
 
     const label = intl.formatMessage({
         id: "weatherApp.weekday",
@@ -15,27 +18,29 @@ const WeekdaySelector = ({ intl, options }) => {
         const { value: newValue } = event.target;
 
         setCurrentValue(newValue);
+        updateWeatherAppData({
+            hourlyWeekday: newValue,
+        });
     };
-
-    console.log("Hourly Weekday Selected", currentValue);
 
     return (
         <>
             <label htmlFor="hourly-weekday" className="sr-only">
                 {label}
             </label>
-            <select id="hourly-weekday" className={styles.select} value={currentValue} onChange={handleChange}>
-                {options?.length > 0 ? (
-                    <>
-                        {options.map((option, index) => (
-                            <option key={option.key || index} value={option.value}>
-                                {option.label}
-                            </option>
-                        ))}
-                    </>
-                ) : (
-                    <option value="">-</option>
-                )}
+            <select
+                id="hourly-weekday"
+                className={styles.select}
+                value={currentValue}
+                onChange={handleChange}
+                disabled={isLoading}
+            >
+                <option value="">-</option>
+                {options.map((option, index) => (
+                    <option key={option.key || index} value={option.value}>
+                        {option.label}
+                    </option>
+                ))}
             </select>
         </>
     );
