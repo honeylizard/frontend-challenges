@@ -30,11 +30,21 @@ const DailyListItem = ({ intl, data, ...attrs }) => {
                     <>
                         <div>
                             <span className="sr-only">{temperatureHighLabel}: </span>
-                            {temperatureAmount(data?.maxTemperature, config.temperature_unit, locale)}
+                            {temperatureAmount(
+                                data?.maxTemperature,
+                                config.temperature_unit,
+                                locale,
+                                intl.formatMessage
+                            )}
                         </div>
                         <div>
                             <span className="sr-only">{temperatureLowLabel}: </span>
-                            {temperatureAmount(data?.minTemperature, config.temperature_unit, locale)}
+                            {temperatureAmount(
+                                data?.minTemperature,
+                                config.temperature_unit,
+                                locale,
+                                intl.formatMessage
+                            )}
                         </div>
                     </>
                 ) : (

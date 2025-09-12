@@ -29,7 +29,7 @@ const HourlySection = ({ intl, dateTime, condition, temperature, ...attrs }) => 
                     </div>
                     <div className={styles.value}>
                         <span className="sr-only">{temperatureLabel}: </span>
-                        {temperatureAmount(temperature, config.temperature_unit, locale)}
+                        {temperatureAmount(temperature, config.temperature_unit, locale, intl.formatMessage)}
                     </div>
                 </>
             )}

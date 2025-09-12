@@ -26,7 +26,7 @@ const UnitsSelectorItem = ({ intl, label, isSelected = false }) => {
 
 UnitsSelectorItem.propTypes = {
     intl: PropTypes.object.isRequired,
-    label: PropTypes.element.isRequired,
+    label: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
     isSelected: PropTypes.bool,
 };
 

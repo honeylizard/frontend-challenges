@@ -37,11 +37,33 @@ const CurrentSection = ({ intl }) => {
         id: "weatherApp.feels_like",
     });
 
+    const kmhLabel = intl.formatMessage({
+        id: "weatherApp.units.kmh",
+    });
+    const mphLabel = intl.formatMessage({
+        id: "weatherApp.units.mph",
+    });
+    const mmLabel = intl.formatMessage({
+        id: "weatherApp.units.mm",
+    });
+    const inchLabel = intl.formatMessage({
+        id: "weatherApp.units.inch",
+    });
+
     const classes = [styles.primaryCard];
 
     if (isLoading) {
         classes.push(styles.loading);
     }
+
+    const getUnit = (label, title) => {
+        return (
+            <>
+                {" "}
+                <dfn title={title}>{label}</dfn>
+            </>
+        );
+    };
 
     return (
         <section className={styles.current}>
@@ -60,7 +82,7 @@ const CurrentSection = ({ intl }) => {
                 <DataCard
                     isLoading={isLoading}
                     label={feelsLikeLabel}
-                    value={temperatureAmount(data?.feelsLike, config.temperature_unit, locale)}
+                    value={temperatureAmount(data?.feelsLike, config.temperature_unit, locale, intl.formatMessage)}
                 />
                 <DataCard
                     isLoading={isLoading}
@@ -70,12 +92,20 @@ const CurrentSection = ({ intl }) => {
                 <DataCard
                     isLoading={isLoading}
                     label={windLabel}
-                    value={amountWithUnitOfMeasure(data?.wind, " " + config?.wind_speed_unit, locale)}
+                    value={amountWithUnitOfMeasure(
+                        data?.wind,
+                        getUnit(config?.wind_speed_unit, config?.wind_speed_unit === "kmh" ? kmhLabel : mphLabel),
+                        locale
+                    )}
                 />
                 <DataCard
                     isLoading={isLoading}
                     label={precipitationLabel}
-                    value={amountWithUnitOfMeasure(data?.precipitation, " " + config?.precipitation_unit, locale)}
+                    value={amountWithUnitOfMeasure(
+                        data?.precipitation,
+                        getUnit(config?.precipitation_unit, config?.precipitation_unit === "mm" ? mmLabel : inchLabel),
+                        locale
+                    )}
                 />
             </div>
         </section>

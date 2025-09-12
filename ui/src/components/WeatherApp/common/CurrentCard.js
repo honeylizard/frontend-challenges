@@ -46,7 +46,7 @@ const CurrentCard = ({ intl, dateTime, location, condition, temperature, config,
                         {!!condition && <WeatherCondition data={condition} customClasses={[styles.condition]} />}
                         <div className={styles.temperature}>
                             <span className="sr-only">{temperatureLabel}: </span>
-                            {temperatureAmount(temperature, config.temperature_unit, locale)}
+                            {temperatureAmount(temperature, config.temperature_unit, locale, intl.formatMessage)}
                         </div>
                     </div>
                 </>

@@ -22,6 +22,7 @@ const ResultSection = ({ intl }) => {
     useEffect(() => {
         console.log("handleSubmit - after", {
             currentLocation,
+            configData,
         });
 
         getWeatherData(

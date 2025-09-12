@@ -15,18 +15,18 @@ export const amountWithUnitOfMeasure = (amount, unit, locale = "en-US") => {
     );
 };
 
-export const temperatureAmount = (amount, unit = "fahrenheit", locale = "en-US") => {
+export const temperatureAmount = (amount, unit = "fahrenheit", locale = "en-US", formatMessage) => {
     const unitOfMeasure =
         unit === "fahrenheit" ? (
-            <>
+            <dfn title={formatMessage({ id: "weatherApp.degrees.fahrenheit" })}>
                 &deg;
                 <span className="sr-only">F</span>
-            </>
+            </dfn>
         ) : (
-            <>
-                <sup>&deg;</sup>
+            <dfn title={formatMessage({ id: "weatherApp.degrees.celsius" })}>
+                &deg;
                 <span className="sr-only">C</span>
-            </>
+            </dfn>
         );
     return amountWithUnitOfMeasure(amount, unitOfMeasure, locale);
 };
