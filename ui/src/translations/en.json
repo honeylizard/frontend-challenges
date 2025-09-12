@@ -284,5 +284,7 @@
   "weatherApp.error.title": "Something went wrong",
   "weatherApp.error.description": "We couldn't connect to the server (API error). Please try again in a few moments.",
   "weatherApp.error.reset": "Reset",
-  "weatherApp.form.no_results": "No search result found!"
+  "weatherApp.form.no_results": "No search result found!",
+  "weatherApp.selected": "Selected",
+  "weatherApp.wind_speed": "Wind Speed"
 }

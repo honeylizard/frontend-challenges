@@ -1,7 +1,7 @@
 @use "colors.module.scss";
 @use "fonts.module.scss";
 
-.select {
+.dropdown {
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -18,4 +18,81 @@
     line-height: 1em;
 
     cursor: pointer;
+}
+
+.dropdownMenu {
+    display: none;
+    position: absolute;
+    min-width: 214px;
+    z-index: 1;
+    
+    &.active {
+        display: block;
+        padding: 6px 8px;
+        margin-top: 10px;
+
+        background-color: colors.$challenge-black-light;
+        border: 1px solid colors.$challenge-gray;
+        border-radius: 12px;
+    }
+
+    &.inactive {
+        display: none;
+    }
+
+    .menuButton {
+        padding: 10px 8px;
+        border-radius: 8px;
+        width: 100%;
+        border: none;
+        margin-bottom: 10px;
+
+        @include fonts.font-dm-sans-medium;
+        font-size: 16px;
+        text-align: start;
+
+        color: colors.$challenge-white;
+        cursor: pointer;
+
+        background-color: transparent;
+
+        &:hover, &:focus-visible {
+            background-color: colors.$challenge-gray-dark;
+        }
+    }
+
+    .itemTitle {
+        color: colors.$challenge-grey;
+        margin: 0px 8px 10px 8px;
+
+        @include fonts.font-dm-sans-medium;
+        font-size: 14px;
+    }
+
+    .divider {
+        height: 1px;
+        width: 100%;
+        background-color: colors.$challenge-gray;
+        margin: 10px 0;
+    }
+
+    .item, .itemSelected {
+        margin: 5px 0;
+        padding: 10px 8px;
+        border-radius: 8px;
+
+        @include fonts.font-dm-sans-medium;
+        font-size: 16px;
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .item {
+
+    }
+
+    .itemSelected {
+        background-color: colors.$challenge-gray-dark;
+    }
 }
