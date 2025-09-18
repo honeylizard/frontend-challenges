@@ -300,5 +300,7 @@
   "weatherApp.unitsLong.mm": "Millimeters (mm)",
   "weatherApp.unitsLong.inch": "Inches (in)",
   "weatherApp.unitsLong.fahrenheit": "Fahrenheit (°F)",
-  "weatherApp.unitsLong.celsius": "Celsius (°C)"
+  "weatherApp.unitsLong.celsius": "Celsius (°C)",
+  "weatherApp.search_in_progress": "Search in progress",
+  "weatherApp.no_results": "No results"
 }

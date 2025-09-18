@@ -84,22 +84,12 @@ const UnitsSelector = ({ intl }) => {
         setUseImperial(!useImperial);
     };
 
-    useEffect(() => {
-        const keyDownHandler = (event) => {
-            console.log("event", event);
-            if (event.key === "Escape") {
-                event.preventDefault();
-
-                setShowMenu(false);
-            }
-        };
-
-        document.addEventListener("keydown", keyDownHandler);
-
-        return () => {
-            document.removeEventListener("keydown", keyDownHandler);
-        };
-    }, []);
+    const keyDownHandler = (event) => {
+        if (event.key === "Escape") {
+            event.preventDefault();
+            setShowMenu(false);
+        }
+    };
 
     return (
         <div>
@@ -109,6 +99,7 @@ const UnitsSelector = ({ intl }) => {
                 className={styles.dropdown}
                 onClick={handleToggle}
                 aria-controls="units-dropdown"
+                onKeyDown={keyDownHandler}
             >
                 <img src={unitsIcon} alt="" role="presentation" />
                 <span>{unitsLabel}</span>
@@ -119,7 +110,12 @@ const UnitsSelector = ({ intl }) => {
                 aria-labelledby="units-button"
                 className={[styles.dropdownMenu, showMenu ? styles.active : styles.inactive].join(" ")}
             >
-                <button type="button" onClick={() => handleUseImperial(useImperial)} className={styles.menuButton}>
+                <button
+                    type="button"
+                    onClick={() => handleUseImperial(useImperial)}
+                    className={styles.menuButton}
+                    onKeyDown={keyDownHandler}
+                >
                     {useImperial ? switchToMetricLabel : switchToImperialLabel}
                 </button>
 

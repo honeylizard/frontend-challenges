@@ -10,14 +10,14 @@ import { GlobalContext } from "../../../GlobalStateProvider";
 
 const LocationSearchField = ({ intl }) => {
     const { locale = "en-US" } = useIntl();
-    const { updateWeatherAppData } = useContext(GlobalContext);
+    const { updateWeatherAppData, weatherApp: globalData } = useContext(GlobalContext);
+    const { activeDescendantId } = globalData;
 
     const [searchTerm, setSearchTerm] = useState(""); // "Atlanta, United States" or "Kortrijk, Belgium"
     const [showDropdown, setShowDropdown] = useState(false);
     const [isLoadingResults, setIsLoadingResults] = useState(false);
     const [results, setResults] = useState([]);
 
-    const [activeDescendantId, setActiveDescendantId] = useState(null);
     const inputRef = useRef(null);
     const listboxRef = useRef(null);
 
@@ -27,28 +27,49 @@ const LocationSearchField = ({ intl }) => {
     const searchFieldPlaceholder = intl.formatMessage({
         id: "weatherApp.form.searchPlaceholder",
     });
+    const searchInProgressLabel = intl.formatMessage({
+        id: "weatherApp.search_in_progress",
+    });
+    const noResultsLabel = intl.formatMessage({
+        id: "weatherApp.no_results",
+    });
+
+    const compareLocation = (locationA, locationB) => {
+        if (!locationB || !locationA) return false;
+
+        return (
+            locationA.latitude === locationB.latitude &&
+            locationA.longitude === locationB.longitude &&
+            locationA.name === locationB.name &&
+            locationA.city === locationB.city &&
+            locationA.county === locationB.county &&
+            locationA.country === locationB.country &&
+            locationA.state === locationB.state
+        );
+    };
 
     const handleChange = (event) => {
         const { value: newValue } = event.target;
         setSearchTerm(newValue);
-        setActiveDescendantId(null); // Reset active descendant on new input
 
-        if (searchTerm.length >= 3) {
-            setShowDropdown(true);
-            setIsLoadingResults(true);
-            setResults([]);
-            getLocationData(searchTerm, locale, setShowDropdown, setIsLoadingResults, setResults);
-        } else {
-            setShowDropdown(false);
-            setIsLoadingResults(false);
-            setResults([]);
+        if (newValue !== searchTerm) {
+            if (newValue.length >= 3) {
+                setShowDropdown(true);
+                setIsLoadingResults(true);
+                setResults([]);
+                getLocationData(searchTerm, locale, setShowDropdown, setIsLoadingResults, setResults);
+            } else {
+                setShowDropdown(false);
+                setIsLoadingResults(false);
+                setResults([]);
+            }
         }
     };
 
     const handleOptionClick = (option) => {
         setSearchTerm(option.name);
         setShowDropdown(false);
-        setActiveDescendantId(null);
+        updateWeatherAppData({ activeDescendantId: null });
         inputRef.current.focus();
 
         updateWeatherAppData({
@@ -64,39 +85,36 @@ const LocationSearchField = ({ intl }) => {
     const handleKeyDown = (event) => {
         if (event.key === "ArrowDown") {
             event.preventDefault();
-            // if (activeDescendantId < results.length - 1) {
-            //     setActiveDescendantId(activeDescendantId + 1);
-            // }
+            // set setActiveDescendantId to result below if not last item; otherwise, do nothing
+            if (activeDescendantId) {
+                const currentIndex = results.findIndex((result) => compareLocation(result, activeDescendantId));
+                if (currentIndex !== results.length - 1) {
+                    const selection = results[currentIndex + 1];
+                    updateWeatherAppData({ activeDescendantId: selection });
+                }
+            } else {
+                updateWeatherAppData({ activeDescendantId: results[0] });
+            }
         } else if (event.key === "ArrowUp") {
             event.preventDefault();
-            // if (state.currentIndex > 0) {
-            //     const currentIndex = state.currentIndex - 1;
-            //     dispatch({
-            //     type: "setCurrentIndex",
-            //     currentIndex
-            //     });
-            //     updateActiveDescendant(currentIndex);
-            // }
+            // set setActiveDescendantId to result above if not first item; otherwise, do nothing
+            if (activeDescendantId) {
+                const currentIndex = results.findIndex((result) => compareLocation(result, activeDescendantId));
+                if (currentIndex !== 0) {
+                    const selection = results[currentIndex - 1];
+                    updateWeatherAppData({ activeDescendantId: selection });
+                }
+            }
+            // Else; do nothing if we haven't worked with the list yet
         } else if (event.key === "Enter") {
             event.preventDefault();
-            // if (state.currentIndex === -1) {
-            //     dispatch({ type: "resetSuggestions" });
-            //     return;
-            // }
-
-            // dispatch({
-            //     type: "setSelectedColor",
-            //     selectedColor: state.suggestions[state.currentIndex]
-            // });
+            // update currentLocation with setActiveDescendantId if valid
+            if (activeDescendantId) {
+                handleOptionClick(activeDescendantId);
+            }
         } else if (event.key === "Escape") {
             event.preventDefault();
-            // dispatch({ type: "resetSuggestions" });
-        } else if (event.key === "Tab") {
-            event.preventDefault();
-            // dispatch({
-            //     type: "setSelectedColor",
-            //     selectedColor: state.suggestions[state.currentIndex]
-            // });
+            updateWeatherAppData({ activeDescendantId: null });
         }
     };
 
@@ -135,14 +153,14 @@ const LocationSearchField = ({ intl }) => {
                     {isLoadingResults ? (
                         <li className={styles.loading}>
                             <img src={loadingIcon} alt="" role="presentation" />
-                            <span>Search in progress</span>
+                            <span>{searchInProgressLabel}</span>
                         </li>
                     ) : (
                         <>
-                            {results.length === 0 && <div>No results</div>}
+                            {results.length === 0 && <li className={styles.emptyList}>{noResultsLabel}</li>}
                             {results.map((result, index) => {
                                 const resultId = `location-result-${index}`;
-                                const isSelected = activeDescendantId === index;
+                                const isSelected = compareLocation(result, activeDescendantId);
                                 const classes = [styles.result];
                                 if (isSelected) classes.push(styles.selected);
 
@@ -153,7 +171,7 @@ const LocationSearchField = ({ intl }) => {
                                         key={resultId}
                                         role="option"
                                         className={classes.join(" ")}
-                                        aria-selected={activeDescendantId === index}
+                                        aria-selected={isSelected}
                                         onClick={() => handleOptionClick(result)}
                                     >
                                         {result.name}
@@ -170,12 +188,6 @@ const LocationSearchField = ({ intl }) => {
 
 LocationSearchField.propTypes = {
     intl: PropTypes.object.isRequired,
-    // dateTime: PropTypes.object,
-    // condition: PropTypes.object,
-    // location: PropTypes.object,
-    // temperature: PropTypes.number,
-    // config: PropTypes.object.isRequired,
-    // isLoading: PropTypes.bool,
 };
 
 export default injectIntl(LocationSearchField);

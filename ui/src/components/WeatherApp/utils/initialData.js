@@ -23,5 +23,6 @@ export const getInitialWeatherData = () => {
         hasNoResult: true,
         showWeatherResults: false,
         showError: false,
+        activeDescendantId: null,
     };
 };

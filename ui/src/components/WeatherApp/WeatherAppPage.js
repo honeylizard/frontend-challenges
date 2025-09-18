@@ -1,7 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
-import { injectIntl } from "react-intl";
 
 import Footer from "./Footer";
 
@@ -9,7 +7,7 @@ import appStyles from "../../styles/weather-app/app.module.scss";
 import Header from "./Header";
 import WeatherForm from "./WeatherForm";
 
-const WeatherAppPage = ({ intl }) => {
+const WeatherAppPage = () => {
     return (
         <React.Fragment>
             <Helmet>
@@ -30,8 +28,4 @@ const WeatherAppPage = ({ intl }) => {
     );
 };
 
-WeatherAppPage.propTypes = {
-    intl: PropTypes.object.isRequired,
-};
-
-export default injectIntl(WeatherAppPage);
+export default WeatherAppPage;

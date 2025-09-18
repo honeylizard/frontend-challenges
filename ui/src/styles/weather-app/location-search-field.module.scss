@@ -73,15 +73,21 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
 
     background-color: colors.$challenge-black-light;
     border-radius: 12px;
 
     list-style: none;
 
-    .loading {
-        padding: 0 6px;
+    li {
         box-sizing: border-box;
+        padding: 0 10px;
+        border-radius: 8px;
+        width: 100%;
+    }
+
+    .loading {        
         display: flex;
         align-items: center;
 
@@ -92,10 +98,8 @@
 
     .result {
         padding: 8px 10px;
-        border-radius: 8px;
-        box-sizing: border-box;
-        width: 100%;
-
+        cursor: pointer;
+        
         &.selected {
             background-color: colors.$challenge-gray-dark;
             border: 1px solid colors.$challenge-gray;
