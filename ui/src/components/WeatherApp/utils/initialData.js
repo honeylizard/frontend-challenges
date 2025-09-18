@@ -18,7 +18,10 @@ export const getInitialWeatherData = () => {
         currentWeatherData: {},
         dailyWeatherData: [],
         hourlyWeatherData: [],
-        isLoading: true,
+        isLoading: false,
         hourlyWeekday: "", // Weekday Selector Value
+        hasNoResult: true,
+        showWeatherResults: false,
+        showError: false,
     };
 };

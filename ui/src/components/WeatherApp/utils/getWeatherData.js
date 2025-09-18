@@ -17,7 +17,7 @@ import { parseHourlyWeatherData } from "./parseHourlyWeatherData";
 const BASE_URL = "https://api.open-meteo.com";
 const WEATHER_FORECAST_ENDPOINT = "/v1/forecast";
 
-export const getWeatherData = (latitude, longitude, configData, updateWeatherAppData, setHasNoResult) => {
+export const getWeatherData = (latitude, longitude, configData, updateWeatherAppData) => {
     if (latitude && longitude) {
         const params = {
             latitude: latitude,
@@ -35,8 +35,7 @@ export const getWeatherData = (latitude, longitude, configData, updateWeatherApp
             ],
             ...configData,
         };
-        updateWeatherAppData({ isLoading: true });
-        setHasNoResult(false);
+        updateWeatherAppData({ isLoading: true, hasNoResult: false, showWeatherResults: false });
         fetchWeatherApi(`${BASE_URL}${WEATHER_FORECAST_ENDPOINT}`, params)
             .then((response) => {
                 const data = response[0];
@@ -51,16 +50,25 @@ export const getWeatherData = (latitude, longitude, configData, updateWeatherApp
                         dailyWeatherData: dailyData,
                         hourlyWeatherData: hourlyData,
                         currentWeatherData: currentData,
+                        isLoading: false,
+                        showWeatherResults: true,
                     });
                 } else {
-                    setHasNoResult(true);
+                    updateWeatherAppData({
+                        hasNoResult: true,
+                        isLoading: false,
+                        showWeatherResults: true,
+                    });
                 }
             })
             .catch((error) => {
                 console.error("Error Retrieving Weather Data: ", error?.message);
-            })
-            .finally(() => {
-                updateWeatherAppData({ isLoading: false });
+                updateWeatherAppData({
+                    showError: true,
+                    showWeatherResults: false,
+                    hasNoResult: true,
+                    isLoading: false,
+                });
             });
     }
 };

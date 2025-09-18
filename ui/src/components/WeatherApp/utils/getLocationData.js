@@ -3,7 +3,7 @@ import axios from "axios";
 const BASE_URL = "https://geocoding-api.open-meteo.com";
 const LOCATION_GEOCODING_ENDPOINT = "/v1/search";
 
-export const getLocationData = (searchTerm, locale, updateWeatherAppData, setShowResults, setShowError) => {
+export const getLocationData = (searchTerm, locale, setShowDropdown, setIsLoadingResults, setResults) => {
     // API takes in zip code or city/country (no country codes) => "Atlanta, United States", or "Berlin, Germany", or "30066"
     // "Atlanta" returns multiple results
     // could add &countryCode=US to query to limit to USA?
@@ -17,46 +17,41 @@ export const getLocationData = (searchTerm, locale, updateWeatherAppData, setSho
     params.set("name", searchTerm);
     params.set("language", locale);
     params.set("format", "json");
-    params.set("count", "1");
+    params.set("count", "4");
 
-    updateWeatherAppData({ isLoading: true });
-    setShowResults(false);
-    setShowError(false);
+    setShowDropdown(true);
+    setIsLoadingResults(true);
     axios
         .get(`${BASE_URL}${LOCATION_GEOCODING_ENDPOINT}?${params.toString()}`)
         .then((response) => {
             console.log("response", response);
 
             if (response.data.results) {
-                // TODO: Only picking the first result, but we will eventually shift to using all the results once the auto-complete is configured
-                const locationData = response.data.results[0] || {};
-                const { admin1: state, admin2: county, name: city, country, latitude, longitude } = locationData;
-                const newLocationData = {
-                    name: [city, country].join(", "),
-                    city,
-                    county,
-                    state,
-                    country,
-                    latitude,
-                    longitude,
-                };
-
-                updateWeatherAppData({
-                    currentLocation: newLocationData,
+                const parsedLocationList = response.data.results.map((result) => {
+                    const locationData = result || {};
+                    const { admin1: state, admin2: county, name: city, country, latitude, longitude } = locationData;
+                    const newLocationData = {
+                        name: [city, country].join(", "),
+                        city,
+                        county,
+                        state,
+                        country,
+                        latitude,
+                        longitude,
+                    };
+                    return newLocationData;
                 });
-                setShowResults(true);
+
+                setResults(parsedLocationList);
             } else {
-                // something
+                // something, perhaps an error to handle here?
             }
         })
         .catch((error) => {
             console.error("Error Searching: ", error?.message);
-            setShowError(true);
-            updateWeatherAppData({
-                currentLocation: null,
-            });
+            setShowDropdown(false);
         })
         .finally(() => {
-            // updateWeatherAppData({ isLoading: true });
+            setIsLoadingResults(false);
         });
 };
