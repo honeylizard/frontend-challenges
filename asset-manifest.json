@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/frontend-challenges/static/css/main.29449400.css",
-    "main.js": "/frontend-challenges/static/js/main.b29ef079.js",
-    "static/css/791.a37fa4da.chunk.css": "/frontend-challenges/static/css/791.a37fa4da.chunk.css",
-    "static/js/791.167971bb.chunk.js": "/frontend-challenges/static/js/791.167971bb.chunk.js",
+    "main.css": "/frontend-challenges/static/css/main.39f18746.css",
+    "main.js": "/frontend-challenges/static/js/main.aa55c833.js",
+    "static/css/791.5a4408f8.chunk.css": "/frontend-challenges/static/css/791.5a4408f8.chunk.css",
+    "static/js/791.54844b6f.chunk.js": "/frontend-challenges/static/js/791.54844b6f.chunk.js",
     "static/media/pattern-bg.png": "/frontend-challenges/static/media/pattern-bg.a60a3c85aa8b88aac4b7.png",
     "static/media/bg-desktop-light.jpg": "/frontend-challenges/static/media/bg-desktop-light.3508d620efd5a52bb4ce.jpg",
     "static/media/bg-desktop-dark.jpg": "/frontend-challenges/static/media/bg-desktop-dark.73e47dbb723ebc772ef0.jpg",
@@ -36,13 +36,13 @@
     "static/media/icon-remove.svg": "/frontend-challenges/static/media/icon-remove.1d522c9defe3e2a3151da835dd0bba08.svg",
     "static/media/icon-arrow.svg": "/frontend-challenges/static/media/icon-arrow.ba46d18851b6812778769d4e65aaf2c2.svg",
     "static/media/icon-arrow-up.svg": "/frontend-challenges/static/media/icon-arrow-up.4f1e593fde6d3c272f4afa3026895a55.svg",
-    "main.29449400.css.map": "/frontend-challenges/static/css/main.29449400.css.map",
-    "main.b29ef079.js.map": "/frontend-challenges/static/js/main.b29ef079.js.map",
-    "791.a37fa4da.chunk.css.map": "/frontend-challenges/static/css/791.a37fa4da.chunk.css.map",
-    "791.167971bb.chunk.js.map": "/frontend-challenges/static/js/791.167971bb.chunk.js.map"
+    "main.39f18746.css.map": "/frontend-challenges/static/css/main.39f18746.css.map",
+    "main.aa55c833.js.map": "/frontend-challenges/static/js/main.aa55c833.js.map",
+    "791.5a4408f8.chunk.css.map": "/frontend-challenges/static/css/791.5a4408f8.chunk.css.map",
+    "791.54844b6f.chunk.js.map": "/frontend-challenges/static/js/791.54844b6f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.29449400.css",
-    "static/js/main.b29ef079.js"
+    "static/css/main.39f18746.css",
+    "static/js/main.aa55c833.js"
   ]
 }
