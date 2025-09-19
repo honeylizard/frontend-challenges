@@ -21,6 +21,18 @@
     display: flex;
     min-width: 526px;
 
+    @media screen and (max-width: 750px) {
+        min-width: 450px;
+    }
+
+    @media screen and (max-width: 650px) {
+        min-width: 350px;
+    }
+
+    @media screen and (max-width: 510px) {
+        min-width: 250px;
+    }
+
     .input {
         // sets a darker theme for styling like -internal-autofill-selected
         color-scheme: dark; 
