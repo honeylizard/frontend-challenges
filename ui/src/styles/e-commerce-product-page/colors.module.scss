@@ -1,3 +1,5 @@
+@use "../_core" as core;
+
 $challenge-orange: #ff7d1a; // Orange: hsl(26, 100%, 55%)
 $challenge-orange-light: #ffede0; // Pale Orange: hsl(25, 100%, 94%)
 
@@ -15,7 +17,7 @@ $challenge-overlay: rgba(0, 0, 0, 0.75); // Black with 75% opacity
   grayBlueDark: $challenge-gray-blue-dark;
   grayBlue: $challenge-gray-blue;
   grayBlueLight: $challenge-gray-blue-light;
-  white: $white;
-  black: $black;
+  white: core.$white;
+  black: core.$black;
   overlay: $challenge-overlay;
 }

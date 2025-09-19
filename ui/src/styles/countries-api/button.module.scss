@@ -1,27 +1,27 @@
-@import "countries-api.module.scss";
+@use "../_core" as core;
 
 @mixin basicButton {
     display: inline-block;
     margin: 0;
     padding: 0.375rem 0.75rem;
-    background-color: $blue;
-    border: 2px outset $blue;
+    background-color: core.$blue;
+    border: 2px outset core.$blue;
     text-decoration: none;
-    color: $white;
+    color: core.$white;
     font-size: 1rem;
     text-align: center;
     border-radius: .25rem;
     cursor: pointer;
 
     &:hover {
-        background-color: $black;
-        color: $grey-02;
+        background-color: core.$black;
+        color: core.$grey-02;
     }
 
     &:focus-visible {
-        border-color: $outline-blue;
+        border-color: core.$outline-blue;
         outline: 0;
-        box-shadow: 0 0 0 0.15rem $outline-blue;
+        box-shadow: 0 0 0 0.15rem core.$outline-blue;
     }
 }
 

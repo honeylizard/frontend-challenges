@@ -1,11 +1,11 @@
-@import "../_core";
-@import "colors.module.scss";
-@import "fonts.module.scss";
+@use "../_core" as core;
+@use "colors.module.scss";
+@use "fonts.module.scss";
 
 .solutionContainer {
-    font-family: $challenge-font;
-    background-color: $challenge-grey-01;
-    color: $black;
+    font-family: fonts.$challenge-font;
+    background-color: colors.$challenge-grey-01;
+    color: core.$black;
 
     .centerBox {
         display: flex;
@@ -19,8 +19,8 @@
         box-sizing: border-box;
         max-width: 730px;
         width: 100%;
-        background-color: $white;
-        color: $black;
+        background-color: core.$white;
+        color: core.$black;
         padding: 42px 35px;
 
         @media all and (max-width: 500px) {
@@ -62,8 +62,8 @@
         }
 
         .badge {
-            background-color: $challenge-blue;
-            color: $white;
+            background-color: colors.$challenge-blue;
+            color: core.$white;
             border-radius: 5px;
             padding: 2px 12px;
             box-sizing: border-box;
@@ -71,22 +71,22 @@
         }
 
         .textButton {
-            font-family: $challenge-font;
+            font-family: fonts.$challenge-font;
             background-color: transparent;
             border: none;
             font-size: 16px;
-            color: $challenge-steel;
+            color: colors.$challenge-steel;
             cursor: pointer;
 
             &:hover, &:focus-visible {
-                color: $challenge-blue;
+                color: colors.$challenge-blue;
             }
         }
     }
 
     .content {
-        background-color: $white;
-        color: $black;
+        background-color: core.$white;
+        color: core.$black;
         margin: 0;
         padding: 0;
         font-size: 17px;

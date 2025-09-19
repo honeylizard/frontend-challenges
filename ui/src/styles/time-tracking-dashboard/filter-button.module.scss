@@ -1,22 +1,23 @@
-@import "app.module.scss";
+@use "colors.module.scss";
+@use "../_core" as core;
 
 .filterButton {
-    background-color: $challenge-card-bg;
+    background-color: colors.$challenge-card-bg;
     width: 100%;
     text-align: left;
     padding: 10px;
     box-sizing: border-box;
-    color: $challenge-text-light;
+    color: colors.$challenge-text-light;
     border-color: transparent;
     cursor: pointer;
     font-size: 16px;
 
     &:hover,
     &:focus-visible {
-        color: $white;
+        color: core.$white;
     }
 
     &.activeFilter {
-        color: $white;
+        color: core.$white;
     }
 }

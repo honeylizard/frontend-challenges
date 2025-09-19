@@ -1,4 +1,4 @@
-@import "../_core";
+@use "../_core" as core;
 
 $challenge-bg-dark: #202c37; // hsl(207, 26%, 17%)
 $challenge-primary-dark: #2b3945; // hsl(209, 23%, 22%)
@@ -49,11 +49,11 @@ $challenge-shadow-light-link: 0 0 5px rgba(149, 157, 165, 0.6);
 }
 
 .solutionContainerLight {
-    background-color: $white;
-    color: $black;
+    background-color: core.$white;
+    color: core.$black;
 
     a {
-        color: $black;
+        color: core.$black;
 
         &:hover, &:focus-visible {
             color: blue;
@@ -61,17 +61,17 @@ $challenge-shadow-light-link: 0 0 5px rgba(149, 157, 165, 0.6);
     }
 
     .header, .footer {
-        background-color: $white;
-        color: $black;
+        background-color: core.$white;
+        color: core.$black;
 
         button {
-            color: $black;
+            color: core.$black;
         }
 
         .themeModeButton {
             &:hover, &:focus-visible {
                 background-color: $challenge-bg-light;
-                color: $black;
+                color: core.$black;
             }
         }
     }
@@ -82,20 +82,20 @@ $challenge-shadow-light-link: 0 0 5px rgba(149, 157, 165, 0.6);
 
     .content {
         background-color: $challenge-bg-light;
-        color: $black;
+        color: core.$black;
     }
 }
 
 .solutionContainerDark {
     background-color: $challenge-primary-dark;
-    color: $white;
+    color: core.$white;
 
     .header, .footer {
         background-color: $challenge-primary-dark;
-        color: $white;
+        color: core.$white;
 
         a {
-            color: $white;
+            color: core.$white;
 
             &:hover, &:focus-visible {
                 color: yellow;
@@ -103,13 +103,13 @@ $challenge-shadow-light-link: 0 0 5px rgba(149, 157, 165, 0.6);
         }
 
         button {
-            color: $white;
+            color: core.$white;
         }
 
         .themeModeButton {
             &:hover, &:focus-visible {
                 background-color: $challenge-bg-dark;
-                color: $white;
+                color: core.$white;
             }
         }
     }
@@ -120,6 +120,6 @@ $challenge-shadow-light-link: 0 0 5px rgba(149, 157, 165, 0.6);
 
     .content {
         background-color: $challenge-bg-dark;
-        color: $white;
+        color: core.$white;
     }
 }

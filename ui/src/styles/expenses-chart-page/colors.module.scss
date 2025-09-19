@@ -1,3 +1,5 @@
+@use "../_core" as core;
+
 $challenge-red: #EC775F; // Soft red: hsl(10, 79%, 65%)
 $challenge-red-light: #FF9B87;
 $challenge-cyan: #76B5BC; // Cyan: hsl(186, 34%, 60%)
@@ -15,5 +17,5 @@ $challenge-brown-dark: #382314; // Dark brown: hsl(25, 47%, 15%)
   redLight: $challenge-red-light;
   cyan: $challenge-cyan;
   cyanLight: $challenge-cyan-light;
-  white: $white;
+  white: core.$white;
 }

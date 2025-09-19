@@ -1,8 +1,6 @@
-@import "colors.module.scss";
-@import "fonts.module.scss";
-
-@import "colors.module.scss";
-@import "fonts.module.scss";
+@use "colors.module.scss";
+@use "fonts.module.scss";
+@use "../_core" as core;
 
 .fieldWrapper {
   display: inline-block;
@@ -14,7 +12,7 @@
   }
 
   .requiredText {
-    color: $challenge-red;
+    color: colors.$challenge-red;
   }
 
   .inputWrapper {
@@ -24,13 +22,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: $white;
-    color: $black;
+    background-color: core.$white;
+    color: core.$black;
   }
 
   label {
     display: block;
-    color: $challenge-blue-dark;
+    color: colors.$challenge-blue-dark;
     padding: 5px 0;
   }
 
@@ -43,7 +41,7 @@
   input,
   select {
     box-sizing: border-box;
-    border: 1px solid $challenge-grey;
+    border: 1px solid colors.$challenge-grey;
     flex-grow: 1;
     padding: 1rem;
     border-radius: 0.5rem;
@@ -51,32 +49,32 @@
 
     /* do not group these rules */
     &::-webkit-input-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
     }
     &:-moz-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
       opacity: 1;
     }
     &::-moz-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
       opacity: 1;
     }
     &:-ms-input-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
     }
     &::-ms-input-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
     }
     &::placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
     }
 
     &:hover {
-      border-color: $challenge-blue-dark;
+      border-color: colors.$challenge-blue-dark;
     }
 
     &:focus-visible {
-      outline-color: $challenge-blue-dark;
+      outline-color: colors.$challenge-blue-dark;
     }
   }
 
@@ -91,13 +89,13 @@
 
   &.invalidField {
     input {
-      border-color: $challenge-red !important;
+      border-color: colors.$challenge-red !important;
     }
 
     .fieldErrorText {
       font-size: 1rem;
       font-weight: bold;
-      color: $challenge-red;
+      color: colors.$challenge-red;
       box-sizing: border-box;
       padding: 5px 0;
     }
@@ -107,35 +105,35 @@
 .alertError {
   width: 100%;
   margin: 0 0 10px 0;
-  color: $black;
-  background-color: $grey-02;
-  border: 1px solid $black;
+  color: core.$black;
+  background-color: core.$grey-02;
+  border: 1px solid core.$black;
   padding: 1rem 1rem;
   border-radius: 0.25rem;
-  background-color: $red-light;
-  color: $challenge-red;
-  border-color: $challenge-red;
+  background-color: core.$red-light;
+  color: colors.$challenge-red;
+  border-color: colors.$challenge-red;
 }
 
 .fieldHelpText {
   font-size: .875em;
-  color: $white;
+  color: core.$white;
 }
 
 .button {
-  background-color: $challenge-blue-dark;
-  color: $white;
+  background-color: colors.$challenge-blue-dark;
+  color: core.$white;
   padding: 15px 25px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  font-family: $challenge-font;
+  font-family: fonts.$challenge-font;
   font-size: 14px;
 
   &:hover,
   &:focus-visible {
-    color: $white;
-    background-color: $challenge-blue-highlight;
+    color: core.$white;
+    background-color: colors.$challenge-blue-highlight;
   }
 }
 
@@ -147,16 +145,16 @@
   text-align: left;
   border-color: transparent;
   background-color: transparent;
-  color: $black;
+  color: core.$black;
   cursor: pointer;
 
   .switchToggleLabel {
     padding: 10px;
     font-weight: bold;
-    color: $challenge-gray;
+    color: colors.$challenge-gray;
 
     &.switchToggleLabelSelected {
-      color: $challenge-blue-dark;
+      color: colors.$challenge-blue-dark;
     }
   }
 
@@ -165,12 +163,12 @@
 
     .container {
       fill-opacity: 1;
-      fill: $challenge-blue-dark;
+      fill: colors.$challenge-blue-dark;
     }
 
     .circle {
       fill-opacity: 1;
-      fill: $white;
+      fill: core.$white;
     }
   }
 
@@ -179,7 +177,7 @@
     cursor: pointer;
 
     svg {
-      outline: 2px solid $black;
+      outline: 2px solid core.$black;
     }
   }
 

@@ -1,45 +1,45 @@
-@import "../_core";
-@import "colors.module.scss";
-@import "fonts.module.scss";
+@use "../_core" as core;
+@use "colors.module.scss";
+@use "fonts.module.scss";
 
 .solutionContainer {
-    font-family: $challenge-font;
+    font-family: fonts.$challenge-font;
 
     &.solutionContainerDark {
         background-image: url('/assets/todo-app/bg-desktop-dark.jpg');
         background-size: contain;
         background-repeat: no-repeat;
-        background-color: $challenge-dark-theme-blue;
+        background-color: colors.$challenge-dark-theme-blue;
 
         .listContainer {
-            background-color: $challenge-dark-theme-blue-dark;
-            color: $white;
+            background-color: colors.$challenge-dark-theme-blue-dark;
+            color: core.$white;
 
             .listItem {
-                border-bottom-color: $challenge-dark-theme-grey-blue-very-dark;
+                border-bottom-color: colors.$challenge-dark-theme-grey-blue-very-dark;
 
                 .listItemTitle {
                     del {
-                        color: $challenge-dark-theme-grey-blue-dark;
+                        color: colors.$challenge-dark-theme-grey-blue-dark;
                     }
                 }
 
                 &:hover {
                     .itemDeleteButton {
-                        color: $challenge-dark-theme-grey-blue-dark;
+                        color: colors.$challenge-dark-theme-grey-blue-dark;
                     }
                 }
 
                 .itemDeleteButton {
                     &:hover,
                     &:focus-visible {
-                        color: $white;
+                        color: core.$white;
                     }
                 }
             }
 
             .listFooterContainer {
-                color: $challenge-dark-theme-grey-blue-dark;
+                color: colors.$challenge-dark-theme-grey-blue-dark;
             }
         }
 
@@ -47,41 +47,41 @@
         .clearButton {
             &:hover,
             &:focus-visible {
-                color: $white;
+                color: core.$white;
             }
         }
 
         .mobileFilterButtonsContainer {
-            background-color: $challenge-dark-theme-blue-dark;
-            color: $white;
+            background-color: colors.$challenge-dark-theme-blue-dark;
+            color: core.$white;
         }
 
         .dragDropNotice,
         .footer {
-            background-color: $challenge-dark-theme-blue;
-            color: $white;
+            background-color: colors.$challenge-dark-theme-blue;
+            color: core.$white;
         }
 
         .formContainer {
-            background-color: $challenge-dark-theme-blue-dark;
-            color: $white;
+            background-color: colors.$challenge-dark-theme-blue-dark;
+            color: core.$white;
 
             .formToggleIcon {
-                color: $challenge-dark-theme-grey-blue-dark;
+                color: colors.$challenge-dark-theme-grey-blue-dark;
             }
 
             .formInput {
-                background-color: $challenge-dark-theme-blue-dark;
-                color: $white;
+                background-color: colors.$challenge-dark-theme-blue-dark;
+                color: core.$white;
 
                 input {
-                    color: $white;
+                    color: core.$white;
                 }
             }
 
             .formSubmit {
-                background-color: $challenge-dark-theme-blue-dark;
-                color: $white;
+                background-color: colors.$challenge-dark-theme-blue-dark;
+                color: core.$white;
             }
         }
     }
@@ -90,37 +90,37 @@
         background-image: url('/assets/todo-app/bg-desktop-light.jpg');
         background-size: contain;
         background-repeat: no-repeat;
-        background-color: $challenge-grey;
+        background-color: colors.$challenge-grey;
 
         .listContainer {
-            background-color: $white;
-            color: $black;
+            background-color: core.$white;
+            color: core.$black;
 
             .listItem {
-                border-bottom-color: $challenge-light-theme-grey-blue;
+                border-bottom-color: colors.$challenge-light-theme-grey-blue;
 
                 .listItemTitle {
                     del {
-                        color: $challenge-light-theme-grey-blue;
+                        color: colors.$challenge-light-theme-grey-blue;
                     }
                 }
 
                 &:hover {
                     .itemDeleteButton {
-                        color: $challenge-light-theme-grey-blue;
+                        color: colors.$challenge-light-theme-grey-blue;
                     }
                 }
 
                 .itemDeleteButton {
                     &:hover,
                     &:focus-visible {
-                        color: $challenge-light-theme-grey-blue-very-dark;
+                        color: colors.$challenge-light-theme-grey-blue-very-dark;
                     }
                 }
             }
 
             .listFooterContainer {
-                color: $challenge-light-theme-grey-blue-dark;
+                color: colors.$challenge-light-theme-grey-blue-dark;
             }
         }
 
@@ -128,41 +128,41 @@
         .clearButton {
             &:hover,
             &:focus-visible {
-                color: $black;
+                color: core.$black;
             }
         }
 
         .mobileFilterButtonsContainer {
-            background-color: $white;
-            color: $black;
+            background-color: core.$white;
+            color: core.$black;
         }
 
         .dragDropNotice,
         .footer {
-            background-color: $challenge-grey;
-            color: $black;
+            background-color: colors.$challenge-grey;
+            color: core.$black;
         }
 
         .formContainer {
-            background-color: $white;
-            color: $black;
+            background-color: core.$white;
+            color: core.$black;
 
             .formToggleIcon {
-                color: $challenge-light-theme-grey-blue;
+                color: colors.$challenge-light-theme-grey-blue;
             }
 
             .formInput {
-                background-color: $white;
-                color: $black;
+                background-color: core.$white;
+                color: core.$black;
 
                 input {
-                    color: $black;
+                    color: core.$black;
                 }
             }
 
             .formSubmit {
-                background-color: $white;
-                color: $black;
+                background-color: core.$white;
+                color: core.$black;
             }
         }
     }
@@ -191,11 +191,11 @@
         .themeButton {
             font-size: 1.5em;
             background-color: transparent;
-            color: $white;
+            color: core.$white;
 
             &:hover,
             &:focus-visible {
-                color: $challenge-blue-grey;
+                color: colors.$challenge-blue-grey;
             }
         }
     }
@@ -281,7 +281,7 @@
     }
 
     .activeFilter {
-        color: $challenge-blue;
+        color: colors.$challenge-blue;
     }
 
     .clearButton {
@@ -336,7 +336,7 @@
 
             input {
                 background-color: transparent;
-                font-family: $challenge-font;
+                font-family: fonts.$challenge-font;
                 font-size: 18px;
             }
         }

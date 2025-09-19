@@ -1,6 +1,6 @@
-@import "../_core";
-@import "colors.module.scss";
-@import "variables.module.scss";
+@use "../_core" as core;
+@use "colors.module.scss";
+@use "variables.module.scss";
 
 .navList {
   ul {
@@ -13,7 +13,7 @@
 
   a {
     display: block;
-    color: $challenge-gray-blue-dark;
+    color: colors.$challenge-gray-blue-dark;
     text-decoration: none;
     padding: 35px 0;
 
@@ -23,13 +23,13 @@
 
     &:hover,
     &:focus-visible {
-      color: $black;
-      border-bottom-color: $challenge-orange;
+      color: core.$black;
+      border-bottom-color: colors.$challenge-orange;
     }
   }
 
   &:not(.navListMobile) {
-    @media all and (max-width: $mobile-header-width) {
+    @media all and (max-width: variables.$mobile-header-width) {
       display: none;
     }
   }

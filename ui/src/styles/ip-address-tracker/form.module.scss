@@ -1,4 +1,5 @@
-@import "colors.module.scss";
+@use "../_core" as core;
+@use "colors.module.scss";
 
 .fieldWrapper {
   display: inline-block;
@@ -10,7 +11,7 @@
   }
 
   .requiredText {
-    color: $challenge-red;
+    color: colors.$challenge-red;
   }
 
   .inputWrapper {
@@ -23,8 +24,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: $white;
-    color: $black;
+    background-color: core.$white;
+    color: core.$black;
 
     @media all and (max-width: 600px) {
       min-width: 0;
@@ -51,44 +52,44 @@
 
     /* do not group these rules */
     &::-webkit-input-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
     }
     &:-moz-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
       opacity: 1;
     }
     &::-moz-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
       opacity: 1;
     }
     &:-ms-input-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
     }
     &::-ms-input-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
     }
     &::placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
     }
   }
 
   &.invalidField {
     label {
-      color: $red;
+      color: core.$red;
     }
 
     .inputWrapper {
-      border-color: $challenge-red !important;
+      border-color: colors.$challenge-red !important;
       border-bottom-left-radius: 0 !important;
       border-bottom-right-radius: 0 !important;
-      color: $challenge-red;
+      color: colors.$challenge-red;
     }
 
     .fieldErrorText {
       font-size: .7em;
       padding: 15px 20px;
-      color: $white;
-      background-color: $challenge-red;
+      color: core.$white;
+      background-color: colors.$challenge-red;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
       box-sizing: border-box;
@@ -105,5 +106,5 @@
 
 .fieldHelpText {
   font-size: .875em;
-  color: $white;
+  color: core.$white;
 }

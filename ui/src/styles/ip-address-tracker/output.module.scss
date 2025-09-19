@@ -1,4 +1,5 @@
-@import "colors.module.scss";
+@use "../_core" as core;
+@use "colors.module.scss";
 
 .outputContainer {
     z-index: 999;
@@ -9,7 +10,7 @@
     justify-content: space-evenly;
     border-radius: 20px;
     padding: 20px;
-    background-color: $white;
+    background-color: core.$white;
     box-sizing: border-box;
 
     @media all and (max-width: 875px) {
@@ -21,7 +22,7 @@
         box-sizing: border-box;
         padding: 0 30px;
         margin: 20px 0;
-        border-right: 1px solid $challenge-gray-border;
+        border-right: 1px solid colors.$challenge-gray-border;
         border-bottom: none;
 
         @media all and (max-width: 875px) {
@@ -29,7 +30,7 @@
             padding: 30px 0;
             margin: 0 20px;
             border-right: none;
-            border-bottom: 1px solid $challenge-gray-border;
+            border-bottom: 1px solid colors.$challenge-gray-border;
             text-align: center;
         }
 
@@ -47,7 +48,7 @@
             margin: 0;
             padding: 0;
             margin-bottom: 10px;
-            color: $challenge-gray;
+            color: colors.$challenge-gray;
             letter-spacing: 0.1em;
         }
 

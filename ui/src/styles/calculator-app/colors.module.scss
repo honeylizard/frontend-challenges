@@ -1,4 +1,4 @@
-@import "../_core";
+@use "../_core" as core;
 
 /*
 $challenge-blue-01: #6cf9f2; // hsl(177, 92%, 70%)
@@ -48,11 +48,11 @@ $challenge-light-output: #EEEEEE;
 
 $challenge-light-teal-btn: #377f86; // hsl(185, 42%, 37%)
 $challenge-light-teal-btn-shadow: #1b5f65; // hsl(185, 58%, 25%)
-$challenge-light-teal-btn-text: $white;
+$challenge-light-teal-btn-text: core.$white;
 
 $challenge-light-orange-btn: #ca5502; // hsl(25, 98%, 40%)
 $challenge-light-orange-btn-shadow: #893901; // hsl(25, 99%, 27%)
-$challenge-light-orange-btn-text: $white;
+$challenge-light-orange-btn-text: core.$white;
 
 /* ----------------------------------------------------------- */
 
@@ -60,7 +60,7 @@ $challenge-dark-bg: #3B4664;
 $challenge-dark-keypad: #252D44;
 $challenge-dark-btn: #EAE3DB;
 $challenge-dark-btn-shadow: #B5A49A;
-$challenge-dark-btn-text: $white;
+$challenge-dark-btn-text: core.$white;
 $challenge-dark-text: #3B4455;
 $challenge-dark-output: #181F32;
 
@@ -76,7 +76,7 @@ $challenge-high-contrast-bg: #17062A;
 $challenge-high-contrast-keypad: #1E0836;
 $challenge-high-contrast-btn: #331B4D;
 $challenge-high-contrast-btn-shadow: #792692;
-$challenge-high-contrast-btn-text: $white;
+$challenge-high-contrast-btn-text: core.$white;
 $challenge-high-contrast-text: #FFEB57;
 $challenge-high-contrast-output: #1E0836;
 

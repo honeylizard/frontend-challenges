@@ -1,6 +1,5 @@
-@import "../_core";
-@import "colors.module.scss";
-@import "variables.module.scss";
+@use "colors.module.scss";
+@use "variables.module.scss";
 
 .headerNavMobileButton {
   background-color: transparent;
@@ -10,12 +9,12 @@
 
   &:hover,
   &:focus-visible {
-      border-color: $challenge-orange;
+      border-color: colors.$challenge-orange;
   }
 
   display: none;
 
-  @media all and (max-width: $mobile-header-width) {
+  @media all and (max-width: variables.$mobile-header-width) {
     display: block;
   }
 }

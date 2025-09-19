@@ -1,11 +1,11 @@
-@import "../_core";
-@import "colors.module.scss";
-@import "fonts.module.scss";
+@use "../_core" as core;
+@use "colors.module.scss";
+@use "fonts.module.scss";
 
 .solutionContainer {
-    font-family: $challenge-font;
-    background-color: $challenge-bg;
-    color: $white;
+    font-family: fonts.$challenge-font;
+    background-color: colors.$challenge-bg;
+    color: core.$white;
 
     .dashboard {
         max-width: 1400px;

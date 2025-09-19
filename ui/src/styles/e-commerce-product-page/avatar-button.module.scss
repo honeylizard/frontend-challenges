@@ -1,6 +1,5 @@
-@import "../_core";
-@import "colors.module.scss";
-@import "variables.module.scss";
+@use "colors.module.scss";
+@use "variables.module.scss";
 
 .avatarImageButton {
   padding: 0;
@@ -13,7 +12,7 @@
     max-width: 50px;
     display: block;
 
-    @media all and (max-width: $mobile-header-width) {
+    @media all and (max-width: variables.$mobile-header-width) {
       max-height: 25px;
       max-width: 25px;
     }
@@ -25,6 +24,6 @@
 
   &:hover,
   &:focus-visible {
-      border-color: $challenge-orange;
+      border-color: colors.$challenge-orange;
   }
 }

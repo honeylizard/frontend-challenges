@@ -1,41 +1,44 @@
+@use "../_core" as core;
+@use "colors.module.scss";
+
 .solutionContainerDark  {
-    background-color: $challenge-dark-bg;
-    color: $white;
+    background-color: colors.$challenge-dark-bg;
+    color: core.$white;
 
     .output {
-        background-color: $challenge-dark-output;
+        background-color: colors.$challenge-dark-output;
     }
 
     .keypad {
-        background-color: $challenge-dark-keypad;
+        background-color: colors.$challenge-dark-keypad;
     }
 
     .button {
-        background-color: $challenge-dark-btn;
-        color: $challenge-dark-text;
-        box-shadow: 0 5px 0px $challenge-dark-btn-shadow;
+        background-color: colors.$challenge-dark-btn;
+        color: colors.$challenge-dark-text;
+        box-shadow: 0 5px 0px colors.$challenge-dark-btn-shadow;
     }
 
     .buttonSecondary {
-        background-color: $challenge-dark-blue-btn;
-        color: $challenge-dark-btn-text;
-        box-shadow: 0 5px 0px $challenge-dark-blue-btn-shadow;
+        background-color: colors.$challenge-dark-blue-btn;
+        color: colors.$challenge-dark-btn-text;
+        box-shadow: 0 5px 0px colors.$challenge-dark-blue-btn-shadow;
     }
 
     .buttonPrimary {
-        background-color: $challenge-dark-orange-btn;
-        color: $challenge-dark-btn-text;
-        box-shadow: 0 5px 0px $challenge-dark-orange-btn-shadow;
+        background-color: colors.$challenge-dark-orange-btn;
+        color: colors.$challenge-dark-btn-text;
+        box-shadow: 0 5px 0px colors.$challenge-dark-orange-btn-shadow;
     }
 
     .threeWayToggle {
-        background-color: $challenge-dark-keypad;
+        background-color: colors.$challenge-dark-keypad;
 
         button {
-            background-color: $challenge-dark-keypad;
+            background-color: colors.$challenge-dark-keypad;
 
             &.currentTheme {
-                background-color: $challenge-dark-orange-btn;
+                background-color: colors.$challenge-dark-orange-btn;
             }
         }
     }

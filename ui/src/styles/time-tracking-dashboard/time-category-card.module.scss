@@ -1,10 +1,11 @@
-@import "app.module.scss";
+@use "colors.module.scss";
+@use "../_core" as core;
 
 .categoryCard {
     margin: 15px;
     width: 256px;
     border-radius: 17px;
-    background-color: $white;
+    background-color: core.$white;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
@@ -14,15 +15,15 @@
     }
 
     .categoryCardInner {
-        background-color: $challenge-card-bg;
-        color: $white;
+        background-color: colors.$challenge-card-bg;
+        color: core.$white;
         border-radius: 15px;
         box-sizing: border-box;
         padding: 30px;
         margin-top: 45px;
 
         &:hover {
-            background-color: $challenge-card-bg-hover
+            background-color: colors.$challenge-card-bg-hover
         }
 
         .categoryTitleWrapper {

@@ -1,41 +1,43 @@
+@use "colors.module.scss";
+
 .solutionContainerLight  {
-    background-color: $challenge-light-bg;
-    color: $challenge-light-text;
+    background-color: colors.$challenge-light-bg;
+    color: colors.$challenge-light-text;
 
     .output {
-        background-color: $challenge-light-output;
+        background-color: colors.$challenge-light-output;
     }
 
     .keypad {
-        background-color: $challenge-light-keypad;
+        background-color: colors.$challenge-light-keypad;
     }
 
     .button {
-        background-color: $challenge-light-btn;
-        color: $challenge-light-text;
-        box-shadow: 0 5px 0px $challenge-light-btn-shadow;
+        background-color: colors.$challenge-light-btn;
+        color: colors.$challenge-light-text;
+        box-shadow: 0 5px 0px colors.$challenge-light-btn-shadow;
     }
 
     .buttonSecondary {
-        background-color: $challenge-light-teal-btn;
-        color: $challenge-light-teal-btn-text;
-        box-shadow: 0 5px 0px $challenge-light-teal-btn-shadow;
+        background-color: colors.$challenge-light-teal-btn;
+        color: colors.$challenge-light-teal-btn-text;
+        box-shadow: 0 5px 0px colors.$challenge-light-teal-btn-shadow;
     }
 
     .buttonPrimary {
-        background-color: $challenge-light-orange-btn;
-        color: $challenge-light-orange-btn-text;
-        box-shadow: 0 5px 0px $challenge-light-orange-btn-shadow;
+        background-color: colors.$challenge-light-orange-btn;
+        color: colors.$challenge-light-orange-btn-text;
+        box-shadow: 0 5px 0px colors.$challenge-light-orange-btn-shadow;
     }
 
     .threeWayToggle {
-        background-color: $challenge-light-keypad;
+        background-color: colors.$challenge-light-keypad;
 
         button {
-            background-color: $challenge-light-keypad;
+            background-color: colors.$challenge-light-keypad;
 
             &.currentTheme {
-                background-color: $challenge-light-orange-btn;
+                background-color: colors.$challenge-light-orange-btn;
             }
         }
     }

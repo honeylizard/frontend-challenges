@@ -1,9 +1,7 @@
-@import "../_core";
-@import "colors.module.scss";
-@import "fonts.module.scss";
+@use "fonts.module.scss";
 
 .solutionContainer {
-    font-family: $challenge-font;
+    font-family: fonts.$challenge-font;
     margin-top: 100px;
     margin-bottom: 100px;
 
@@ -117,7 +115,7 @@
 
     @mixin keypadButton() {
         border-radius: 10px;
-        font-family: $challenge-font;
+        font-family: fonts.$challenge-font;
         font-size: 32px;
         font-weight: 700;
         border: none;

@@ -1,5 +1,6 @@
-@import "colors.module.scss";
-@import "fonts.module.scss";
+@use "colors.module.scss";
+@use "fonts.module.scss";
+@use "../_core" as core;
 
 .fieldWrapper {
   display: inline-block;
@@ -11,7 +12,7 @@
   }
 
   .requiredText {
-    color: $challenge-red;
+    color: colors.$challenge-red;
   }
 
   .inputWrapper {
@@ -22,7 +23,7 @@
     flex-direction: row;
     align-items: center;
     background-color: transparent;
-    color: $black;
+    color: core.$black;
   }
 
   .suffixIcon {
@@ -39,44 +40,44 @@
 
     /* do not group these rules */
     &::-webkit-input-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
     }
     &:-moz-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
       opacity: 1;
     }
     &::-moz-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
       opacity: 1;
     }
     &:-ms-input-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
     }
     &::-ms-input-placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
     }
     &::placeholder {
-      color: $challenge-gray;
+      color: colors.$challenge-gray;
     }
   }
 
   &.invalidField {
     label {
-      color: $red;
+      color: core.$red;
     }
 
     .inputWrapper {
-      border-color: $challenge-red !important;
+      border-color: colors.$challenge-red !important;
       border-bottom-left-radius: 0 !important;
       border-bottom-right-radius: 0 !important;
-      color: $challenge-red;
+      color: colors.$challenge-red;
     }
 
     .fieldErrorText {
       font-size: .7em;
       padding: 15px 20px;
-      color: $white;
-      background-color: $challenge-red;
+      color: core.$white;
+      background-color: colors.$challenge-red;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
       box-sizing: border-box;
@@ -93,20 +94,20 @@
 
 .fieldHelpText {
   font-size: .875em;
-  color: $white;
+  color: core.$white;
 }
 
 .button {
-  background-color: $challenge-dark-theme-blue-dark;
-  color: $challenge-dark-theme-grey-blue-dark;
+  background-color: colors.$challenge-dark-theme-blue-dark;
+  color: colors.$challenge-dark-theme-grey-blue-dark;
   padding: 10px;
   border: none;
   cursor: pointer;
-  font-family: $challenge-font;
+  font-family: fonts.$challenge-font;
   font-size: 14px;
 
   &:hover,
   &:focus-visible {
-    color: $white;
+    color: core.$white;
   }
 }

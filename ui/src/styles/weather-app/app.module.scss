@@ -1,7 +1,7 @@
 @use "fonts.module.scss";
 @use "colors.module.scss";
 
-@use "../_core" as *;
+@use "../_core" as core;
 
 
 @mixin placeholder {

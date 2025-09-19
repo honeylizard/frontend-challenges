@@ -1,32 +1,33 @@
-@import "static-job-listings.module.scss";
+@use "../_core" as core;
+@use "static-job-listings.module.scss" as staticJL;
 
 .lightPill {
-    @include pillBox();
+    @include staticJL.pillBox();
 
-    background-color: $challenge-tetitary;
-    color: $challenge-primary;
+    background-color: staticJL.$challenge-tetitary;
+    color: staticJL.$challenge-primary;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
 
     &:hover, &:focus-visible {
-        background-color: $challenge-primary;
-        color: $white;
+        background-color: staticJL.$challenge-primary;
+        color: core.$white;
     }
 
     &.lightPillSelected {
-        background-color: $challenge-primary;
-        color: $white;
+        background-color: staticJL.$challenge-primary;
+        color: core.$white;
 
         &:hover, &:focus-visible {
-            background-color: $challenge-tetitary;
-            color: $challenge-primary;
+            background-color: staticJL.$challenge-tetitary;
+            color: staticJL.$challenge-primary;
         }
     }
 }
 
 .lightPillWithX {
-    @include pillBox();
+    @include staticJL.pillBox();
 
     background-color: transparent;
     border: none;
@@ -37,8 +38,8 @@
     align-items: center;
 
     .pillSuffix {
-        background-color: $challenge-primary;
-        color: $white;
+        background-color: staticJL.$challenge-primary;
+        color: core.$white;
         padding: 6px 10px;
         box-sizing: border-box;
         border-top-right-radius: 5px;
@@ -52,8 +53,8 @@
     }
 
     .pillContent {
-        background-color: $challenge-tetitary;
-        color: $challenge-primary;
+        background-color: staticJL.$challenge-tetitary;
+        color: staticJL.$challenge-primary;
         padding: 5px 10px;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
@@ -61,8 +62,8 @@
 
     &:hover, &:focus-visible {
         .pillSuffix {
-            background-color: $challenge-secondary;
-            color: $white;
+            background-color: staticJL.$challenge-secondary;
+            color: core.$white;
         }
     }
 }

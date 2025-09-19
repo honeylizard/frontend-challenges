@@ -1,41 +1,43 @@
+@use "colors.module.scss";
+
 .solutionContainerHighContrast  {
-    background-color: $challenge-high-contrast-bg;
-    color: $challenge-high-contrast-text;
+    background-color: colors.$challenge-high-contrast-bg;
+    color: colors.$challenge-high-contrast-text;
 
     .output {
-        background-color: $challenge-high-contrast-output;
+        background-color: colors.$challenge-high-contrast-output;
     }
 
     .keypad {
-        background-color: $challenge-high-contrast-keypad;
+        background-color: colors.$challenge-high-contrast-keypad;
     }
 
     .button {
-        background-color: $challenge-high-contrast-btn;
-        color: $challenge-high-contrast-text;
-        box-shadow: 0 5px 0px $challenge-high-contrast-btn-shadow;
+        background-color: colors.$challenge-high-contrast-btn;
+        color: colors.$challenge-high-contrast-text;
+        box-shadow: 0 5px 0px colors.$challenge-high-contrast-btn-shadow;
     }
 
     .buttonSecondary {
-        background-color: $challenge-high-contrast-purple-btn;
-        color: $challenge-high-contrast-btn-text;
-        box-shadow: 0 5px 0px $challenge-high-contrast-purple-btn-shadow;
+        background-color: colors.$challenge-high-contrast-purple-btn;
+        color: colors.$challenge-high-contrast-btn-text;
+        box-shadow: 0 5px 0px colors.$challenge-high-contrast-purple-btn-shadow;
     }
 
     .buttonPrimary {
-        background-color: $challenge-high-contrast-green-btn;
-        color: $challenge-high-contrast-green-btn-text;
-        box-shadow: 0 5px 0px $challenge-high-contrast-green-btn-shadow;
+        background-color: colors.$challenge-high-contrast-green-btn;
+        color: colors.$challenge-high-contrast-green-btn-text;
+        box-shadow: 0 5px 0px colors.$challenge-high-contrast-green-btn-shadow;
     }
 
     .threeWayToggle {
-        background-color: $challenge-high-contrast-keypad;
+        background-color: colors.$challenge-high-contrast-keypad;
 
         button {
-            background-color: $challenge-high-contrast-keypad;
+            background-color: colors.$challenge-high-contrast-keypad;
 
             &.currentTheme {
-                background-color: $challenge-high-contrast-green-btn;
+                background-color: colors.$challenge-high-contrast-green-btn;
             }
         }
     }

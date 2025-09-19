@@ -1,11 +1,12 @@
-@import "app.module.scss";
+@use "colors.module.scss";
+@use "../_core" as core;
 
 .overviewCard {
     display: flex;
     flex-direction: column;
     border-radius: 15px;
-    background-color: $challenge-card-bg;
-    color: $white;
+    background-color: colors.$challenge-card-bg;
+    color: core.$white;
     box-sizing: border-box;
     margin: 15px;
     max-width: 255px;
@@ -18,15 +19,15 @@
     .profile {
         border-radius: 15px;
         padding: 30px;
-        background-color: $challenge-periwinkle;
-        color: $white;
+        background-color: colors.$challenge-periwinkle;
+        color: core.$white;
         flex-grow: 1;
 
         img {
             width: 85px;
             height: 85px;
             border-radius: 50%;
-            border: 4px solid $white;
+            border: 4px solid core.$white;
         }
 
         @media all and (min-width: 475px) and (max-width: 1150px) {
@@ -50,7 +51,7 @@
             span:first-child {
                 font-size: 16px;
                 font-weight: 300;
-                color: $grey-01;
+                color: core.$grey-01;
             }
 
             @media all and (max-width: 475px) {

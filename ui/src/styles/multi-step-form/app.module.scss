@@ -1,11 +1,11 @@
-@import "../_core";
-@import "colors.module.scss";
-@import "fonts.module.scss";
+@use "../_core" as core;
+@use "colors.module.scss";
+@use "fonts.module.scss";
 
 .solutionContainer {
-    font-family: $challenge-font;
-    background-color: $challenge-magnolia;
-    color: $black;
+    font-family: fonts.$challenge-font;
+    background-color: colors.$challenge-magnolia;
+    color: core.$black;
 
     .centerBox {
         display: flex;
@@ -22,8 +22,8 @@
 
             .content {
                 border-radius: 15px;
-                background-color: $white;
-                color: $black;
+                background-color: core.$white;
+                color: core.$black;
 
                 box-sizing: border-box;
                 padding: 15px;
@@ -38,8 +38,8 @@
                     box-sizing: border-box;
                     padding: 30px;
 
-                    color: $white;
-                    background-color: $challenge-purple;
+                    color: core.$white;
+                    background-color: colors.$challenge-purple;
                     background-image: url("/assets/multi-step-form/bg-sidebar-desktop.svg");
                     background-position: top center;
                     background-repeat: no-repeat;
@@ -64,32 +64,32 @@
                             box-sizing: border-box;
                             width: 30px;
                             height: 30px;
-                            border: 2px solid $white;
+                            border: 2px solid core.$white;
                             border-radius: 50%;
                             align-items: center;
                             justify-content: center;
-                            color: $white;
+                            color: core.$white;
                             margin-right: 20px;
                             font-size: 0.85rem;
                             font-weight: bold;
 
                             &.sidebarNumberCurrent {
-                                background-color: $challenge-blue-light;
-                                color: $black;
-                                border-color: $challenge-grey;
+                                background-color: colors.$challenge-blue-light;
+                                color: core.$black;
+                                border-color: colors.$challenge-grey;
                             }
                         }
 
                         .sidebarStepNumber {
                             font-size: 0.75rem;
                             text-transform: uppercase;
-                            color: $challenge-grey;
+                            color: colors.$challenge-grey;
                         }
 
                         .sidebarStepTitle {
                             font-size: 0.85rem;
                             font-weight: bold;
-                            color: $white;
+                            color: core.$white;
                             text-transform: uppercase;
                         }
                     }
@@ -110,8 +110,8 @@
                     box-sizing: border-box;
                     padding: 15px 80px;
                     border-radius: 15px;
-                    background-color: $white;
-                    color: $black;
+                    background-color: core.$white;
+                    color: core.$black;
                     width: 700px;
 
                     display: flex;
@@ -124,12 +124,12 @@
                     }
 
                     .currentFormTitle {
-                        color: $challenge-blue-dark;
+                        color: colors.$challenge-blue-dark;
                         margin-bottom: 9px;
                     }
 
                     .currentFormDescription {
-                        color: $challenge-gray;
+                        color: colors.$challenge-gray;
                         margin: 0;
                         padding: 0;
                         margin-bottom: 10px;
@@ -175,14 +175,14 @@
                 .alertError {
                     width: 100%;
                     margin: 0 0 10px 0;
-                    color: $black;
-                    background-color: $grey-02;
-                    border: 1px solid $black;
+                    color: core.$black;
+                    background-color: core.$grey-02;
+                    border: 1px solid core.$black;
                     padding: 1rem 1rem;
                     border-radius: 0.25rem;
-                    background-color: $red-light;
-                    color: $challenge-red;
-                    border-color: $challenge-red;
+                    background-color: core.$red-light;
+                    color: colors.$challenge-red;
+                    border-color: colors.$challenge-red;
                 }
 
                 .planTypesContainer {
@@ -195,19 +195,19 @@
                     .planTypeCard {
                         width: 30%;
                         box-sizing: border-box;
-                        border: 1px solid $challenge-grey;
+                        border: 1px solid colors.$challenge-grey;
                         border-radius: 11px;
                         min-height: 160px;
-                        background-color: $white;
-                        color: $black;
+                        background-color: core.$white;
+                        color: core.$black;
                         display: flex;
                         flex-direction: column;
                         align-items: flex-start;
                         text-align: left;
 
                         &.planTypeCardCurrent {
-                            border-color: $challenge-blue-dark;
-                            background-color: $challenge-magnolia;
+                            border-color: colors.$challenge-blue-dark;
+                            background-color: colors.$challenge-magnolia;
                         }
 
                         img {
@@ -215,29 +215,29 @@
                         }
 
                         .planTypeCardTitle {
-                            color: $challenge-blue-dark;
+                            color: colors.$challenge-blue-dark;
                             font-weight: bold;
                             font-size: 1rem;
                         }
 
                         .planTypeCardCost {
-                            color: $challenge-gray;
+                            color: colors.$challenge-gray;
                             font-size: .875rem;
                             line-height: 1.25rem;
                         }
 
                         .planTypeCardDesc {
-                            color: $challenge-blue-dark;
+                            color: colors.$challenge-blue-dark;
                             font-size: .75rem;
                             line-height: 1rem;
                         }
 
                         &:focus-visible {
-                            outline-color: $challenge-blue-dark;
+                            outline-color: colors.$challenge-blue-dark;
                         }
 
                         &:hover {
-                            border-color: $challenge-blue-dark;
+                            border-color: colors.$challenge-blue-dark;
                         }
                     }
 
@@ -262,7 +262,7 @@
                 }
 
                 .planFrequencyContainer {
-                    background-color: $challenge-alabaster;
+                    background-color: colors.$challenge-alabaster;
                     border-radius: 5px;
                     margin: 30px 0;
 
@@ -281,7 +281,7 @@
 
                     .addOnCard {
                         display: flex;
-                        border: 1px solid $challenge-grey;
+                        border: 1px solid colors.$challenge-grey;
                         border-radius: 5px;
                         margin: 10px 0;
                         box-sizing: border-box;
@@ -297,7 +297,7 @@
                             flex-grow: initial;
                             max-width: 20%;
                             width: 25px;
-                            accent-color: $challenge-purple;
+                            accent-color: colors.$challenge-purple;
                         }
 
                         label {
@@ -313,19 +313,19 @@
                             align-items: center;
 
                             .addOnTitle {
-                                color: $challenge-blue-dark;
+                                color: colors.$challenge-blue-dark;
                                 font-weight: bold;
                                 font-size: 1rem;
                             }
 
                             .addOnDesc {
-                                color: $challenge-gray;
+                                color: colors.$challenge-gray;
                                 font-size: .875rem;
                                 line-height: 1.25rem;
                             }
 
                             .addOnPrice {
-                                color: $challenge-purple;
+                                color: colors.$challenge-purple;
                                 font-size: .875rem;
                                 line-height: 1.25rem;
                             }
@@ -337,12 +337,12 @@
                         }
 
                         &.addOnCardChecked {
-                            border-color: $challenge-blue-dark;
-                            background-color: $challenge-magnolia;
+                            border-color: colors.$challenge-blue-dark;
+                            background-color: colors.$challenge-magnolia;
                         }
 
                         &:focus-within {
-                            outline: 1px solid $challenge-blue-dark;
+                            outline: 1px solid colors.$challenge-blue-dark;
 
                             input {
                                 outline: none;
@@ -350,7 +350,7 @@
                         }
 
                         &:hover {
-                            border-color: $challenge-blue-dark;
+                            border-color: colors.$challenge-blue-dark;
                         }
                     }
 
@@ -361,8 +361,8 @@
 
                 .summaryBlock {
                     margin-top: 20px;
-                    background-color: $challenge-magnolia;
-                    color: $challenge-gray;
+                    background-color: colors.$challenge-magnolia;
+                    color: colors.$challenge-gray;
                     border-radius: 10px;
                     padding: 5px 20px;
                     box-sizing: border-box;
@@ -370,16 +370,16 @@
 
                 .summaryTotal {
                     padding: 20px;
-                    color: $challenge-gray;
+                    color: colors.$challenge-gray;
 
                     .summaryTotalPrice {
-                        color: $challenge-purple;
+                        color: colors.$challenge-purple;
                         font-weight: bold;
                     }
                 }
 
                 .summaryAddOns {
-                    border-top: 1px solid $challenge-gray;
+                    border-top: 1px solid colors.$challenge-gray;
                     padding-top: 10px;
                 }
 
@@ -397,7 +397,7 @@
 
                     &.summaryPlan {
                         .summaryPlanTitle {
-                            color: $challenge-blue-dark;
+                            color: colors.$challenge-blue-dark;
                             font-weight: bold;
                         }
 
@@ -407,7 +407,7 @@
                     }
 
                     .summaryPrice {
-                        color: $challenge-blue-dark;
+                        color: colors.$challenge-blue-dark;
                     }
 
                     &.summaryAddOn {
@@ -416,7 +416,7 @@
                 }
 
                 .textButton {
-                    color: $challenge-gray;
+                    color: colors.$challenge-gray;
                     background-color: transparent;
                     border-color: transparent;
                     font-size: 16px;
@@ -425,7 +425,7 @@
 
                     &:hover,
                     &:focus-visible {
-                        color: $challenge-blue-dark;
+                        color: colors.$challenge-blue-dark;
                     }
                 }
 
@@ -433,20 +433,20 @@
                     background-color: transparent;
                     border-color: transparent;
                     padding: 0;
-                    color: $challenge-gray;
+                    color: colors.$challenge-gray;
                     border-radius: 0;
                     text-decoration: underline;
 
                     &:hover,
                     &:focus-visible {
-                        color: $challenge-purple;
+                        color: colors.$challenge-purple;
                     }
                 }
 
                 .submitButton {
                     &:hover,
                     &:focus-visible {
-                        background-color: $challenge-purple;
+                        background-color: colors.$challenge-purple;
                     }
                 }
 
@@ -473,7 +473,7 @@
                     }
 
                     .successTitle {
-                        color: $challenge-blue-dark;
+                        color: colors.$challenge-blue-dark;
                         font-weight: bold;
                         font-size: 2em;
                         padding: 0;
@@ -481,7 +481,7 @@
                     }
 
                     .successDesc {
-                        color: $challenge-gray;
+                        color: colors.$challenge-gray;
                         text-align: center;
                         padding: 0;
                         margin: 0;

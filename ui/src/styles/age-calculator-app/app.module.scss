@@ -1,10 +1,10 @@
-@import "../_core";
-@import "fonts.module.scss";
-@import "colors.module.scss";
+@use "../_core" as core;
+@use "fonts.module.scss";
+@use "colors.module.scss";
 
 .solutionContainer {
-  font-family: $challenge-font;
-  background-color: $challenge-off-white;
+  font-family: fonts.$challenge-font;
+  background-color: colors.$challenge-off-white;
 
   display: flex;
   width: 100%;
@@ -23,8 +23,8 @@
   .card {
     display: block;
     border-radius: 23px 23px 200px;
-    background-color: white;
-    color: black;
+    background-color: core.$white;
+    color: core.$black;
     width: 840px;
     flex-grow: 1;
     padding: 60px;
@@ -61,7 +61,7 @@
         display: block;
         font-weight: bold;
         font-size: 10px;
-        color: $challenge-gray;
+        color: colors.$challenge-gray;
         text-transform: uppercase;
         margin-bottom: 15px;
       }
@@ -74,16 +74,16 @@
         width: 100%;
         padding: 0 0 0 25px;
         box-sizing: border-box;
-        border: 1px solid $challenge-grey;
+        border: 1px solid colors.$challenge-grey;
         font-weight: bold;
-        background-color: white;
+        background-color: core.$white;
 
         &:hover {
           cursor: pointer;
         }
 
         &:focus, &:focus-visible {
-          border: 1px solid $challenge-purple;
+          border: 1px solid colors.$challenge-purple;
           outline: none;
           background-color: transparent;
           cursor: pointer;
@@ -98,15 +98,15 @@
 
       &.invalidField {
         .label {
-          color: $challenge-red;
+          color: colors.$challenge-red;
         }
 
         .input {
-          border: 1px solid $challenge-red;
+          border: 1px solid colors.$challenge-red;
         }
 
         .fieldErrorText {
-          color: $challenge-red;
+          color: colors.$challenge-red;
           font-size: 13px;
           font-style: italic;
           font-weight: normal;
@@ -118,8 +118,8 @@
   }
 
   .generalError {
-    color: $challenge-red;
-    border: 1px solid $challenge-red;
+    color: colors.$challenge-red;
+    border: 1px solid colors.$challenge-red;
     box-sizing: border-box;
     padding: 5px;
     margin: 10px 0;
@@ -132,7 +132,7 @@
     .lineBefore, .lineAfter {
       flex-grow: 1;
       height: 1px;
-      background-color: $challenge-grey;
+      background-color: colors.$challenge-grey;
     }
 
     .lineAfter {
@@ -146,13 +146,13 @@
     .submitButton {
       border-radius: 50%;
       border: none;
-      background-color: $challenge-purple;
+      background-color: colors.$challenge-purple;
       width: 100px;
       height: 100px;
       box-sizing: border-box;
 
       &:hover, &:focus-visible {
-        background-color: black;
+        background-color: core.$black;
       }
 
       @media screen and (max-width: 700px) {
@@ -173,7 +173,7 @@
 
     .number, .label {
       font-size: 75px;
-      color: black;
+      color: core.$black;
       text-transform: lowercase;
       font-weight: bold;
       font-style: italic;
@@ -186,13 +186,13 @@
     }
 
     .number {
-      color: $challenge-purple;
+      color: colors.$challenge-purple;
     }
   }
 
   .footer {
     text-align: center;
-    color: black;
+    color: core.$black;
     margin: 20px;
   }
 

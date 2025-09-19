@@ -1,5 +1,5 @@
-@import "../_core";
-@import "colors.module.scss";
+@use "../_core" as core;
+@use "colors.module.scss";
 
 .cartImageButton {
   cursor: pointer;
@@ -11,11 +11,11 @@
   &:hover,
   &:focus-visible {
     path {
-      fill: $black;
+      fill: core.$black;
     }
   }
 
   &:focus-visible {
-    border-color: $challenge-orange;
+    border-color: colors.$challenge-orange;
   }
 }

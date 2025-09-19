@@ -1,28 +1,28 @@
-@import "../_core";
-@import "colors.module.scss";
-@import "fonts.module.scss";
-@import "variables.module.scss";
+@use "../_core" as core;
+@use "colors.module.scss";
+@use "fonts.module.scss";
+@use "variables.module.scss";
 
 $default-text-size: 16px;
 $default-weight: 400;
 $bold-weight: 700;
 
 .solutionContainer {
-  font-family: $challenge-font;
-  background-color: $white;
-  color: $challenge-gray-blue-dark;
+  font-family: fonts.$challenge-font;
+  background-color: core.$white;
+  color: colors.$challenge-gray-blue-dark;
 
   .container {
-    max-width: $container-width;
+    max-width: variables.$container-width;
     margin: 0 auto;
   }
 
   .header {
-    border-bottom: 1px solid $challenge-gray-blue;
+    border-bottom: 1px solid colors.$challenge-gray-blue;
     display: flex;
     justify-content: space-between;
 
-    @media all and (max-width: $container-width) {
+    @media all and (max-width: variables.$container-width) {
       padding: 0 10px;
       min-height: 67px;
     }
@@ -38,7 +38,7 @@ $bold-weight: 700;
 
       &:hover,
       &:focus-visible {
-        border-color: $challenge-orange;
+        border-color: colors.$challenge-orange;
       }
     }
 
@@ -47,7 +47,7 @@ $bold-weight: 700;
       align-items: center;
       gap: 50px;
 
-      @media all and (max-width: $mobile-header-width) {
+      @media all and (max-width: variables.$mobile-header-width) {
         gap: 15px;
       }
     }
@@ -57,7 +57,7 @@ $bold-weight: 700;
       align-items: center;
       gap: 40px;
 
-      @media all and (max-width: $mobile-header-width) {
+      @media all and (max-width: variables.$mobile-header-width) {
         gap: 24px;
       }
     }
@@ -65,8 +65,8 @@ $bold-weight: 700;
 
   .content {
     padding: 90px 45px;
-    background-color: $white;
-    color: $challenge-gray-blue-dark;
+    background-color: core.$white;
+    color: colors.$challenge-gray-blue-dark;
   }
 
   footer {

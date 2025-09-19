@@ -1,6 +1,6 @@
-@import "../_core";
-@import "colors.module.scss";
-@import "fonts.module.scss";
+@use "../_core" as core;
+@use "colors.module.scss";
+@use "fonts.module.scss";
 
 html {
     height: 100%;
@@ -12,10 +12,10 @@ html {
     background-repeat: no-repeat;
     background-position: top center;
 
-    background-color: $white;
-    color: $black;
+    background-color: core.$white;
+    color: core.$black;
 
-    font-family: $challenge-font;
+    font-family: fonts.$challenge-font;
     font-size: 18px;
 
     .container {
@@ -25,17 +25,17 @@ html {
         height: 100vh;
 
         .footer {
-            background-color: $black;
-            color: $white;
+            background-color: core.$black;
+            color: core.$white;
             text-align: center;
             padding: 10px;
 
             a {
-                color: $challenge-orange;
+                color: colors.$challenge-orange;
 
                 &:focus-visible,
                 &:hover {
-                    color: $white;
+                    color: core.$white;
                 }
             }
         }
@@ -45,7 +45,7 @@ html {
     }
 
     .appTitle {
-        color: $white;
+        color: core.$white;
         text-transform: capitalize;
         text-align: center;
         font-size: 2em;
@@ -68,13 +68,13 @@ html {
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
             border: none;
-            background-color: $black;
-            color: $white;
+            background-color: core.$black;
+            color: core.$white;
             cursor: pointer;
             box-shadow: none;
 
             &:hover {
-                background-color: $challenge-dark-gray;
+                background-color: colors.$challenge-dark-gray;
             }
         }
     }

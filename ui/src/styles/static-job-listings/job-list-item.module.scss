@@ -1,7 +1,8 @@
-@import "static-job-listings.module.scss";
+@use "../_core" as core;
+@use "static-job-listings.module.scss" as staticJL;
 
 .listItemContainer {
-    background-color: $white;
+    background-color: core.$white;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -12,7 +13,7 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
     &.isFeatured {
-        border-left: 5px solid $challenge-primary;
+        border-left: 5px solid staticJL.$challenge-primary;
     }
 
     .listItemCompanyLogo {
@@ -31,37 +32,37 @@
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
-        color: $challenge-primary;
+        color: staticJL.$challenge-primary;
         font-weight: bold;
     }
 
     .listItemTitle {
         font-weight: bold;
-        color: $black;
+        color: core.$black;
         font-size: 1.2em;
 
         &:hover {
-            color: $challenge-primary;
+            color: staticJL.$challenge-primary;
         }
     }
 
     .primaryPill {
-        @include pillRound();
-        background-color: $challenge-primary;
-        color: $white;
+        @include staticJL.pillRound();
+        background-color: staticJL.$challenge-primary;
+        color: core.$white;
     }
 
     .secondaryPill {
-        @include pillRound();
-        background-color: $challenge-secondary;
-        color: $white;
+        @include staticJL.pillRound();
+        background-color: staticJL.$challenge-secondary;
+        color: core.$white;
     }
 
     .listItemPositionDetails {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        color: $challenge-gray;
+        color: staticJL.$challenge-gray;
 
         > *:not(:last-child)::after {
             padding-left: 10px;
@@ -99,7 +100,7 @@
         margin-top: 55px;
 
         .listItemCategories {
-            border-top: 1px solid $challenge-gray;
+            border-top: 1px solid staticJL.$challenge-gray;
             margin-top: 10px;
             padding-top: 10px;
             justify-content: flex-start;

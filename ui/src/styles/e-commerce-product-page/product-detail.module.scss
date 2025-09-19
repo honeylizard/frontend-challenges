@@ -1,6 +1,5 @@
-@import "../_core";
-@import "colors.module.scss";
-@import "variables.module.scss";
+@use "../_core" as core;
+@use "colors.module.scss";
 
 .details {
   display: flex;
@@ -25,7 +24,7 @@
       padding: 0;
       font-size: 42px;
       font-weight: 700;
-      color: $black;
+      color: core.$black;
       line-height: 1em;
     }
 
@@ -35,7 +34,7 @@
       font-size: 14px;
       text-transform: uppercase;
       font-weight: 700;
-      color: $challenge-gray-blue-dark;
+      color: colors.$challenge-gray-blue-dark;
       letter-spacing: 0.2em;
     }
   }
@@ -43,7 +42,7 @@
   .description {
     font-size: 16px;
     font-weight: 400;
-    color: $challenge-gray-blue-dark;
+    color: colors.$challenge-gray-blue-dark;
   }
 
   .price {
@@ -52,13 +51,13 @@
     .current {
       font-size: 28px;
       font-weight: 700;
-      color: $black;
+      color: core.$black;
     }
 
     .percentage {
       margin-left: 15px;
-      background-color: $black;
-      color: $white;
+      background-color: core.$black;
+      color: core.$white;
       border-radius: 5px;
       padding: 5px 8px;
 
@@ -69,7 +68,7 @@
     .previous {
       font-size: 18px;
       font-weight: 700;
-      color: $challenge-gray-blue-dark;
+      color: colors.$challenge-gray-blue-dark;
       text-decoration: line-through;
     }
   }
@@ -82,8 +81,8 @@
     .quantitySelector {
       width: 160px;
       padding: 20px 0;
-      color: $black;
-      background-color: $challenge-gray-blue-light;
+      color: core.$black;
+      background-color: colors.$challenge-gray-blue-light;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -95,8 +94,8 @@
 
     .button {
       cursor: pointer;
-      color: $black;
-      background-color: $challenge-orange;
+      color: core.$black;
+      background-color: colors.$challenge-orange;
       display: flex;
       align-items: center;
       padding: 15px 70px;
@@ -108,16 +107,16 @@
       outline: 0; // Replacing with a border and lighter icon effect
 
       path {
-        fill: $black;
+        fill: core.$black;
       }
 
       &:hover,
       &:focus-visible {
-        background-color: $challenge-orange-light;
+        background-color: colors.$challenge-orange-light;
       }
 
       &:focus-visible {
-        border-color: $black;
+        border-color: core.$black;
       }
     }
   }

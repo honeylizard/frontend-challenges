@@ -1,4 +1,4 @@
-@import "../_core";
+@use "../_core" as core;
 
 $challenge-blue: #3A7BFD; // hsl(220, 98%, 61%);
 $challenge-check-bg: linear-gradient(135deg, #57DDFF, #C058F3); // blue: hsl(192, 100%, 67%); pink: hsl(280, 87%, 65%)

@@ -1,4 +1,5 @@
-@import "countries-api.module.scss";
+@use "countries-api.module.scss" as countries;
+@use "../_core" as core;
 
 @mixin basicInput {
   box-sizing: border-box;
@@ -7,15 +8,15 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  background-color: $white;
+  background-color: core.$white;
   background-clip: padding-box;
-  border: 1px solid $grey-01;
+  border: 1px solid core.$grey-01;
   border-radius: .25rem;
 
   &:focus-visible {
-    border-color: $outline-blue;
+    border-color: core.$outline-blue;
     outline: 0;
-    box-shadow: 0 0 0 0.15rem $outline-blue;
+    box-shadow: 0 0 0 0.15rem core.$outline-blue;
   }
 
   width: 300px;
@@ -27,11 +28,11 @@
 
 .fieldWrapper {
   .requiredText {
-    color: $red;
+    color: core.$red;
   }
 
   label {
-    @include screenReaderOnly();
+    @include core.screenReaderOnly();
   }
 
   .inputWrapper,
@@ -63,18 +64,18 @@
 
   &.invalidField {
     label {
-      color: $red;
+      color: core.$red;
     }
 
     input,
     select {
-      border-color: $red;
-      color: $red;
+      border-color: core.$red;
+      color: core.$red;
     }
 
     .fieldErrorText {
       font-size: .875em;
-      color: $red;
+      color: core.$red;
     }
   }
 
@@ -83,17 +84,17 @@
     .inputWrapper,
     select {
       border-color: transparent;
-      box-shadow: $challenge-shadow-light;
-      background-color: $white;
-      color: $black;
+      box-shadow: countries.$challenge-shadow-light;
+      background-color: core.$white;
+      color: core.$black;
 
       &:focus-visible {
-        box-shadow: 0 0 0 0.15rem $outline-blue;
+        box-shadow: 0 0 0 0.15rem core.$outline-blue;
       }
     }
 
     input {
-      color: $black;
+      color: core.$black;
     }
   }
 
@@ -102,27 +103,27 @@
     .inputWrapper,
     select {
       border-color: transparent;
-      box-shadow: $challenge-shadow-dark;
-      background-color: $challenge-primary-dark;
-      color: $white;
+      box-shadow: countries.$challenge-shadow-dark;
+      background-color: countries.$challenge-primary-dark;
+      color: core.$white;
 
       &:focus-visible {
-        box-shadow: 0 0 0 0.15rem $outline-blue;
+        box-shadow: 0 0 0 0.15rem core.$outline-blue;
       }
     }
 
     input {
-      color: $white;
+      color: core.$white;
     }
 
     input::-webkit-input-placeholder,
     input::-moz-placeholder,
     input::-ms-placeholder {
-      color: $white;
+      color: core.$white;
     }
 
     input::placeholder {
-      color: $white;
+      color: core.$white;
     }
   }
 
@@ -136,9 +137,9 @@
       align-items: center;
 
       &:focus-within {
-        border-color: $outline-blue;
+        border-color: core.$outline-blue;
         outline: 0;
-        box-shadow: 0 0 0 0.15rem $outline-blue;
+        box-shadow: 0 0 0 0.15rem core.$outline-blue;
       }
 
       .prefixIcon {

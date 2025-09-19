@@ -1,8 +1,6 @@
-@import "../_core";
-@import "colors.module.scss";
-
+@use "../_core" as core;
 .modalContainer {
-  background-color: $white;
+  background-color: core.$white;
   padding: 20px;
 
   .modal {

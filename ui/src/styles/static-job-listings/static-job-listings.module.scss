@@ -1,4 +1,4 @@
-@import "../_core";
+@use "../_core" as core;
 
 $challenge-bg: #F0FAFB;
 $challenge-primary: #5BA6A2;
@@ -12,11 +12,11 @@ $challenge-font: "League Spartan", "Segoe UI", Roboto, Oxygen, "Droid Sans", "He
 
 .solutionContainer {
     background-color: $challenge-bg;
-    color: $black;
+    color: core.$black;
     font-family: $challenge-font;
 
     a {
-        color: $black;
+        color: core.$black;
 
         &:hover, &:focus-visible {
             color: blue;
@@ -26,7 +26,7 @@ $challenge-font: "League Spartan", "Segoe UI", Roboto, Oxygen, "Droid Sans", "He
 
 .content {
     background-color: $challenge-bg;
-    color: $black;
+    color: core.$black;
     font-family: $challenge-font;
 }
 
@@ -37,14 +37,14 @@ $challenge-font: "League Spartan", "Segoe UI", Roboto, Oxygen, "Droid Sans", "He
     background-repeat: no-repeat;
     background-position: top right;
     background-size: cover;
-    color: $white;
+    color: core.$white;
     font-family: $challenge-font;
 }
 
 .footer {
     text-align: center;
     background-color: $challenge-bg;
-    color: $black;
+    color: core.$black;
     font-family: $challenge-font;
     padding: 20px 0;
 }

@@ -1,4 +1,5 @@
-@import "countries-api.module.scss";
+@use "countries-api.module.scss" as countries;
+@use "../_core" as core;
 
 .section {
     .detailContainer {
@@ -94,26 +95,26 @@
     font-size: 13px;
 
     &.linkButtonDark {
-        color: $white;
-        box-shadow: $challenge-shadow-dark-link;
-        background-color: $challenge-primary-dark;
+        color: core.$white;
+        box-shadow: countries.$challenge-shadow-dark-link;
+        background-color: countries.$challenge-primary-dark;
 
         &:hover,
         &:focus-visible {
-            color: $white;
-            background-color: $challenge-bg-dark;
+            color: core.$white;
+            background-color: countries.$challenge-bg-dark;
         }
     }
 
     &.linkButtonLight {
-        color: $black;
-        box-shadow: $challenge-shadow-light-link;
-        background-color: $white;
+        color: core.$black;
+        box-shadow: countries.$challenge-shadow-light-link;
+        background-color: core.$white;
 
         &:hover,
         &:focus-visible {
-            color: $black;
-            background-color: $challenge-bg-light;
+            color: core.$black;
+            background-color: countries.$challenge-bg-light;
         }
     }
 }

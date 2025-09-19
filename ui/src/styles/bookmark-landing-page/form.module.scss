@@ -1,4 +1,5 @@
-@import "colors.module.scss";
+@use "colors.module.scss";
+@use "../_core" as core;
 
 .fieldWrapper {
   display: inline-block;
@@ -9,7 +10,7 @@
   }
 
   .requiredText {
-    color: $challenge-orange;
+    color: colors.$challenge-orange;
   }
 
   .inputWrapper {
@@ -21,8 +22,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: $white;
-    color: $black;
+    background-color: core.$white;
+    color: core.$black;
 
     @media all and (max-width: 450px) {
       min-width: none;
@@ -30,7 +31,7 @@
     }
 
     &:focus-within {
-      outline: 3px solid $challenge-blue-dark;
+      outline: 3px solid colors.$challenge-blue-dark;
     }
   }
 
@@ -52,44 +53,44 @@
     }
     /* do not group these rules */
     &::-webkit-input-placeholder {
-      color: $challenge-grey-03;
+      color: colors.$challenge-grey-03;
     }
     &:-moz-placeholder {
-      color: $challenge-grey-03;
+      color: colors.$challenge-grey-03;
       opacity: 1;
     }
     &::-moz-placeholder {
-      color: $challenge-grey-03;
+      color: colors.$challenge-grey-03;
       opacity: 1;
     }
     &:-ms-input-placeholder {
-      color: $challenge-grey-03;
+      color: colors.$challenge-grey-03;
     }
     &::-ms-input-placeholder {
-      color: $challenge-grey-03;
+      color: colors.$challenge-grey-03;
     }
     &::placeholder {
-      color: $challenge-grey-03;
+      color: colors.$challenge-grey-03;
     }
   }
 
   &.invalidField {
     label {
-      color: $red;
+      color: core.$red;
     }
 
     .inputWrapper {
-      border-color: $challenge-orange !important;
+      border-color: colors.$challenge-orange !important;
       border-bottom-left-radius: 0 !important;
       border-bottom-right-radius: 0 !important;
-      color: $challenge-orange;
+      color: colors.$challenge-orange;
     }
 
     .fieldErrorText {
       font-size: .7em;
       padding: 15px 20px;
-      color: $white;
-      background-color: $challenge-orange;
+      color: core.$white;
+      background-color: colors.$challenge-orange;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
       box-sizing: border-box;
@@ -106,5 +107,5 @@
 
 .fieldHelpText {
   font-size: .875em;
-  color: $white;
+  color: core.$white;
 }

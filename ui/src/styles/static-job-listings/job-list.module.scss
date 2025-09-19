@@ -1,4 +1,5 @@
-@import "static-job-listings.module.scss";
+@use "../_core" as core;
+@use "static-job-listings.module.scss" as staticJL;
 
 .list {
     margin: 0;
@@ -7,7 +8,7 @@
 }
 
 .listFiltersContainer {
-    background-color: $white;
+    background-color: core.$white;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
@@ -28,7 +29,7 @@
     .clearFiltersButton {
         min-width: 50px;
         background-color: transparent;
-        color: $challenge-gray;
+        color: staticJL.$challenge-gray;
         border: none;
         font-weight: bold;
         font-size: 15px;

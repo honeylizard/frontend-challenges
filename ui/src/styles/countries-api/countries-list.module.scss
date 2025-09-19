@@ -1,4 +1,5 @@
-@import "countries-api.module.scss";
+@use "countries-api.module.scss" as countries;
+@use "../_core" as core;
 
 .list {
     margin: 20px 0;
@@ -18,13 +19,13 @@
         border-radius: 0.25rem;
 
         &.listItemDark {
-            background-color: $challenge-primary-dark;
-            box-shadow: $challenge-shadow-dark;
+            background-color: countries.$challenge-primary-dark;
+            box-shadow: countries.$challenge-shadow-dark;
         }
 
         &.listItemLight {
-            background-color: $white;
-            box-shadow: $challenge-shadow-light;
+            background-color: core.$white;
+            box-shadow: countries.$challenge-shadow-light;
         }
     }
 

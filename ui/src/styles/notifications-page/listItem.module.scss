@@ -1,14 +1,15 @@
-@import "app.module.scss";
+@use "../_core" as core;
+@use "colors.module.scss";
 
 .container {
     padding: 15px 20px;
     box-sizing: border-box;
     margin: 10px 0;
     border-radius: 10px;
-    background-color: $challenge-grey-01;
+    background-color: colors.$challenge-grey-01;
 
     &.readNotification {
-        background-color: $white;
+        background-color: core.$white;
     }
 
     .row {
@@ -29,35 +30,35 @@
 
         .user {
             font-weight: bold;
-            color: $challenge-steel-dark;
+            color: colors.$challenge-steel-dark;
             text-decoration: none;
 
                 &:hover, &:focus-visible {
-                    color: $challenge-blue;
+                    color: colors.$challenge-blue;
                 }
         }
 
         .action {
             font-weight: normal;
-            color: $challenge-steel;
+            color: colors.$challenge-steel;
 
             .link {
                 font-weight: bold;
-                color: $challenge-blue;
+                color: colors.$challenge-blue;
                 text-decoration: none;
 
                 &:hover, &:focus-visible {
-                    color: $challenge-steel;
+                    color: colors.$challenge-steel;
                 }
             }
 
             .linkVisited {
                 font-weight: bold;
-                color: $challenge-steel;
+                color: colors.$challenge-steel;
                 text-decoration: none;
 
                 &:hover, &:focus-visible {
-                    color: $challenge-blue;
+                    color: colors.$challenge-blue;
                 }
             }
         }
@@ -70,20 +71,20 @@
 
     .date {
         font-weight: normal;
-        color: $challenge-steel-light;
+        color: colors.$challenge-steel-light;
     }
 
     .message {
-        border: 1px solid $challenge-grey-03;
+        border: 1px solid colors.$challenge-grey-03;
         padding: 20px;
         margin-top: 10px;
-        color: $challenge-steel;
+        color: colors.$challenge-steel;
         border-radius: 5px;
         display: block;
         text-decoration: none;
 
         &:hover, &:focus-visible {
-            background-color: $challenge-grey-03;
+            background-color: colors.$challenge-grey-03;
         }
     }
 

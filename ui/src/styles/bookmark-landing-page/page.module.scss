@@ -1,13 +1,13 @@
-@import "../_core";
-@import "colors.module.scss";
+@use "../_core" as core;
+@use "colors.module.scss";
 
 // https://fonts.google.com/specimen/Rubix
 $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 .solutionContainer {
     font-family: $challenge-font;
-    background-color: $white;
-    color: $challenge-blue-dark;
+    background-color: core.$white;
+    color: colors.$challenge-blue-dark;
 
     .header {
         padding: 20px 0;
@@ -30,12 +30,12 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
                 align-items: center;
 
                 .basicLink {
-                    color: $black;
+                    color: core.$black;
                     text-decoration: none;
                     padding: 5px 10px;
 
                     &:focus-visible, &:hover {
-                        color: $challenge-orange;
+                        color: colors.$challenge-orange;
                     }
                 }
             }
@@ -47,13 +47,13 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
                     display: block;
 
                     background-color: transparent;
-                    color: $black;
+                    color: core.$black;
                     border-color: transparent;
 
                     &:hover {
-                        background-color: $challenge-blue;
-                        color: $white;
-                        border-color: $challenge-blue;
+                        background-color: colors.$challenge-blue;
+                        color: core.$white;
+                        border-color: colors.$challenge-blue;
                     }
                 }
             }
@@ -78,8 +78,8 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
         min-height: 100vh;
 
         width: 100%;
-        background-color: $challenge-blue-dark-bg;
-        color: $white;
+        background-color: colors.$challenge-blue-dark-bg;
+        color: core.$white;
         padding: 25px 50px;
         box-sizing: border-box;
 
@@ -95,14 +95,14 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
             gap: 0;
 
             li {
-                border-top: 1px solid $challenge-grey-04;
+                border-top: 1px solid colors.$challenge-grey-04;
                 width: 100%;
                 text-align: center;
             }
 
             .basicLink {
                 display: block;
-                color: $white;
+                color: core.$white;
                 text-transform: uppercase;
                 text-decoration: none;
                 padding: 20px;
@@ -110,13 +110,13 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
 
                 &:hover,
                 &:focus-visible {
-                    color: $challenge-orange;
+                    color: colors.$challenge-orange;
                 }
             }
         }
 
         .headerNavModalClose {
-            color: $white;
+            color: core.$white;
             font-size: 20px;
         }
 
@@ -136,12 +136,12 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
 
                 .socialMediaLink {
                     text-decoration: none;
-                    color: $white;
+                    color: core.$white;
                     font-size: 25px;
 
                     &:hover,
                     &:focus-visible {
-                        color: $challenge-orange;
+                        color: colors.$challenge-orange;
                     }
                 }
             }
@@ -160,8 +160,8 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
     }
 
     .content {
-        background-color: $white;
-        color: $challenge-blue-dark;
+        background-color: core.$white;
+        color: colors.$challenge-blue-dark;
         padding: 20px 0;
 
         .row {
@@ -204,7 +204,7 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
 
             .description {
                 margin: 0 auto 50px auto;
-                color: $challenge-grey;
+                color: colors.$challenge-grey;
             }
 
             .overview {
@@ -298,15 +298,15 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
             .faqListItem {
                 .faqQuestion {
                     background-color: transparent;
-                    color: $challenge-blue-dark;
-                    border-top: 1px solid $grey-01;
+                    color: colors.$challenge-blue-dark;
+                    border-top: 1px solid core.$grey-01;
                     padding: 20px 20px 20px 0;
                     font-weight: bold;
                 }
                 &:last-child {
                     .faqQuestion {
-                        border-top: 1px solid $grey-01;
-                        border-bottom: 1px solid $grey-01;
+                        border-top: 1px solid core.$grey-01;
+                        border-bottom: 1px solid core.$grey-01;
                     }
                 }
             }
@@ -354,8 +354,8 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
     .footerContainer {
 
         .callToAction {
-            background-color: $challenge-blue;
-            color: $white;
+            background-color: colors.$challenge-blue;
+            color: core.$white;
             padding: 80px 0;
 
             .wrapper {
@@ -406,8 +406,8 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
 
                 &:hover,
                 &:focus-visible {
-                    background-color: $white;
-                    color: $challenge-orange;
+                    background-color: core.$white;
+                    color: colors.$challenge-orange;
                 }
 
                 @media all and (max-width: 450px) {
@@ -417,8 +417,8 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
         }
 
         .footer {
-            background-color: $challenge-blue-dark;
-            color: $white;
+            background-color: colors.$challenge-blue-dark;
+            color: core.$white;
             padding: 20px 0;
 
             .wrapper {
@@ -462,24 +462,24 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
                     .basicLink {
                         text-transform: uppercase;
                         text-decoration: none;
-                        color: $white;
+                        color: core.$white;
                         font-size: 12px;
                         letter-spacing: 2px;
 
                         &:hover,
                         &:focus-visible {
-                            color: $challenge-orange;
+                            color: colors.$challenge-orange;
                         }
                     }
 
                     .socialMediaLink {
                         text-decoration: none;
-                        color: $white;
+                        color: core.$white;
                         font-size: 25px;
 
                         &:hover,
                         &:focus-visible {
-                            color: $challenge-orange;
+                            color: colors.$challenge-orange;
                         }
                     }
                 }
@@ -488,16 +488,16 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
         }
 
         .copyright {
-            background-color: $challenge-blue-dark;
-            color: $white;
+            background-color: colors.$challenge-blue-dark;
+            color: core.$white;
             text-align: center;
 
             a {
-                color: $challenge-orange;
+                color: colors.$challenge-orange;
 
                 &:focus-visible,
                 &:hover {
-                    color: $white;
+                    color: core.$white;
                 }
             }
         }

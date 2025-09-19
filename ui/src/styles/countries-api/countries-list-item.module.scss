@@ -1,4 +1,4 @@
-@import "countries-api.module.scss";
+@use "../_core" as core;
 
 .listItemContainer {
     height: 100%;
@@ -26,18 +26,18 @@
 
     &.listItemContainerDark {
         a {
-            color: $white;
+            color: core.$white;
             &:hover, &:focus-visible {
-                color: $white;
+                color: core.$white;
             }
         }
     }
 
     &.listItemContainerLight {
         a {
-            color: $black;
+            color: core.$black;
             &:hover, &:focus-visible {
-                color: $black;
+                color: core.$black;
             }
         }
     }
