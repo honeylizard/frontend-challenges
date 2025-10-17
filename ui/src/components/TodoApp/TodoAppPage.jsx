@@ -52,6 +52,10 @@ const TodoAppPage = ({ intl }) => {
         setDesktop(window.innerWidth > DESKTOP_PIXEL_BREAKPOINT);
     };
 
+    const memoizedUpdateTodoData = useCallback((props) => {
+        updateTodoData(props);
+    }, [updateTodoData]);
+
     useEffect(() => {
         // Initialize the list of todos based on the previously saved data or our example set of items
         const previousTodoList = JSON.parse(localStorage.getItem("todoList"));
@@ -72,10 +76,10 @@ const TodoAppPage = ({ intl }) => {
                 order: 3,
             },
         ];
-        updateTodoData({
+        memoizedUpdateTodoData({
             todoList: previousTodoList?.length > 0 ? previousTodoList : initialData,
         });
-    }, []);
+    }, [memoizedUpdateTodoData]);
 
     useEffect(() => {
         setRecords(globalData.todoList);
