@@ -31,7 +31,7 @@ const CountriesList = ({ intl }) => {
     ].filter(Boolean);
 
     useEffect(() => {
-        axiosGet(`https://restcountries.com/v2/all`)
+        axiosGet(`https://restcountries.com/v2/all?fields=region,name,alpha3Code,flag,population,capital`)
             .then((response) => {
                 setRecords(response);
                 setRegionOptions([...new Set(response.map((item) => item.region))]);
