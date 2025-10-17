@@ -47,13 +47,13 @@ const OverviewCard = ({ intl }) => {
                 <h3 className="sr-only">{viewAsLabel}</h3>
                 <ul>
                     <li>
-                        <FilterButton label={dailyLabel} filterCode={globalData.DAILY_KEY} />
+                        <FilterButton label={dailyLabel} filterCode={globalData?.DAILY_KEY} />
                     </li>
                     <li>
-                        <FilterButton label={weeklyLabel} filterCode={globalData.WEEKLY_KEY} />
+                        <FilterButton label={weeklyLabel} filterCode={globalData?.WEEKLY_KEY} />
                     </li>
                     <li>
-                        <FilterButton label={monthlyLabel} filterCode={globalData.MONTHLY_KEY} />
+                        <FilterButton label={monthlyLabel} filterCode={globalData?.MONTHLY_KEY} />
                     </li>
                 </ul>
             </div>

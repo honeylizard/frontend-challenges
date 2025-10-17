@@ -17,7 +17,7 @@ import TodoListFooterFilterSet from "./common/TodoListFooterFilterSet";
 const TodoAppPage = ({ intl }) => {
     const { todoApp: globalData, updateTodoData } = useContext(GlobalContext);
     const [filter, setFilter] = useState(null);
-    const [records, setRecords] = useState(globalData.todoList);
+    const [records, setRecords] = useState(globalData?.todoList);
     const [filteredRecords, setFilteredRecords] = useState([]);
     const DESKTOP_PIXEL_BREAKPOINT = 1450;
     const [isDesktop, setDesktop] = useState(window.innerWidth > DESKTOP_PIXEL_BREAKPOINT);
@@ -33,10 +33,10 @@ const TodoAppPage = ({ intl }) => {
         (list, currentFilter) => {
             let output = [];
             switch (currentFilter) {
-                case globalData.FILTER_COMPLETED:
+                case globalData?.FILTER_COMPLETED:
                     output = list.filter((item) => item.completed);
                     break;
-                case globalData.FILTER_ACTIVE:
+                case globalData?.FILTER_ACTIVE:
                     output = list.filter((item) => !item.completed);
                     break;
                 default:
@@ -45,7 +45,7 @@ const TodoAppPage = ({ intl }) => {
             }
             return output;
         },
-        [globalData.FILTER_COMPLETED, globalData.FILTER_ACTIVE]
+        [globalData?.FILTER_COMPLETED, globalData?.FILTER_ACTIVE]
     );
 
     const updateMedia = () => {
@@ -75,7 +75,7 @@ const TodoAppPage = ({ intl }) => {
         updateTodoData({
             todoList: previousTodoList?.length > 0 ? previousTodoList : initialData,
         });
-    }, [updateTodoData]);
+    }, []);
 
     useEffect(() => {
         setRecords(globalData.todoList);

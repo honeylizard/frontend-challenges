@@ -13,9 +13,9 @@ const TimeCategoryCard = ({ intl, label = "Unknown", categoryData = {}, customCl
     const { timeTrackingDashboard: globalData } = useContext(GlobalContext);
     const [currentTimeFrameKey, setCurrentTimeFrameKey] = useState(null);
 
-    const DAILY_KEY = globalData.DAILY_KEY;
-    const WEEKLY_KEY = globalData.WEEKLY_KEY;
-    const MONTHLY_KEY = globalData.MONTHLY_KEY;
+    const DAILY_KEY = globalData?.DAILY_KEY;
+    const WEEKLY_KEY = globalData?.WEEKLY_KEY;
+    const MONTHLY_KEY = globalData?.MONTHLY_KEY;
 
     const todayLabel = intl.formatMessage({
         id: "timeTrackingDashboard.today",
@@ -43,10 +43,10 @@ const TimeCategoryCard = ({ intl, label = "Unknown", categoryData = {}, customCl
     cardStyles.push(customClass);
 
     useEffect(() => {
-        if (currentTimeFrameKey !== globalData.currentFilter) {
-            setCurrentTimeFrameKey(globalData.currentFilter);
+        if (currentTimeFrameKey !== globalData?.currentFilter) {
+            setCurrentTimeFrameKey(globalData?.currentFilter);
         }
-    }, [globalData.currentFilter, currentTimeFrameKey]);
+    }, [globalData?.currentFilter, currentTimeFrameKey]);
 
     return (
         <div className={cardStyles.join(" ")}>
