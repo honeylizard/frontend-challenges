@@ -18,3 +18,5 @@ npm-debug.log*
 **/database/seeds/data_files/
 
 */build/
+
+stats.html
