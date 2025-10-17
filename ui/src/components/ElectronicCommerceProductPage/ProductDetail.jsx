@@ -47,12 +47,12 @@ const ProductDetail = ({ intl }) => {
             </div>
             <div className={productStyles.gallery}>
                 <div className={productStyles.galleryCurrent}>
-                    <img src={process.env.PUBLIC_URL + currentImage.imageSrc} alt={currentImage.alt} />
+                    <img src={currentImage.imageSrc} alt={currentImage.alt} />
                 </div>
                 <ul className={productStyles.galleryList}>
                     {product.images.map((imageData) => (
                         <li key={`thumbnail-${imageData.id}`}>
-                            <img src={process.env.PUBLIC_URL + imageData.thumbnailSrc} alt={imageData.alt} />
+                            <img src={imageData.thumbnailSrc} alt={imageData.alt} />
                         </li>
                     ))}
                 </ul>

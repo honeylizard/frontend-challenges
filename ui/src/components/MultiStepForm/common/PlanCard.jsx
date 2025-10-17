@@ -16,7 +16,7 @@ const PlanCard = ({ title, imageSrc, frequency, costOptions, onChange, isCurrent
 
     return (
         <Button type="button" customClasses={classes} onClick={onChange}>
-            {imageSrc && <img src={process.env.PUBLIC_URL + imageSrc} alt="" role="presentation" />}
+            {imageSrc && <img src={imageSrc} alt="" role="presentation" />}
             <div className={appStyles.planTypeCardText}>
                 <div className={appStyles.planTypeCardTitle}>{title}</div>
                 {currentCost && (

@@ -40,7 +40,7 @@ const CountriesListItem = ({ intl, data }) => {
                     <LazyImage
                         src={data.flag}
                         alt={imageAlt}
-                        placeholderImage={process.env.PUBLIC_URL + "/assets/flag_placeholder.jpg"}
+                        placeholderImage={"/assets/flag_placeholder.jpg"}
                     />
                 </div>
                 <div className={countriesListItemStyle.listItemContent}>

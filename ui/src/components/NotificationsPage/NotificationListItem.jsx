@@ -20,7 +20,7 @@ const NotificationListItem = ({ intl, data = {} }) => {
     } = data;
     const [actionText, setActionText] = useState("");
     const [isRead, setIsRead] = useState(false);
-    const avatarUrl = process.env.PUBLIC_URL + `/assets/user-avatars/${userAvatar}`;
+    const avatarUrl = `/assets/user-avatars/${userAvatar}`;
     const avatarAltText = intl.formatMessage(
         {
             id: "notificationsPage.avatarAlt",
@@ -115,7 +115,7 @@ const NotificationListItem = ({ intl, data = {} }) => {
                 </div>
                 {isPhotoComment && (
                     <a href="/" className={listItemStyles.photo}>
-                        <img src={process.env.PUBLIC_URL + `/assets/photos/${photoThumbnail}`} alt={photoAlt} />
+                        <img src={`/assets/photos/${photoThumbnail}`} alt={photoAlt} />
                     </a>
                 )}
             </div>

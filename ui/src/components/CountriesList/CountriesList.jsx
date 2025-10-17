@@ -54,7 +54,7 @@ const CountriesList = ({ intl }) => {
     }, [currentFilters, records]);
 
     const renderPlaceholderItem = () => {
-        const placeholderImage = process.env.PUBLIC_URL + "/assets/flag_placeholder.jpg";
+        const placeholderImage = "/assets/flag_placeholder.jpg";
         const contentLabel = intl.formatMessage({
             id: "countriesApi.countries.loadingSingle",
         });

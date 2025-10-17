@@ -29,7 +29,7 @@ const OverviewSection = ({ data }) => {
                     </ul>
                 </div>
                 <div>
-                    <img src={process.env.PUBLIC_URL + data.image} alt="" role="presentation" />
+                    <img src={data.image} alt="" role="presentation" />
                 </div>
             </div>
         </section>

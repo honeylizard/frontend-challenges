@@ -9,7 +9,7 @@ const DownloadSection = ({ data }) => {
         return (
             <li key={key} className={pageStyles.card}>
                 <div className={pageStyles.cardContent}>
-                    <img src={process.env.PUBLIC_URL + image} alt="" role="presentation" />
+                    <img src={image} alt="" role="presentation" />
                     <h3>{title}</h3>
                     <p>{description}</p>
                     <div className={pageStyles.cardDivider} aria-hidden="true">

@@ -14,7 +14,7 @@ const WeatherCondition = ({ intl, data, customClasses = [] }) => {
     return (
         <div className={[appStyles.condition, ...customClasses].join(" ")} title={data?.alt}>
             <span className="sr-only">{conditionLabel}: </span>
-            <img src={process.env.PUBLIC_URL + data?.src} alt={data?.alt} />
+            <img src={data?.src} alt={data?.alt} />
         </div>
     );
 };

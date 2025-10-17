@@ -18,7 +18,7 @@ const FeatureSection = ({ data }) => {
                         .filter(Boolean)
                         .join(" ")}
                 >
-                    <img src={process.env.PUBLIC_URL + image} alt="" role="presentation" />
+                    <img src={image} alt="" role="presentation" />
                     <div className={pageStyles.featureTabContent}>
                         <h3>{title}</h3>
                         <p>{description}</p>

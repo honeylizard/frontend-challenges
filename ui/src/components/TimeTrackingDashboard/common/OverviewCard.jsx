@@ -34,7 +34,7 @@ const OverviewCard = ({ intl }) => {
         <div className={appStyles.overviewCard}>
             <div className={appStyles.profile}>
                 <img
-                    src={process.env.PUBLIC_URL + data.profile.avatar}
+                    src={data.profile.avatar}
                     alt={avatarOfLabel}
                     aria-describedby="profileName"
                 />
