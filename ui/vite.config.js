@@ -84,5 +84,14 @@ export default defineConfig(() => {
                 // open: true, // Automatically opens the visualizer in your browser
             }),
         ],
+        resolve: {
+            alias: {
+                '~': path.resolve(__dirname, './src'),
+                "@resources": "/src/resources",
+                "@components": "/src/components",
+                "@styles": "/src/styles",
+                "@translations": "/src/translations",
+            },
+        },
     };
 });
