@@ -4,9 +4,9 @@ import { injectIntl } from "react-intl";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
-import data from "../../../assets/expenses-chart-page/data.json";
+import data from "@resources/expenses-chart-page/data.json";
 import { currencyAmount } from "../utils/common";
-import appStyles from "../../../styles/expenses-chart-page/app.module.scss";
+import appStyles from "@styles/expenses-chart-page/app.module.scss";
 
 const ExpensesChart = ({ intl, currency = "USD" }) => {
     const { chartData = [] } = data;

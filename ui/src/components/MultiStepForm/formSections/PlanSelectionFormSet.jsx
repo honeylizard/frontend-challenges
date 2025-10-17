@@ -5,9 +5,9 @@ import { injectIntl } from "react-intl";
 import PlanCard from "../common/PlanCard";
 import FormInputSwitch from "../common/FormInputSwitch";
 
-import data from "../../../assets/multi-step-form/data.json";
+import data from "@resources/multi-step-form/data.json";
 
-import appStyles from "../../../styles/multi-step-form/app.module.scss";
+import appStyles from "@styles/multi-step-form/app.module.scss";
 
 const PlanSelectionFormSet = ({ intl, formData, formErrors, onChange, currentStep = 2, totalSteps = 4 }) => {
     const sectionTitle = intl.formatMessage({

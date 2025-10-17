@@ -5,9 +5,9 @@ import { injectIntl } from "react-intl";
 import FormInputCheckboxSet from "../common/FormInputCheckboxSet";
 import AddOnItemLabel from "../common/AddOnItemLabel";
 
-import data from "../../../assets/multi-step-form/data.json";
+import data from "@resources/multi-step-form/data.json";
 
-import appStyles from "../../../styles/multi-step-form/app.module.scss";
+import appStyles from "@styles/multi-step-form/app.module.scss";
 
 const AddOnsFormSet = ({ intl, formData, formErrors, onChangeSet, currentStep = 3, totalSteps = 4 }) => {
     const sectionTitle = intl.formatMessage({

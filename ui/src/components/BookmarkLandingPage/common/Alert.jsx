@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
-import alertStyles from "../../../styles/bookmark-landing-page/alert.module.scss";
+import alertStyles from "@styles/bookmark-landing-page/alert.module.scss";
 
 const Alert = ({ intl, id, type = "general", message, ...attrs }) => {
     let typeStyle = null;

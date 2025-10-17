@@ -13,7 +13,7 @@
                 "type": "secondary"
             }
         ],
-        "image": "/assets/illustrations/illustration-hero.svg"
+        "image": "/frontend-challenges/assets/illustrations/illustration-hero.svg"
     },
     "features": {
         "title": "Features",
@@ -27,7 +27,7 @@
                     "label": "More Info",
                     "url": "#"
                 },
-                "image": "/assets/illustrations/illustration-features-tab-1.svg"
+                "image": "/frontend-challenges/assets/illustrations/illustration-features-tab-1.svg"
             },
             {
                 "title": "Intelligent search",
@@ -37,7 +37,7 @@
                     "label": "More Info",
                     "url": "#"
                 },
-                "image": "/assets/illustrations/illustration-features-tab-2.svg"
+                "image": "/frontend-challenges/assets/illustrations/illustration-features-tab-2.svg"
             },
             {
                 "title": "Share your bookmarks",
@@ -47,7 +47,7 @@
                     "label": "More Info",
                     "url": "#"
                 },
-                "image": "/assets/illustrations/illustration-features-tab-3.svg"
+                "image": "/frontend-challenges/assets/illustrations/illustration-features-tab-3.svg"
             }
         ]
     },
@@ -62,7 +62,7 @@
                     "label": "Add & Install Extension",
                     "url": "#"
                 },
-                "image": "/assets/browser-logos/logo-chrome.svg"
+                "image": "/frontend-challenges/assets/browser-logos/logo-chrome.svg"
             },
             {
                 "title": "Add to Firefox",
@@ -71,7 +71,7 @@
                     "label": "Add & Install Extension",
                     "url": "#"
                 },
-                "image": "/assets/browser-logos/logo-firefox.svg"
+                "image": "/frontend-challenges/assets/browser-logos/logo-firefox.svg"
             },
             {
                 "title": "Add to Opera",
@@ -80,7 +80,7 @@
                     "label": "Add & Install Extension",
                     "url": "#"
                 },
-                "image": "/assets/browser-logos/logo-opera.svg"
+                "image": "/frontend-challenges/assets/browser-logos/logo-opera.svg"
             }
         ]
     },

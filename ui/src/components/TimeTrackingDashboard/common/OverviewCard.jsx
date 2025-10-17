@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import data from "../../../assets/time-tracking-dashboard/data.json";
+import data from "@resources/time-tracking-dashboard/data.json";
 import { GlobalContext } from "../../../GlobalStateProvider";
 import FilterButton from "./FilterButton";
 
-import appStyles from "../../../styles/time-tracking-dashboard/overview-card.module.scss";
+import appStyles from "@styles/time-tracking-dashboard/overview-card.module.scss";
 
 const OverviewCard = ({ intl }) => {
     const { timeTrackingDashboard: globalData } = useContext(GlobalContext);

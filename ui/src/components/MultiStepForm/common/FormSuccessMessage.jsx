@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import thankYouImage from "../../../assets/multi-step-form/icon-thank-you.svg";
-import appStyles from "../../../styles/multi-step-form/app.module.scss";
+import thankYouImage from "@resources/multi-step-form/icon-thank-you.svg";
+import appStyles from "@styles/multi-step-form/app.module.scss";
 
 const FormSuccessMessage = ({ intl }) => {
     const title = intl.formatMessage({

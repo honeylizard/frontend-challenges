@@ -4,7 +4,7 @@ import { injectIntl } from "react-intl";
 import lodash from "lodash";
 import { GlobalContext } from "../../GlobalStateProvider";
 import { axiosGet } from "./utils/api-helper";
-import countriesListStyle from "../../styles/countries-api/countries-list.module.scss";
+import countriesListStyle from "@styles/countries-api/countries-list.module.scss";
 import Loading from "./common/Loading";
 import CountriesFilterForm from "./CountriesFilterForm";
 
@@ -54,7 +54,7 @@ const CountriesList = ({ intl }) => {
     }, [currentFilters, records]);
 
     const renderPlaceholderItem = () => {
-        const placeholderImage = "/assets/flag_placeholder.jpg";
+        const placeholderImage = "/frontend-challenges/assets/flag_placeholder.jpg";
         const contentLabel = intl.formatMessage({
             id: "countriesApi.countries.loadingSingle",
         });

@@ -11,7 +11,7 @@ import Alert from "./Alert";
 import Button from "./Button";
 // import _ from "lodash";
 
-import appStyles from "../../../styles/todo-app/app.module.scss";
+import appStyles from "@styles/todo-app/app.module.scss";
 
 const TodoCreateItemForm = ({ intl }) => {
     const { todoApp: globalData, updateTodoData } = useContext(GlobalContext);

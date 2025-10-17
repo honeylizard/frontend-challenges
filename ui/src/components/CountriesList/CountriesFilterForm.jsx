@@ -6,7 +6,7 @@ import Button from "./common/Button";
 import FormSelect from "./common/FormSelect";
 import Alert from "./common/Alert";
 import { GlobalContext } from "../../GlobalStateProvider";
-import filterFormFieldStyles from "../../styles/countries-api/countries-filter-form.module.scss";
+import filterFormFieldStyles from "@styles/countries-api/countries-filter-form.module.scss";
 
 const CountriesFilterForm = ({ intl, regionOptions }) => {
     const { updateCountriesData, countriesApi: globalData } = useContext(GlobalContext);

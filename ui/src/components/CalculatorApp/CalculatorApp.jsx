@@ -8,7 +8,7 @@ import Header from "./Header";
 import OutputScreen from "./common/OutputScreen";
 import Keypad from "./common/Keypad";
 
-import appStyles from "../../styles/calculator-app/app.module.scss";
+import appStyles from "@styles/calculator-app/app.module.scss";
 
 const CalculatorApp = () => {
     const { calculatorApp: globalData } = useContext(GlobalContext);

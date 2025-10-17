@@ -1,5 +1,5 @@
-@use "fonts.module.scss";
-@use "colors.module.scss";
+@use 'fonts.module.scss';
+@use 'colors.module.scss';
 
 .primaryCard {
     width: 100%;
@@ -21,11 +21,11 @@
     margin-bottom: 32px;
 
     @media screen and (min-width: 344px) {
-        background: url('/assets/weather-app/bg-today-large.svg') no-repeat;
+        background: url('/src/resources/weather-app/bg-today-large.svg') no-repeat;
     }
 
     @media screen and (max-width: 390px) {
-        background: url('/assets/weather-app/bg-today-small.svg') no-repeat;
+        background: url('/src/resources/weather-app/bg-today-small.svg') no-repeat;
     }
 
     @media screen and (max-width: 670px) {

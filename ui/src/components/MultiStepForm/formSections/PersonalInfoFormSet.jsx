@@ -4,7 +4,7 @@ import { injectIntl } from "react-intl";
 
 import FormInput from "../common/FormInput";
 
-import appStyles from "../../../styles/multi-step-form/app.module.scss";
+import appStyles from "@styles/multi-step-form/app.module.scss";
 
 const PersonalInfoFormSet = ({ intl, formData, formErrors, onChange, currentStep = 1, totalSteps = 4 }) => {
     const sectionTitle = intl.formatMessage({

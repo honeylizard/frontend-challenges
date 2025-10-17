@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { injectIntl } from "react-intl";
-import data from "../assets/challenges.json";
+import data from "@resources/challenges.json";
 
 const HomePage = ({ intl }) => {
     const title = intl.formatMessage({ id: "header.appTitle" });

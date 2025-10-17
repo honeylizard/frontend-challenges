@@ -6,11 +6,11 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { debounce } from "lodash";
 
-import Button from "../CountriesList/common/Button";
+import Button from "@components/CountriesList/common/Button";
 
-import arrowIcon from "../../assets/age-calculator-app/icon-arrow.svg";
+import arrowIcon from "@resources/age-calculator-app/icon-arrow.svg";
 
-import styles from "../../styles/age-calculator-app/app.module.scss";
+import styles from "@styles/age-calculator-app/app.module.scss";
 
 const INITIAL_RESULTS = { days_ago: "--", months_ago: "--", years_ago: "--" };
 

@@ -16,7 +16,7 @@
     "planTypes": [
         {
             "title": "Arcade",
-            "imageSrc": "/assets/plan-icons/icon-arcade.svg",
+            "imageSrc": "/frontend-challenges/assets/plan-icons/icon-arcade.svg",
             "value": "arcade",
             "cost": {
                 "monthly": 9,
@@ -27,7 +27,7 @@
         },
         {
             "title": "Advanced",
-            "imageSrc": "/assets/plan-icons/icon-advanced.svg",
+            "imageSrc": "/frontend-challenges/assets/plan-icons/icon-advanced.svg",
             "value": "advanced",
             "cost": {
                 "monthly": 12,
@@ -38,7 +38,7 @@
         },
         {
             "title": "Pro",
-            "imageSrc": "/assets/plan-icons/icon-pro.svg",
+            "imageSrc": "/frontend-challenges/assets/plan-icons/icon-pro.svg",
             "value": "pro",
             "cost": {
                 "monthly": 15,

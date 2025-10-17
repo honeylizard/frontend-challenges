@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
-import appLogo from "../../assets/weather-app/logo.svg";
+import appLogo from "@resources/weather-app/logo.svg";
 
-import appStyles from "../../styles/weather-app/app.module.scss";
-import UnitsSelector from "./common/UnitsSelector";
+import appStyles from "@styles/weather-app/app.module.scss";
+import UnitsSelector from "@components/WeatherApp/common/UnitsSelector";
 
 const Header = ({ intl }) => {
     const skipToContentLabel = intl.formatMessage({ id: "app.skipToContent" });

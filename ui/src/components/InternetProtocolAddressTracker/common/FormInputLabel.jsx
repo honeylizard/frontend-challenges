@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import formFieldStyles from "../../../styles/ip-address-tracker/form.module.scss";
+import formFieldStyles from "@styles/ip-address-tracker/form.module.scss";
 
 const FormInputLabel = ({ intl, id, label, required, hideLabel, ...attr }) => {
     const optionalLabel = intl.formatMessage({ id: "form.optional" });

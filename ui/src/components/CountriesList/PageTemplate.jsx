@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import Header from "./Header";
 import Footer from "./Footer";
-import pageTemplateStyle from "../../styles/countries-api/countries-api.module.scss";
+import pageTemplateStyle from "@styles/countries-api/countries-api.module.scss";
 
 const PageTemplate = ({ intl, children }) => {
     return (

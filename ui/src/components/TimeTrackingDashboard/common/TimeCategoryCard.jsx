@@ -7,7 +7,7 @@ import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { GlobalContext } from "../../../GlobalStateProvider";
 import TimeFrame from "./TimeFrame";
 
-import appStyles from "../../../styles/time-tracking-dashboard/time-category-card.module.scss";
+import appStyles from "@styles/time-tracking-dashboard/time-category-card.module.scss";
 
 const TimeCategoryCard = ({ intl, label = "Unknown", categoryData = {}, customClass = "" }) => {
     const { timeTrackingDashboard: globalData } = useContext(GlobalContext);

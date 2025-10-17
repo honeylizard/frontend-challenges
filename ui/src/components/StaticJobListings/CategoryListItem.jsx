@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
-import removeIcon from "../../assets/static-job-listings/icon-remove.svg";
-import categoryListItemStyle from "../../styles/static-job-listings/category-list-item.module.scss";
+import removeIcon from "@resources/static-job-listings/icon-remove.svg";
+import categoryListItemStyle from "@styles/static-job-listings/category-list-item.module.scss";
 
 const CategoryListItem = ({ intl, name, currentFilters = [], showX = false, ...attrs }) => {
     const isSelected = currentFilters.includes(name);

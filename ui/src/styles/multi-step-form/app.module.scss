@@ -1,6 +1,6 @@
-@use "../_core" as core;
-@use "colors.module.scss";
-@use "fonts.module.scss";
+@use '../_core' as core;
+@use 'colors.module.scss';
+@use 'fonts.module.scss';
 
 .solutionContainer {
     font-family: fonts.$challenge-font;
@@ -40,7 +40,7 @@
 
                     color: core.$white;
                     background-color: colors.$challenge-purple;
-                    background-image: url("/assets/multi-step-form/bg-sidebar-desktop.svg");
+                    background-image: url('/src/resources/multi-step-form/bg-sidebar-desktop.svg');
                     background-position: top center;
                     background-repeat: no-repeat;
 
@@ -158,7 +158,7 @@
                         width: 100%;
                         margin: 0;
                         border-radius: 0;
-                        background-image: url("/assets/multi-step-form/bg-sidebar-mobile.svg");
+                        background-image: url('/src/resources/multi-step-form/bg-sidebar-mobile.svg');
                         background-position: top center;
                         background-size: cover;
                         background-repeat: no-repeat;

@@ -1,4 +1,4 @@
-@use "colors.module.scss";
+@use 'colors.module.scss';
 
 .categoryList {
     display: grid;
@@ -14,42 +14,42 @@
 
     .categoryCardOrange {
         background-color: colors.$challenge-orange;
-        background-image: url("/assets/time-tracking-dashboard/icon-work.svg");
+        background-image: url('/src/resources/time-tracking-dashboard/icon-work.svg');
         background-position: top right;
         background-repeat: no-repeat;
     }
 
     .categoryCardBlue {
         background-color: colors.$challenge-blue;
-        background-image: url("/assets/time-tracking-dashboard/icon-play.svg");
+        background-image: url('/src/resources/time-tracking-dashboard/icon-play.svg');
         background-position: top right;
         background-repeat: no-repeat;
     }
 
     .categoryCardRed {
         background-color: colors.$challenge-red;
-        background-image: url("/assets/time-tracking-dashboard/icon-study.svg");
+        background-image: url('/src/resources/time-tracking-dashboard/icon-study.svg');
         background-position: top right;
         background-repeat: no-repeat;
     }
 
     .categoryCardGreen {
         background-color: colors.$challenge-green;
-        background-image: url("/assets/time-tracking-dashboard/icon-exercise.svg");
+        background-image: url('/src/resources/time-tracking-dashboard/icon-exercise.svg');
         background-position: top right;
         background-repeat: no-repeat;
     }
 
     .categoryCardPurple {
         background-color: colors.$challenge-purple;
-        background-image: url("/assets/time-tracking-dashboard/icon-social.svg");
+        background-image: url('/src/resources/time-tracking-dashboard/icon-social.svg');
         background-position: top right;
         background-repeat: no-repeat;
     }
 
     .categoryCardYellow {
         background-color: colors.$challenge-yellow;
-        background-image: url("/assets/time-tracking-dashboard/icon-self-care.svg");
+        background-image: url('/src/resources/time-tracking-dashboard/icon-self-care.svg');
         background-position: top right;
         background-repeat: no-repeat;
     }

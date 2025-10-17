@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import errorIcon from "../../../assets/weather-app/icon-error.svg";
-import retryIcon from "../../../assets/weather-app/icon-retry.svg";
+import errorIcon from "@resources/weather-app/icon-error.svg";
+import retryIcon from "@resources/weather-app/icon-retry.svg";
 
-import styles from "../../../styles/weather-app/error-section.module.scss";
+import styles from "@styles/weather-app/error-section.module.scss";
 
 const ErrorSection = ({ intl, handleReset }) => {
     const titleLabel = intl.formatMessage({

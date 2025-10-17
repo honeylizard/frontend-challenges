@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
-import jobListItemStyle from "../../styles/static-job-listings/job-list-item.module.scss";
+import jobListItemStyle from "@styles/static-job-listings/job-list-item.module.scss";
 import CategoryListItem from "./CategoryListItem";
 
 const JobListItem = ({ intl, data, onCategoryClick, currentFilters }) => {

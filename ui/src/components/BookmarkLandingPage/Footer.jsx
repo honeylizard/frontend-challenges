@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl, FormattedMessage } from "react-intl";
 import { faFacebookSquare, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import appLogo from "../../assets/bookmark-landing-page/logo-bookmark-dark-bg.svg";
+import appLogo from "@resources/bookmark-landing-page/logo-bookmark-dark-bg.svg";
 import NewsletterCallToAction from "./NewsletterCallToAction";
 
-import pageStyles from "../../styles/bookmark-landing-page/page.module.scss";
+import pageStyles from "@styles/bookmark-landing-page/page.module.scss";
 import NavList from "./common/NavList";
 
 const Footer = ({ intl, data = {} }) => {

@@ -5,9 +5,9 @@ import { Helmet } from "react-helmet";
 
 import Footer from "./Footer";
 
-import data from "../../assets/notifications-page/data.json";
+import data from "@resources/notifications-page/data.json";
 
-import appStyles from "../../styles/notifications-page/app.module.scss";
+import appStyles from "@styles/notifications-page/app.module.scss";
 import NotificationListItem from "./NotificationListItem";
 
 const NotificationsPage = ({ intl }) => {

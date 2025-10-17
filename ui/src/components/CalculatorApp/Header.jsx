@@ -4,7 +4,7 @@ import { injectIntl } from "react-intl";
 
 import ThemeSwitcher from "./common/ThemeSwitcher";
 
-import appStyles from "../../styles/calculator-app/app.module.scss";
+import appStyles from "@styles/calculator-app/app.module.scss";
 
 const Header = ({ intl }) => {
     const appTitleLabel = intl.formatMessage({

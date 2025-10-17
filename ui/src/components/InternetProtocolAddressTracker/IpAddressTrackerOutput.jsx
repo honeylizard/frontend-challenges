@@ -4,7 +4,7 @@ import { injectIntl } from "react-intl";
 
 import OutputBlock from "./common/OutputBlock";
 
-import outputStyles from "../../styles/ip-address-tracker/output.module.scss";
+import outputStyles from "@styles/ip-address-tracker/output.module.scss";
 
 const IpAddressTrackerOutput = ({ intl, results }) => {
     const defaultCountry = "US"; // TODO: move somewhere else?

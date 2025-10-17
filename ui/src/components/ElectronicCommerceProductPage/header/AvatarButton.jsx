@@ -1,7 +1,7 @@
 import React from "react";
 
-import avatarImage from "../../../assets/e-commerce-product-page/image-avatar.png";
-import buttonStyles from "../../../styles/e-commerce-product-page/avatar-button.module.scss";
+import avatarImage from "@resources/e-commerce-product-page/image-avatar.png";
+import buttonStyles from "@styles/e-commerce-product-page/avatar-button.module.scss";
 
 const AvatarButton = () => {
     return (

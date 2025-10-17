@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import appStyles from "../../../styles/time-tracking-dashboard/timeframe.module.scss";
+import appStyles from "@styles/time-tracking-dashboard/timeframe.module.scss";
 
 const TimeFrame = ({ currentLabel = "Current", previousLabel = "Previous", data }) => {
     return (

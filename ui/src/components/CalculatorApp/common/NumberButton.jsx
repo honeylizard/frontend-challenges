@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 
-import appStyles from "../../../styles/calculator-app/app.module.scss";
+import appStyles from "@styles/calculator-app/app.module.scss";
 
 const NumberButton = ({ value = "", ...attr }) => {
     const { updateCalcData, calculatorApp: globalData } = useContext(GlobalContext);

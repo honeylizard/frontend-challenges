@@ -6,7 +6,7 @@ import { hourOnly, temperatureAmount } from "../utils/common";
 import WeatherCondition from "../common/WeatherCondition";
 import { GlobalContext } from "../../../GlobalStateProvider";
 
-import styles from "../../../styles/weather-app/hourly-list-item.module.scss";
+import styles from "@styles/weather-app/hourly-list-item.module.scss";
 
 const HourlySection = ({ intl, dateTime, condition, temperature, ...attrs }) => {
     const { weatherApp: globalData } = useContext(GlobalContext);

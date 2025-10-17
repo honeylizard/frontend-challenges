@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import buttonStyles from "../../../styles/bookmark-landing-page/button.module.scss";
+import buttonStyles from "@styles/bookmark-landing-page/button.module.scss";
 
 const Button = ({ label, children, rank, customClasses = [], ...attrs }) => {
     const classes = [

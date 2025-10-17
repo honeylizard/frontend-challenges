@@ -5,7 +5,7 @@ import { injectIntl } from "react-intl";
 import DailyListItem from "../common/DailyListItem";
 import { GlobalContext } from "../../../GlobalStateProvider";
 
-import styles from "../../../styles/weather-app/daily-section.module.scss";
+import styles from "@styles/weather-app/daily-section.module.scss";
 
 const DailySection = ({ intl }) => {
     const { weatherApp: globalData } = useContext(GlobalContext);

@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import unitsIcon from "../../../assets/weather-app/icon-units.svg";
-import arrowIcon from "../../../assets/weather-app/icon-dropdown.svg";
+import unitsIcon from "@resources/weather-app/icon-units.svg";
+import arrowIcon from "@resources/weather-app/icon-dropdown.svg";
 import UnitsSelectorItem from "./UnitsSelectorItem";
 import { GlobalContext } from "../../../GlobalStateProvider";
 
-import styles from "../../../styles/weather-app/units-selector.module.scss";
+import styles from "@styles/weather-app/units-selector.module.scss";
 
 const UnitsSelector = ({ intl }) => {
     const { updateWeatherAppData, weatherApp: globalData } = useContext(GlobalContext);

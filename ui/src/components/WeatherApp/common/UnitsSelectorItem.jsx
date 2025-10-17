@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import checkmarkIcon from "../../../assets/weather-app/icon-checkmark.svg";
+import checkmarkIcon from "@resources/weather-app/icon-checkmark.svg";
 
-import styles from "../../../styles/weather-app/units-selector.module.scss";
+import styles from "@styles/weather-app/units-selector.module.scss";
 
 const UnitsSelectorItem = ({ intl, label, isSelected = false }) => {
     const selectedLabel = intl.formatMessage({

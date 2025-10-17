@@ -2,10 +2,10 @@ import React, { useContext, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { injectIntl, useIntl } from "react-intl";
 
-import loadingIcon from "../../../assets/weather-app/icon-loading.svg";
+import loadingIcon from "@resources/weather-app/icon-loading.svg";
 import { getLocationData } from "../utils/getLocationData";
 
-import styles from "../../../styles/weather-app/location-search-field.module.scss";
+import styles from "@styles/weather-app/location-search-field.module.scss";
 import { GlobalContext } from "../../../GlobalStateProvider";
 
 const LocationSearchField = ({ intl }) => {

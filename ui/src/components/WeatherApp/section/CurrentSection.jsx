@@ -7,7 +7,7 @@ import DataCard from "../common/DataCard";
 import CurrentCard from "../common/CurrentCard";
 import { GlobalContext } from "../../../GlobalStateProvider";
 
-import styles from "../../../styles/weather-app/current-section.module.scss";
+import styles from "@styles/weather-app/current-section.module.scss";
 
 const CurrentSection = ({ intl }) => {
     const { weatherApp: globalData } = useContext(GlobalContext);

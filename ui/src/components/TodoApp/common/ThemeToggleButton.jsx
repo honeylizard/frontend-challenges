@@ -8,7 +8,7 @@ import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { GlobalContext } from "../../../GlobalStateProvider";
 import Button from "./Button";
 
-import appStyles from "../../../styles/todo-app/app.module.scss";
+import appStyles from "@styles/todo-app/app.module.scss";
 
 const ThemeToggleButton = ({ intl }) => {
     const { todoApp: globalData, updateTodoData } = useContext(GlobalContext);

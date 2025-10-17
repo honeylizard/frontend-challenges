@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl, FormattedMessage } from "react-intl";
-import countriesApiStyle from "../../styles/countries-api/countries-api.module.scss";
+import countriesApiStyle from "@styles/countries-api/countries-api.module.scss";
 
 const Footer = ({ intl }) => {
     const challengeLinkUrl = intl.formatMessage({ id: "footer.challenge.url" });

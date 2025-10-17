@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ButtonLink from "../common/ButtonLink";
 import Tabs from "../common/Tabs";
 
-import pageStyles from "../../../styles/bookmark-landing-page/page.module.scss";
+import pageStyles from "@styles/bookmark-landing-page/page.module.scss";
 
 const FeatureSection = ({ data }) => {
     const renderTab = (key, tabLabel, title, description, image, imageOrder = "left", label, url) => {

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import buttonStyles from "../../../styles/e-commerce-product-page/cart-button.module.scss";
+import buttonStyles from "@styles/e-commerce-product-page/cart-button.module.scss";
 import CartIcon from "../common/CartIcon";
 
 const CartButton = ({ intl }) => {

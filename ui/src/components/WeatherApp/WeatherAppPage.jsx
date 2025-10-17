@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 
 import Footer from "./Footer";
 
-import appStyles from "../../styles/weather-app/app.module.scss";
+import appStyles from "@styles/weather-app/app.module.scss";
 import Header from "./Header";
 import WeatherForm from "./WeatherForm";
 

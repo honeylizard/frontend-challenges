@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 
-import appStyles from "../../../styles/calculator-app/app.module.scss";
+import appStyles from "@styles/calculator-app/app.module.scss";
 
 const OutputScreen = () => {
     const { calculatorApp: globalData } = useContext(GlobalContext);

@@ -9,7 +9,7 @@ import WeekdaySelector from "../common/WeekdaySelector";
 import { dayOfWeekNumberOnly } from "../utils/common";
 import { GlobalContext } from "../../../GlobalStateProvider";
 
-import styles from "../../../styles/weather-app/hourly-section.module.scss";
+import styles from "@styles/weather-app/hourly-section.module.scss";
 
 const HourlySection = ({ intl }) => {
     const { weatherApp: globalData } = useContext(GlobalContext);

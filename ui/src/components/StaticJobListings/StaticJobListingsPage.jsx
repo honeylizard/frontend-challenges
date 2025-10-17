@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl, FormattedMessage } from "react-intl";
 import { Helmet } from "react-helmet";
-import staticJobListingsStyle from "../../styles/static-job-listings/static-job-listings.module.scss";
+import staticJobListingsStyle from "@styles/static-job-listings/static-job-listings.module.scss";
 import JobsList from "./JobsList";
 
 const StaticJobListingsPage = ({ intl }) => {

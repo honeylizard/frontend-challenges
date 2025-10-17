@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { Helmet } from "react-helmet";
 import HeaderNav from "./Nav";
-import appLogo from "../../../assets/bookmark-landing-page/logo-bookmark.svg";
+import appLogo from "@resources/bookmark-landing-page/logo-bookmark.svg";
 
-import pageStyles from "../../../styles/bookmark-landing-page/page.module.scss";
+import pageStyles from "@styles/bookmark-landing-page/page.module.scss";
 
 const Header = ({ intl, data = {} }) => {
     const skipToContentLabel = intl.formatMessage({ id: "app.skipToContent" });

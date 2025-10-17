@@ -7,7 +7,7 @@ import lodash from "lodash";
 import { GlobalContext } from "../../GlobalStateProvider";
 import Footer from "./Footer";
 
-import appStyles from "../../styles/todo-app/app.module.scss";
+import appStyles from "@styles/todo-app/app.module.scss";
 import TodoListItem from "./common/TodoListItem";
 import ThemeToggleButton from "./common/ThemeToggleButton";
 import TodoCreateItemForm from "./common/TodoCreateItemForm";

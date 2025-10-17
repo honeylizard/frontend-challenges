@@ -7,7 +7,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import ModalWrapper from "./ModalWrapper";
 import NavList from "./NavList";
 
-import buttonStyles from "../../../styles/e-commerce-product-page/mobile-nav-button.module.scss";
+import buttonStyles from "@styles/e-commerce-product-page/mobile-nav-button.module.scss";
 
 const MobileNavButton = ({ intl }) => {
     const headerNavOpenButtonLabel = intl.formatMessage({

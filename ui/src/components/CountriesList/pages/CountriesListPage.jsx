@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import CountriesList from "../CountriesList";
-import countriesApiStyle from "../../../styles/countries-api/countries-api.module.scss";
+import countriesApiStyle from "@styles/countries-api/countries-api.module.scss";
 import PageTemplate from "../PageTemplate";
 
 const CountriesListPage = ({ intl }) => {

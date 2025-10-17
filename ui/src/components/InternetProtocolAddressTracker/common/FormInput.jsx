@@ -6,7 +6,7 @@ import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 import FormInputLabel from "./FormInputLabel";
 
-import formFieldStyles from "../../../styles/ip-address-tracker/form.module.scss";
+import formFieldStyles from "@styles/ip-address-tracker/form.module.scss";
 
 const FormInput = ({
     intl,

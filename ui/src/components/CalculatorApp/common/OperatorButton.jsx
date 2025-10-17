@@ -4,9 +4,9 @@ import { injectIntl } from "react-intl";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 import { OPERATOR_ADD, OPERATOR_MINUS, OPERATOR_MULTIPLY, OPERATOR_DIVIDE } from "../utils/common";
-import data from "../../../assets/calculator-app/data.json";
+import data from "@resources/calculator-app/data.json";
 
-import appStyles from "../../../styles/calculator-app/app.module.scss";
+import appStyles from "@styles/calculator-app/app.module.scss";
 
 const OperatorButton = ({ intl, value = "", ...attr }) => {
     const { updateCalcData, calculatorApp: globalData } = useContext(GlobalContext);

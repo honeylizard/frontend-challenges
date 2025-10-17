@@ -5,7 +5,7 @@ import { injectIntl } from "react-intl";
 import { GlobalContext } from "../../../GlobalStateProvider";
 import Button from "./Button";
 
-import appStyles from "../../../styles/todo-app/app.module.scss";
+import appStyles from "@styles/todo-app/app.module.scss";
 
 const TodoListFooterFilterSet = ({ intl, setFilter, filter, isMobile }) => {
     const { todoApp: globalData } = useContext(GlobalContext);

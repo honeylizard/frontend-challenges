@@ -7,8 +7,8 @@ import { MapContainer } from "react-leaflet/MapContainer";
 import { Marker } from "react-leaflet/Marker";
 import { TileLayer } from "react-leaflet/TileLayer";
 
-import markerIcon from "../../assets/ip-address-tracker/icon-location.svg";
-import mapStyles from "../../styles/ip-address-tracker/map.module.scss";
+import markerIcon from "@resources/ip-address-tracker/icon-location.svg";
+import mapStyles from "@styles/ip-address-tracker/map.module.scss";
 
 const LeafletMap = ({ intl, results = {} }) => {
     const initialZoom = 5;

@@ -4,7 +4,7 @@ import { injectIntl, FormattedMessage } from "react-intl";
 
 import { GlobalContext } from "../../GlobalStateProvider";
 
-import appStyles from "../../styles/calculator-app/app.module.scss";
+import appStyles from "@styles/calculator-app/app.module.scss";
 
 const Footer = ({ intl }) => {
     const { calculatorApp: globalData } = useContext(GlobalContext);

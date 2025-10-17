@@ -1,4 +1,4 @@
-@use "../_core" as core;
+@use '../_core' as core;
 
 $challenge-bg: #F0FAFB;
 $challenge-primary: #5BA6A2;
@@ -8,7 +8,7 @@ $challenge-gray: #999;
 
 // https://fonts.google.com/specimen/Spartan
 // Alt: https://fonts.google.com/specimen/League+Spartan
-$challenge-font: "League Spartan", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$challenge-font: 'League Spartan', 'Segoe UI', Roboto, Oxygen, 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 .solutionContainer {
     background-color: $challenge-bg;
@@ -33,7 +33,7 @@ $challenge-font: "League Spartan", "Segoe UI", Roboto, Oxygen, "Droid Sans", "He
 .header {
     height: 156px;
     background-color: $challenge-primary;
-    background-image: url('/assets/static-job-listings/bg-header-desktop.svg');
+    background-image: url('/src/resources/static-job-listings/bg-header-desktop.svg');
     background-repeat: no-repeat;
     background-position: top right;
     background-size: cover;

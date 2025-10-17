@@ -1,12 +1,12 @@
-@use "../_core" as core;
-@use "colors.module.scss";
-@use "fonts.module.scss";
+@use '../_core' as core;
+@use 'colors.module.scss';
+@use 'fonts.module.scss';
 
 .solutionContainer {
     font-family: fonts.$challenge-font;
 
     &.solutionContainerDark {
-        background-image: url('/assets/todo-app/bg-desktop-dark.jpg');
+        background-image: url('/src/resources/todo-app/bg-desktop-dark.jpg');
         background-size: contain;
         background-repeat: no-repeat;
         background-color: colors.$challenge-dark-theme-blue;
@@ -87,7 +87,7 @@
     }
 
     &.solutionContainerLight {
-        background-image: url('/assets/todo-app/bg-desktop-light.jpg');
+        background-image: url('/src/resources/todo-app/bg-desktop-light.jpg');
         background-size: contain;
         background-repeat: no-repeat;
         background-color: colors.$challenge-grey;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-import formFieldStyles from "../../../styles/multi-step-form/form.module.scss";
+import formFieldStyles from "@styles/multi-step-form/form.module.scss";
 import FormInputSwitchOption from "./FormInputSwitchOption";
 
 const FormInputSwitch = ({

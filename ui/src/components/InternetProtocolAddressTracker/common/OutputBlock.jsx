@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import outputStyles from "../../../styles/ip-address-tracker/output.module.scss";
+import outputStyles from "@styles/ip-address-tracker/output.module.scss";
 
 const OutputBlock = ({ label, value, value2 = null }) => {
     return (

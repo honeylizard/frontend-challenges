@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { GlobalContext } from "../../GlobalStateProvider";
-import countriesApiStyle from "../../styles/countries-api/countries-api.module.scss";
+import countriesApiStyle from "@styles/countries-api/countries-api.module.scss";
 import Button from "./common/Button";
 
 const Header = ({ intl }) => {

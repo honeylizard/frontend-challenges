@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import listStyles from "../../../styles/e-commerce-product-page/nav-list.module.scss";
+import listStyles from "@styles/e-commerce-product-page/nav-list.module.scss";
 
 const NavList = ({ intl, mobile = false }) => {
     const primaryNavLabel = intl.formatMessage({

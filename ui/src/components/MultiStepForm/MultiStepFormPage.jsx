@@ -15,7 +15,7 @@ import FormSuccessMessage from "./common/FormSuccessMessage";
 import Button from "./common/Button";
 import StepNavItem from "./common/StepNavItem";
 
-import appStyles from "../../styles/multi-step-form/app.module.scss";
+import appStyles from "@styles/multi-step-form/app.module.scss";
 
 const MultiStepFormPage = ({ intl }) => {
     const [currentStepIndex, setCurrentStepIndex] = useState(null);

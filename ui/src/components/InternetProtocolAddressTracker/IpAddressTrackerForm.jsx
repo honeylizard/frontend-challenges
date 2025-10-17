@@ -9,7 +9,7 @@ import isValidDomain from "is-valid-domain";
 import FormInput from "./common/FormInput";
 import Alert from "./common/Alert";
 
-import appStyles from "../../styles/ip-address-tracker/app.module.scss";
+import appStyles from "@styles/ip-address-tracker/app.module.scss";
 import Button from "./common/Button";
 
 const IpAddressTrackerForm = ({ intl, setResults }) => {

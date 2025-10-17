@@ -1,6 +1,6 @@
-@use "app.module.scss";
-@use "fonts.module.scss";
-@use "colors.module.scss";
+@use 'app.module.scss';
+@use 'fonts.module.scss';
+@use 'colors.module.scss';
 
 .container {
     position: relative;
@@ -13,7 +13,7 @@
     width: 100%;
     box-sizing: border-box;
 
-    background-image: url('/assets/weather-app/icon-search.svg');
+    background-image: url('/src/resources/weather-app/icon-search.svg');
     background-repeat: no-repeat;
     background-position: 24px 18px;
     padding-left: 55px;

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import newDotStyles from "../../styles/notifications-page/newDot.module.scss";
+import newDotStyles from "@styles/notifications-page/newDot.module.scss";
 
 const NewDot = ({ intl, isNew = false, customClasses = [], ...props }) => {
     const dotLabel = intl.formatMessage({

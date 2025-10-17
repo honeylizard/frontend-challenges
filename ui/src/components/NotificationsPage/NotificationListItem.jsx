@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { FormattedMessage, injectIntl } from "react-intl";
 
-import listItemStyles from "../../styles/notifications-page/listItem.module.scss";
+import listItemStyles from "@styles/notifications-page/listItem.module.scss";
 import NewDot from "./NewDot";
 
 const NotificationListItem = ({ intl, data = {} }) => {
@@ -20,7 +20,7 @@ const NotificationListItem = ({ intl, data = {} }) => {
     } = data;
     const [actionText, setActionText] = useState("");
     const [isRead, setIsRead] = useState(false);
-    const avatarUrl = `/assets/user-avatars/${userAvatar}`;
+    const avatarUrl = `/frontend-challenges/assets/user-avatars/${userAvatar}`;
     const avatarAltText = intl.formatMessage(
         {
             id: "notificationsPage.avatarAlt",
@@ -115,7 +115,7 @@ const NotificationListItem = ({ intl, data = {} }) => {
                 </div>
                 {isPhotoComment && (
                     <a href="/" className={listItemStyles.photo}>
-                        <img src={`/assets/photos/${photoThumbnail}`} alt={photoAlt} />
+                        <img src={`/frontend-challenges/assets/photos/${photoThumbnail}`} alt={photoAlt} />
                     </a>
                 )}
             </div>

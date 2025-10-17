@@ -5,9 +5,9 @@ import { injectIntl } from "react-intl";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 import { ACTION_CALCULATE, ACTION_DECIMAL_PERIOD, ACTION_DELETE, ACTION_RESET } from "../utils/common";
-import data from "../../../assets/calculator-app/data.json";
+import data from "@resources/calculator-app/data.json";
 
-import appStyles from "../../../styles/calculator-app/app.module.scss";
+import appStyles from "@styles/calculator-app/app.module.scss";
 
 const ActionButton = ({ intl, value = "", ...attr }) => {
     const { updateCalcData, calculatorApp: globalData } = useContext(GlobalContext);

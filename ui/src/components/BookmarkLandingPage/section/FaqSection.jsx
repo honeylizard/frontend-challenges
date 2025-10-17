@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Accordion from "../common/Accordion";
 
-import pageStyles from "../../../styles/bookmark-landing-page/page.module.scss";
+import pageStyles from "@styles/bookmark-landing-page/page.module.scss";
 import ButtonLink from "../common/ButtonLink";
 
 const FaqSection = ({ data }) => {

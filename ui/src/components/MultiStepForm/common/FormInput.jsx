@@ -4,7 +4,7 @@ import { injectIntl } from "react-intl";
 
 import FormInputLabel from "./FormInputLabel";
 
-import formFieldStyles from "../../../styles/multi-step-form/form.module.scss";
+import formFieldStyles from "@styles/multi-step-form/form.module.scss";
 
 const FormInput = ({
     intl,

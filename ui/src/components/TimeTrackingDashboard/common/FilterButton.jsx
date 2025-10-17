@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 
-import appStyles from "../../../styles/time-tracking-dashboard/filter-button.module.scss";
+import appStyles from "@styles/time-tracking-dashboard/filter-button.module.scss";
 
 const FilterButton = ({ label, filterCode }) => {
     const { updateTimeTrackingData, timeTrackingDashboard: globalData } = useContext(GlobalContext);

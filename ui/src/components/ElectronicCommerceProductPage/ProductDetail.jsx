@@ -5,9 +5,9 @@ import { injectIntl } from "react-intl";
 import CurrencyAmount from "./common/CurrencyAmount";
 import PercentageAmount from "./common/PercentageAmount";
 
-import data from "../../assets/e-commerce-product-page/data.json";
+import data from "@resources/e-commerce-product-page/data.json";
 
-import productStyles from "../../styles/e-commerce-product-page/product-detail.module.scss";
+import productStyles from "@styles/e-commerce-product-page/product-detail.module.scss";
 import CartIcon from "./common/CartIcon";
 
 const ProductDetail = ({ intl }) => {

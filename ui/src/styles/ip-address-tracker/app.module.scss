@@ -1,13 +1,13 @@
-@use "../_core" as core;
-@use "colors.module.scss";
-@use "fonts.module.scss";
+@use '../_core' as core;
+@use 'colors.module.scss';
+@use 'fonts.module.scss';
 
 html {
     height: 100%;
 }
 
 .solutionContainer {
-    background-image: url('/assets/ip-address-tracker/pattern-bg.png');
+    background-image: url('/src/resources/ip-address-tracker/pattern-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;

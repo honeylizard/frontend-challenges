@@ -5,9 +5,9 @@ import { injectIntl } from "react-intl";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 import { THEMES, THEME_DARK } from "../utils/common";
-import data from "../../../assets/calculator-app/data.json";
+import data from "@resources/calculator-app/data.json";
 
-import appStyles from "../../../styles/calculator-app/app.module.scss";
+import appStyles from "@styles/calculator-app/app.module.scss";
 
 const ThemeSwitcher = ({ intl }) => {
     const defaultTheme = THEME_DARK;

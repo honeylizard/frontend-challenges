@@ -5,7 +5,7 @@ import { injectIntl } from "react-intl";
 
 import Footer from "./Footer";
 
-import appStyles from "../../styles/age-calculator-app/app.module.scss";
+import appStyles from "@styles/age-calculator-app/app.module.scss";
 import Calculator from "./Calculator";
 
 const AgeCalculatorAppPage = ({ intl }) => {

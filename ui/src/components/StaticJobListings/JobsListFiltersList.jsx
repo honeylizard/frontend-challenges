@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import CategoryListItem from "./CategoryListItem";
-import jobListStyle from "../../styles/static-job-listings/job-list.module.scss";
+import jobListStyle from "@styles/static-job-listings/job-list.module.scss";
 
 const JobsListFiltersList = ({ intl, filters, clearFilters, onFilterClick }) => {
     const filtersLabel = intl.formatMessage({

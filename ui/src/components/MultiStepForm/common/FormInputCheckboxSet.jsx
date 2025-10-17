@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import formFieldStyles from "../../../styles/multi-step-form/form.module.scss";
+import formFieldStyles from "@styles/multi-step-form/form.module.scss";
 import FormInputCheckboxSetOption from "./FormInputCheckboxSetOption";
 
 const FormInputCheckboxSet = ({

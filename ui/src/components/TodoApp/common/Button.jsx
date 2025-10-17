@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import buttonStyles from "../../../styles/todo-app/form.module.scss";
+import buttonStyles from "@styles/todo-app/form.module.scss";
 
 const Button = ({ label, children, customClasses = [], ...attrs }) => {
     const classes = [buttonStyles.button, ...customClasses];

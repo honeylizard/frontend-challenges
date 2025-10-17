@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import tabStyles from "../../../styles/bookmark-landing-page/tab.module.scss";
+import tabStyles from "@styles/bookmark-landing-page/tab.module.scss";
 
 const Tabs = ({ id, children, ...attrs }) => {
     const tabPanelRef = React.useRef();

@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { Helmet } from "react-helmet";
 
-import appLogo from "../../assets/expenses-chart-page/logo.svg";
-import appStyles from "../../styles/expenses-chart-page/app.module.scss";
+import appLogo from "@resources/expenses-chart-page/logo.svg";
+import appStyles from "@styles/expenses-chart-page/app.module.scss";
 
 import ExpensesChart from "./common/ExpensesChart";
 import CurrencyAmount from "./common/CurrencyAmount";

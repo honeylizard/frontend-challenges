@@ -6,7 +6,7 @@ import { GlobalContext } from "../../../GlobalStateProvider";
 
 import FormInputLabel from "./FormInputLabel";
 
-import formFieldStyles from "../../../styles/countries-api/form.module.scss";
+import formFieldStyles from "@styles/countries-api/form.module.scss";
 
 const FormSelect = ({
     intl,

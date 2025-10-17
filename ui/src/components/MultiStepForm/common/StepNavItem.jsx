@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import appStyles from "../../../styles/multi-step-form/app.module.scss";
+import appStyles from "@styles/multi-step-form/app.module.scss";
 
 const StepNavItem = ({ intl, title, number = 0, isCurrent = false, isCompleted = false }) => {
     const completedPrefix = intl.formatMessage({

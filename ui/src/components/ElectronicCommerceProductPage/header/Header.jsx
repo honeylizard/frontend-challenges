@@ -7,8 +7,8 @@ import AvatarButton from "./AvatarButton";
 import NavList from "./NavList";
 import MobileNavButton from "./MobileNavButton";
 
-import appLogo from "../../../assets/e-commerce-product-page/logo.svg";
-import appStyles from "../../../styles/e-commerce-product-page/app.module.scss";
+import appLogo from "@resources/e-commerce-product-page/logo.svg";
+import appStyles from "@styles/e-commerce-product-page/app.module.scss";
 
 const Header = ({ intl }) => {
     const title = intl.formatMessage({

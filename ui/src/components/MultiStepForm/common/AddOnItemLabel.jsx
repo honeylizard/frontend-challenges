@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import Price from "./Price";
 
-import appStyles from "../../../styles/multi-step-form/app.module.scss";
+import appStyles from "@styles/multi-step-form/app.module.scss";
 
 const AddOnItemLabel = ({ data = {}, planFrequency = "" }) => {
     const currentAmount = data.cost[planFrequency] || 0;

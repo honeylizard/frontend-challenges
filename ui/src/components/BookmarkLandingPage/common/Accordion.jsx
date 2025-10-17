@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
-import arrowUp from "../../../assets/bookmark-landing-page/icon-arrow-up.svg";
-import arrowDown from "../../../assets/bookmark-landing-page/icon-arrow.svg";
+import arrowUp from "@resources/bookmark-landing-page/icon-arrow-up.svg";
+import arrowDown from "@resources/bookmark-landing-page/icon-arrow.svg";
 
-import accordionStyles from "../../../styles/bookmark-landing-page/accordion.module.scss";
+import accordionStyles from "@styles/bookmark-landing-page/accordion.module.scss";
 
 const Accordion = ({ id, title, children, customClasses = [], customTitleClasses = [], ...attrs }) => {
     const [isExpanded, setIsExpanded] = useState(false);

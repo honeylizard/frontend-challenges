@@ -4,17 +4,17 @@ import { injectIntl } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-import checkIcon from "../../../assets/todo-app/check-circle-gradient.png";
-import checkIconGrey from "../../../assets/todo-app/check-circle-grey.png";
-import checkIconGreyLight from "../../../assets/todo-app/check-circle-grey-light.png";
-import circleIcon from "../../../assets/todo-app/circle-gradient.png";
-import circleIconGrey from "../../../assets/todo-app/circle-grey.png";
-import circleIconGreyLight from "../../../assets/todo-app/circle-grey-light.png";
+import checkIcon from "@resources/todo-app/check-circle-gradient.png";
+import checkIconGrey from "@resources/todo-app/check-circle-grey.png";
+import checkIconGreyLight from "@resources/todo-app/check-circle-grey-light.png";
+import circleIcon from "@resources/todo-app/circle-gradient.png";
+import circleIconGrey from "@resources/todo-app/circle-grey.png";
+import circleIconGreyLight from "@resources/todo-app/circle-grey-light.png";
 
 import { GlobalContext } from "../../../GlobalStateProvider";
 import Button from "./Button";
 
-import appStyles from "../../../styles/todo-app/app.module.scss";
+import appStyles from "@styles/todo-app/app.module.scss";
 
 const TodoListItem = ({ intl, data }) => {
     const { todoApp: globalData, updateTodoData } = useContext(GlobalContext);

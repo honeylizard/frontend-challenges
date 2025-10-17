@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 import Price from "./Price";
 
-import data from "../../../assets/multi-step-form/data.json";
+import data from "@resources/multi-step-form/data.json";
 
-import appStyles from "../../../styles/multi-step-form/app.module.scss";
+import appStyles from "@styles/multi-step-form/app.module.scss";
 
 const SummaryAddOnRow = ({ item, frequency, ...attr }) => {
     const addOnData = data.addOns.find((elem) => elem.name === item.id);

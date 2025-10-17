@@ -8,7 +8,7 @@ import IpAddressTrackerOutput from "./IpAddressTrackerOutput";
 import LeafletMap from "./LeafletMap";
 import Footer from "./Footer";
 
-import appStyles from "../../styles/ip-address-tracker/app.module.scss";
+import appStyles from "@styles/ip-address-tracker/app.module.scss";
 
 const IpAddressTrackerPage = ({ intl }) => {
     const [results, setResults] = useState({});

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { GlobalContext } from "../../../GlobalStateProvider";
 
-import styles from "../../../styles/weather-app/weekday-selector.module.scss";
+import styles from "@styles/weather-app/weekday-selector.module.scss";
 
 const WeekdaySelector = ({ intl, options }) => {
     const { updateWeatherAppData, weatherApp: globalData } = useContext(GlobalContext);

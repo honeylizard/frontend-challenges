@@ -7,7 +7,7 @@ import Button from "./common/Button";
 import FormInput from "./common/FormInput";
 import Alert from "./common/Alert";
 
-import pageStyles from "../../styles/bookmark-landing-page/page.module.scss";
+import pageStyles from "@styles/bookmark-landing-page/page.module.scss";
 
 const NewsletterCallToAction = ({ intl }) => {
     const title = intl.formatMessage({ id: "bookmarkLanding.cta.title" });

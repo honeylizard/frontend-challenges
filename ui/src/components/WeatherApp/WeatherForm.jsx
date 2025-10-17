@@ -5,7 +5,7 @@ import { injectIntl } from "react-intl";
 import ErrorSection from "./section/ErrorSection";
 import { GlobalContext } from "../../GlobalStateProvider";
 
-import appStyles from "../../styles/weather-app/app.module.scss";
+import appStyles from "@styles/weather-app/app.module.scss";
 import { getInitialWeatherData } from "./utils/initialData";
 import LocationSearchField from "./common/LocationSearchField";
 import { getWeatherData } from "./utils/getWeatherData";

@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-import appStyles from "../../styles/e-commerce-product-page/app.module.scss";
+import appStyles from "@styles/e-commerce-product-page/app.module.scss";
 
 import Footer from "./Footer";
 import Header from "./header/Header";

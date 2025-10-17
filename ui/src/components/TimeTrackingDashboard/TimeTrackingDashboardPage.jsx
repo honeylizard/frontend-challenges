@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import CategoryList from "./common/CategoryList";
 import OverviewCard from "./common/OverviewCard";
 
-import appStyles from "../../styles/time-tracking-dashboard/app.module.scss";
+import appStyles from "@styles/time-tracking-dashboard/app.module.scss";
 
 const TimeTrackingDashboardPage = ({ intl }) => {
     const title = intl.formatMessage({

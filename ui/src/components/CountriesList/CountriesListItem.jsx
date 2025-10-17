@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../GlobalStateProvider";
-import countriesListItemStyle from "../../styles/countries-api/countries-list-item.module.scss";
+import countriesListItemStyle from "@styles/countries-api/countries-list-item.module.scss";
 import CountryDataPoint from "./CountryDataPoint";
 import LazyImage from "./common/LazyImage";
 
@@ -40,7 +40,7 @@ const CountriesListItem = ({ intl, data }) => {
                     <LazyImage
                         src={data.flag}
                         alt={imageAlt}
-                        placeholderImage={"/assets/flag_placeholder.jpg"}
+                        placeholderImage={"/frontend-challenges/assets/flag_placeholder.jpg"}
                     />
                 </div>
                 <div className={countriesListItemStyle.listItemContent}>

@@ -6,9 +6,9 @@ import SummaryAddOnRow from "../common/SummaryAddOnRow";
 import Price from "../common/Price";
 import Button from "../common/Button";
 
-import data from "../../../assets/multi-step-form/data.json";
+import data from "@resources/multi-step-form/data.json";
 
-import appStyles from "../../../styles/multi-step-form/app.module.scss";
+import appStyles from "@styles/multi-step-form/app.module.scss";
 
 const SummaryFormSet = ({ intl, formData, formErrors, currentStep = 4, totalSteps = 4, goToPlanSelectionStep }) => {
     const [total, setTotal] = useState(0);

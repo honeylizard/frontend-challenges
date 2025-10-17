@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookSquare, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import ModalWrapper from "../common/ModalWrapper";
-import appLogo from "../../../assets/bookmark-landing-page/logo-bookmark-white.svg";
+import appLogo from "@resources/bookmark-landing-page/logo-bookmark-white.svg";
 
-import pageStyles from "../../../styles/bookmark-landing-page/page.module.scss";
+import pageStyles from "@styles/bookmark-landing-page/page.module.scss";
 import NavList from "../common/NavList";
 
 const Nav = ({ intl, navLabel, data = {} }) => {

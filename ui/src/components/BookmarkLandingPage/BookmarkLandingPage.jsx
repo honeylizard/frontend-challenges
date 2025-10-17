@@ -6,9 +6,9 @@ import FeatureSection from "./section/FeaturesSection";
 import DownloadSection from "./section/DownloadSection";
 import FaqSection from "./section/FaqSection";
 
-import data from "../../assets/bookmark-landing-page/data.json";
+import data from "@resources/bookmark-landing-page/data.json";
 
-import pageStyles from "../../styles/bookmark-landing-page/page.module.scss";
+import pageStyles from "@styles/bookmark-landing-page/page.module.scss";
 
 const BookmarkLandingPage = () => {
     const navData = {

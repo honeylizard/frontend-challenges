@@ -5,7 +5,7 @@ import { injectIntl, useIntl } from "react-intl";
 import { dayOfWeekOnly, temperatureAmount } from "../utils/common";
 import WeatherCondition from "./WeatherCondition";
 
-import styles from "../../../styles/weather-app/daily-list-item.module.scss";
+import styles from "@styles/weather-app/daily-list-item.module.scss";
 import { GlobalContext } from "../../../GlobalStateProvider";
 
 const DailyListItem = ({ intl, data, ...attrs }) => {

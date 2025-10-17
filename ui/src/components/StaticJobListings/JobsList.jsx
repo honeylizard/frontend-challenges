@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import lodash from "lodash";
-import data from "../../assets/static-job-listings/data.json";
+import data from "@resources/static-job-listings/data.json";
 import JobListItem from "./JobListItem";
-import jobListStyle from "../../styles/static-job-listings/job-list.module.scss";
+import jobListStyle from "@styles/static-job-listings/job-list.module.scss";
 import JobsListFiltersList from "./JobsListFiltersList";
 
 const JobsList = ({ intl }) => {

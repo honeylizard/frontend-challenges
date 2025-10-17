@@ -5,7 +5,7 @@ import { injectIntl } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-import modalStyles from "../../../styles/e-commerce-product-page/modal-wrapper.module.scss";
+import modalStyles from "@styles/e-commerce-product-page/modal-wrapper.module.scss";
 
 const ModalWrapper = ({
     intl,

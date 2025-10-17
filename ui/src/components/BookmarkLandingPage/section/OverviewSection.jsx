@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ButtonLink from "../common/ButtonLink";
 
-import pageStyles from "../../../styles/bookmark-landing-page/page.module.scss";
+import pageStyles from "@styles/bookmark-landing-page/page.module.scss";
 
 const OverviewSection = ({ data }) => {
     const renderCallToAction = (key, label, url, type) => {

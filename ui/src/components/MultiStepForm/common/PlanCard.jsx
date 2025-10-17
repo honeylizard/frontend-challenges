@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Button from "../common/Button";
 import Price from "../common/Price";
 
-import appStyles from "../../../styles/multi-step-form/app.module.scss";
+import appStyles from "@styles/multi-step-form/app.module.scss";
 
 const PlanCard = ({ title, imageSrc, frequency, costOptions, onChange, isCurrent = false }) => {
     const currentCost = costOptions.find((cost) => cost.frequency === frequency);

@@ -1,8 +1,8 @@
-@use "../_core" as core;
-@use "colors.module.scss";
+@use '../_core' as core;
+@use 'colors.module.scss';
 
 // https://fonts.google.com/specimen/Rubix
-$challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$challenge-font: 'Rubix', 'Segoe UI', Roboto, Oxygen, 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 .solutionContainer {
     font-family: $challenge-font;
@@ -338,7 +338,7 @@ $challenge-font: "Rubix", "Segoe UI", Roboto, Oxygen, "Droid Sans", "Helvetica N
                         margin: 0 auto 10px;
                         height: 20px;
 
-                        background-image: url('/assets/bookmark-landing-page/bg-dots.svg');
+                        background-image: url('/src/resources/bookmark-landing-page/bg-dots.svg');
                         background-repeat: repeat-x;
                         background-position: center center;
                     }

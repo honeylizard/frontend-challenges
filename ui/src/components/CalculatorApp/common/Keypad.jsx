@@ -16,7 +16,7 @@ import {
     OPERATOR_MULTIPLY,
 } from "../utils/common";
 
-import appStyles from "../../../styles/calculator-app/app.module.scss";
+import appStyles from "@styles/calculator-app/app.module.scss";
 
 const Keypad = () => {
     const [keypadButtonValues, setKeypadButtonValues] = useState([]);

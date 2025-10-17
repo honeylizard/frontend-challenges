@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
-import data from "../../../assets/time-tracking-dashboard/data.json";
+import data from "@resources/time-tracking-dashboard/data.json";
 import TimeCategoryCard from "./TimeCategoryCard";
 
-import appStyles from "../../../styles/time-tracking-dashboard/category-list.module.scss";
+import appStyles from "@styles/time-tracking-dashboard/category-list.module.scss";
 
 const CategoryList = ({ intl }) => {
     const workLabel = intl.formatMessage({

@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
 
-import modalStyles from "../../../styles/bookmark-landing-page/modal-wrapper.module.scss";
+import modalStyles from "@styles/bookmark-landing-page/modal-wrapper.module.scss";
 
 const ModalWrapper = ({
     intl,

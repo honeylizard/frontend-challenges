@@ -6,7 +6,7 @@ import { GlobalContext } from "../../../GlobalStateProvider";
 import Button from "./Button";
 import TodoListFooterFilterSet from "./TodoListFooterFilterSet";
 
-import appStyles from "../../../styles/todo-app/app.module.scss";
+import appStyles from "@styles/todo-app/app.module.scss";
 
 const TodoListFooter = ({ intl, records, filteredRecords, setFilter, filter, isDesktop }) => {
     const { updateTodoData } = useContext(GlobalContext);

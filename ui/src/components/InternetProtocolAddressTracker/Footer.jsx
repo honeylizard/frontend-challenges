@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl, FormattedMessage } from "react-intl";
-import appStyles from "../../styles/ip-address-tracker/app.module.scss";
+import appStyles from "@styles/ip-address-tracker/app.module.scss";
 
 const Footer = ({ intl }) => {
     const challengeLinkUrl = intl.formatMessage({ id: "footer.challenge.url" });
