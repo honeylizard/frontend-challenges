@@ -4,7 +4,7 @@ import { createRoot } from "react-dom/client";
 import { Routes, HashRouter, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import * as serviceWorker from "./serviceWorker";
+import * as serviceWorker from "./serviceWorker.js";
 
 // Styling
 import "./styles/_core.scss";
@@ -15,7 +15,7 @@ import routes from "./routes.js";
 // Localization
 import { IntlProvider } from "react-intl";
 import messages_en from "./translations/en.json";
-import { GlobalProvider } from "./GlobalStateProvider";
+import { GlobalProvider } from "./GlobalStateProvider.jsx";
 
 // Localization Init
 const messages = {
