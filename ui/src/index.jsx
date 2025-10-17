@@ -25,10 +25,10 @@ const messages = {
 const language = navigator.language.split(/[-_]/)[0]; // language without region code
 
 // Adds Validation against axe-core accessibility testing library
-if (process.env.NODE_ENV !== "production") {
-    const axe = require("@axe-core/react");
-    axe(React, ReactDOM, 1000);
-}
+// if (process.env.NODE_ENV !== "production") {
+//     const axe = require("@axe-core/react");
+//     axe(React, ReactDOM, 1000);
+// }
 
 // App init
 const container = document.getElementById("root");
